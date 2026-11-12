@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+import { href } from '../data/site';
 ---
-<Base title="Signal not found" description="This signal does not connect to a page. Return to the portfolio to explore data systems, product engineering, and selected work.">
-<section class="not-found wrap"><span class="meta">CONNECTION INTERRUPTED</span><h1>Lost in<br/>the <span class="accent">data.</span></h1><p>Error 404. There’s no page at this address.</p><a href="/" class="round-link">Back to a clear signal <span class="round-arrow">↗</span></a></section>
+<Base title="Signal not found" description="This address does not connect to a page. Return to the portfolio of Ahsan Jahangir Mir to see Midas, Synopt, Taperlark and other work.">
+<section class="not-found wrap"><span class="meta">CONNECTION INTERRUPTED</span><h1>Lost in<br/>the <span class="accent">data.</span></h1><p>Error 404. There’s no page at this address.</p><a href={href('/')} class="round-link">Back to a clear signal <span class="round-arrow" aria-hidden="true">↗</span></a></section>
 </Base>

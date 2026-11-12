@@ -1,25 +1,39 @@
 ---
+import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
-import Art from '../components/Art.astro';
-import { projects, capabilities } from '../data/site';
+import { projects, capabilities, site } from '../data/site';
+const featured = projects.filter(p => p.featured);
+const index = projects.filter(p => !p.featured);
+const works = {
+  '@context': 'https://schema.org', '@type': 'ItemList', name: 'Selected work',
+  itemListElement: projects.map((p, i) => ({'@type': 'ListItem', position: i + 1, item: {'@type': 'SoftwareApplication', name: p.title, url: p.url, description: p.summary, applicationCategory: p.category, operatingSystem: p.platform, author: {'@type': 'Person', name: site.name}}})),
+};
 ---
-<Base>
+<Base title="Data into direction" description={site.description}>
+<script type="application/ld+json" set:html={JSON.stringify(works)}/>
 <section class="hero wrap">
-<div class="hero-meta"><span class="meta"><span class="status-dot"></span> THINK IN SYSTEMS. BUILD FOR PEOPLE.</span><span class="meta hero-side-note">INDEPENDENT MIND. CONNECTED THINKING.</span></div>
+<div class="hero-meta"><span class="meta"><span class="status-dot"></span> NOW BUILDING MIDAS AND SYNOPT</span><span class="meta hero-side-note">MAC, IPHONE AND THE WEB</span></div>
 <div class="hero-grid">
 <div class="hero-copy"><h1><span class="hero-line"><span>I turn data</span></span><span class="hero-line"><span>into <em>direction.</em></span></span><span class="hero-line"><span>And ideas</span></span><span class="hero-line"><span>into <em>products.</em></span></span></h1></div>
 <div class="signal-stage">
-<div class="signal-art"><canvas id="signal" aria-label="Generative orange particle field resolving into a sphere" role="img"></canvas><svg class="signal-fallback" viewBox="0 0 500 500" aria-hidden="true">{Array.from({length:650},(_,i)=>{const y=1-i/649*2; const r=Math.sqrt(1-y*y); return <circle cx={250+Math.cos(i*2.399963)*r*185} cy={250+y*185} r="1.7" fill="#e64a20"/>})}</svg></div>
-<div class="signal-caption"><span class="meta"><span class="status-dot orange"></span> COMPLEXITY, CONNECTED.</span><button id="signal-toggle" aria-pressed="false" class="signal-toggle">Disperse <span>↗</span></button></div>
+<div class="signal-art"><canvas id="signal" aria-label="Generative mint particle field resolving into a sphere" role="img"></canvas><svg class="signal-fallback" viewBox="0 0 500 500" aria-hidden="true">{Array.from({length:650},(_,i)=>{const y=1-i/649*2; const r=Math.sqrt(1-y*y); return <circle cx={250+Math.cos(i*2.399963)*r*185} cy={250+y*185} r="1.7" fill="#e64a20"/>})}</svg></div>
+<div class="signal-caption"><span class="meta"><span class="status-dot orange"></span> 1,050 POINTS. ONE SYSTEM.</span><button id="signal-toggle" aria-pressed="false" class="signal-toggle">Disperse <span>↗</span></button></div>
 </div>
 </div>
-<div class="hero-bottom"><p>Data engineer by foundation.<br/>Product engineer by instinct.<br/><span>I connect what’s possible with what’s useful.</span></p><a class="round-link" href="#work"><span>Selected work</span><span class="round-arrow">↓</span></a></div>
+<div class="hero-bottom"><p>Data engineer by foundation.<br/>Product engineer by instinct.<br/><span>I design and build whole products, from the data model to the last screen.</span></p><a class="round-link" href="#work"><span>Selected work</span><span class="round-arrow" aria-hidden="true">↓</span></a></div>
 </section>
-<section id="work" class="work wrap">
-<div class="section-head"><h2>Selected work<span class="accent">.</span></h2><span class="meta">THREE EXPLORATIONS. ONE CONNECTED PRACTICE.</span></div>
+<section id="work" class="work wrap" aria-labelledby="work-title">
+<div class="section-head"><h2 id="work-title">Selected work<span class="accent">.</span></h2><span class="meta">EVERY LINK OPENS THE LIVE PRODUCT.</span></div>
 <div class="projects">
-{projects.map((project,i)=><article class:list={['project',`project-${i+1}`]}><a class="project-link" href={`/work/${project.slug}/`}><div class="project-cover"><Art kind={project.kind}/><span class="cover-cta">View study <span>↗</span></span></div><div class="project-heading"><h3>{project.title}</h3><span class="project-arrow">↗</span></div><p>{project.summary}</p><div class="project-meta"><span>{project.category}</span><span>Concept study</span></div></a></article>)}
+{featured.map((project,i)=><article class:list={['project',`project-${i+1}`]}><a class="project-link" href={project.url} target="_blank" rel="noopener"><div class="project-cover"><div class="shot"><Image src={project.image} alt={project.alt} widths={[640, 960, 1280, 1800]} sizes="(max-width: 600px) 92vw, 55vw" loading={i === 0 ? 'eager' : 'lazy'}/></div><span class="cover-cta" aria-hidden="true">{project.domain} <span>↗</span></span></div><div class="project-heading"><h3>{project.title}</h3><span class="status">{project.status}</span><span class="project-arrow" aria-hidden="true">↗</span></div><p class="project-summary">{project.summary}</p><p class="project-detail">{project.detail}</p><div class="project-meta"><span>{project.category}</span><span>{project.platform}</span></div><span class="sr-only"> (opens {project.domain} in a new tab)</span></a></article>)}
+</div>
+<div class="index" aria-labelledby="index-title">
+<div class="index-head"><h3 id="index-title" class="meta">ALSO BUILT</h3><span class="meta" aria-hidden="true">PLATFORM</span><span class="meta" aria-hidden="true">STATUS</span></div>
+<ul class="index-list">
+{index.map(project => <li class="index-row"><a href={project.url} target="_blank" rel="noopener" data-preview={project.slug}><Image class="index-thumb" src={project.image} alt="" widths={[480, 800]} sizes="(max-width: 600px) 92vw, 30vw" loading="lazy"/><span class="index-title"><span class="index-name">{project.title}</span><span class="index-category">{project.category}</span></span><span class="index-summary">{project.summary}</span><span class="index-platform">{project.platform}</span><span class="index-status"><span class="status">{project.status}</span></span><span class="index-arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens {project.domain} in a new tab)</span></a></li>)}
+</ul>
+<div class="index-preview" aria-hidden="true">{index.map(project => <Image src={project.image} alt="" data-slug={project.slug} widths={[640]} sizes="420px" loading="lazy"/>)}</div>
 </div>
 </section>
-<section id="about" class="about wrap"><div class="about-label meta"><span class="status-dot orange"></span> THE WAY I THINK</div><div class="about-content"><h2>The best products have<br/>good systems underneath.<br/><span>I work on both.</span></h2><div class="about-text"><p>I’m interested in the space between a reliable data pipeline and a product someone reaches for every day. The infrastructure matters. So does the person on the other side of it.</p><p>My approach is to understand the problem, make the complex parts clear, and build the smallest useful thing. Then learn from what happens next.</p></div><div class="capabilities">{capabilities.map(([title,body])=><div><h3>{title}</h3><p>{body}</p></div>)}</div></div></section>
+<section id="about" class="about wrap" aria-labelledby="about-title"><div class="about-label meta"><span class="status-dot orange"></span> THE WAY I THINK</div><div class="about-content"><h2 id="about-title">The best products have<br/>good systems underneath.<br/><span>I work on both.</span></h2><div class="about-text"><p>I’m interested in the space between a reliable data pipeline and a product someone reaches for every day. Midas keeps a whole financial history on the phone in your pocket. Synopt turns raw tool telemetry into three plain answers for an engineering lead.</p><p>My approach is to understand the problem, make the complex parts clear, and build the smallest useful thing. Then I learn from what happens next and ship again.</p></div><div class="capabilities">{capabilities.map(([title,body])=><div><h3>{title}</h3><p>{body}</p></div>)}</div></div></section>
 </Base>

@@ -14,7 +14,7 @@ function onPage() {
       const intro = gsap.timeline({defaults:{ease:'power3.out'}});
       intro.from('.hero-line > span', {yPercent:110, duration:1, stagger:.085}, 0)
         .from('.signal-caption, .hero-bottom', {opacity:0, y:12, duration:.7, stagger:.1}, .3)
-        .from('.case h1, .not-found h1', {y:26, opacity:0, duration:.75, clearProps:'all'}, 0);
+        .from('.not-found h1', {y:26, opacity:0, duration:.75, clearProps:'all'}, 0);
     }
   });
 
@@ -36,7 +36,7 @@ function onPage() {
       }
     }, {threshold:.08});
     context.add(() => {
-      document.querySelectorAll('.project, .about h2, .case-body > div').forEach((element) => {
+      document.querySelectorAll('.project, .index-head, .index-row, .about h2, .contact-links').forEach((element) => {
         if (element.getBoundingClientRect().top > innerHeight * .95) {
           gsap.set(element, {y:30, opacity:0});
           observer.observe(element);
@@ -47,7 +47,7 @@ function onPage() {
 
     if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
       document.querySelectorAll<HTMLElement>('.project-cover').forEach((cover) => {
-        const art = cover.querySelector<HTMLElement>('.art');
+        const art = cover.querySelector<HTMLElement>('.shot');
         if (!art) return;
         let xTo: (value:number) => void = () => {};
         let yTo: (value:number) => void = () => {};
@@ -69,6 +69,73 @@ function onPage() {
         cleanups.push(() => {cover.removeEventListener('pointermove', move);cover.removeEventListener('pointerleave', reset);});
       });
     }
+  }
+
+  // Index preview: the hovered product resolves beside the pointer; keyboard and reduced motion pin it to the row.
+  const index = document.querySelector<HTMLElement>('.index');
+  const preview = index?.querySelector<HTMLElement>('.index-preview');
+  if (index && preview && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const images = new Map([...preview.querySelectorAll<HTMLImageElement>('img')].map(img => [img.dataset.slug, img]));
+    const duration = reduced ? 0 : .6;
+    let active: HTMLImageElement | undefined;
+    let layer = 1;
+    let xTo: (value:number) => void = () => {};
+    let yTo: (value:number) => void = () => {};
+    context.add(() => {
+      xTo = gsap.quickTo(preview, 'x', {duration:reduced ? 0 : .7, ease:'power3.out'});
+      yTo = gsap.quickTo(preview, 'y', {duration:reduced ? 0 : .7, ease:'power3.out'});
+    });
+    const place = (x:number, y:number, jump=false) => {
+      const box = index.getBoundingClientRect();
+      const width = preview.offsetWidth, height = preview.offsetHeight;
+      // Sit right of the pointer, flipping left past the middle so the preview never leaves the column.
+      const left = x - box.left > box.width * .55 ? x - box.left - width - 36 : x - box.left + 36;
+      const top = Math.min(Math.max(y - box.top - height / 2, 0), box.height - height);
+      if (jump) context.add(() => gsap.set(preview, {x:left, y:top}));
+      xTo(left); yTo(top);
+    };
+    const show = (slug?:string) => {
+      const image = images.get(slug);
+      if (!image || image === active) return;
+      context.add(() => {
+        if (active) gsap.to(active, {clipPath:'inset(0% 0% 100% 0%)', duration, ease:'power3.out', overwrite:true});
+        gsap.set(preview, {visibility:'visible'});
+        gsap.set(image, {zIndex:++layer});
+        gsap.fromTo(image, {clipPath:'inset(100% 0% 0% 0%)'}, {clipPath:'inset(0% 0% 0% 0%)', duration, ease:'power3.out', overwrite:true});
+      });
+      active = image;
+    };
+    const hide = () => {
+      if (!active) return;
+      const image = active;
+      active = undefined;
+      context.add(() => gsap.to(image, {clipPath:'inset(0% 0% 100% 0%)', duration:reduced ? 0 : .45, ease:'power3.out', overwrite:true, onComplete:() => { if (!active) gsap.set(preview, {visibility:'hidden'}); }}));
+    };
+    const pinTo = (link:HTMLElement) => {
+      const row = link.getBoundingClientRect();
+      place(row.left + row.width * .62, row.top + row.height / 2, !active);
+    };
+    const links = [...index.querySelectorAll<HTMLAnchorElement>('[data-preview]')];
+    const enter = (event:PointerEvent) => {
+      const link = event.currentTarget as HTMLAnchorElement;
+      if (reduced) pinTo(link); else place(event.clientX, event.clientY, !active);
+      show(link.dataset.preview);
+    };
+    const move = (event:PointerEvent) => { if (!reduced) place(event.clientX, event.clientY); };
+    const focus = (event:FocusEvent) => {
+      const link = event.currentTarget as HTMLAnchorElement;
+      if (!link.matches(':focus-visible')) return;
+      pinTo(link); show(link.dataset.preview);
+    };
+    const list = index.querySelector<HTMLElement>('.index-list');
+    links.forEach(link => { link.addEventListener('pointerenter', enter); link.addEventListener('focus', focus); link.addEventListener('blur', hide); });
+    list?.addEventListener('pointermove', move);
+    list?.addEventListener('pointerleave', hide);
+    cleanups.push(() => {
+      links.forEach(link => { link.removeEventListener('pointerenter', enter); link.removeEventListener('focus', focus); link.removeEventListener('blur', hide); });
+      list?.removeEventListener('pointermove', move);
+      list?.removeEventListener('pointerleave', hide);
+    });
   }
 
   const canvas = document.querySelector<HTMLCanvasElement>('#signal');
