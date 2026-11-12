@@ -77,6 +77,14 @@ function onPage() {
   if (index && preview && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     const images = new Map([...preview.querySelectorAll<HTMLImageElement>('img')].map(img => [img.dataset.slug, img]));
     const duration = reduced ? 0 : .6;
+    // Hidden lazy images never load on their own; fetch them as the index approaches so the first hover isn't blank.
+    const warm = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      images.forEach(img => { img.loading = 'eager'; });
+      warm.disconnect();
+    }, {rootMargin:'600px 0px'});
+    warm.observe(index);
+    cleanups.push(() => warm.disconnect());
     let active: HTMLImageElement | undefined;
     let layer = 1;
     let xTo: (value:number) => void = () => {};
