@@ -1,0 +1,14 @@
+/* Final identity: very deep navy with mint, dark by default. */
+:root,:root[data-theme=dark]{
+  color-scheme:dark;
+  --ground:#060f1e;--ink:#e7f1f1;--muted:#9dafbc;--line:#24374b;--accent:#9be8cb;
+  --panel:#0c1c30;--field-ink:#a8ceca;--bars-ground:#0c2035;--bars-ink:#a8ddcf;
+  --loops-ground:#0b1a2e;--loops-ink:#98d8c9;--note-ink:#b5c8d1;--particle:155,232,203;
+}
+:root[data-theme=light]{
+  color-scheme:light;
+  --ground:#eff5f3;--ink:#0c2035;--muted:#536b75;--line:#cbd9db;--accent:#24634f;
+  --panel:#dce8e8;--field-ink:#3b6765;--bars-ground:#0c2035;--bars-ink:#a8ddcf;
+  --loops-ground:#dfeae7;--loops-ink:#2d6057;--note-ink:#3b5964;--particle:36,99,79;
+}
+:root[data-theme] .loops .art-label{color:var(--loops-ink)}

@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import Art from '../components/Art.astro';
+import { projects, capabilities } from '../data/site';
+---
+<Base>
+<section class="hero wrap">
+<div class="hero-meta"><span class="meta"><span class="status-dot"></span> THINK IN SYSTEMS. BUILD FOR PEOPLE.</span><span class="meta hero-side-note">INDEPENDENT MIND. CONNECTED THINKING.</span></div>
+<div class="hero-grid">
+<div class="hero-copy"><h1><span class="hero-line"><span>I turn data</span></span><span class="hero-line"><span>into <em>direction.</em></span></span><span class="hero-line"><span>And ideas</span></span><span class="hero-line"><span>into <em>products.</em></span></span></h1></div>
+<div class="signal-stage">
+<div class="signal-art"><canvas id="signal" aria-label="Generative orange particle field resolving into a sphere" role="img"></canvas><svg class="signal-fallback" viewBox="0 0 500 500" aria-hidden="true">{Array.from({length:650},(_,i)=>{const y=1-i/649*2; const r=Math.sqrt(1-y*y); return <circle cx={250+Math.cos(i*2.399963)*r*185} cy={250+y*185} r="1.7" fill="#e64a20"/>})}</svg></div>
+<div class="signal-caption"><span class="meta"><span class="status-dot orange"></span> COMPLEXITY, CONNECTED.</span><button id="signal-toggle" aria-pressed="false" class="signal-toggle">Disperse <span>↗</span></button></div>
+</div>
+</div>
+<div class="hero-bottom"><p>Data engineer by foundation.<br/>Product engineer by instinct.<br/><span>I connect what’s possible with what’s useful.</span></p><a class="round-link" href="#work"><span>Selected work</span><span class="round-arrow">↓</span></a></div>
+</section>
+<section id="work" class="work wrap">
+<div class="section-head"><h2>Selected work<span class="accent">.</span></h2><span class="meta">THREE EXPLORATIONS. ONE CONNECTED PRACTICE.</span></div>
+<div class="projects">
+{projects.map((project,i)=><article class:list={['project',`project-${i+1}`]}><a class="project-link" href={`/work/${project.slug}/`}><div class="project-cover"><Art kind={project.kind}/><span class="cover-cta">View study <span>↗</span></span></div><div class="project-heading"><h3>{project.title}</h3><span class="project-arrow">↗</span></div><p>{project.summary}</p><div class="project-meta"><span>{project.category}</span><span>Concept study</span></div></a></article>)}
+</div>
+</section>
+<section id="about" class="about wrap"><div class="about-label meta"><span class="status-dot orange"></span> THE WAY I THINK</div><div class="about-content"><h2>The best products have<br/>good systems underneath.<br/><span>I work on both.</span></h2><div class="about-text"><p>I’m interested in the space between a reliable data pipeline and a product someone reaches for every day. The infrastructure matters. So does the person on the other side of it.</p><p>My approach is to understand the problem, make the complex parts clear, and build the smallest useful thing. Then learn from what happens next.</p></div><div class="capabilities">{capabilities.map(([title,body])=><div><h3>{title}</h3><p>{body}</p></div>)}</div></div></section>
+</Base>
