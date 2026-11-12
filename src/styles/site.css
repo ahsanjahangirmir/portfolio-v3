@@ -83,7 +83,7 @@ a:active,button:active{opacity:.7}.nav-link:focus-visible:after{scale:1}.project
 /* Real work: live-site plates, honest status, an index of the rest. */
 .project-cover{background:var(--panel);aspect-ratio:1.36;isolation:isolate}
 .project-2 .project-cover{aspect-ratio:1.18}
-.shot{position:absolute;inset:9% 8% auto;will-change:transform}
+.shot{position:absolute;inset:0 8%;display:flex;align-items:center;will-change:transform}
 .shot img{display:block;width:100%;height:auto;border:1px solid var(--line);box-shadow:0 40px 80px -40px rgb(0 0 0/.55);transition:translate .9s var(--ease)}
 .cover-cta{font-family:'Courier New',monospace;letter-spacing:.02em;z-index:2;border:1px solid var(--line)}
 .project-heading{justify-content:flex-start;gap:18px}
