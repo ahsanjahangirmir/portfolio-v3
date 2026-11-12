@@ -1,30 +1,34 @@
-# Data & product engineering portfolio
+# portfolio-v3
 
-Local Astro portfolio. No GitHub repository or deployment was created.
+Portfolio of Ahsan Jahangir Mir, data & product engineer.
+Live at https://ahsanjahangirmir.github.io/portfolio-v3/
+
+Astro, GSAP and Lenis, with a canvas particle hero. No framework runtime beyond Astro's client router.
 
 ## Run
+```
 npm install
-npm run dev -- --background
+npx astro dev --background      # http://localhost:4321/portfolio-v3/
+npx astro dev status | logs | stop
+```
 
-Manage with npx astro dev status, npx astro dev logs, and npx astro dev stop.
+## Edit content
+Everything a visitor reads about the work lives in `src/data/site.ts`: identity, contact links
+(email, Calendly, GitHub, LinkedIn), and the project list. Each project has a live URL, status label,
+platform, summary and a cover image in `src/assets/work/`. `featured: true` puts a project in the
+large tiles; the rest go in the index.
 
-## Production
-npm run build
-npm run preview -- --host 127.0.0.1 --port 4400
+To refresh a cover, screenshot the live site at 1440×900 (2× DPR), save it as WebP in
+`src/assets/work/<slug>.webp`, and rebuild. Astro generates the responsive sizes.
 
-The static output is in dist/. Publish that directory to any static host when ready.
+## Build and deploy
+```
+npm run build      # static output in dist/
+```
+Every push to `main` builds and deploys to GitHub Pages through `.github/workflows/deploy.yml`.
+The site is served from the `/portfolio-v3` base path (set in `astro.config.mjs`). Internal links
+go through the `href()` helper in `src/data/site.ts` so they stay correct under that base.
 
-## Replace before publishing
-- src/data/site.ts: local canonical URL and all three illustrative project narratives. Identity and email are configured for Ahsan Jahangir Mir.
-- src/layouts/Base.astro: remaining presentation copy.
-- astro.config.mjs and public/robots.txt: production domain.
-- src/pages/index.astro: biography and practice statement.
-- public/og.png: regenerate after real content is in place.
-
-All projects are visibly identified as concept studies. Artwork is original procedural geometry, not product screenshots or real datasets.
-See DESIGN.md for the concept and visual system.
-
-## Theme and motion
-Final palette: very deep navy (#060f1e) and mint (#9be8cb), with dark mode as the default. The header toggle selects a complementary light variant. That choice persists across reloads and navigation. Temporary palette-review controls have been removed; earlier review preferences are ignored. Colors live in src/styles/theme.css.
-
-Reduced motion disables scrolling interpolation, introductions, pointer drift, and view transitions. Preference changes are applied immediately. Particle geometry fits the full canvas in both connected and dispersed states.
+## Design
+See `DESIGN.md` for the concept, palette, type and motion rules.
+`public/og.png` is the 1200×630 share card. Rebuild it when the hero line or project list changes.

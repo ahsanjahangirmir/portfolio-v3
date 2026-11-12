@@ -1,5 +1,5 @@
 # Brief
-Local portfolio for a data and product engineer. Audience: technical hiring managers and product teams. Identity: Ahsan Jahangir Mir. Contact: ahsanjahangirmir@gmail.com. The three project studies remain marked fictional placeholders. No GitHub or deployment.
+Portfolio for Ahsan Jahangir Mir, data & product engineer. Audience-agnostic: hiring managers, clients and product users all land here. Job: show the shipped work and make contact easy (email, Calendly, GitHub, LinkedIn). Hosted on GitHub Pages at https://ahsanjahangirmir.github.io/portfolio-v3/.
 
 # Concept exploration
 Material: Signal becomes structure. Particles resolve into a coherent sphere. Precise, curious. Screenshot: huge type and orange point cloud. Anchor: data engineering brings order to information. Originality/fit/feasibility/portability: 4/5/5/2.
@@ -40,3 +40,12 @@ Added three complete light/dark systems: Graphite + cobalt (cool chalk/graphite 
 
 # Final selected palette
 Owner chose very deep dark blue and mint. Ground #060f1e, ink #e7f1f1, muted #9dafbc, line #24374b, accent #9be8cb. Artwork uses blue surfaces and mint strokes. Dark is the default; a complementary light mode remains available. Removed review controls and isolated the final mode preference from earlier review selections. Updated favicon and social image.
+
+# Real work (2026-11-12)
+The placeholder concept studies and their case pages are gone. Eight real products replace them, and every card links out to the live site (no case-study pages, by owner choice).
+- Featured tiles: Midas and Synopt. Each cover is a capture of the live product page, framed on a --panel plate and centered. Hover lifts the capture 3% and the plate drifts with the pointer.
+- Index ("Also built"): Taperlark, Circle, Type, Quran, cLUMSy, TenFour in rows of name/category, summary, platform and status. On a fine pointer, the hovered product's capture resolves beside the cursor with a bottom-to-top clip reveal (the motion verb). Keyboard focus and reduced motion pin the preview to the row instead of following. Touch screens get an inline thumbnail per row instead.
+- Status labels are honest and come from each product's own site: In development, Early access, On sale, Live, Open source, Shipped.
+- Contact: a four-cell row under the footer headline (email, Calendly, GitHub, LinkedIn). JSON-LD Person lists GitHub and LinkedIn in sameAs; an ItemList describes the work.
+- Copy: the hero line stays. Meta lines now carry facts ("Now building Midas and Synopt", "1,050 points. One system."), and the about paragraphs cite real products.
+- Accessory cut this pass: the decorative particle-sphere artwork on project covers (real imagery replaces it).
