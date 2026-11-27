@@ -1,0 +1,70 @@
+---
+// The recipe library: every problem type in the course, indexed statically.
+// Worked steps and practice load in the browser when a recipe is opened.
+import { recipes, courses, topics } from '../../data/calculus/library';
+import { sceneMeta } from '../../data/calculus/scenes';
+const total = recipes.length;
+const practiceCount = total * 2;
+---
+<section id="library" class="library wrap" aria-labelledby="library-title">
+  <div class="library-head">
+    <div>
+      <span class="meta"><span class="status-dot orange"></span> THE RECIPE LIBRARY</span>
+      <h2 id="library-title">Every problem<br/>type<span>.</span></h2>
+    </div>
+    <div>
+      <p>Most calculus problems come in types, and each type has a recipe: a short list of steps that solves every problem of that kind.</p>
+      <p>Watch a worked example unfold one step at a time, then solve fresh practice problems with the same steps. Answers are checked the moment you submit them, and your progress stays in this browser.</p>
+      <div class="library-stats">
+        <div><strong>{total}</strong><span class="meta">RECIPES</span></div>
+        <div><strong>{practiceCount}</strong><span class="meta">PRACTICE PROBLEMS</span></div>
+        <div><strong data-stat="solved" aria-live="polite">0</strong><span class="meta">SOLVED BY YOU</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="library-tools">
+    <label class="library-search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+      <span class="sr-only">Search recipes</span>
+      <input type="search" placeholder="Search: chain rule, washers, Lagrange…" data-library-search autocomplete="off" enterkeyhint="search"/>
+      <kbd class="library-kbd" aria-hidden="true">/</kbd>
+    </label>
+    <div class="ctl ctl-seg" role="group" aria-label="Course" data-library-course>
+      <button type="button" data-value="all" aria-pressed="true">All</button>
+      {courses.map(c => <button type="button" data-value={c.id} aria-pressed="false">{c.short}</button>)}
+    </div>
+    <button type="button" class="library-filter-chip" data-library-scene-chip><span>Scene</span> <b></b> <span class="x" aria-hidden="true">✕</span><span class="sr-only">Clear scene filter</span></button>
+    <label class="library-toggle"><input type="checkbox" data-library-unsolved/><span class="switch" aria-hidden="true"></span> Unsolved only</label>
+    <output class="library-count meta" data-library-count aria-live="polite">{total} RECIPES</output>
+  </div>
+  {courses.map(course => {
+    const groups = topics(course.id);
+    if (!groups.length) return null;
+    let n = 0;
+    return (
+      <div class="library-course" data-course={course.id}>
+        <h3>{course.name}<span class="meta">{groups.reduce((k, g) => k + g.items.length, 0)} RECIPES · {groups.length} TOPICS</span></h3>
+        {groups.map(group => (
+          <div class="library-topic" data-topic>
+            <header><h4>{group.title}</h4><span class="meta">{group.items.length} {group.items.length === 1 ? 'RECIPE' : 'RECIPES'}</span></header>
+            <ul>
+              {group.items.map(r => (
+                <li data-recipe={r.id} data-file={r.file} data-scene-id={r.scene ?? ''} data-search={`${r.title} ${r.topic} ${r.scene ? sceneMeta(r.scene).short : ''}`.toLowerCase()}>
+                  <button type="button" class="recipe-toggle" aria-expanded="false" aria-controls={`panel-${r.id}`}>
+                    <span class="meta recipe-n">{String(++n).padStart(2, '0')}</span>
+                    <span class="recipe-name">{r.title}</span>
+                    <span class="recipe-state" data-state="none"><span class="sr-only" data-state-label>Not started</span></span>
+                    <span class="chev" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+                  </button>
+                  <div class="recipe-panel" id={`panel-${r.id}`} hidden></div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    );
+  })}
+  <p class="library-empty" data-library-empty hidden>No recipe matches that search. <button type="button" class="inline" data-library-reset>Clear filters</button></p>
+  <p class="library-credit">Practice problems were written for this guide, and every answer was verified with a computer algebra system.</p>
+</section>

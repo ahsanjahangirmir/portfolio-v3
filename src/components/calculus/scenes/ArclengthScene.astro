@@ -1,0 +1,36 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="arclength" label="The curve y equals natural log of cosine x from x equals 0 to pi over 3, with a polygon of n straight segments inscribed in it. As n grows the polygon's length approaches the arc length, natural log of 2 plus root 3, about 1.317. One segment is magnified to show its horizontal run dx, vertical rise dy, and slanted length ds.">
+  <div class="beat" data-beat="A curved length">
+    <p>How long is the curve <Tex t="\cA{y = \ln(\cos x)}"/> from <Tex t="x = 0"/> to <Tex t="x = \pi/3"/>? A ruler only measures straight things, and this curve bends the whole way.</p>
+    <p class="aside">A classic example. Drag the end point <Tex t="b"/> to change how much of the curve you measure.</p>
+  </div>
+  <div class="beat" data-beat="Straight pieces">
+    <p>So measure something straight instead. Mark points along the curve and join them with a <span class="k-c2">polygon</span>. Each piece is the hypotenuse of a right triangle, so Pythagoras gives its length.</p>
+    <p>One piece (the chord) is too short, because the curve bulges away from it. Four pieces hug the curve better.</p>
+  </div>
+  <div class="beat" data-beat="More pieces">
+    <p>Keep doubling. Every extra point can only add length, and the total settles down. The table shows the digits freezing one by one, near <Tex t="1.31696"/>.</p>
+    <p class="aside">Each polygon is shorter than the curve, for the same reason a chord is shorter than its arc.</p>
+  </div>
+  <div class="beat" data-beat="Zoom in">
+    <p>Zoom in on one piece. Over a short stretch the curve is almost straight, so the arc and its chord are almost the same length:</p>
+    <Tex display t="\cB{ds} = \sqrt{\cC{dx}^2 + \cE{dy}^2} = \sqrt{1 + \left(\frac{\cE{dy}}{\cC{dx}}\right)^2}\,\cC{dx}"/>
+    <p>The slope <Tex t="dy/dx"/> is just <Tex t="f'(x)"/>, so each piece is <Tex t="\sqrt{1+f'(x)^2}\,dx"/> long.</p>
+  </div>
+  <div class="beat" data-beat="Add them up">
+    <p>Adding the pieces and letting them shrink turns the sum into an integral. Here <Tex t="f'(x) = -\tan x"/>, and <Tex t="1 + \tan^2 x = \sec^2 x"/> cleans up the square root:</p>
+    <Tex display t="L = \int_0^{\pi/3} \sqrt{1+\tan^2 x}\,dx = \int_0^{\pi/3} \sec x\,dx = \ln(2+\sqrt3) \approx 1.31696"/>
+    <p>Drag <Tex t="b"/> along the curve and compare the polygon with the integral. With 64 pieces they agree to about four decimal places.</p>
+  </div>
+  <Tex slot="takeaway" display t="L = \int_a^b \sqrt{1 + f'(x)^2}\;dx"/>
+  <Fragment slot="controls">
+    <Slider name="n" label="Pieces n" min={1} max={64} step={1} value={1} color="c2" digits={0}/>
+    <Readout name="poly" label="Polygon" color="c2"/>
+    <Readout name="exact" label="∫ √(1+f′²) dx" color="c1"/>
+  </Fragment>
+</Scene>

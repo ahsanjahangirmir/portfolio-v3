@@ -1,0 +1,37 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+---
+<Scene id="surface" figure="square" label="A 3D surface z equals f of x and y. Through a chosen point, a slice along x and a slice along y each trace a curve with its own tangent line, and the two tangent lines span the tangent plane.">
+  <div class="beat" data-beat="A landscape">
+    <p>A function of two variables, <Tex t="z = f(x, y)"/>, takes a point on the floor and gives back a height. Its graph is a <span class="k-c3">surface</span>, like a landscape.</p>
+    <p class="aside">Drag the figure to turn it.</p>
+  </div>
+  <div class="beat" data-beat="Slice along x">
+    <p>“How steep is it here?” has no single answer, because the slope depends on which way you walk. So start with one direction. Hold <Tex t="y = b"/> fixed and walk east. The slice is an ordinary curve, and its slope is the <span class="k-c2">partial derivative in x</span>:</p>
+    <Tex display t="\cB{f_x(a,b)} = \lim_{h\to0}\frac{f(a+h,b)-f(a,b)}{h}"/>
+    <p class="aside">To compute it, treat <Tex t="y"/> as a constant and differentiate as usual.</p>
+  </div>
+  <div class="beat" data-beat="Slice along y">
+    <p>Now hold <Tex t="x = a"/> fixed and walk north. A different slice gives a different slope, <span class="k-c4"><Tex t="f_y(a,b)"/></span>.</p>
+  </div>
+  <div class="beat" data-beat="The tangent plane">
+    <p>Two tangent lines through the same point define a <span class="k-c1">plane</span>. If the surface is smooth, this plane is the best flat approximation to it near the point:</p>
+    <Tex display t="z = f(a,b) + \cB{f_x}(x-a) + \cD{f_y}(y-b)"/>
+    <p class="aside">This is linear approximation again, one dimension up.</p>
+  </div>
+  <div class="beat" data-beat="Explore">
+    <p>Move the point with the sliders, or switch landscapes. On the saddle, at the center, both slopes are zero and the tangent plane is flat, but the point is neither a peak nor a valley. That case comes back in optimization.</p>
+  </div>
+  <Tex slot="takeaway" display t="\nabla f = \langle \cB{f_x},\, \cD{f_y} \rangle"/>
+  <Fragment slot="controls">
+    <Segmented name="surface" label="Surface" options={[['waves', 'Waves'], ['hill', 'Hill'], ['saddle', 'Saddle']]}/>
+    <Slider name="a" label="a" min={-2.4} max={2.4} step={0.01} value={0.9} color="c2"/>
+    <Slider name="b" label="b" min={-2.4} max={2.4} step={0.01} value={-0.6} color="c4"/>
+    <Readout name="fx" label="∂f/∂x" color="c2"/>
+    <Readout name="fy" label="∂f/∂y" color="c4"/>
+  </Fragment>
+</Scene>

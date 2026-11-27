@@ -1,0 +1,63 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="limit" label="Three views of a limit. First, the curve y = (x² + 5x + 4)/(x² + 3x − 4) with a hole at x = −4, height 3/5, an amber horizontal band of half-height epsilon around 3/5 and a blue vertical band of half-width delta around −4 inside which the curve stays in the amber band. Second, a wiggling function squeezed between two bounds that pinch to zero, and sin x over x squeezed between cos x and 1. Third, the curve y = x³ − 2x − 1 on an interval [a, b] crossing a horizontal level N, with an option that adds a jump.">
+  <div class="beat" data-beat="A hole">
+    <p>Take <Tex t="f(x) = \dfrac{x^2+5x+4}{x^2+3x-4}"/>. Plug in <Tex t="x=-4"/> and you get <Tex t="0/0"/>. The function has no value there, so its graph has a hole.</p>
+    <p>The values on both sides still close in on one height. Factor out the common <Tex t="(x+4)"/> to see which:</p>
+    <Tex display t="\frac{(x+1)(x+4)}{(x-1)(x+4)} = \frac{x+1}{x-1} \;\to\; \frac{-3}{-5} = \cA{\tfrac35}"/>
+    <p class="aside">The amber dots creep toward <Tex t="x=-4"/> from both sides.</p>
+  </div>
+  <div class="beat" data-beat="Name ε, answer δ">
+    <p>What exactly does “approaches <Tex t="3/5"/>” promise? Make it a game. Someone names a tolerance <Tex t="\cB{\varepsilon}"/>, the <span class="k-c2">amber band</span> of height <Tex t="\cB{\varepsilon}"/> on each side of <Tex t="L"/>.</p>
+    <p>You answer with a distance <Tex t="\cC{\delta}"/>: every <Tex t="x"/> within <Tex t="\cC{\delta}"/> of <Tex t="-4"/>, other than <Tex t="-4"/> itself, must land inside the band. Drag the amber handle to change <Tex t="\cB{\varepsilon}"/>.</p>
+  </div>
+  <div class="beat" data-beat="Every ε has a δ">
+    <p>Here is the <span class="k-c3">largest δ</span> that works. The bright piece of curve, the part inside the blue window, stays inside the amber band. The curve is steeper on the right, so it leaves the band sooner there, and that side sets <Tex t="\cC{\delta}"/>.</p>
+    <p>Shrink <Tex t="\cB{\varepsilon}"/> and <Tex t="\cC{\delta}"/> shrinks too, but it never hits zero. That is the whole definition:</p>
+    <Tex display t="\lim_{x\to a} f(x) = L \iff \text{for every } \cB{\varepsilon}>0 \text{ there is a } \cC{\delta}>0 \text{ with } 0<|x-a|<\cC{\delta} \Rightarrow |f(x)-L|<\cB{\varepsilon}"/>
+    <p class="aside">For a straight line such as <Tex t="3x+1"/> at <Tex t="x=2"/>, the answer is tidy: <Tex t="\delta = \varepsilon/3"/> always works. For a curve, δ depends on ε in a less tidy way, but it still exists.</p>
+  </div>
+  <div class="beat" data-beat="Squeeze">
+    <p>Some limits are easier to trap than to compute. The function <Tex t="\sqrt{x^3+x^2}\,\sin(\pi/x)"/> never settles: the sine swings between <Tex t="-1"/> and <Tex t="1"/> faster and faster as <Tex t="x\to 0"/>.</p>
+    <p>But it is multiplied by <Tex t="\cC{\sqrt{x^3+x^2}}"/>, which goes to <Tex t="0"/>. So the curve is caught between the <span class="k-c3">two blue bounds</span>, and they pinch shut. Zoom in: it is still wiggling, and still trapped. The limit is <Tex t="0"/>.</p>
+    <p class="aside">The general rule: something that goes to zero times something bounded goes to zero.</p>
+  </div>
+  <div class="beat" data-beat="sin x / x">
+    <p>The same trap gives the most useful trig limit. Near <Tex t="0"/> (but not at it), geometry on the unit circle gives</p>
+    <Tex display t="\cC{\cos x} \;\le\; \cA{\frac{\sin x}{x}} \;\le\; \cC{1}"/>
+    <p>Both bounds go to <Tex t="1"/>, so <Tex t="\sin x / x \to 1"/>. Zoom in and the three curves become one line.</p>
+    <p class="aside">A typical use: <Tex t="\lim_{x\to0} \frac{\sin 7x}{3x} = \frac{7}{3}"/>: near zero, <Tex t="\sin 7x"/> behaves like <Tex t="7x"/>.</p>
+  </div>
+  <div class="beat" data-beat="Intermediate values">
+    <p>Continuity, meaning no holes and no jumps, comes with a promise. Take <Tex t="\cA{f(x) = x^3-2x-1}"/> on <Tex t="[1,2]"/>: <Tex t="f(1)=-2"/> and <Tex t="f(2)=3"/>. A continuous curve that starts below <Tex t="\cB{N=0}"/> and ends above it has to cross it somewhere.</p>
+    <p>Press <em>Halve</em> to narrow the interval by checking the midpoint each time: <Tex t="f(3/2) = -5/8"/> and <Tex t="f(7/4) = 55/64"/>, so a root lies in <Tex t="(3/2, 7/4)"/>. Then add a jump. The ends still straddle <Tex t="N"/>, but the curve skips over it and the promise fails.</p>
+    <p class="aside">The root is <Tex t="(1+\sqrt5)/2 \approx 1.618"/>, the golden ratio.</p>
+  </div>
+  <Tex slot="takeaway" display t="0<|x-a|<\cC{\delta} \;\Rightarrow\; |f(x)-L|<\cB{\varepsilon}"/>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Limit view" options={[['eps', 'ε–δ'], ['squeeze', 'Squeeze'], ['ivt', 'IVT']]}/>
+    <div data-mode="eps" style="display:contents">
+      <Slider name="eps" label="Tolerance ε" min={0.02} max={0.35} step={0.005} value={0.25} color="c2" digits={3}/>
+      <Readout name="delta" label="Largest δ" color="c3"/>
+    </div>
+    <div data-mode="squeeze" style="display:none">
+      <Segmented name="sq" label="Squeeze example" options={[['wiggle', '√(x³+x²) sin(π/x)'], ['sinc', 'sin x / x']]}/>
+      <Slider name="zoom" label="Zoom" min={0} max={3} step={0.01} value={0} color="c3"/>
+      <Readout name="bound" label="Bounds at edge" color="c3"/>
+    </div>
+    <div data-mode="ivt" style="display:none">
+      <Segmented name="jump" label="Continuity" options={[['cont', 'Continuous'], ['jump', 'With a jump']]}/>
+      <Slider name="N" label="Level N" min={-2.5} max={3.5} step={0.01} value={0} color="c2"/>
+      <Action name="halve" label="Halve [a, b]" icon="step"/>
+      <Action name="ivtReset" label="Reset" icon="reset"/>
+      <Readout name="fab" label="f(a), f(b)" color="c3"/>
+      <Readout name="c" label="c" color="c2"/>
+    </div>
+  </Fragment>
+</Scene>

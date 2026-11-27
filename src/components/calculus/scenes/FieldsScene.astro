@@ -1,0 +1,47 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+---
+<Scene id="fields" label="A plane filled with small arrows of a vector field, with blue particles drifting along them. A draggable circle C measures circulation and flux. A paddle wheel at a draggable point spins at a rate set by the curl, with rings pulsing outward or inward for the divergence. For Green's theorem the disk inside C is cut into cells shaded by their own circulation, and a panel shows that the cell circulations add up to the circulation around C. For a gradient field, a straight path and a curved path from A to B do the same work.">
+  <div class="beat" data-beat="Arrows everywhere">
+    <p>A vector field attaches an arrow to every point of the plane, <Tex t="\mathbf F(x,y) = \langle P(x,y),\, Q(x,y)\rangle"/>. Think of wind on a weather map or the current in a river. The <span class="k-c3">specks</span> are carried along by it.</p>
+    <p>This one is <Tex t="\mathbf F = \langle -y, x\rangle"/>. Every arrow is perpendicular to the line from the origin, so everything swirls counterclockwise, faster farther out.</p>
+  </div>
+  <div class="beat" data-beat="Circulation and flux">
+    <p>Drop a closed loop <Tex t="\cA{C}"/> into the flow and ask two questions. How hard does the flow push <em>along</em> the loop? That is the <strong>circulation</strong>, a line integral:</p>
+    <Tex display t="\oint_{\cA{C}} \mathbf F\cdot d\mathbf r = \int_a^b \mathbf F(\mathbf r(t))\cdot\mathbf r'(t)\,dt"/>
+    <p>And how much flows <em>across</em> the loop, outward? That is the <strong>flux</strong>, <Tex t="\oint_C \mathbf F\cdot\mathbf n\,ds"/>. For the swirl, the circulation is large and the flux is zero. Switch to Source and the two trade places. Drag the loop and change its radius.</p>
+    <p class="aside">For example, this turns <Tex t="\int_C yz\,dx + xz\,dy + xy\,dz"/> along <Tex t="\mathbf r = \langle t, t^2, t^3\rangle"/> into <Tex t="\int_0^2 6t^5\,dt = 64"/>: replace everything with its expression in <Tex t="t"/>.</p>
+  </div>
+  <div class="beat" data-beat="Curl and divergence">
+    <p>Shrink the loop down to a point and divide by its area. Circulation per unit area is the <span class="k-c2">curl</span>, and a tiny paddle wheel dropped in the flow spins at half that rate. Flux per unit area is the <span class="k-c3">divergence</span>: rings pulse outward where fluid is created and inward where it drains.</p>
+    <Tex display t="\cB{\operatorname{curl}\mathbf F} = Q_x - P_y \qquad \cC{\operatorname{div}\mathbf F} = P_x + Q_y"/>
+    <p>This is the field <Tex t="\mathbf F = \langle \sin x + y^2,\ x + \cos^3 y\rangle"/>. Its curl is <Tex t="1 - 2y"/>, so the wheel turns counterclockwise below the line <Tex t="y = \tfrac12"/>, stops on it, and turns clockwise above it.</p>
+  </div>
+  <div class="beat" data-beat="Green’s theorem">
+    <p>Cut the disk inside <Tex t="\cA{C}"/> into cells and find each cell’s own circulation, <span class="k-c2">amber</span> for counterclockwise and <span class="k-c4">rose</span> for clockwise. Where two cells meet, they run along the shared edge in opposite directions, so those two contributions cancel exactly.</p>
+    <p>What survives is the outer edge. So the cells add up to the circulation around <Tex t="C"/>, however finely you cut. Each small cell holds about <Tex t="\operatorname{curl}\mathbf F\cdot\Delta A"/>, and in the limit:</p>
+    <Tex display t="\oint_{\cA{C}} P\,dx + Q\,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA"/>
+    <p class="aside">A classic example applies this field to the region under <Tex t="y = \sin x"/>, traced clockwise, and gets <Tex t="\pi/2 - 2"/>. Stokes’ theorem and the divergence theorem are the same bookkeeping in three dimensions.</p>
+  </div>
+  <div class="beat" data-beat="Conservative fields">
+    <p>Some fields are gradients, <Tex t="\mathbf F = \nabla f"/>. Then the work from <Tex t="A"/> to <Tex t="B"/> is just the change in <Tex t="f"/>, whatever the route:</p>
+    <Tex display t="\int_C \nabla f\cdot d\mathbf r = f(B) - f(A)"/>
+    <p>The field <Tex t="\mathbf F = \langle 2x\sin y,\ x^2\cos y - 3y^2\rangle"/> passes the test <Tex t="P_y = 2x\cos y = Q_x"/>, with <Tex t="f = x^2\sin y - y^3"/>. From <Tex t="(1,0)"/> to <Tex t="(0,2)"/> the <span class="k-c1">straight</span> path and the <span class="k-c5">curved</span> one both do work <Tex t="-8"/>. Drag the curve’s lilac handle, or the endpoints. Then switch to Swirl and the two paths disagree.</p>
+  </div>
+  <Tex slot="takeaway" display t="\oint_C \mathbf F\cdot d\mathbf r = \iint_D \cB{\operatorname{curl}\mathbf F}\,dA"/>
+  <Fragment slot="controls">
+    <Segmented name="field" label="Field" options={[['swirl', 'Swirl'], ['source', 'Source'], ['grad', 'Gradient'], ['mixed', 'Mixed']]}/>
+    <Action name="flow" label="Flow" icon="play"/>
+    <Slider name="radius" label="Loop radius" min={0.3} max={2} step={0.01} value={1.1} color="c1"/>
+    <Slider name="cells" label="Cells" min={1} max={6} step={1} value={2} digits={0} color="c2"/>
+    <Readout name="circ" label="∮ F·dr" color="c1"/>
+    <Readout name="flux" label="Flux" color="c3"/>
+    <Readout name="curl" label="curl at wheel" color="c2"/>
+    <Readout name="div" label="div at wheel" color="c3"/>
+  </Fragment>
+</Scene>

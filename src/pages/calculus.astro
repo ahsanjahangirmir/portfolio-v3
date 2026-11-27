@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+import 'katex/dist/katex.min.css';
+import '../styles/calculus.css';
+import Tex from '../components/calculus/Tex.astro';
+import Library from '../components/calculus/Library.astro';
+import { acts } from '../data/calculus/scenes';
+import { recipes, recipesForScene } from '../data/calculus/library';
+import SecantScene from '../components/calculus/scenes/SecantScene.astro';
+import LimitScene from '../components/calculus/scenes/LimitScene.astro';
+import DerivativeScene from '../components/calculus/scenes/DerivativeScene.astro';
+import RulesScene from '../components/calculus/scenes/RulesScene.astro';
+import LinearScene from '../components/calculus/scenes/LinearScene.astro';
+import ShapeScene from '../components/calculus/scenes/ShapeScene.astro';
+import RiemannScene from '../components/calculus/scenes/RiemannScene.astro';
+import FtcScene from '../components/calculus/scenes/FtcScene.astro';
+import SolidsScene from '../components/calculus/scenes/SolidsScene.astro';
+import ArclengthScene from '../components/calculus/scenes/ArclengthScene.astro';
+import ImproperScene from '../components/calculus/scenes/ImproperScene.astro';
+import SlopefieldScene from '../components/calculus/scenes/SlopefieldScene.astro';
+import PolarScene from '../components/calculus/scenes/PolarScene.astro';
+import SeriesScene from '../components/calculus/scenes/SeriesScene.astro';
+import TaylorScene from '../components/calculus/scenes/TaylorScene.astro';
+import VectorsScene from '../components/calculus/scenes/VectorsScene.astro';
+import CurvesScene from '../components/calculus/scenes/CurvesScene.astro';
+import SurfaceScene from '../components/calculus/scenes/SurfaceScene.astro';
+import GradientScene from '../components/calculus/scenes/GradientScene.astro';
+import MultipleScene from '../components/calculus/scenes/MultipleScene.astro';
+import FieldsScene from '../components/calculus/scenes/FieldsScene.astro';
+import MeaningScene from '../components/calculus/scenes/MeaningScene.astro';
+
+const description = 'An interactive visual guide to Calculus I, II and Multivariable: 21 figures you can drag and scrub, from secant lines to Stokes’ theorem, plus a library of every common problem type with worked steps and checked practice.';
+const sceneCount = acts.reduce((n, a) => n + a.scenes.length, 0);
+const idsFor = (sceneIds: string[]) => sceneIds.flatMap(id => recipesForScene(id).map(r => r.id)).join(' ');
+const course = { 'act-1': 'calc1', 'act-2': 'calc2', 'act-3': 'calc3' } as const;
+const learning = {
+  '@context': 'https://schema.org', '@type': 'LearningResource', name: 'Calculus, made visible',
+  description, educationalLevel: 'Undergraduate', learningResourceType: ['Interactive resource', 'Exercise'],
+  teaches: ['Limits', 'Derivatives', 'Integrals', 'Series', 'Multivariable calculus', 'Vector calculus'],
+};
+---
+<Base title="Calculus, made visible" description={description}>
+<script type="application/ld+json" set:html={JSON.stringify(learning)}/>
+<div class="calc-page">
+<div class="calc-progress" aria-hidden="true"></div>
+
+<section class="calc-hero wrap" data-scene="hero" aria-labelledby="calc-title">
+  <div class="hero-meta"><span class="meta"><span class="status-dot orange"></span> A VISUAL GUIDE TO CALCULUS I, II AND MULTIVARIABLE</span><span class="meta hero-side-note">{sceneCount} SCENES · {recipes.length} RECIPES</span></div>
+  <div class="calc-hero-grid">
+    <h1 id="calc-title"><span class="hero-line"><span>Calculus,</span></span><span class="hero-line"><span>made</span></span><span class="hero-line"><span><em>visible.</em></span></span></h1>
+    <div>
+      <div class="calc-hero-art"><div class="scene-stage" role="img" aria-label="Two thousand points settle into a surface that slowly changes between a wave, a saddle and a ripple. Under the pointer, two short lines show the surface's slope in the x and y directions."></div></div>
+      <div class="calc-hero-caption"><span class="meta">2,025 POINTS. ONE SURFACE.</span><span class="hero-formula" data-hero-formula aria-hidden="true">
+        <span data-i="0"><Tex t="z = \sin x \cos y"/></span><span data-i="1"><Tex t="z = (x^2 - y^2)/6"/></span><span data-i="2"><Tex t="z = \sin r / r"/></span>
+      </span></div>
+    </div>
+  </div>
+  <div class="calc-hero-bottom">
+    <div>
+      <p>{sceneCount} figures you can drag and scrub, from the slope of a curve to Stokes’ theorem. Each one shows an idea first and names it second. Then you practise it with step-by-step recipes for every common problem type.</p>
+      <p>Scroll to play each figure’s story, or grab a figure and drag it yourself.</p>
+    </div>
+    <a class="round-link" href="#act-1"><span>Start with a slope</span><span class="round-arrow" aria-hidden="true">↓</span></a>
+  </div>
+</section>
+
+<section id="contents" class="calc-contents wrap" aria-labelledby="contents-title">
+  <div class="calc-contents-head"><h2 id="contents-title">Three acts<span class="accent">.</span></h2><span class="meta">A DOT FILLS IN WHEN YOU PRACTISE A SCENE’S RECIPES.</span></div>
+  <div class="calc-acts">
+    {acts.map(act => (
+      <div class="calc-act-card">
+        <span class="meta">ACT {act.numeral} · {act.course.toUpperCase()}</span>
+        <h3><a href={`#${act.id}`}>{act.name}<span>.</span></a></h3>
+        <p>{act.sub}</p>
+        <ol>
+          {act.scenes.map((s, i) => <li><a href={`#${s.id}`}><span class="meta">{String(acts.slice(0, acts.indexOf(act)).reduce((n, a) => n + a.scenes.length, 0) + i + 1).padStart(2, '0')}</span><span>{s.short}</span><span class="done" data-recipes={idsFor([s.id])} aria-hidden="true"></span></a></li>)}
+        </ol>
+        <div class="calc-act-progress" role="img" data-act-progress={recipes.filter(r => r.course === course[act.id as keyof typeof course]).map(r => r.id).join(' ')}><i></i></div>
+      </div>
+    ))}
+  </div>
+</section>
+
+{acts.map((act, ai) => (
+  <div class="calc-act wrap" id={act.id}>
+    <header class="calc-act-head">
+      <h2><span class="numeral">Act {act.numeral} · {act.course}</span>{act.name}<span class="accent">.</span></h2>
+      <p>{act.lede}<span>{act.sub}</span></p>
+    </header>
+    {ai === 0 && <><SecantScene/><LimitScene/><DerivativeScene/><RulesScene/><LinearScene/><ShapeScene/><RiemannScene/><FtcScene/></>}
+    {ai === 1 && <><SolidsScene/><ArclengthScene/><ImproperScene/><SlopefieldScene/><PolarScene/><SeriesScene/><TaylorScene/></>}
+    {ai === 2 && <><VectorsScene/><CurvesScene/><SurfaceScene/><GradientScene/><MultipleScene/><FieldsScene/></>}
+  </div>
+))}
+
+<div class="calc-coda wrap"><MeaningScene/></div>
+
+<Library/>
+</div>
+<script>
+import '../calculus/page';
+</script>
+</Base>

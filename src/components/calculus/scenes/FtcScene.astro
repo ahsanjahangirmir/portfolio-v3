@@ -1,0 +1,53 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="ftc" figure="tall" label="Two stacked graphs. Top: a function f(t) with the signed area from a fixed start a to a draggable end x shaded, blue where f is positive and rose where it is negative. Bottom: the accumulation function A(x), the area so far, traced as x moves, with an amber tangent whose slope matches the height f(x) on top. In Part II the bottom shows a family of antiderivatives F(x) + C, and the difference F(b) − F(a) stays the same for every C.">
+  <div class="beat" data-beat="Area so far">
+    <p>Start at <Tex t="a=-2"/> under the line <Tex t="\cA{f(t) = 3t+4}"/> and sweep the right edge <Tex t="x"/> to the right. The area swept so far is a number that depends on where you stop.</p>
+    <p>Area below the axis counts as negative: the <span class="k-c4">rose</span> triangle subtracts, the <span class="k-c3">blue</span> region adds.</p>
+    <p class="aside">Check with geometry: on <Tex t="[-2,1]"/> the triangles have areas <Tex t="2/3"/> (below) and <Tex t="49/6"/> (above), so the signed area is <Tex t="49/6 - 2/3 = 15/2"/>.</p>
+  </div>
+  <div class="beat" data-beat="A function of x">
+    <p>Call that number <Tex t="\cC{A(x)}"/> and graph it underneath. It dips first while rose area piles up, bottoms out at <Tex t="-2/3"/> where <Tex t="f"/> crosses zero, then climbs.</p>
+    <Tex display t="\cC{A(x)} = \int_a^x \cA{f(t)}\,dt"/>
+  </div>
+  <div class="beat" data-beat="Its slope is f">
+    <p>How fast does <Tex t="\cC{A}"/> grow? Push <Tex t="x"/> a little further, by <Tex t="dx"/>. The new sliver of area is about <Tex t="\cB{f(x)}\,dx"/>: height times width. So the slope of <Tex t="\cC{A}"/> is the <span class="k-c2">height</span> of <Tex t="f"/>.</p>
+    <Tex display t="\frac{d}{dx}\int_a^x \cA{f(t)}\,dt = \cB{f(x)}"/>
+    <p>That is the fundamental theorem, part one. Drag <Tex t="x"/>: the tangent slope below always equals the amber height above.</p>
+    <p class="aside">For example, for <Tex t="g(u) = \int_3^u \frac{dx}{x+x^2}"/>, just swap in the upper limit: <Tex t="g'(u) = \frac{1}{u+u^2}"/>.</p>
+  </div>
+  <div class="beat" data-beat="Any antiderivative">
+    <p>So <Tex t="\cC{A}"/> is an antiderivative of <Tex t="f"/>. Any other antiderivative differs from it by a constant: <Tex t="\cE{F(x) = \tfrac32x^2 + 4x + C}"/>. Changing <Tex t="C"/> slides the whole graph up or down, and the <span class="k-c2">rise</span> from <Tex t="a"/> to <Tex t="b"/> does not change.</p>
+    <Tex display t="\int_a^b \cA{f(x)}\,dx = \cE{F(b)} - \cE{F(a)}"/>
+    <p>Here <Tex t="F(1) - F(-2) = 11/2 - (-2) = 15/2"/>, the same as the geometry gave. Drag the lilac point or the <Tex t="C"/> slider.</p>
+    <p class="aside">An extra condition such as <Tex t="f(1) = 4"/> is what pins down <Tex t="C"/>.</p>
+  </div>
+  <div class="beat" data-beat="A full wave">
+    <p>Now <Tex t="\cA{f(t) = \sin t}"/> from <Tex t="0"/>. The area grows to <Tex t="2"/> at <Tex t="\pi"/>, then the rose half of the wave pays it all back: <Tex t="\cC{A(x)} = 1-\cos x"/> returns to zero at <Tex t="2\pi"/>.</p>
+    <p>Its slope is <Tex t="\sin x"/> again, exactly the height of the curve on top. Integration adds up, differentiation takes the rate, and each undoes the other.</p>
+  </div>
+  <Tex slot="takeaway" display t="\frac{d}{dx}\int_a^x \cA{f(t)}\,dt = \cB{f(x)}, \qquad \int_a^b \cA{f}\,dx = \cE{F(b) - F(a)}"/>
+  <Fragment slot="controls">
+    <Segmented name="part" label="Theorem part" options={[['one', 'Part I'], ['two', 'Part II']]}/>
+    <Segmented name="fn" label="Function" options={[['lin', '3t + 4'], ['sin', 'sin t']]}/>
+    <div data-mode="one" style="display:contents">
+      <Slider name="x" label="Upper limit x" min={-2} max={1.4} step={0.01} value={-2} color="c2"/>
+      <Action name="sweep" label="Sweep" icon="play"/>
+      <Readout name="A" label="A(x)" color="c3"/>
+      <Readout name="dA" label="A′(x)" color="c2"/>
+      <Readout name="fx" label="f(x)" color="c1"/>
+    </div>
+    <div data-mode="two" style="display:none">
+      <Slider name="C" label="Constant C" min={-3} max={3} step={0.01} value={0} color="c5"/>
+      <Readout name="Fa" label="F(a)" color="c5"/>
+      <Readout name="Fb" label="F(b)" color="c5"/>
+      <Readout name="diff" label="F(b) − F(a)" color="c2"/>
+    </div>
+  </Fragment>
+</Scene>

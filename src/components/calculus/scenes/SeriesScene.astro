@@ -1,0 +1,45 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+---
+<Scene id="series" label="Top panel: the terms of a series, drawn as tiles filling a unit square for 1/2 plus 1/4 plus and so on, as bars under the curves 1 over x or 1 over x squared, as a ping-pong path for the alternating harmonic series, or as signed bars for n squared over minus 2 to the n. Bottom panel: the partial sums S n plotted against n, with the limit drawn as a dashed line and a label naming the convergence test and its verdict.">
+  <div class="beat" data-beat="Halves fill a square">
+    <p>Start with a square of area 1. Shade half of it, then half of what is left, then half of that. The shaded pieces are <Tex t="\tfrac12, \tfrac14, \tfrac18, \dots"/>, and they never spill outside the square.</p>
+    <p>However many you add, the total stays below 1, and the gap halves every time.</p>
+  </div>
+  <div class="beat" data-beat="Partial sums">
+    <p>An infinite sum means the limit of the <span class="k-c1">partial sums</span>, the running totals <Tex t="S_n = a_1 + \dots + a_n"/>. If they settle on a number, the series converges to it.</p>
+    <Tex display t="\sum_{n=1}^\infty a r^{n-1} = \frac{a}{1-r} \quad \text{when } |r| < 1"/>
+    <p class="aside">For example, <Tex t="\sum_{n\ge2} 2(-3)^n/5^n"/> has first term <Tex t="a = 18/25"/> and ratio <Tex t="r = -3/5"/>, so it equals <Tex t="\frac{18/25}{8/5} = \frac{9}{20}"/>.</p>
+  </div>
+  <div class="beat" data-beat="The harmonic trap">
+    <p>The terms of <Tex t="1 + \tfrac12 + \tfrac13 + \dots"/> shrink to zero, yet the sum grows without bound. Each bar has width 1, so the bars cover the area under <span class="k-c1"><Tex t="y = 1/x"/></span>, and that area is infinite.</p>
+    <p>A hundred terms only reach about <Tex t="5.19"/>. Reaching 100 would take more than <Tex t="10^{43}"/> terms. Slow is not the same as bounded.</p>
+    <p class="aside">The divergence test only works one way: terms that do not go to 0 force divergence, but terms going to 0 prove nothing.</p>
+  </div>
+  <div class="beat" data-beat="p = 2">
+    <p>Square the denominators and the picture changes. The bars now sit under <Tex t="y = 1/x^2"/>, whose area from 1 to infinity is finite, so the partial sums are bounded and must settle. Euler found the limit:</p>
+    <Tex display t="1 + \tfrac14 + \tfrac19 + \dots = \frac{\pi^2}{6} \approx 1.6449"/>
+    <p class="aside">The p-test: <Tex t="\sum 1/n^p"/> converges exactly when <Tex t="p > 1"/>, the same line as for improper integrals.</p>
+  </div>
+  <div class="beat" data-beat="Ping-pong">
+    <p>Flip every other sign: <Tex t="1 - \tfrac12 + \tfrac13 - \tfrac14 + \dots"/> Each partial sum jumps across the limit, and each jump is shorter than the last. They zigzag in on <Tex t="\ln 2"/>.</p>
+    <p>Call it the ping-pong test: if the terms alternate in sign and shrink to 0, the series converges, and the error is at most the next term. With the signs removed it is the harmonic series, so the convergence is only <em>conditional</em>.</p>
+  </div>
+  <div class="beat" data-beat="Ratio test">
+    <p>For <Tex t="\sum n^2/(-2)^n"/> the terms first grow, then shrink. In the long run each term is about half the size of the one before:</p>
+    <Tex display t="\left|\frac{a_{n+1}}{a_n}\right| = \frac{(n+1)^2}{2n^2} \to \frac12 < 1"/>
+    <p>That makes it eventually behave like a geometric series with <Tex t="r = \tfrac12"/>, so it converges absolutely, here to <Tex t="-2/27"/>.</p>
+  </div>
+  <Tex slot="takeaway" display t="\sum_{n=1}^\infty a_n = \lim_{n\to\infty} \cA{S_n}"/>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Series" options={[['geo', '½ + ¼ + …'], ['harm', 'Σ 1/n'], ['basel', 'Σ 1/n²'], ['alt', 'Σ (−1)ⁿ⁺¹/n'], ['ratio', 'Σ n²/(−2)ⁿ']]}/>
+    <Slider name="n" label="Terms n" min={1} max={100} step={1} value={1} color="c1" digits={0}/>
+    <Readout name="sn" label="Sₙ" color="c1"/>
+    <Readout name="limit" label="Limit" color="c3"/>
+    <Readout name="verdict" label="Verdict"/>
+  </Fragment>
+</Scene>

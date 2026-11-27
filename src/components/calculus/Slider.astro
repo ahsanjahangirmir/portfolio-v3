@@ -1,0 +1,12 @@
+---
+// Range control bound by scene.slider(name). Value text updates live in the <output>.
+const { name, label, min, max, step = 0.01, value, digits = 2, unit = '', prefix = '', color = 'c1' } = Astro.props as {
+  name: string; label: string; min: number; max: number; step?: number; value: number; digits?: number; unit?: string; prefix?: string; color?: string;
+};
+const id = `ctl-${Astro.props.scene ?? ''}${name}-${Math.random().toString(36).slice(2, 7)}`;
+---
+<label class="ctl ctl-slider" for={id} style={`--ctl:var(--calc-${color})`}>
+  <span class="ctl-label">{label}</span>
+  <input id={id} type="range" data-control={name} min={min} max={max} step={step} value={value} data-digits={digits} data-unit={unit} data-prefix={prefix}/>
+  <output data-for={name} for={id}>{prefix}{value}{unit}</output>
+</label>

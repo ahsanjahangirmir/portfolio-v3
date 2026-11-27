@@ -1,0 +1,2574 @@
+{
+  "recipes": [
+    {
+      "id": "c2-9.1.1",
+      "course": "calc2",
+      "section": "9.1",
+      "topic": "Modeling with Differential Equations",
+      "title": "Verify a solution of an IVP",
+      "type": "Show that $y=f(x)$ is a solution of the initial value problem $y' + A(x)\\,y = B(x)$, $y(a)=b$.",
+      "example": {
+        "problem": "Show that $y=\\sin x\\cos x-\\cos x$ is a solution of the initial value problem $y'+(\\tan x)\\,y=\\cos^2 x$, $y(0)=-1$.",
+        "steps": [
+          {
+            "do": "Copy $y$ and compute $y'$ (and $y''$, etc., if necessary).",
+            "work": "$$\\begin{aligned} y&=\\sin x\\cos x-\\cos x\\\\ y'&=(\\cos x)(\\cos x)+(\\sin x)(-\\sin x)+\\sin x\\\\ &=\\cos^2x-\\sin^2x+\\sin x \\end{aligned}$$"
+          },
+          {
+            "do": "Substitute $y$ and $y'$ into the differential equation and see whether the left side equals the right side.",
+            "work": "$$\\begin{aligned} y'+(\\tan x)y&=\\cos^2x-\\sin^2x+\\sin x+\\frac{\\sin x}{\\cos x}\\,(\\sin x-1)\\cos x\\\\ &=\\cos^2x-\\sin^2x+\\sin x+\\sin^2x-\\sin x\\\\ &=\\cos^2x \\end{aligned}$$ which is the right side, as claimed."
+          },
+          {
+            "do": "Plug the initial condition $x=a$ into the function and check that it equals $b$.",
+            "work": "$y(0)=\\sin 0\\cos 0-\\cos 0=0-1=-1$, as claimed."
+          }
+        ],
+        "answer": "Verified: the equation holds and $y(0)=-1$."
+      },
+      "practice": [
+        {
+          "problem": "Show that $y=xe^{-2x}$ is a solution of the initial value problem $y'+2y=e^{-2x}$, $y(0)=0$. Enter $y'$ as a function of $x$ (the work of step 1).",
+          "steps": [
+            {
+              "do": "Copy $y$ and compute $y'$ (and $y''$, etc., if necessary).",
+              "work": "$$y'=(1)(e^{-2x})+(x)(-2e^{-2x})=e^{-2x}-2xe^{-2x}$$"
+            },
+            {
+              "do": "Substitute $y$ and $y'$ into the differential equation and see whether the left side equals the right side.",
+              "work": "$$y'+2y=e^{-2x}-2xe^{-2x}+2xe^{-2x}=e^{-2x}$$ which is the right side, as claimed."
+            },
+            {
+              "do": "Plug the initial condition $x=a$ into the function and check that it equals $b$.",
+              "work": "$y(0)=0\\cdot e^{0}=0$, as claimed."
+            }
+          ],
+          "answer": "Verified: $y'=e^{-2x}-2xe^{-2x}$, the equation holds and $y(0)=0$.",
+          "check": {
+            "kind": "expr",
+            "value": "exp(-2*x)-2*x*exp(-2*x)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Show that $y=x\\sin x$ is a solution of the initial value problem $y'-\\dfrac1x\\,y=x\\cos x$, $y\\!\\left(\\dfrac{\\pi}{2}\\right)=\\dfrac{\\pi}{2}$. Enter $y'$ as a function of $x$ (the work of step 1).",
+          "steps": [
+            {
+              "do": "Copy $y$ and compute $y'$ (and $y''$, etc., if necessary).",
+              "work": "$$y'=(1)(\\sin x)+(x)(\\cos x)=\\sin x+x\\cos x$$"
+            },
+            {
+              "do": "Substitute $y$ and $y'$ into the differential equation and see whether the left side equals the right side.",
+              "work": "$$y'-\\frac1x\\,y=\\sin x+x\\cos x-\\frac{x\\sin x}{x}=\\sin x+x\\cos x-\\sin x=x\\cos x$$ which is the right side, as claimed."
+            },
+            {
+              "do": "Plug the initial condition $x=a$ into the function and check that it equals $b$.",
+              "work": "$y(\\pi/2)=\\dfrac{\\pi}{2}\\sin\\dfrac{\\pi}{2}=\\dfrac{\\pi}{2}$, as claimed."
+            }
+          ],
+          "answer": "Verified: $y'=\\sin x+x\\cos x$, the equation holds and $y(\\pi/2)=\\pi/2$.",
+          "check": {
+            "kind": "expr",
+            "value": "sin(x)+x*cos(x)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "slopefield"
+    },
+    {
+      "id": "c2-9.1.2",
+      "course": "calc2",
+      "section": "9.1",
+      "topic": "Modeling with Differential Equations",
+      "title": "Exponential solutions of an ODE",
+      "type": "For what value of $r$ does the function $y=e^{rt}$ satisfy the differential equation $y''+ay'+by=0$?",
+      "example": {
+        "problem": "For what value of $r$ does the function $y=e^{rt}$ satisfy the differential equation $y''+y'-2y=0$?",
+        "steps": [
+          {
+            "do": "Pretend $r$ is a specific number: copy $y$ and compute $y'$ and $y''$. These involve $r$ as well as $t$.",
+            "work": "$$y=e^{rt},\\qquad y'=re^{rt},\\qquad y''=r^2e^{rt}$$"
+          },
+          {
+            "do": "Substitute $y,y',y''$ into the differential equation, then factor out $e^{rt}$.",
+            "work": "$$y''+y'-2y=r^2e^{rt}+re^{rt}-2e^{rt}=(r^2+r-2)\\,e^{rt}$$"
+          },
+          {
+            "do": "Set the remaining factor equal to $0$ (since $e^{rt}$ is never zero) and solve for $r$. Plug these values of $r$ back into $y=e^{rt}$.",
+            "work": "Since $e^{rt}\\neq0$, we need $r^2+r-2=0$, i.e. $(r+2)(r-1)=0$, so $r=-2$ or $r=1$. The solutions of the suggested form are $y=e^{-2t}$ and $y=e^{t}$."
+          }
+        ],
+        "answer": "$r=-2$ and $r=1$, i.e. $y=e^{-2t}$ and $y=e^{t}$.",
+        "check": {
+          "kind": "set",
+          "values": [
+            "-2",
+            "1"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "For what values of $r$ does $y=e^{rt}$ satisfy $y''-5y'+4y=0$? Enter the values of $r$, separated by commas.",
+          "steps": [
+            {
+              "do": "Pretend $r$ is a specific number: copy $y$ and compute $y'$ and $y''$. These involve $r$ as well as $t$.",
+              "work": "$$y=e^{rt},\\qquad y'=re^{rt},\\qquad y''=r^2e^{rt}$$"
+            },
+            {
+              "do": "Substitute $y,y',y''$ into the differential equation, then factor out $e^{rt}$.",
+              "work": "$$y''-5y'+4y=r^2e^{rt}-5re^{rt}+4e^{rt}=(r^2-5r+4)\\,e^{rt}$$"
+            },
+            {
+              "do": "Set the remaining factor equal to $0$ (since $e^{rt}$ is never zero) and solve for $r$. Plug these values of $r$ back into $y=e^{rt}$.",
+              "work": "Since $e^{rt}\\neq0$: $r^2-5r+4=0$, i.e. $(r-1)(r-4)=0$, so $r=1$ or $r=4$. The solutions are $y=e^{t}$ and $y=e^{4t}$."
+            }
+          ],
+          "answer": "$r=1$ and $r=4$, i.e. $y=e^{t}$ and $y=e^{4t}$.",
+          "check": {
+            "kind": "set",
+            "values": [
+              "1",
+              "4"
+            ]
+          }
+        },
+        {
+          "problem": "For what values of $r$ does $y=e^{rt}$ satisfy $y''+2y'-15y=0$? Enter the values of $r$, separated by commas.",
+          "steps": [
+            {
+              "do": "Pretend $r$ is a specific number: copy $y$ and compute $y'$ and $y''$. These involve $r$ as well as $t$.",
+              "work": "$$y=e^{rt},\\qquad y'=re^{rt},\\qquad y''=r^2e^{rt}$$"
+            },
+            {
+              "do": "Substitute $y,y',y''$ into the differential equation, then factor out $e^{rt}$.",
+              "work": "$$y''+2y'-15y=r^2e^{rt}+2re^{rt}-15e^{rt}=(r^2+2r-15)\\,e^{rt}$$"
+            },
+            {
+              "do": "Set the remaining factor equal to $0$ (since $e^{rt}$ is never zero) and solve for $r$. Plug these values of $r$ back into $y=e^{rt}$.",
+              "work": "Since $e^{rt}\\neq0$: $r^2+2r-15=0$, i.e. $(r+5)(r-3)=0$, so $r=-5$ or $r=3$. The solutions are $y=e^{-5t}$ and $y=e^{3t}$."
+            }
+          ],
+          "answer": "$r=-5$ and $r=3$, i.e. $y=e^{-5t}$ and $y=e^{3t}$.",
+          "check": {
+            "kind": "set",
+            "values": [
+              "-5",
+              "3"
+            ]
+          }
+        }
+      ],
+      "scene": "slopefield"
+    },
+    {
+      "id": "c2-9.3.1",
+      "course": "calc2",
+      "section": "9.3",
+      "topic": "Separable Equations",
+      "title": "Solve a separable equation",
+      "type": "Solve the differential equation $y'=A(x)\\,B(y)$ (with an initial condition, if one is given).",
+      "example": {
+        "problem": "Solve the differential equation $y'=y^2\\sec x$.",
+        "steps": [
+          {
+            "do": "If it is not already written so, replace $y'$ by $\\dfrac{dy}{dx}$. Treat $dy$ and $dx$ as algebraic quantities and separate the $x$-part from the $y$-part: $\\dfrac{dy}{B(y)}=A(x)\\,dx$.",
+            "work": "$$\\frac{dy}{dx}=y^2\\sec x\\quad\\Longrightarrow\\quad \\frac{dy}{y^2}=\\sec x\\,dx,\\quad\\text{i.e.}\\quad y^{-2}\\,dy=\\sec x\\,dx$$"
+          },
+          {
+            "do": "Apply the integral sign to both sides and integrate. Put the $+C$ on one side only.",
+            "work": "$$\\int y^{-2}\\,dy=\\int\\sec x\\,dx\\quad\\Longrightarrow\\quad -\\frac1y=\\ln|\\sec x+\\tan x|+C$$"
+          },
+          {
+            "do": "If possible, solve for $y$. If there is an initial condition, plug it in and solve for $C$; if nothing is mentioned, leave $C$ alone.",
+            "work": "$$y=-\\frac{1}{\\ln|\\sec x+\\tan x|+C}$$"
+          }
+        ],
+        "answer": "$y=-\\dfrac{1}{\\ln|\\sec x+\\tan x|+C}$"
+      },
+      "practice": [
+        {
+          "problem": "Solve the initial value problem $y'=x^2y^2$, $y(0)=1$. Enter $y$ as a function of $x$.",
+          "steps": [
+            {
+              "do": "If it is not already written so, replace $y'$ by $\\dfrac{dy}{dx}$. Treat $dy$ and $dx$ as algebraic quantities and separate the $x$-part from the $y$-part: $\\dfrac{dy}{B(y)}=A(x)\\,dx$.",
+              "work": "$$\\frac{dy}{dx}=x^2y^2\\quad\\Longrightarrow\\quad y^{-2}\\,dy=x^2\\,dx$$"
+            },
+            {
+              "do": "Apply the integral sign to both sides and integrate. Put the $+C$ on one side only.",
+              "work": "$$\\int y^{-2}\\,dy=\\int x^2\\,dx\\quad\\Longrightarrow\\quad -\\frac1y=\\frac{x^3}{3}+C$$"
+            },
+            {
+              "do": "If possible, solve for $y$. If there is an initial condition, plug it in and solve for $C$; if nothing is mentioned, leave $C$ alone.",
+              "work": "$y(0)=1$ gives $-1=0+C$, so $C=-1$. Then $-\\dfrac1y=\\dfrac{x^3}{3}-1=\\dfrac{x^3-3}{3}$, so $$y=\\frac{3}{3-x^3}$$"
+            }
+          ],
+          "answer": "$y=\\dfrac{3}{3-x^3}$",
+          "check": {
+            "kind": "expr",
+            "value": "3/(3-x^3)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Solve the initial value problem $y'=\\dfrac{e^{x}}{y}$, $y(0)=2$. Enter $y$ as a function of $x$.",
+          "steps": [
+            {
+              "do": "If it is not already written so, replace $y'$ by $\\dfrac{dy}{dx}$. Treat $dy$ and $dx$ as algebraic quantities and separate the $x$-part from the $y$-part: $\\dfrac{dy}{B(y)}=A(x)\\,dx$.",
+              "work": "$$\\frac{dy}{dx}=\\frac{e^x}{y}\\quad\\Longrightarrow\\quad y\\,dy=e^x\\,dx$$"
+            },
+            {
+              "do": "Apply the integral sign to both sides and integrate. Put the $+C$ on one side only.",
+              "work": "$$\\int y\\,dy=\\int e^x\\,dx\\quad\\Longrightarrow\\quad \\frac{y^2}{2}=e^x+C$$"
+            },
+            {
+              "do": "If possible, solve for $y$. If there is an initial condition, plug it in and solve for $C$; if nothing is mentioned, leave $C$ alone.",
+              "work": "$y(0)=2$ gives $2=1+C$, so $C=1$. Then $y^2=2e^x+2$, and since $y(0)=2>0$ we take the positive root: $$y=\\sqrt{2e^x+2}$$"
+            }
+          ],
+          "answer": "$y=\\sqrt{2e^x+2}$",
+          "check": {
+            "kind": "expr",
+            "value": "sqrt(2*exp(x)+2)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "slopefield"
+    },
+    {
+      "id": "c2-9.3.2",
+      "course": "calc2",
+      "section": "9.3",
+      "topic": "Separable Equations",
+      "title": "Curve with a given slope",
+      "type": "Find an equation of the curve that passes through the point $(a,b)$ and whose slope at $(x,y)$ is $A(y)/B(x)$.",
+      "example": {
+        "problem": "Find an equation of the curve that passes through the point $(1,1)$ and whose slope at $(x,y)$ is $y^2/x^3$.",
+        "steps": [
+          {
+            "do": "Slope is derivative, so set it equal to $\\dfrac{dy}{dx}$. Treat $dy$ and $dx$ as algebraic quantities and separate the $y$-part from the $x$-part.",
+            "work": "$$\\frac{dy}{dx}=\\frac{y^2}{x^3}\\quad\\Longrightarrow\\quad \\frac{dy}{y^2}=\\frac{dx}{x^3},\\quad\\text{i.e.}\\quad y^{-2}\\,dy=x^{-3}\\,dx$$"
+          },
+          {
+            "do": "Apply the integral sign to both sides and integrate. Put the $+C$ on one side only.",
+            "work": "$$\\frac{y^{-1}}{-1}=\\frac{x^{-2}}{-2}+C\\quad\\Longrightarrow\\quad -\\frac1y=-\\frac{1}{2x^2}+C$$"
+          },
+          {
+            "do": "Plug in the point $(x=a,\\,y=b)$ and solve for $C$. Plug that $C$ back and, if possible, express $y$ in terms of $x$.",
+            "work": "At $(1,1)$: $-1=-\\dfrac12+C$, so $C=-\\dfrac12$. Then $-\\dfrac1y=-\\dfrac{1}{2x^2}-\\dfrac12$, so $\\dfrac1y=\\dfrac{1+x^2}{2x^2}$ and $$y=\\frac{2x^2}{1+x^2}$$"
+          }
+        ],
+        "answer": "$y=\\dfrac{2x^2}{1+x^2}$",
+        "check": {
+          "kind": "expr",
+          "value": "2*x^2/(1+x^2)",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find an equation of the curve that passes through the point $(1,e)$ and whose slope at $(x,y)$ is $y/x^2$. Enter $y$ as a function of $x$.",
+          "steps": [
+            {
+              "do": "Slope is derivative, so set it equal to $\\dfrac{dy}{dx}$. Treat $dy$ and $dx$ as algebraic quantities and separate the $y$-part from the $x$-part.",
+              "work": "$$\\frac{dy}{dx}=\\frac{y}{x^2}\\quad\\Longrightarrow\\quad \\frac{dy}{y}=x^{-2}\\,dx$$"
+            },
+            {
+              "do": "Apply the integral sign to both sides and integrate. Put the $+C$ on one side only.",
+              "work": "$$\\ln|y|=-\\frac1x+C$$"
+            },
+            {
+              "do": "Plug in the point $(x=a,\\,y=b)$ and solve for $C$. Plug that $C$ back and, if possible, express $y$ in terms of $x$.",
+              "work": "At $(1,e)$: $\\ln e=1=-1+C$, so $C=2$. Then $\\ln y=2-\\dfrac1x$ (taking $y>0$), so $$y=e^{\\,2-1/x}$$"
+            }
+          ],
+          "answer": "$y=e^{2-1/x}$",
+          "check": {
+            "kind": "expr",
+            "value": "exp(2-1/x)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find an equation of the curve that passes through the point $(1,2)$ and whose slope at $(x,y)$ is $y^2/x^2$. Enter $y$ as a function of $x$.",
+          "steps": [
+            {
+              "do": "Slope is derivative, so set it equal to $\\dfrac{dy}{dx}$. Treat $dy$ and $dx$ as algebraic quantities and separate the $y$-part from the $x$-part.",
+              "work": "$$\\frac{dy}{dx}=\\frac{y^2}{x^2}\\quad\\Longrightarrow\\quad y^{-2}\\,dy=x^{-2}\\,dx$$"
+            },
+            {
+              "do": "Apply the integral sign to both sides and integrate. Put the $+C$ on one side only.",
+              "work": "$$-\\frac1y=-\\frac1x+C$$"
+            },
+            {
+              "do": "Plug in the point $(x=a,\\,y=b)$ and solve for $C$. Plug that $C$ back and, if possible, express $y$ in terms of $x$.",
+              "work": "At $(1,2)$: $-\\dfrac12=-1+C$, so $C=\\dfrac12$. Then $\\dfrac1y=\\dfrac1x-\\dfrac12=\\dfrac{2-x}{2x}$, so $$y=\\frac{2x}{2-x}$$"
+            }
+          ],
+          "answer": "$y=\\dfrac{2x}{2-x}$",
+          "check": {
+            "kind": "expr",
+            "value": "2*x/(2-x)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "slopefield"
+    },
+    {
+      "id": "c2-9.4.1",
+      "course": "calc2",
+      "section": "9.4",
+      "topic": "Exponential Growth and Decay",
+      "title": "Population growth",
+      "type": "A bacteria culture starts with $B_0$ bacteria and grows at a rate proportional to its size. After $T_1$ hours there are $B_1$ bacteria. (a) Find an expression for the number of bacteria after $t$ hours. (b) Find the number of bacteria after $T_2$ hours. (c) Find the rate of growth after $T_2$ hours. (d) When will the population reach $B_2$?",
+      "example": {
+        "problem": "A bacteria culture starts with 50 bacteria and grows at a rate proportional to its size. After 3 hours there are 800 bacteria. (a) Find an expression for the number of bacteria after $t$ hours. (b) Find the number of bacteria after 4 hours. (c) Find the rate of growth after 4 hours. (d) When will the population reach 3000?",
+        "steps": [
+          {
+            "do": "Let $P(t)$ be the number of bacteria after $t$ hours. The initial value problem is $P'(t)=kP(t)$, $P(0)=B_0$, for some yet-to-be-determined $k$. The solution to memorize is $P(t)=B_0e^{kt}$.",
+            "work": "$P'(t)=kP(t)$, $P(0)=50$, so $P(t)=50e^{kt}$."
+          },
+          {
+            "do": "Plug in $t=T_1$, use $P(T_1)=B_1$, and solve for $k$. Put $k$ back into $P(t)$ and simplify with $a\\ln b=\\ln b^a$ and $e^{\\ln w}=w$. (Shortcut: $P(t)=B_0\\left(\\dfrac{B_1}{B_0}\\right)^{t/T_1}$.)",
+            "work": "$P(3)=800$ means $50e^{3k}=800$, so $e^{3k}=16$ and $3k=\\ln16$, giving $k=\\tfrac13\\ln16$. Then $$P(t)=50e^{(\\frac13\\ln16)t}=50\\cdot16^{t/3}.$$ (Shortcut: $50\\left(\\frac{800}{50}\\right)^{t/3}=50\\cdot16^{t/3}$.) This is the answer to (a)."
+          },
+          {
+            "do": "Plug $t=T_2$ into the formula for $P(t)$ that you just found.",
+            "work": "$P(4)=50\\cdot16^{4/3}\\approx2016$. This is the answer to (b)."
+          },
+          {
+            "do": "Since $P'(t)=kP(t)$, the rate of growth after $T_2$ hours is $kP(T_2)$: multiply the answer to (b) by the $k$ from step 2.",
+            "work": "$P'(4)=kP(4)=\\tfrac13(\\ln16)\\cdot50\\cdot16^{4/3}\\approx1863$ bacteria per hour. This is the answer to (c)."
+          },
+          {
+            "do": "Solve $P(t)=B_2$ for $t$.",
+            "work": "$50\\cdot16^{t/3}=3000$ means $16^{t/3}=60$, so $\\dfrac t3\\ln16=\\ln60$ and $$t=\\frac{3\\ln60}{\\ln16}\\approx4.43\\text{ hours}$$ (about 4 hours 26 minutes)."
+          }
+        ],
+        "answer": "(a) $P(t)=50\\cdot16^{t/3}$; (b) $50\\cdot16^{4/3}\\approx2016$; (c) $\\approx1863$ bacteria per hour; (d) $\\dfrac{3\\ln60}{\\ln16}\\approx4.43$ hours."
+      },
+      "practice": [
+        {
+          "problem": "A bacteria culture starts with 200 bacteria and grows at a rate proportional to its size. After 2 hours there are 800 bacteria. (a) Find an expression for the number of bacteria after $t$ hours. (b) Find the number after 5 hours. (c) Find the rate of growth after 5 hours. (d) When will the population reach 12800? Enter the answer to (c), in bacteria per hour.",
+          "steps": [
+            {
+              "do": "Let $P(t)$ be the number of bacteria after $t$ hours. The initial value problem is $P'(t)=kP(t)$, $P(0)=B_0$, for some yet-to-be-determined $k$. The solution to memorize is $P(t)=B_0e^{kt}$.",
+              "work": "$P'(t)=kP(t)$, $P(0)=200$, so $P(t)=200e^{kt}$."
+            },
+            {
+              "do": "Plug in $t=T_1$, use $P(T_1)=B_1$, and solve for $k$. Put $k$ back into $P(t)$ and simplify with $a\\ln b=\\ln b^a$ and $e^{\\ln w}=w$. (Shortcut: $P(t)=B_0\\left(\\dfrac{B_1}{B_0}\\right)^{t/T_1}$.)",
+              "work": "$P(2)=800$ means $200e^{2k}=800$, so $e^{2k}=4$ and $k=\\tfrac12\\ln4=\\ln2$. Then $$P(t)=200\\cdot4^{t/2}=200\\cdot2^t.$$ This is the answer to (a)."
+            },
+            {
+              "do": "Plug $t=T_2$ into the formula for $P(t)$ that you just found.",
+              "work": "$P(5)=200\\cdot2^5=6400$. This is the answer to (b)."
+            },
+            {
+              "do": "Since $P'(t)=kP(t)$, the rate of growth after $T_2$ hours is $kP(T_2)$: multiply the answer to (b) by the $k$ from step 2.",
+              "work": "$P'(5)=kP(5)=(\\ln2)(6400)\\approx4436$ bacteria per hour. This is the answer to (c)."
+            },
+            {
+              "do": "Solve $P(t)=B_2$ for $t$.",
+              "work": "$200\\cdot2^t=12800$ means $2^t=64$, so $t=6$ hours."
+            }
+          ],
+          "answer": "(a) $P(t)=200\\cdot2^t$; (b) $6400$; (c) $6400\\ln2\\approx4436$ bacteria per hour; (d) $6$ hours.",
+          "check": {
+            "kind": "number",
+            "value": "6400*ln(2)"
+          }
+        },
+        {
+          "problem": "A bacteria culture starts with 500 bacteria and grows at a rate proportional to its size. After 2 hours there are 4500 bacteria. (a) Find an expression for the number of bacteria after $t$ hours. (b) Find the number after 3 hours. (c) Find the rate of growth after 3 hours. (d) When will the population reach 20000? Enter the answer to (d), in hours.",
+          "steps": [
+            {
+              "do": "Let $P(t)$ be the number of bacteria after $t$ hours. The initial value problem is $P'(t)=kP(t)$, $P(0)=B_0$, for some yet-to-be-determined $k$. The solution to memorize is $P(t)=B_0e^{kt}$.",
+              "work": "$P'(t)=kP(t)$, $P(0)=500$, so $P(t)=500e^{kt}$."
+            },
+            {
+              "do": "Plug in $t=T_1$, use $P(T_1)=B_1$, and solve for $k$. Put $k$ back into $P(t)$ and simplify with $a\\ln b=\\ln b^a$ and $e^{\\ln w}=w$. (Shortcut: $P(t)=B_0\\left(\\dfrac{B_1}{B_0}\\right)^{t/T_1}$.)",
+              "work": "$P(2)=4500$ means $500e^{2k}=4500$, so $e^{2k}=9$ and $k=\\tfrac12\\ln9=\\ln3$. Then $$P(t)=500\\cdot9^{t/2}=500\\cdot3^t.$$ This is the answer to (a)."
+            },
+            {
+              "do": "Plug $t=T_2$ into the formula for $P(t)$ that you just found.",
+              "work": "$P(3)=500\\cdot3^3=13500$. This is the answer to (b)."
+            },
+            {
+              "do": "Since $P'(t)=kP(t)$, the rate of growth after $T_2$ hours is $kP(T_2)$: multiply the answer to (b) by the $k$ from step 2.",
+              "work": "$P'(3)=kP(3)=(\\ln3)(13500)\\approx14831$ bacteria per hour. This is the answer to (c)."
+            },
+            {
+              "do": "Solve $P(t)=B_2$ for $t$.",
+              "work": "$500\\cdot3^t=20000$ means $3^t=40$. Taking $\\ln$: $t\\ln3=\\ln40$, so $$t=\\frac{\\ln40}{\\ln3}\\approx3.36\\text{ hours}.$$"
+            }
+          ],
+          "answer": "(a) $P(t)=500\\cdot3^t$; (b) $13500$; (c) $13500\\ln3\\approx14831$ bacteria per hour; (d) $\\dfrac{\\ln40}{\\ln3}\\approx3.36$ hours.",
+          "check": {
+            "kind": "number",
+            "value": "ln(40)/ln(3)"
+          }
+        }
+      ],
+      "scene": "slopefield"
+    },
+    {
+      "id": "c2-9.4.2",
+      "course": "calc2",
+      "section": "9.4",
+      "topic": "Exponential Growth and Decay",
+      "title": "Radioactive half-life",
+      "type": "The half-life of some radioactive element is $T_{1/2}$ years. Suppose we have an $M_0$-mg sample. (a) Find the mass that remains after $t$ years. (b) How much of the sample remains after $T_1$ years? (c) After how long will only $M_1$ mg remain?",
+      "example": {
+        "problem": "The half-life of cesium-137 is 30 years. Suppose we have a 100-mg sample. (a) Find the mass that remains after $t$ years. (b) How much of the sample remains after 100 years? (c) After how long will only 1 mg remain?",
+        "steps": [
+          {
+            "do": "The general formula for the mass after $t$ years is $M(t)=M_0\\left(\\dfrac12\\right)^{t/T_{1/2}}$.",
+            "work": "$$M(t)=100\\left(\\tfrac12\\right)^{t/30}$$ This is the answer to (a)."
+          },
+          {
+            "do": "Plug $t=T_1$ into the formula for $M(t)$ that you just found.",
+            "work": "$$M(100)=100\\left(\\tfrac12\\right)^{100/30}=100\\left(\\tfrac12\\right)^{10/3}\\approx9.92\\text{ mg}$$ This is the answer to (b)."
+          },
+          {
+            "do": "Solve $M(t)=M_1$ for $t$, using the expression for $M(t)$ from step 1.",
+            "work": "Solve $100\\left(\\tfrac12\\right)^{t/30}=1$. Then $\\left(\\tfrac12\\right)^{t/30}=\\tfrac1{100}$, so $2^{t/30}=100$. Taking $\\ln$: $\\dfrac{t}{30}\\ln2=\\ln100$, so $$t=\\frac{30\\ln100}{\\ln2}=\\frac{60\\ln10}{\\ln2}\\approx199.3\\text{ years}.$$"
+          }
+        ],
+        "answer": "(a) $M(t)=100\\left(\\tfrac12\\right)^{t/30}$; (b) $100\\left(\\tfrac12\\right)^{10/3}\\approx9.92$ mg; (c) $\\dfrac{60\\ln10}{\\ln2}\\approx199.3$ years."
+      },
+      "practice": [
+        {
+          "problem": "The half-life of iodine-131 is 8 days. Suppose we have a 200-mg sample. (a) Find the mass that remains after $t$ days. (b) How much remains after 20 days? (c) After how long will only 25 mg remain? Enter the answer to (b), in mg.",
+          "steps": [
+            {
+              "do": "The general formula for the mass after $t$ years is $M(t)=M_0\\left(\\dfrac12\\right)^{t/T_{1/2}}$.",
+              "work": "$$M(t)=200\\left(\\tfrac12\\right)^{t/8}$$ This is the answer to (a)."
+            },
+            {
+              "do": "Plug $t=T_1$ into the formula for $M(t)$ that you just found.",
+              "work": "$$M(20)=200\\left(\\tfrac12\\right)^{20/8}=200\\left(\\tfrac12\\right)^{5/2}=\\frac{200}{4\\sqrt2}\\approx35.36\\text{ mg}$$ This is the answer to (b)."
+            },
+            {
+              "do": "Solve $M(t)=M_1$ for $t$, using the expression for $M(t)$ from step 1.",
+              "work": "Solve $200\\left(\\tfrac12\\right)^{t/8}=25$. Then $\\left(\\tfrac12\\right)^{t/8}=\\tfrac18=\\left(\\tfrac12\\right)^3$, so $\\dfrac t8=3$ and $t=24$ days."
+            }
+          ],
+          "answer": "(a) $M(t)=200\\left(\\tfrac12\\right)^{t/8}$; (b) $200\\left(\\tfrac12\\right)^{5/2}\\approx35.36$ mg; (c) $24$ days.",
+          "check": {
+            "kind": "number",
+            "value": "200*(1/2)^(5/2)"
+          }
+        },
+        {
+          "problem": "The half-life of radium-226 is 1600 years. Suppose we have a 50-mg sample. (a) Find the mass that remains after $t$ years. (b) How much remains after 3000 years? (c) After how long will only 10 mg remain? Enter the answer to (c), in years.",
+          "steps": [
+            {
+              "do": "The general formula for the mass after $t$ years is $M(t)=M_0\\left(\\dfrac12\\right)^{t/T_{1/2}}$.",
+              "work": "$$M(t)=50\\left(\\tfrac12\\right)^{t/1600}$$ This is the answer to (a)."
+            },
+            {
+              "do": "Plug $t=T_1$ into the formula for $M(t)$ that you just found.",
+              "work": "$$M(3000)=50\\left(\\tfrac12\\right)^{3000/1600}=50\\left(\\tfrac12\\right)^{15/8}\\approx13.6\\text{ mg}$$ This is the answer to (b)."
+            },
+            {
+              "do": "Solve $M(t)=M_1$ for $t$, using the expression for $M(t)$ from step 1.",
+              "work": "Solve $50\\left(\\tfrac12\\right)^{t/1600}=10$. Then $\\left(\\tfrac12\\right)^{t/1600}=\\tfrac15$, so $2^{t/1600}=5$. Taking $\\ln$: $\\dfrac{t}{1600}\\ln2=\\ln5$, so $$t=\\frac{1600\\ln5}{\\ln2}\\approx3715\\text{ years}.$$"
+            }
+          ],
+          "answer": "(a) $M(t)=50\\left(\\tfrac12\\right)^{t/1600}$; (b) $50\\left(\\tfrac12\\right)^{15/8}\\approx13.6$ mg; (c) $\\dfrac{1600\\ln5}{\\ln2}\\approx3715$ years.",
+          "check": {
+            "kind": "number",
+            "value": "1600*ln(5)/ln(2)"
+          }
+        }
+      ],
+      "scene": "slopefield"
+    },
+    {
+      "id": "c2-9.4.3",
+      "course": "calc2",
+      "section": "9.4",
+      "topic": "Exponential Growth and Decay",
+      "title": "Newton's law of cooling",
+      "type": "When a cold drink is taken from a refrigerator, its temperature is $T_0$ degrees. After $t_1$ minutes in a $T_{\\text{amb}}$-degree room, its temperature has increased to $T_1$ degrees. (a) What is the temperature of the drink after $t_2$ minutes? (b) When will its temperature be $T_2$ degrees?",
+      "example": {
+        "problem": "When a cold drink is taken from a refrigerator, its temperature is 5 degrees. After 25 minutes in a 20-degree room its temperature has increased to 10 degrees. (a) What is the temperature of the drink after 50 minutes? (b) When will its temperature be 15 degrees?",
+        "steps": [
+          {
+            "do": "Set up Newton's Law of Cooling $\\dfrac{dT}{dt}=k(T-T_{\\text{amb}})$, $T(0)=T_0$. With $y=T-T_{\\text{amb}}$ it becomes $\\dfrac{dy}{dt}=ky$, $y(0)=T_0-T_{\\text{amb}}$, whose solution is always $y(t)=y(0)e^{kt}$.",
+            "work": "Take $y=T-20$ (so $T=y+20$). Then $\\dfrac{dy}{dt}=ky$, $y(0)=5-20=-15$, and $$y(t)=-15e^{kt}.$$"
+          },
+          {
+            "do": "Find $k$ using $y(t_1)=T_1-T_{\\text{amb}}$: plug $t=t_1$ into $y(t)$, set it equal to $T_1-T_{\\text{amb}}$ and solve for $k$. Then plug that $k$ into $y(t)$.",
+            "work": "$T(25)=10$ means $y(25)=10-20=-10$, so $-15e^{25k}=-10$, i.e. $e^{25k}=\\tfrac23$. Then $25k=\\ln\\tfrac23$, so $k=-\\tfrac1{25}\\ln\\tfrac32$ and $$y(t)=-15e^{-(t/25)\\ln(3/2)}=-15\\left(\\tfrac23\\right)^{t/25}.$$"
+          },
+          {
+            "do": "Plug $t=t_2$ into $y(t)$, then add $T_{\\text{amb}}$ to get the actual temperature.",
+            "work": "$$y(50)=-15\\left(\\tfrac23\\right)^{2}=-15\\cdot\\tfrac49=-\\tfrac{20}{3}=-6\\tfrac23$$ so $T(50)=20-6\\tfrac23=13\\tfrac13$ degrees. This is the answer to (a)."
+          },
+          {
+            "do": "Set $y(t)=T_2-T_{\\text{amb}}$ and solve for $t$.",
+            "work": "Set $y(t)=15-20=-5$: $-5=-15\\left(\\tfrac23\\right)^{t/25}$, so $\\left(\\tfrac23\\right)^{t/25}=\\tfrac13$, or $\\left(\\tfrac32\\right)^{t/25}=3$. Taking $\\ln$: $\\dfrac{t}{25}\\ln\\tfrac32=\\ln3$, so $$t=\\frac{25\\ln3}{\\ln(3/2)}\\approx67.74\\text{ minutes}.$$"
+          }
+        ],
+        "answer": "(a) $13\\tfrac13$ degrees; (b) $\\dfrac{25\\ln3}{\\ln(3/2)}\\approx67.74$ minutes."
+      },
+      "practice": [
+        {
+          "problem": "A cup of coffee is $90^\\circ$ when poured. After 10 minutes in a $20^\\circ$ room it has cooled to $60^\\circ$. (a) What is its temperature after 20 minutes? (b) When will its temperature be $30^\\circ$? Enter the answer to (a), in degrees.",
+          "steps": [
+            {
+              "do": "Set up Newton's Law of Cooling $\\dfrac{dT}{dt}=k(T-T_{\\text{amb}})$, $T(0)=T_0$. With $y=T-T_{\\text{amb}}$ it becomes $\\dfrac{dy}{dt}=ky$, $y(0)=T_0-T_{\\text{amb}}$, whose solution is always $y(t)=y(0)e^{kt}$.",
+              "work": "Take $y=T-20$. Then $y'=ky$, $y(0)=90-20=70$, and $y(t)=70e^{kt}$."
+            },
+            {
+              "do": "Find $k$ using $y(t_1)=T_1-T_{\\text{amb}}$: plug $t=t_1$ into $y(t)$, set it equal to $T_1-T_{\\text{amb}}$ and solve for $k$. Then plug that $k$ into $y(t)$.",
+              "work": "$T(10)=60$ means $y(10)=40$, so $70e^{10k}=40$, i.e. $e^{10k}=\\tfrac47$. Then $$y(t)=70\\left(\\tfrac47\\right)^{t/10}.$$"
+            },
+            {
+              "do": "Plug $t=t_2$ into $y(t)$, then add $T_{\\text{amb}}$ to get the actual temperature.",
+              "work": "$$y(20)=70\\left(\\tfrac47\\right)^2=70\\cdot\\tfrac{16}{49}=\\tfrac{160}{7}$$ so $T(20)=20+\\tfrac{160}{7}=\\tfrac{300}{7}\\approx42.86$ degrees. This is the answer to (a)."
+            },
+            {
+              "do": "Set $y(t)=T_2-T_{\\text{amb}}$ and solve for $t$.",
+              "work": "Set $y(t)=30-20=10$: $70\\left(\\tfrac47\\right)^{t/10}=10$, so $\\left(\\tfrac47\\right)^{t/10}=\\tfrac17$, or $\\left(\\tfrac74\\right)^{t/10}=7$. Taking $\\ln$: $$t=\\frac{10\\ln7}{\\ln(7/4)}\\approx34.77\\text{ minutes}.$$"
+            }
+          ],
+          "answer": "(a) $\\dfrac{300}{7}\\approx42.86$ degrees; (b) $\\dfrac{10\\ln7}{\\ln(7/4)}\\approx34.77$ minutes.",
+          "check": {
+            "kind": "number",
+            "value": "300/7"
+          }
+        },
+        {
+          "problem": "A cold drink at $4^\\circ$ is taken from a refrigerator. After 20 minutes in a $24^\\circ$ room its temperature is $12^\\circ$. (a) What is its temperature after 40 minutes? (b) When will its temperature be $20^\\circ$? Enter the answer to (b), in minutes.",
+          "steps": [
+            {
+              "do": "Set up Newton's Law of Cooling $\\dfrac{dT}{dt}=k(T-T_{\\text{amb}})$, $T(0)=T_0$. With $y=T-T_{\\text{amb}}$ it becomes $\\dfrac{dy}{dt}=ky$, $y(0)=T_0-T_{\\text{amb}}$, whose solution is always $y(t)=y(0)e^{kt}$.",
+              "work": "Take $y=T-24$. Then $y'=ky$, $y(0)=4-24=-20$, and $y(t)=-20e^{kt}$."
+            },
+            {
+              "do": "Find $k$ using $y(t_1)=T_1-T_{\\text{amb}}$: plug $t=t_1$ into $y(t)$, set it equal to $T_1-T_{\\text{amb}}$ and solve for $k$. Then plug that $k$ into $y(t)$.",
+              "work": "$T(20)=12$ means $y(20)=-12$, so $-20e^{20k}=-12$, i.e. $e^{20k}=\\tfrac35$. Then $$y(t)=-20\\left(\\tfrac35\\right)^{t/20}.$$"
+            },
+            {
+              "do": "Plug $t=t_2$ into $y(t)$, then add $T_{\\text{amb}}$ to get the actual temperature.",
+              "work": "$$y(40)=-20\\left(\\tfrac35\\right)^2=-20\\cdot\\tfrac{9}{25}=-\\tfrac{36}{5}$$ so $T(40)=24-\\tfrac{36}{5}=\\tfrac{84}{5}=16.8$ degrees. This is the answer to (a)."
+            },
+            {
+              "do": "Set $y(t)=T_2-T_{\\text{amb}}$ and solve for $t$.",
+              "work": "Set $y(t)=20-24=-4$: $-4=-20\\left(\\tfrac35\\right)^{t/20}$, so $\\left(\\tfrac35\\right)^{t/20}=\\tfrac15$, or $\\left(\\tfrac53\\right)^{t/20}=5$. Taking $\\ln$: $$t=\\frac{20\\ln5}{\\ln(5/3)}\\approx63.0\\text{ minutes}.$$"
+            }
+          ],
+          "answer": "(a) $16.8$ degrees; (b) $\\dfrac{20\\ln5}{\\ln(5/3)}\\approx63.0$ minutes.",
+          "check": {
+            "kind": "number",
+            "value": "20*ln(5)/ln(5/3)"
+          }
+        }
+      ],
+      "scene": "slopefield"
+    },
+    {
+      "id": "c2-10.2.1",
+      "course": "calc2",
+      "section": "10.2",
+      "topic": "Calculus with Parametric Curves",
+      "title": "Tangent to a parametric curve",
+      "type": "Find an equation of the tangent line to the curve $x=f(t)$, $y=g(t)$ at the point corresponding to the given value $t=a$ of the parameter.",
+      "example": {
+        "problem": "Find an equation of the tangent line to the curve $x=2t^2+1$, $y=\\tfrac13t^3-t$ at the point corresponding to $t=3$.",
+        "steps": [
+          {
+            "do": "Compute $\\dfrac{dy}{dt}$ and $\\dfrac{dx}{dt}$ (expressions in $t$), then divide the former by the latter: $\\dfrac{dy}{dx}=\\dfrac{dy/dt}{dx/dt}$.",
+            "work": "$\\dfrac{dy}{dt}=t^2-1$ and $\\dfrac{dx}{dt}=4t$, so $$\\frac{dy}{dx}=\\frac{t^2-1}{4t}.$$"
+          },
+          {
+            "do": "Plug $t=a$ into $\\dfrac{dy}{dx}$ to get the slope $m$. Also plug $t=a$ into $x$ and $y$ to get the point $(x_0,y_0)$.",
+            "work": "At $t=3$: $m=\\dfrac{3^2-1}{4\\cdot3}=\\dfrac23$. The point: $x(3)=2\\cdot9+1=19$ and $y(3)=\\tfrac13\\cdot27-3=6$, so $(19,6)$."
+          },
+          {
+            "do": "Use point-slope form: $y-y_0=m(x-x_0)$.",
+            "work": "$y-6=\\tfrac23(x-19)$, which simplifies to $$y=\\tfrac23x-\\tfrac{20}{3}.$$"
+          }
+        ],
+        "answer": "$y=\\tfrac23x-\\tfrac{20}{3}$",
+        "check": {
+          "kind": "expr",
+          "value": "2*x/3-20/3",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find an equation of the tangent line to the curve $x=t^2+1$, $y=t^3-3t$ at the point corresponding to $t=2$. Enter $y$ as a function of $x$.",
+          "steps": [
+            {
+              "do": "Compute $\\dfrac{dy}{dt}$ and $\\dfrac{dx}{dt}$ (expressions in $t$), then divide the former by the latter: $\\dfrac{dy}{dx}=\\dfrac{dy/dt}{dx/dt}$.",
+              "work": "$\\dfrac{dy}{dt}=3t^2-3$ and $\\dfrac{dx}{dt}=2t$, so $$\\frac{dy}{dx}=\\frac{3t^2-3}{2t}.$$"
+            },
+            {
+              "do": "Plug $t=a$ into $\\dfrac{dy}{dx}$ to get the slope $m$. Also plug $t=a$ into $x$ and $y$ to get the point $(x_0,y_0)$.",
+              "work": "At $t=2$: $m=\\dfrac{12-3}{4}=\\dfrac94$. The point: $x(2)=5$ and $y(2)=8-6=2$, so $(5,2)$."
+            },
+            {
+              "do": "Use point-slope form: $y-y_0=m(x-x_0)$.",
+              "work": "$y-2=\\tfrac94(x-5)$, which simplifies to $$y=\\tfrac94x-\\tfrac{37}{4}.$$"
+            }
+          ],
+          "answer": "$y=\\tfrac94x-\\tfrac{37}{4}$",
+          "check": {
+            "kind": "expr",
+            "value": "9*x/4-37/4",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find an equation of the tangent line to the curve $x=t^3+t$, $y=t^2-4t$ at the point corresponding to $t=1$. Enter $y$ as a function of $x$.",
+          "steps": [
+            {
+              "do": "Compute $\\dfrac{dy}{dt}$ and $\\dfrac{dx}{dt}$ (expressions in $t$), then divide the former by the latter: $\\dfrac{dy}{dx}=\\dfrac{dy/dt}{dx/dt}$.",
+              "work": "$\\dfrac{dy}{dt}=2t-4$ and $\\dfrac{dx}{dt}=3t^2+1$, so $$\\frac{dy}{dx}=\\frac{2t-4}{3t^2+1}.$$"
+            },
+            {
+              "do": "Plug $t=a$ into $\\dfrac{dy}{dx}$ to get the slope $m$. Also plug $t=a$ into $x$ and $y$ to get the point $(x_0,y_0)$.",
+              "work": "At $t=1$: $m=\\dfrac{-2}{4}=-\\dfrac12$. The point: $x(1)=2$ and $y(1)=1-4=-3$, so $(2,-3)$."
+            },
+            {
+              "do": "Use point-slope form: $y-y_0=m(x-x_0)$.",
+              "work": "$y+3=-\\tfrac12(x-2)$, which simplifies to $$y=-\\tfrac12x-2.$$"
+            }
+          ],
+          "answer": "$y=-\\tfrac12x-2$",
+          "check": {
+            "kind": "expr",
+            "value": "-x/2-2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "polar"
+    },
+    {
+      "id": "c2-10.2.2",
+      "course": "calc2",
+      "section": "10.2",
+      "topic": "Calculus with Parametric Curves",
+      "title": "Set up parametric arc length",
+      "type": "Set up, but do not evaluate, an integral that represents the length of the curve $x=f(t)$, $y=g(t)$, $a\\le t\\le b$.",
+      "example": {
+        "problem": "Set up, but do not evaluate, an integral that represents the length of the curve $x=1+e^t$, $y=t^2$, $-3\\le t\\le3$.",
+        "steps": [
+          {
+            "do": "Compute $\\dfrac{dx}{dt}$ and $\\dfrac{dy}{dt}$, getting expressions in $t$.",
+            "work": "$\\dfrac{dx}{dt}=e^t$ and $\\dfrac{dy}{dt}=2t$."
+          },
+          {
+            "do": "Use the arclength formula $L=\\displaystyle\\int_a^b\\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}\\,dt$. That is the answer: you were not asked to evaluate the integral.",
+            "work": "$$L=\\int_{-3}^{3}\\sqrt{(e^t)^2+(2t)^2}\\,dt=\\int_{-3}^{3}\\sqrt{e^{2t}+4t^2}\\,dt$$ This is the answer; you were not asked to evaluate it."
+          }
+        ],
+        "answer": "$L=\\displaystyle\\int_{-3}^{3}\\sqrt{e^{2t}+4t^2}\\,dt$"
+      },
+      "practice": [
+        {
+          "problem": "Set up, but do not evaluate, an integral for the length of the curve $x=t^2$, $y=t^3$, $0\\le t\\le2$. Enter the integrand (the expression after $\\int_0^2$ and before $dt$) as a function of $t$.",
+          "steps": [
+            {
+              "do": "Compute $\\dfrac{dx}{dt}$ and $\\dfrac{dy}{dt}$, getting expressions in $t$.",
+              "work": "$\\dfrac{dx}{dt}=2t$ and $\\dfrac{dy}{dt}=3t^2$."
+            },
+            {
+              "do": "Use the arclength formula $L=\\displaystyle\\int_a^b\\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}\\,dt$. That is the answer: you were not asked to evaluate the integral.",
+              "work": "$$L=\\int_0^2\\sqrt{(2t)^2+(3t^2)^2}\\,dt=\\int_0^2\\sqrt{4t^2+9t^4}\\,dt$$ This is the answer."
+            }
+          ],
+          "answer": "$L=\\displaystyle\\int_0^2\\sqrt{4t^2+9t^4}\\,dt$",
+          "check": {
+            "kind": "expr",
+            "value": "sqrt(4*t^2+9*t^4)",
+            "vars": [
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "Set up, but do not evaluate, an integral for the length of the curve $x=\\cos 3t$, $y=t^2$, $0\\le t\\le\\pi$. Enter the integrand (the expression after $\\int_0^\\pi$ and before $dt$) as a function of $t$.",
+          "steps": [
+            {
+              "do": "Compute $\\dfrac{dx}{dt}$ and $\\dfrac{dy}{dt}$, getting expressions in $t$.",
+              "work": "$\\dfrac{dx}{dt}=-3\\sin 3t$ and $\\dfrac{dy}{dt}=2t$."
+            },
+            {
+              "do": "Use the arclength formula $L=\\displaystyle\\int_a^b\\sqrt{\\left(\\frac{dx}{dt}\\right)^2+\\left(\\frac{dy}{dt}\\right)^2}\\,dt$. That is the answer: you were not asked to evaluate the integral.",
+              "work": "$$L=\\int_0^{\\pi}\\sqrt{(-3\\sin3t)^2+(2t)^2}\\,dt=\\int_0^{\\pi}\\sqrt{9\\sin^2 3t+4t^2}\\,dt$$ This is the answer."
+            }
+          ],
+          "answer": "$L=\\displaystyle\\int_0^{\\pi}\\sqrt{9\\sin^2 3t+4t^2}\\,dt$",
+          "check": {
+            "kind": "expr",
+            "value": "sqrt(9*sin(3*t)^2+4*t^2)",
+            "vars": [
+              "t"
+            ]
+          }
+        }
+      ],
+      "scene": "arclength"
+    },
+    {
+      "id": "c2-10.4.1",
+      "course": "calc2",
+      "section": "10.4",
+      "topic": "Areas and Length in Polar Coordinates",
+      "title": "Polar area in a sector",
+      "type": "Find the area of the region that is bounded by the curve $r=f(\\theta)$ and lies in the sector $\\alpha\\le\\theta\\le\\beta$ (angles in radians).",
+      "example": {
+        "problem": "Find the area of the region that is bounded by the curve $r=\\sin\\theta$ and lies in the sector $\\pi/3\\le\\theta\\le2\\pi/3$.",
+        "steps": [
+          {
+            "do": "Set up the integral for the area enclosed by the curve and the sector: $\\text{Area}=\\dfrac12\\displaystyle\\int_\\alpha^\\beta f(\\theta)^2\\,d\\theta$.",
+            "work": "$$\\text{Area}=\\frac12\\int_{\\pi/3}^{2\\pi/3}\\sin^2\\theta\\,d\\theta$$"
+          },
+          {
+            "do": "Evaluate the integral, using your integration know-how.",
+            "work": "$$\\begin{aligned}\\text{Area}&=\\frac12\\int_{\\pi/3}^{2\\pi/3}\\frac{1-\\cos2\\theta}{2}\\,d\\theta=\\frac14\\left[\\theta-\\frac{\\sin2\\theta}{2}\\right]_{\\pi/3}^{2\\pi/3}\\\\ &=\\frac14\\cdot\\frac{\\pi}{3}-\\frac18\\left(\\sin\\frac{4\\pi}{3}-\\sin\\frac{2\\pi}{3}\\right)=\\frac{\\pi}{12}+\\frac{\\sqrt3}{8}\\end{aligned}$$"
+          }
+        ],
+        "answer": "$\\dfrac{\\pi}{12}+\\dfrac{\\sqrt3}{8}$",
+        "check": {
+          "kind": "number",
+          "value": "pi/12+sqrt(3)/8"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the area of the region bounded by the curve $r=1+\\cos\\theta$ in the sector $0\\le\\theta\\le\\pi/2$.",
+          "steps": [
+            {
+              "do": "Set up the integral for the area enclosed by the curve and the sector: $\\text{Area}=\\dfrac12\\displaystyle\\int_\\alpha^\\beta f(\\theta)^2\\,d\\theta$.",
+              "work": "$$\\text{Area}=\\frac12\\int_0^{\\pi/2}(1+\\cos\\theta)^2\\,d\\theta$$"
+            },
+            {
+              "do": "Evaluate the integral, using your integration know-how.",
+              "work": "$$\\begin{aligned}\\text{Area}&=\\frac12\\int_0^{\\pi/2}\\left(\\frac32+2\\cos\\theta+\\frac{\\cos2\\theta}{2}\\right)d\\theta=\\frac12\\left[\\frac{3\\theta}{2}+2\\sin\\theta+\\frac{\\sin2\\theta}{4}\\right]_0^{\\pi/2}\\\\ &=\\frac12\\left(\\frac{3\\pi}{4}+2\\right)=\\frac{3\\pi}{8}+1\\end{aligned}$$"
+            }
+          ],
+          "answer": "$\\dfrac{3\\pi}{8}+1$",
+          "check": {
+            "kind": "number",
+            "value": "3*pi/8+1"
+          }
+        },
+        {
+          "problem": "Find the area of the region bounded by the curve $r=\\cos\\theta$ in the sector $0\\le\\theta\\le\\pi/3$.",
+          "steps": [
+            {
+              "do": "Set up the integral for the area enclosed by the curve and the sector: $\\text{Area}=\\dfrac12\\displaystyle\\int_\\alpha^\\beta f(\\theta)^2\\,d\\theta$.",
+              "work": "$$\\text{Area}=\\frac12\\int_0^{\\pi/3}\\cos^2\\theta\\,d\\theta$$"
+            },
+            {
+              "do": "Evaluate the integral, using your integration know-how.",
+              "work": "$$\\begin{aligned}\\text{Area}&=\\frac12\\int_0^{\\pi/3}\\frac{1+\\cos2\\theta}{2}\\,d\\theta=\\frac14\\left[\\theta+\\frac{\\sin2\\theta}{2}\\right]_0^{\\pi/3}\\\\ &=\\frac14\\left(\\frac{\\pi}{3}+\\frac{\\sqrt3}{4}\\right)=\\frac{\\pi}{12}+\\frac{\\sqrt3}{16}\\end{aligned}$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\pi}{12}+\\dfrac{\\sqrt3}{16}$",
+          "check": {
+            "kind": "number",
+            "value": "pi/12+sqrt(3)/16"
+          }
+        }
+      ],
+      "scene": "polar"
+    },
+    {
+      "id": "c2-11.1.1",
+      "course": "calc2",
+      "section": "11.1",
+      "topic": "Sequences",
+      "title": "Limit of a sequence",
+      "type": "Determine whether the sequence $a_n=f(n)$ (where $f(x)$ is a 'nice' function) converges or diverges. If it converges, find its limit.",
+      "example": {
+        "problem": "Determine whether the sequence $a_n=\\dfrac{3+5n^2}{n+n^2}$ converges or diverges. If it converges, find its limit.",
+        "steps": [
+          {
+            "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+            "work": "To compute $\\displaystyle\\lim_{x\\to\\infty}\\frac{3+5x^2}{x+x^2}$: as $x$ gets bigger, $3$ is insignificant next to $5x^2$ and $x$ is insignificant next to $x^2$ ('forget about the little ones'), so the limit equals $$\\lim_{x\\to\\infty}\\frac{5x^2}{x^2}=5.$$"
+          },
+          {
+            "do": "If that limit diverges, the sequence diverges. If it converges, the sequence converges and its limit is the same.",
+            "work": "The limit exists and equals $5$, so the sequence converges and its limit is $5$."
+          }
+        ],
+        "answer": "The sequence converges and its limit equals $5$.",
+        "check": {
+          "kind": "number",
+          "value": "5"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the limit of the sequence $a_n=\\dfrac{2n^2+7n}{3n^2-1}$. Enter the limit.",
+          "steps": [
+            {
+              "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+              "work": "$$\\lim_{x\\to\\infty}\\frac{2x^2+7x}{3x^2-1}$$ Forget the little ones: $7x$ is insignificant next to $2x^2$, and $1$ next to $3x^2$, so the limit equals $\\displaystyle\\lim_{x\\to\\infty}\\frac{2x^2}{3x^2}=\\frac23$."
+            },
+            {
+              "do": "If that limit diverges, the sequence diverges. If it converges, the sequence converges and its limit is the same.",
+              "work": "The limit exists and equals $\\tfrac23$, so the sequence converges to $\\tfrac23$."
+            }
+          ],
+          "answer": "The sequence converges and its limit is $\\dfrac23$.",
+          "check": {
+            "kind": "number",
+            "value": "2/3"
+          }
+        },
+        {
+          "problem": "Find the limit of the sequence $a_n=\\dfrac{7-3n^3}{n^3+5n}$. Enter the limit.",
+          "steps": [
+            {
+              "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+              "work": "$$\\lim_{x\\to\\infty}\\frac{7-3x^3}{x^3+5x}$$ Forget the little ones: $7$ is insignificant next to $3x^3$, and $5x$ next to $x^3$, so the limit equals $\\displaystyle\\lim_{x\\to\\infty}\\frac{-3x^3}{x^3}=-3$."
+            },
+            {
+              "do": "If that limit diverges, the sequence diverges. If it converges, the sequence converges and its limit is the same.",
+              "work": "The limit exists and equals $-3$, so the sequence converges to $-3$."
+            }
+          ],
+          "answer": "The sequence converges and its limit is $-3$.",
+          "check": {
+            "kind": "number",
+            "value": "-3"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.1.2",
+      "course": "calc2",
+      "section": "11.1",
+      "topic": "Sequences",
+      "title": "Alternating sequence, nonzero limit",
+      "type": "Determine whether the sequence $a_n=(-1)^nf(n)$ (where $f(x)$ is a 'nice' function) converges or diverges. If it converges, find its limit.",
+      "example": {
+        "problem": "Determine whether the sequence $a_n=\\dfrac{(-1)^n(3+5n^2)}{n+n^2}$ converges or diverges. If it converges, find its limit.",
+        "steps": [
+          {
+            "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+            "work": "$$\\lim_{x\\to\\infty}\\frac{3+5x^2}{x+x^2}=\\lim_{x\\to\\infty}\\frac{5x^2}{x^2}=5$$ (forget the little ones)."
+          },
+          {
+            "do": "If that limit diverges, the sequence definitely diverges. Even if it converges to something other than $0$, the $(-1)^n$ makes the sequence diverge. Only if the limit is $0$ does the sequence converge, and then its limit is $0$.",
+            "work": "The limit exists but is not $0$, so the sequence diverges: in the long run it looks like $5,-5,5,-5,\\dots$ and cannot make up its mind."
+          }
+        ],
+        "answer": "The sequence diverges.",
+        "check": {
+          "kind": "choice",
+          "value": "diverges",
+          "options": [
+            "converges",
+            "diverges"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Does the sequence $a_n=\\dfrac{(-1)^n(4n^2+1)}{n^2+n}$ converge or diverge?",
+          "steps": [
+            {
+              "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+              "work": "$$\\lim_{x\\to\\infty}\\frac{4x^2+1}{x^2+x}=\\lim_{x\\to\\infty}\\frac{4x^2}{x^2}=4$$"
+            },
+            {
+              "do": "If that limit diverges, the sequence definitely diverges. Even if it converges to something other than $0$, the $(-1)^n$ makes the sequence diverge. Only if the limit is $0$ does the sequence converge, and then its limit is $0$.",
+              "work": "The limit is $4\\ne0$, so the sequence diverges: in the long run it looks like $4,-4,4,-4,\\dots$"
+            }
+          ],
+          "answer": "The sequence diverges.",
+          "check": {
+            "kind": "choice",
+            "value": "diverges",
+            "options": [
+              "converges",
+              "diverges"
+            ]
+          }
+        },
+        {
+          "problem": "Does the sequence $a_n=\\dfrac{(-1)^n(n^2+1)}{n+3}$ converge or diverge?",
+          "steps": [
+            {
+              "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+              "work": "$$\\lim_{x\\to\\infty}\\frac{x^2+1}{x+3}=\\lim_{x\\to\\infty}\\frac{x^2}{x}=\\lim_{x\\to\\infty}x=\\infty$$"
+            },
+            {
+              "do": "If that limit diverges, the sequence definitely diverges. Even if it converges to something other than $0$, the $(-1)^n$ makes the sequence diverge. Only if the limit is $0$ does the sequence converge, and then its limit is $0$.",
+              "work": "That limit diverges (it is not $0$), so the sequence diverges: the terms swing between huge positive and huge negative values."
+            }
+          ],
+          "answer": "The sequence diverges.",
+          "check": {
+            "kind": "choice",
+            "value": "diverges",
+            "options": [
+              "converges",
+              "diverges"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.1.3",
+      "course": "calc2",
+      "section": "11.1",
+      "topic": "Sequences",
+      "title": "Alternating sequence, zero limit",
+      "type": "Determine whether the sequence $a_n=(-1)^nf(n)$ (where $f(x)$ is a 'nice' function) converges or diverges. If it converges, find its limit.",
+      "example": {
+        "problem": "Determine whether the sequence $a_n=\\dfrac{(-1)^n(3+5n^2)}{n+n^3}$ converges or diverges. If it converges, find its limit.",
+        "steps": [
+          {
+            "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+            "work": "$$\\lim_{x\\to\\infty}\\frac{3+5x^2}{x+x^3}=\\lim_{x\\to\\infty}\\frac{5x^2}{x^3}=\\lim_{x\\to\\infty}\\frac5x=0$$ (forget the little ones)."
+          },
+          {
+            "do": "If that limit diverges, the sequence definitely diverges. Even if it converges to something other than $0$, the $(-1)^n$ makes the sequence diverge. Only if the limit is $0$ does the sequence converge, and then its limit is $0$.",
+            "work": "Not only does the limit exist, it equals $0$! So the sequence converges to $0$."
+          }
+        ],
+        "answer": "The sequence converges to $0$.",
+        "check": {
+          "kind": "number",
+          "value": "0"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the limit of the sequence $a_n=\\dfrac{(-1)^n(2n+1)}{n^2+4}$. Enter the limit.",
+          "steps": [
+            {
+              "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+              "work": "$$\\lim_{x\\to\\infty}\\frac{2x+1}{x^2+4}=\\lim_{x\\to\\infty}\\frac{2x}{x^2}=\\lim_{x\\to\\infty}\\frac2x=0$$"
+            },
+            {
+              "do": "If that limit diverges, the sequence definitely diverges. Even if it converges to something other than $0$, the $(-1)^n$ makes the sequence diverge. Only if the limit is $0$ does the sequence converge, and then its limit is $0$.",
+              "work": "The limit is $0$, so the sequence converges to $0$."
+            }
+          ],
+          "answer": "The sequence converges to $0$.",
+          "check": {
+            "kind": "number",
+            "value": "0"
+          }
+        },
+        {
+          "problem": "Find the limit of the sequence $a_n=\\dfrac{(-1)^n(3n^2-2)}{n^3+8n}$. Enter the limit.",
+          "steps": [
+            {
+              "do": "Replace $n$ by $x$ and use your Calculus I expertise to compute $\\displaystyle\\lim_{x\\to\\infty}f(x)$.",
+              "work": "$$\\lim_{x\\to\\infty}\\frac{3x^2-2}{x^3+8x}=\\lim_{x\\to\\infty}\\frac{3x^2}{x^3}=\\lim_{x\\to\\infty}\\frac3x=0$$"
+            },
+            {
+              "do": "If that limit diverges, the sequence definitely diverges. Even if it converges to something other than $0$, the $(-1)^n$ makes the sequence diverge. Only if the limit is $0$ does the sequence converge, and then its limit is $0$.",
+              "work": "The limit is $0$, so the sequence converges to $0$."
+            }
+          ],
+          "answer": "The sequence converges to $0$.",
+          "check": {
+            "kind": "number",
+            "value": "0"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.2.1",
+      "course": "calc2",
+      "section": "11.2",
+      "topic": "Series",
+      "title": "Divergence test",
+      "type": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ is convergent or divergent, where $\\lim a_n$ does not exist or exists but is not zero.",
+      "example": {
+        "problem": "For each of the two series, determine whether it converges or diverges. (a) $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n$, (b) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{n+6}$.",
+        "steps": [
+          {
+            "do": "Always try to be pessimistic: use the divergence test. If $\\lim_{n\\to\\infty}a_n$ does not exist, or exists but is not $0$, the series is automatically divergent. (Warning: the converse is false. $\\sum 1/n$, the harmonic series, diverges although $1/n\\to0$.)",
+            "work": "(a) $\\lim_{n\\to\\infty}(-1)^n$ does not exist, since $-1,1,-1,1,\\dots$ can never make up its mind. So (a) is divergent by the divergence test. (b) $\\displaystyle\\lim_{n\\to\\infty}\\frac{n}{n+6}=\\lim_{x\\to\\infty}\\frac{x}{x+6}=1$ exists but is not $0$, so (b) is divergent by the divergence test."
+          }
+        ],
+        "answer": "(a) divergent (the limit of the terms does not exist); (b) divergent (the limit of the terms is $1\\neq0$)."
+      },
+      "practice": [
+        {
+          "problem": "Use the divergence test on $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n^2}{2n^2+1}$. Is the series convergent or divergent?",
+          "steps": [
+            {
+              "do": "Always try to be pessimistic: use the divergence test. If $\\lim_{n\\to\\infty}a_n$ does not exist, or exists but is not $0$, the series is automatically divergent. (Warning: the converse is false. $\\sum 1/n$, the harmonic series, diverges although $1/n\\to0$.)",
+              "work": "$$\\lim_{n\\to\\infty}\\frac{n^2}{2n^2+1}=\\frac12\\ne0$$ so the series is divergent by the divergence test."
+            }
+          ],
+          "answer": "Divergent: the limit of the terms is $\\tfrac12\\neq0$.",
+          "check": {
+            "kind": "choice",
+            "value": "divergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        },
+        {
+          "problem": "Use the divergence test on $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n\\,\\frac{n+1}{n}$. Is the series convergent or divergent?",
+          "steps": [
+            {
+              "do": "Always try to be pessimistic: use the divergence test. If $\\lim_{n\\to\\infty}a_n$ does not exist, or exists but is not $0$, the series is automatically divergent. (Warning: the converse is false. $\\sum 1/n$, the harmonic series, diverges although $1/n\\to0$.)",
+              "work": "The terms are $-2,\\ \\tfrac32,\\ -\\tfrac43,\\ \\tfrac54,\\dots$ and $\\dfrac{n+1}{n}\\to1$, so in the long run they look like $-1,1,-1,1,\\dots$ The limit does not exist, so the series is divergent by the divergence test."
+            }
+          ],
+          "answer": "Divergent: the limit of the terms does not exist.",
+          "check": {
+            "kind": "choice",
+            "value": "divergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.2.2",
+      "course": "calc2",
+      "section": "11.2",
+      "topic": "Series",
+      "title": "Geometric series sum",
+      "type": "Determine whether the series $\\displaystyle\\sum_{n=\\text{Start}}^{\\infty}Ar^n$ is convergent or divergent; if convergent, find its sum.",
+      "example": {
+        "problem": "For each of the two series, determine whether it converges or diverges, and if it converges find its sum. (a) $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{2(-3)^n}{5^n}$, (b) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{7^n}{6^n}$.",
+        "steps": [
+          {
+            "do": "These are geometric series (the ratio of consecutive terms is constant). Find the first term $a$ by plugging $n=\\text{Start}$ into the term, and find $r$ by inspection (what is inside $(\\ )^n$).",
+            "work": "(a) Plugging in $n=2$: $a=\\dfrac{2(-3)^2}{5^2}=\\dfrac{18}{25}$; the ratio is $r=-\\dfrac35$. (b) $a=\\dfrac76$ and $r=\\dfrac76$."
+          },
+          {
+            "do": "If $|r|<1$ (strictly!), the series converges and its sum is $\\dfrac{a}{1-r}$. Otherwise ($|r|\\ge1$) it diverges.",
+            "work": "(a) $|-\\tfrac35|<1$, so the series converges, and its sum is $$\\frac{18/25}{1-(-3/5)}=\\frac{18/25}{8/5}=\\frac{9}{20}.$$ (b) $|\\tfrac76|>1$, so the series diverges (and there is no sum)."
+          }
+        ],
+        "answer": "(a) converges, with sum $\\dfrac{9}{20}$; (b) diverges."
+      },
+      "practice": [
+        {
+          "problem": "(a) Find the sum of $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{5(-2)^n}{3^n}$. (b) Does $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{9^n}{8^n}$ converge? Enter the sum in (a).",
+          "steps": [
+            {
+              "do": "These are geometric series (the ratio of consecutive terms is constant). Find the first term $a$ by plugging $n=\\text{Start}$ into the term, and find $r$ by inspection (what is inside $(\\ )^n$).",
+              "work": "(a) Plugging in $n=2$: $a=\\dfrac{5\\cdot4}{9}=\\dfrac{20}{9}$; $r=-\\dfrac23$. (b) $a=\\dfrac98$ and $r=\\dfrac98$."
+            },
+            {
+              "do": "If $|r|<1$ (strictly!), the series converges and its sum is $\\dfrac{a}{1-r}$. Otherwise ($|r|\\ge1$) it diverges.",
+              "work": "(a) $|-\\tfrac23|<1$, so the series converges, and its sum is $$\\frac{20/9}{1-(-2/3)}=\\frac{20/9}{5/3}=\\frac43.$$ (b) $|\\tfrac98|>1$, so the series diverges."
+            }
+          ],
+          "answer": "(a) converges, with sum $\\dfrac43$; (b) diverges.",
+          "check": {
+            "kind": "number",
+            "value": "4/3"
+          }
+        },
+        {
+          "problem": "Find the sum of $\\displaystyle\\sum_{n=3}^{\\infty}\\frac{6(-1)^n}{4^n}$.",
+          "steps": [
+            {
+              "do": "These are geometric series (the ratio of consecutive terms is constant). Find the first term $a$ by plugging $n=\\text{Start}$ into the term, and find $r$ by inspection (what is inside $(\\ )^n$).",
+              "work": "Write the term as $6\\left(-\\tfrac14\\right)^n$. Plugging in $n=3$: $a=\\dfrac{6(-1)^3}{4^3}=-\\dfrac{6}{64}=-\\dfrac{3}{32}$; $r=-\\dfrac14$."
+            },
+            {
+              "do": "If $|r|<1$ (strictly!), the series converges and its sum is $\\dfrac{a}{1-r}$. Otherwise ($|r|\\ge1$) it diverges.",
+              "work": "$|-\\tfrac14|<1$, so the series converges, and its sum is $$\\frac{-3/32}{1-(-1/4)}=\\frac{-3/32}{5/4}=-\\frac{3}{40}.$$"
+            }
+          ],
+          "answer": "The series converges, with sum $-\\dfrac{3}{40}$.",
+          "check": {
+            "kind": "number",
+            "value": "-3/40"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.2.3",
+      "course": "calc2",
+      "section": "11.2",
+      "topic": "Series",
+      "title": "Sum of geometric pieces",
+      "type": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{Aa^n+Bb^n}{c^n}$ is convergent or divergent; if convergent, find its sum.",
+      "example": {
+        "problem": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{4^n+3(-6)^n}{7^n}$ is convergent, and if it is, find its sum.",
+        "steps": [
+          {
+            "do": "Split it into two (or more) parts and treat each series on its own merit. If even one is divergent, the whole thing is. If they are all convergent, so is the whole thing.",
+            "work": "$$\\sum_{n=1}^{\\infty}\\frac{4^n+3(-6)^n}{7^n}=\\sum_{n=1}^{\\infty}\\left(\\frac47\\right)^n+\\sum_{n=1}^{\\infty}3\\left(-\\frac67\\right)^n$$ Each is geometric: the first has $a=\\tfrac47$, $r=\\tfrac47$; the second has $a=-\\tfrac{18}{7}$, $r=-\\tfrac67$. Since $|\\tfrac47|<1$ and $|-\\tfrac67|<1$, both converge, so the whole series converges."
+          },
+          {
+            "do": "If the whole thing is divergent, you are done. Otherwise find the sum of each series with the formula $\\dfrac{a}{1-r}$, and add them up.",
+            "work": "$$\\frac{4/7}{1-4/7}+\\frac{-18/7}{1-(-6/7)}=\\frac43-\\frac{18}{13}=-\\frac{2}{39}$$"
+          }
+        ],
+        "answer": "The series converges and its sum is $-\\dfrac{2}{39}$.",
+        "check": {
+          "kind": "number",
+          "value": "-2/39"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the sum of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{2^n+5(-3)^n}{6^n}$.",
+          "steps": [
+            {
+              "do": "Split it into two (or more) parts and treat each series on its own merit. If even one is divergent, the whole thing is. If they are all convergent, so is the whole thing.",
+              "work": "$$\\sum_{n=1}^{\\infty}\\frac{2^n+5(-3)^n}{6^n}=\\sum_{n=1}^{\\infty}\\left(\\frac13\\right)^n+\\sum_{n=1}^{\\infty}5\\left(-\\frac12\\right)^n$$ The first has $a=\\tfrac13$, $r=\\tfrac13$; the second has $a=-\\tfrac52$, $r=-\\tfrac12$. Both $|r|<1$, so the whole series converges."
+            },
+            {
+              "do": "If the whole thing is divergent, you are done. Otherwise find the sum of each series with the formula $\\dfrac{a}{1-r}$, and add them up.",
+              "work": "$$\\frac{1/3}{1-1/3}+\\frac{-5/2}{1-(-1/2)}=\\frac12-\\frac53=-\\frac76$$"
+            }
+          ],
+          "answer": "The series converges and its sum is $-\\dfrac76$.",
+          "check": {
+            "kind": "number",
+            "value": "-7/6"
+          }
+        },
+        {
+          "problem": "Find the sum of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{3\\cdot2^n+2(-4)^n}{5^n}$.",
+          "steps": [
+            {
+              "do": "Split it into two (or more) parts and treat each series on its own merit. If even one is divergent, the whole thing is. If they are all convergent, so is the whole thing.",
+              "work": "$$\\sum_{n=1}^{\\infty}\\frac{3\\cdot2^n+2(-4)^n}{5^n}=\\sum_{n=1}^{\\infty}3\\left(\\frac25\\right)^n+\\sum_{n=1}^{\\infty}2\\left(-\\frac45\\right)^n$$ The first has $a=\\tfrac65$, $r=\\tfrac25$; the second has $a=-\\tfrac85$, $r=-\\tfrac45$. Both $|r|<1$, so the whole series converges."
+            },
+            {
+              "do": "If the whole thing is divergent, you are done. Otherwise find the sum of each series with the formula $\\dfrac{a}{1-r}$, and add them up.",
+              "work": "$$\\frac{6/5}{1-2/5}+\\frac{-8/5}{1-(-4/5)}=2-\\frac89=\\frac{10}{9}$$"
+            }
+          ],
+          "answer": "The series converges and its sum is $\\dfrac{10}{9}$.",
+          "check": {
+            "kind": "number",
+            "value": "10/9"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.3.1",
+      "course": "calc2",
+      "section": "11.3",
+      "topic": "The Integral Test and Estimation of Sums",
+      "title": "Integral test",
+      "type": "Use the integral test to determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}f(n)$ is convergent or divergent.",
+      "example": {
+        "problem": "Use the integral test to determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}ne^{-n}$ is convergent or divergent.",
+        "steps": [
+          {
+            "do": "Find out whether the improper integral $\\displaystyle\\int_1^{\\infty}f(x)\\,dx$ converges or diverges.",
+            "work": "By parts ($u=x$, $dv=e^{-x}dx$): $\\displaystyle\\int xe^{-x}\\,dx=-e^{-x}(x+1)$, so $$\\int_1^R xe^{-x}\\,dx=\\left[-\\frac{x+1}{e^x}\\right]_1^R=-\\frac{R+1}{e^R}+\\frac2e.$$ By L'Hôpital, $\\displaystyle\\lim_{R\\to\\infty}\\frac{R+1}{e^R}=0$, so the limit as $R\\to\\infty$ is $\\dfrac2e$. Since this is finite, the improper integral converges."
+          },
+          {
+            "do": "If the improper integral converges, the series converges. If it diverges, the series diverges. (Warning: when it converges, the sum of the series is not the value of the integral.)",
+            "work": "Since the improper integral converges, so does the series."
+          }
+        ],
+        "answer": "The series is convergent.",
+        "check": {
+          "kind": "choice",
+          "value": "convergent",
+          "options": [
+            "convergent",
+            "divergent"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the integral test on $\\displaystyle\\sum_{n=1}^{\\infty}ne^{-n^2}$. Is the series convergent or divergent?",
+          "steps": [
+            {
+              "do": "Find out whether the improper integral $\\displaystyle\\int_1^{\\infty}f(x)\\,dx$ converges or diverges.",
+              "work": "Here $f(x)=xe^{-x^2}$ (positive and decreasing for $x\\ge1$). Substituting $u=x^2$: $\\displaystyle\\int xe^{-x^2}\\,dx=-\\tfrac12e^{-x^2}$, so $$\\int_1^R xe^{-x^2}\\,dx=\\tfrac12e^{-1}-\\tfrac12e^{-R^2}\\ \\longrightarrow\\ \\frac{1}{2e}\\quad(R\\to\\infty).$$ This is finite, so the improper integral converges."
+            },
+            {
+              "do": "If the improper integral converges, the series converges. If it diverges, the series diverges. (Warning: when it converges, the sum of the series is not the value of the integral.)",
+              "work": "Since the improper integral converges, so does the series."
+            }
+          ],
+          "answer": "The series is convergent.",
+          "check": {
+            "kind": "choice",
+            "value": "convergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        },
+        {
+          "problem": "Use the integral test on $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n}{n^2+1}$. Is the series convergent or divergent?",
+          "steps": [
+            {
+              "do": "Find out whether the improper integral $\\displaystyle\\int_1^{\\infty}f(x)\\,dx$ converges or diverges.",
+              "work": "Here $f(x)=\\dfrac{x}{x^2+1}$ (positive and decreasing for $x\\ge1$). Substituting $u=x^2+1$: $\\displaystyle\\int\\frac{x}{x^2+1}\\,dx=\\tfrac12\\ln(x^2+1)$, so $$\\int_1^R\\frac{x}{x^2+1}\\,dx=\\tfrac12\\ln(R^2+1)-\\tfrac12\\ln2\\ \\longrightarrow\\ \\infty\\quad(R\\to\\infty).$$ So the improper integral diverges."
+            },
+            {
+              "do": "If the improper integral converges, the series converges. If it diverges, the series diverges. (Warning: when it converges, the sum of the series is not the value of the integral.)",
+              "work": "Since the improper integral diverges, so does the series."
+            }
+          ],
+          "answer": "The series is divergent.",
+          "check": {
+            "kind": "choice",
+            "value": "divergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.3.2",
+      "course": "calc2",
+      "section": "11.3",
+      "topic": "The Integral Test and Estimation of Sums",
+      "title": "The p-test",
+      "type": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{A}{n^p}$ is convergent or divergent, where $A$ and $p$ are numbers.",
+      "example": {
+        "problem": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{5}{n^{0.97}}$ is convergent or divergent.",
+        "steps": [
+          {
+            "do": "$A$ is irrelevant. By the $p$-test, if $p>1$ the series converges; otherwise it diverges. (Tip, the $p$-$q$ test: $\\sum\\dfrac{1}{n^p(\\ln n)^q}$ converges if $p>1$ (any $q$) or if $p=1$ and $q>1$; otherwise it diverges.)",
+            "work": "Here $p=0.97\\le1$, so the series is divergent."
+          }
+        ],
+        "answer": "The series diverges by the $p$-test.",
+        "check": {
+          "kind": "choice",
+          "value": "divergent",
+          "options": [
+            "convergent",
+            "divergent"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{3}{n^{1.2}}$ is convergent or divergent.",
+          "steps": [
+            {
+              "do": "$A$ is irrelevant. By the $p$-test, if $p>1$ the series converges; otherwise it diverges. (Tip, the $p$-$q$ test: $\\sum\\dfrac{1}{n^p(\\ln n)^q}$ converges if $p>1$ (any $q$) or if $p=1$ and $q>1$; otherwise it diverges.)",
+              "work": "Here $p=1.2>1$, so the series is convergent by the $p$-test (the $3$ is irrelevant)."
+            }
+          ],
+          "answer": "The series converges by the $p$-test.",
+          "check": {
+            "kind": "choice",
+            "value": "convergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        },
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{8}{\\sqrt[3]{n}}$ is convergent or divergent.",
+          "steps": [
+            {
+              "do": "$A$ is irrelevant. By the $p$-test, if $p>1$ the series converges; otherwise it diverges. (Tip, the $p$-$q$ test: $\\sum\\dfrac{1}{n^p(\\ln n)^q}$ converges if $p>1$ (any $q$) or if $p=1$ and $q>1$; otherwise it diverges.)",
+              "work": "Write the term as $\\dfrac{8}{n^{1/3}}$. Here $p=\\tfrac13\\le1$, so the series is divergent by the $p$-test."
+            }
+          ],
+          "answer": "The series diverges by the $p$-test.",
+          "check": {
+            "kind": "choice",
+            "value": "divergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.3.3",
+      "course": "calc2",
+      "section": "11.3",
+      "topic": "The Integral Test and Estimation of Sums",
+      "title": "Splitting into p-series",
+      "type": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ converges or diverges, where $a_n$ can be written, using algebra, as a combination of $p$-series.",
+      "example": {
+        "problem": "Determine whether each series converges or diverges. (a) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{7+4\\sqrt n}{n^3}$, (b) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{7+4\\sqrt n}{n^{4/3}}$.",
+        "steps": [
+          {
+            "do": "Use algebra to split the term into a combination of $p$-series $\\sum\\dfrac{1}{n^p}$.",
+            "work": "(a) $$\\sum\\frac{7+4\\sqrt n}{n^3}=7\\sum\\frac1{n^3}+4\\sum\\frac{1}{n^{5/2}}.$$ (b) $$\\sum\\frac{7+4\\sqrt n}{n^{4/3}}=7\\sum\\frac1{n^{4/3}}+4\\sum\\frac{1}{n^{5/6}}.$$"
+          },
+          {
+            "do": "Decide for each one, by the $p$-test, whether it converges or diverges. If all converge, the original series converges. If even one diverges, the original series diverges.",
+            "work": "(a) The two $p$-series have $p=3$ and $p=\\tfrac52$, both $>1$, so both converge and so does the series. (b) The $p$-series have $p=\\tfrac43$ and $p=\\tfrac56$; since $\\tfrac56\\le1$ the second diverges, and one divergent piece makes the whole series divergent."
+          }
+        ],
+        "answer": "(a) convergent (a sum of two convergent $p$-series); (b) divergent (one of the two $p$-series diverges)."
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{6+5\\sqrt n}{n^{5/2}}$ converges or diverges.",
+          "steps": [
+            {
+              "do": "Use algebra to split the term into a combination of $p$-series $\\sum\\dfrac{1}{n^p}$.",
+              "work": "$$\\sum\\frac{6+5\\sqrt n}{n^{5/2}}=6\\sum\\frac{1}{n^{5/2}}+5\\sum\\frac{1}{n^{2}}$$"
+            },
+            {
+              "do": "Decide for each one, by the $p$-test, whether it converges or diverges. If all converge, the original series converges. If even one diverges, the original series diverges.",
+              "work": "The $p$-series have $p=\\tfrac52$ and $p=2$, both $>1$, so both converge and so does the series."
+            }
+          ],
+          "answer": "The series is convergent (a sum of two convergent $p$-series).",
+          "check": {
+            "kind": "choice",
+            "value": "convergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        },
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{3+\\sqrt n}{n^{3/2}}$ converges or diverges.",
+          "steps": [
+            {
+              "do": "Use algebra to split the term into a combination of $p$-series $\\sum\\dfrac{1}{n^p}$.",
+              "work": "$$\\sum\\frac{3+\\sqrt n}{n^{3/2}}=3\\sum\\frac{1}{n^{3/2}}+\\sum\\frac{1}{n}$$"
+            },
+            {
+              "do": "Decide for each one, by the $p$-test, whether it converges or diverges. If all converge, the original series converges. If even one diverges, the original series diverges.",
+              "work": "The $p$-series have $p=\\tfrac32$ (converges) and $p=1$ (the harmonic series, diverges). One divergent piece makes the whole series divergent."
+            }
+          ],
+          "answer": "The series is divergent (one of the $p$-series diverges).",
+          "check": {
+            "kind": "choice",
+            "value": "divergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.3.4",
+      "course": "calc2",
+      "section": "11.3",
+      "topic": "The Integral Test and Estimation of Sums",
+      "title": "Error bound from an integral",
+      "type": "Use an improper integral to find an integer $N$ so that the partial sum $S_N=\\displaystyle\\sum_{n=1}^{N}f(n)$ is within $\\epsilon$ of the sum of the whole infinite series $\\sum_{n=1}^{\\infty}f(n)$. Explain why your $N$ works. Do not evaluate $S_N$. ($f(x)$ must be continuous, positive and decreasing.)",
+      "example": {
+        "problem": "Use an improper integral to find an integer $N$ so that $S_N=\\displaystyle\\sum_{n=1}^{N}\\frac1{n^3}$ is within $10^{-7}$ of the sum of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1}{n^3}$. Explain why your $N$ is correct. Do not evaluate $S_N$.",
+        "steps": [
+          {
+            "do": "First make sure $f$ is indeed going down, at least eventually (by inspection, or safest: check $f'(x)<0$). Then remember that the error $R_N=S-S_N$ satisfies $|R_N|\\le\\displaystyle\\int_N^{\\infty}f(x)\\,dx$.",
+            "work": "$f(x)=1/x^3$ is continuous, positive and decreasing for $x>0$ ($x^3$ goes up and up, so its reciprocal goes down), so $$|R_N|\\le\\int_N^{\\infty}x^{-3}\\,dx.$$"
+          },
+          {
+            "do": "Evaluate the improper integral, getting an expression in $N$.",
+            "work": "$$\\int_N^{\\infty}x^{-3}\\,dx=\\left[-\\frac{1}{2x^2}\\right]_N^{\\infty}=\\frac{1}{2N^2}.$$"
+          },
+          {
+            "do": "Set that expression $\\le\\epsilon$ and solve for $N$. Take the smallest integer that works.",
+            "work": "$\\dfrac{1}{2N^2}\\le10^{-7}$ means $N^2\\ge5\\cdot10^{6}$, so $N\\ge\\sqrt{5\\cdot10^6}\\approx2236.07$. Taking $N=2237$ guarantees $|R_N|\\le10^{-7}$."
+          }
+        ],
+        "answer": "$N=2237$ works, since then $|R_N|\\le\\dfrac{1}{2N^2}<10^{-7}$.",
+        "check": {
+          "kind": "number",
+          "value": "2237"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use an improper integral to find the smallest integer $N$ so that $S_N=\\displaystyle\\sum_{n=1}^{N}\\frac{1}{n^2}$ is within $10^{-3}$ of the sum of the whole series. Enter $N$.",
+          "steps": [
+            {
+              "do": "First make sure $f$ is indeed going down, at least eventually (by inspection, or safest: check $f'(x)<0$). Then remember that the error $R_N=S-S_N$ satisfies $|R_N|\\le\\displaystyle\\int_N^{\\infty}f(x)\\,dx$.",
+              "work": "$f(x)=1/x^2$ is continuous, positive and decreasing for $x>0$, so $$|R_N|\\le\\int_N^{\\infty}x^{-2}\\,dx.$$"
+            },
+            {
+              "do": "Evaluate the improper integral, getting an expression in $N$.",
+              "work": "$$\\int_N^{\\infty}x^{-2}\\,dx=\\left[-\\frac1x\\right]_N^{\\infty}=\\frac1N.$$"
+            },
+            {
+              "do": "Set that expression $\\le\\epsilon$ and solve for $N$. Take the smallest integer that works.",
+              "work": "$\\dfrac1N\\le10^{-3}$ means $N\\ge1000$. Taking $N=1000$ guarantees $|R_N|\\le10^{-3}$."
+            }
+          ],
+          "answer": "$N=1000$ works, since then $|R_N|\\le\\dfrac{1}{N}\\le10^{-3}$.",
+          "check": {
+            "kind": "number",
+            "value": "1000"
+          }
+        },
+        {
+          "problem": "Use an improper integral to find the smallest integer $N$ so that $S_N=\\displaystyle\\sum_{n=1}^{N}\\frac{1}{n^4}$ is within $10^{-6}$ of the sum of the whole series. Enter $N$.",
+          "steps": [
+            {
+              "do": "First make sure $f$ is indeed going down, at least eventually (by inspection, or safest: check $f'(x)<0$). Then remember that the error $R_N=S-S_N$ satisfies $|R_N|\\le\\displaystyle\\int_N^{\\infty}f(x)\\,dx$.",
+              "work": "$f(x)=1/x^4$ is continuous, positive and decreasing for $x>0$, so $$|R_N|\\le\\int_N^{\\infty}x^{-4}\\,dx.$$"
+            },
+            {
+              "do": "Evaluate the improper integral, getting an expression in $N$.",
+              "work": "$$\\int_N^{\\infty}x^{-4}\\,dx=\\left[-\\frac{1}{3x^3}\\right]_N^{\\infty}=\\frac{1}{3N^3}.$$"
+            },
+            {
+              "do": "Set that expression $\\le\\epsilon$ and solve for $N$. Take the smallest integer that works.",
+              "work": "$\\dfrac{1}{3N^3}\\le10^{-6}$ means $N^3\\ge\\dfrac{10^6}{3}\\approx333333.3$, so $N\\ge69.3$ (note $69^3=328509<333333$ and $70^3=343000$). Taking $N=70$ guarantees $|R_N|\\le10^{-6}$."
+            }
+          ],
+          "answer": "$N=70$ works, since then $|R_N|\\le\\dfrac{1}{3\\cdot70^3}<10^{-6}$.",
+          "check": {
+            "kind": "number",
+            "value": "70"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.5.1",
+      "course": "calc2",
+      "section": "11.5",
+      "topic": "Alternating Series",
+      "title": "Alternating series test",
+      "type": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^nb_n$ converges or diverges, where $b_n$ is always positive (or always negative).",
+      "example": {
+        "problem": "Determine whether each series converges or diverges. (a) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{5n^2+3}$, (b) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^n\\sqrt n}{1+3\\sqrt n}$, (c) $\\displaystyle\\sum_{n=2}^{\\infty}\\frac{(-1)^n}{\\ln n}$.",
+        "steps": [
+          {
+            "do": "First find $\\lim_{n\\to\\infty}b_n$. If it does not exist, or exists but is not $0$, then $\\lim(-1)^nb_n$ does not exist and the series is divergent by the divergence test.",
+            "work": "(a) $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{5n^2+3}=0$, so go on to step 2. (b) $\\displaystyle\\lim_{n\\to\\infty}\\frac{\\sqrt n}{1+3\\sqrt n}=\\frac13$, which is not $0$, so we are done: (b) is divergent by the divergence test. (c) $\\displaystyle\\lim_{n\\to\\infty}\\frac{1}{\\ln n}=0$, so go on to step 2."
+          },
+          {
+            "do": "Try to show that $b_n$ is decreasing (by simple algebra, or by $f'(x)<0$ if $b_n=f(n)$). Together with $b_n\\to0$, the alternating series test (the 'ping-pong test') says the series is convergent.",
+            "work": "(a) $n^2$ is increasing, hence so is $5n^2+3$, hence its reciprocal is decreasing. With limit $0$, (a) converges by the ping-pong test. (c) $\\ln n$ is increasing, hence $\\dfrac1{\\ln n}$ is decreasing, with limit $0$, so (c) converges by the ping-pong test."
+          }
+        ],
+        "answer": "(a) convergent (ping-pong test); (b) divergent (divergence test); (c) convergent (ping-pong test)."
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^n\\,n}{2n+1}$ converges or diverges.",
+          "steps": [
+            {
+              "do": "First find $\\lim_{n\\to\\infty}b_n$. If it does not exist, or exists but is not $0$, then $\\lim(-1)^nb_n$ does not exist and the series is divergent by the divergence test.",
+              "work": "$$\\lim_{n\\to\\infty}\\frac{n}{2n+1}=\\frac12\\neq0$$ so the series is divergent by the divergence test."
+            },
+            {
+              "do": "Try to show that $b_n$ is decreasing (by simple algebra, or by $f'(x)<0$ if $b_n=f(n)$). Together with $b_n\\to0$, the alternating series test (the 'ping-pong test') says the series is convergent.",
+              "work": "Not needed: the series already diverges in step 1."
+            }
+          ],
+          "answer": "The series is divergent (divergence test).",
+          "check": {
+            "kind": "choice",
+            "value": "divergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        },
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{\\sqrt n+3}$ converges or diverges.",
+          "steps": [
+            {
+              "do": "First find $\\lim_{n\\to\\infty}b_n$. If it does not exist, or exists but is not $0$, then $\\lim(-1)^nb_n$ does not exist and the series is divergent by the divergence test.",
+              "work": "$$\\lim_{n\\to\\infty}\\frac{1}{\\sqrt n+3}=0$$ so we go on to step 2."
+            },
+            {
+              "do": "Try to show that $b_n$ is decreasing (by simple algebra, or by $f'(x)<0$ if $b_n=f(n)$). Together with $b_n\\to0$, the alternating series test (the 'ping-pong test') says the series is convergent.",
+              "work": "$\\sqrt n$ is increasing, hence so is $\\sqrt n+3$, hence its reciprocal $\\dfrac{1}{\\sqrt n+3}$ is decreasing. With limit $0$, the series converges by the ping-pong test."
+            }
+          ],
+          "answer": "The series is convergent (ping-pong test).",
+          "check": {
+            "kind": "choice",
+            "value": "convergent",
+            "options": [
+              "convergent",
+              "divergent"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.6.1",
+      "course": "calc2",
+      "section": "11.6",
+      "topic": "Absolute Convergence and the Ratio and Root Tests",
+      "title": "Absolute or conditional convergence",
+      "type": "Determine whether the series $\\displaystyle\\sum_{n=1}^{\\infty}a_n$ is absolutely convergent, conditionally convergent, or divergent.",
+      "example": {
+        "problem": "Determine whether each series is absolutely convergent, conditionally convergent, or divergent. (a) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n^2}{(-2)^n}$, (b) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{\\sqrt n}$, (c) $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-2)^nn!}{n^n}$.",
+        "steps": [
+          {
+            "do": "Test for absolute convergence: is $\\sum|a_n|$ convergent? Use any test. The ratio test says that if $\\lim|a_{n+1}/a_n|<1$ the series is absolutely convergent, if $>1$ it is divergent, and if $=1$ you learn nothing. The root test is analogous with $\\lim|a_n|^{1/n}$. With $n!$ or polynomials use the ratio test; with things like $\\left(\\frac{3n+5}{5n+7}\\right)^n$ (no $n!$) use the root test.",
+            "work": "(a) $$\\left|\\frac{a_{n+1}}{a_n}\\right|=\\frac{(n+1)^2/2^{n+1}}{n^2/2^n}=\\frac{(n+1)^2}{2n^2}\\to\\frac12<1,$$ so (a) is absolutely convergent. (b) Ratio and root tests both give limit $1$: inconclusive. But $\\sum|a_n|=\\sum n^{-1/2}$ is a $p$-series with $p=\\tfrac12$, which diverges, so (b) is not absolutely convergent; go on to step 2. (c) The $n!$ calls for the ratio test: $$\\frac{|a_{n+1}|}{|a_n|}=\\frac{2^{n+1}(n+1)!/(n+1)^{n+1}}{2^nn!/n^n}=\\frac{2\\,n^n}{(n+1)^n}=\\frac{2}{\\left(\\frac{n+1}{n}\\right)^n}\\to\\frac2e<1,$$ using $\\lim\\left(\\frac{n+1}{n}\\right)^n=e$. So (c) is absolutely convergent."
+          },
+          {
+            "do": "If the series is not absolutely convergent, use the ping-pong test, the $p$-test, the integral test, or whatever, to decide whether it is convergent (then it is conditionally convergent) or divergent.",
+            "work": "Only (b) survives to this step. It is an alternating series with $\\dfrac1{\\sqrt n}$ decreasing to $0$, so it converges by the ping-pong test. Not absolutely convergent but convergent: (b) is conditionally convergent."
+          }
+        ],
+        "answer": "(a) absolutely convergent; (b) conditionally convergent; (c) absolutely convergent."
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n\\left(\\frac{n}{3n+1}\\right)^n$ is absolutely convergent, conditionally convergent, or divergent.",
+          "steps": [
+            {
+              "do": "Test for absolute convergence: is $\\sum|a_n|$ convergent? Use any test. The ratio test says that if $\\lim|a_{n+1}/a_n|<1$ the series is absolutely convergent, if $>1$ it is divergent, and if $=1$ you learn nothing. The root test is analogous with $\\lim|a_n|^{1/n}$. With $n!$ or polynomials use the ratio test; with things like $\\left(\\frac{3n+5}{5n+7}\\right)^n$ (no $n!$) use the root test.",
+              "work": "There is an $n$-th power and no $n!$, so use the root test: $$|a_n|^{1/n}=\\frac{n}{3n+1}\\to\\frac13<1,$$ so the series is absolutely convergent."
+            },
+            {
+              "do": "If the series is not absolutely convergent, use the ping-pong test, the $p$-test, the integral test, or whatever, to decide whether it is convergent (then it is conditionally convergent) or divergent.",
+              "work": "Not needed: the series is absolutely convergent."
+            }
+          ],
+          "answer": "Absolutely convergent (root test, limit $\\tfrac13$).",
+          "check": {
+            "kind": "choice",
+            "value": "absolutely convergent",
+            "options": [
+              "absolutely convergent",
+              "conditionally convergent",
+              "divergent"
+            ]
+          }
+        },
+        {
+          "problem": "Determine whether $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n+1}}{\\sqrt[3]{n}}$ is absolutely convergent, conditionally convergent, or divergent.",
+          "steps": [
+            {
+              "do": "Test for absolute convergence: is $\\sum|a_n|$ convergent? Use any test. The ratio test says that if $\\lim|a_{n+1}/a_n|<1$ the series is absolutely convergent, if $>1$ it is divergent, and if $=1$ you learn nothing. The root test is analogous with $\\lim|a_n|^{1/n}$. With $n!$ or polynomials use the ratio test; with things like $\\left(\\frac{3n+5}{5n+7}\\right)^n$ (no $n!$) use the root test.",
+              "work": "Ratio and root tests give limit $1$ (inconclusive). But $\\sum|a_n|=\\sum n^{-1/3}$ is a $p$-series with $p=\\tfrac13\\le1$, which diverges. So the series is not absolutely convergent."
+            },
+            {
+              "do": "If the series is not absolutely convergent, use the ping-pong test, the $p$-test, the integral test, or whatever, to decide whether it is convergent (then it is conditionally convergent) or divergent.",
+              "work": "It is an alternating series with $\\dfrac1{\\sqrt[3]{n}}$ decreasing to $0$, so it converges by the ping-pong test. Not absolutely convergent but convergent: conditionally convergent."
+            }
+          ],
+          "answer": "Conditionally convergent.",
+          "check": {
+            "kind": "choice",
+            "value": "conditionally convergent",
+            "options": [
+              "absolutely convergent",
+              "conditionally convergent",
+              "divergent"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.8.1",
+      "course": "calc2",
+      "section": "11.8",
+      "topic": "Power Series",
+      "title": "Radius and interval of convergence",
+      "type": "Find the radius of convergence and interval of convergence of the series $\\displaystyle\\sum_{n=1}^{\\infty}b_n(x+c)^n$, for some sequence $b_n$ and specific number $c$ ($x$ is a general symbol).",
+      "example": {
+        "problem": "Find the radius of convergence and interval of convergence of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n(x+4)^n}{4^{n+1}}$.",
+        "steps": [
+          {
+            "do": "Try the ratio test. Evaluate $\\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}(x+c)^{n+1}}{b_n(x+c)^n}\\right|=|x+c|\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}}{b_n}\\right|$, which should be a simple expression in $x$.",
+            "work": "$$\\lim_{n\\to\\infty}\\left|\\frac{(n+1)(x+4)^{n+1}/4^{n+2}}{n(x+4)^n/4^{n+1}}\\right|=\\lim_{n\\to\\infty}\\frac{(n+1)\\,|x+4|}{4n}=\\frac{|x+4|}{4}\\lim_{n\\to\\infty}\\frac{n+1}{n}=\\frac{|x+4|}{4}$$"
+          },
+          {
+            "do": "Call that limit $\\text{LimRatio}(x)$ and solve $|\\text{LimRatio}(x)|<1$. Rewrite it as $|x-\\text{center}|<R$: the center is the center of convergence and $R$ is the radius of convergence. The tentative interval of convergence is $(\\text{center}-R,\\ \\text{center}+R)$.",
+            "work": "$\\dfrac{|x+4|}{4}<1$ is the same as $|x+4|<4$, i.e. $|x-(-4)|<4$: the center is $-4$ and the radius is $R=4$. The tentative interval is $(-8,0)$."
+          },
+          {
+            "do": "Plug each endpoint into the series and decide, on its own merit, whether the resulting series converges or diverges. Each endpoint that converges is added to the interval (making it half-open or closed).",
+            "work": "At $x=-8$ the series is $\\displaystyle\\sum\\frac{n(-4)^n}{4^{n+1}}=\\frac14\\sum(-1)^nn$, which diverges by the divergence test. At $x=0$ it is $\\displaystyle\\sum\\frac{n\\,4^n}{4^{n+1}}=\\frac14\\sum n$, which also diverges. Neither endpoint is included."
+          }
+        ],
+        "answer": "Radius of convergence $4$; interval of convergence $(-8,0)$."
+      },
+      "practice": [
+        {
+          "problem": "Find the radius and interval of convergence of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{n^2(x+1)^n}{3^{n+1}}$. Enter which endpoints belong to the interval of convergence.",
+          "steps": [
+            {
+              "do": "Try the ratio test. Evaluate $\\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}(x+c)^{n+1}}{b_n(x+c)^n}\\right|=|x+c|\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}}{b_n}\\right|$, which should be a simple expression in $x$.",
+              "work": "$$\\lim_{n\\to\\infty}\\left|\\frac{(n+1)^2(x+1)^{n+1}/3^{n+2}}{n^2(x+1)^n/3^{n+1}}\\right|=\\frac{|x+1|}{3}\\lim_{n\\to\\infty}\\frac{(n+1)^2}{n^2}=\\frac{|x+1|}{3}$$"
+            },
+            {
+              "do": "Call that limit $\\text{LimRatio}(x)$ and solve $|\\text{LimRatio}(x)|<1$. Rewrite it as $|x-\\text{center}|<R$: the center is the center of convergence and $R$ is the radius of convergence. The tentative interval of convergence is $(\\text{center}-R,\\ \\text{center}+R)$.",
+              "work": "$\\dfrac{|x+1|}{3}<1$ is the same as $|x+1|<3$: the center is $-1$ and the radius is $R=3$. The tentative interval is $(-4,2)$."
+            },
+            {
+              "do": "Plug each endpoint into the series and decide, on its own merit, whether the resulting series converges or diverges. Each endpoint that converges is added to the interval (making it half-open or closed).",
+              "work": "At $x=-4$: $\\displaystyle\\sum\\frac{n^2(-3)^n}{3^{n+1}}=\\frac13\\sum(-1)^nn^2$ diverges by the divergence test. At $x=2$: $\\displaystyle\\frac13\\sum n^2$ diverges. Neither endpoint is included."
+            }
+          ],
+          "answer": "Radius $3$; interval of convergence $(-4,2)$ (neither endpoint).",
+          "check": {
+            "kind": "choice",
+            "value": "neither endpoint",
+            "options": [
+              "neither endpoint",
+              "left endpoint only",
+              "right endpoint only",
+              "both endpoints"
+            ]
+          }
+        },
+        {
+          "problem": "Find the radius and interval of convergence of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(x-1)^n}{n^2\\,5^n}$. Enter which endpoints belong to the interval of convergence.",
+          "steps": [
+            {
+              "do": "Try the ratio test. Evaluate $\\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}(x+c)^{n+1}}{b_n(x+c)^n}\\right|=|x+c|\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}}{b_n}\\right|$, which should be a simple expression in $x$.",
+              "work": "$$\\lim_{n\\to\\infty}\\left|\\frac{(x-1)^{n+1}/((n+1)^25^{n+1})}{(x-1)^n/(n^25^n)}\\right|=\\frac{|x-1|}{5}\\lim_{n\\to\\infty}\\frac{n^2}{(n+1)^2}=\\frac{|x-1|}{5}$$"
+            },
+            {
+              "do": "Call that limit $\\text{LimRatio}(x)$ and solve $|\\text{LimRatio}(x)|<1$. Rewrite it as $|x-\\text{center}|<R$: the center is the center of convergence and $R$ is the radius of convergence. The tentative interval of convergence is $(\\text{center}-R,\\ \\text{center}+R)$.",
+              "work": "$\\dfrac{|x-1|}{5}<1$ is the same as $|x-1|<5$: the center is $1$ and the radius is $R=5$. The tentative interval is $(-4,6)$."
+            },
+            {
+              "do": "Plug each endpoint into the series and decide, on its own merit, whether the resulting series converges or diverges. Each endpoint that converges is added to the interval (making it half-open or closed).",
+              "work": "At $x=6$: $\\displaystyle\\sum\\frac{5^n}{n^25^n}=\\sum\\frac{1}{n^2}$ converges ($p=2$). At $x=-4$: $\\displaystyle\\sum\\frac{(-1)^n}{n^2}$ converges (absolutely, by the same $p$-series). Both endpoints are included."
+            }
+          ],
+          "answer": "Radius $5$; interval of convergence $[-4,6]$ (both endpoints).",
+          "check": {
+            "kind": "choice",
+            "value": "both endpoints",
+            "options": [
+              "neither endpoint",
+              "left endpoint only",
+              "right endpoint only",
+              "both endpoints"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.8.2",
+      "course": "calc2",
+      "section": "11.8",
+      "topic": "Power Series",
+      "title": "Interval with a square root",
+      "type": "Find the radius of convergence and interval of convergence of the series $\\displaystyle\\sum_{n=1}^{\\infty}b_n(x+c)^n$, for some sequence $b_n$ and specific number $c$ ($x$ is a general symbol).",
+      "example": {
+        "problem": "Find the radius of convergence and interval of convergence of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(x-2)^n}{\\sqrt n\\,3^{n+1}}$.",
+        "steps": [
+          {
+            "do": "Try the ratio test. Evaluate $\\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}(x+c)^{n+1}}{b_n(x+c)^n}\\right|=|x+c|\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}}{b_n}\\right|$, which should be a simple expression in $x$.",
+            "work": "$$\\lim_{n\\to\\infty}\\left|\\frac{(x-2)^{n+1}/(\\sqrt{n+1}\\,3^{n+2})}{(x-2)^n/(\\sqrt n\\,3^{n+1})}\\right|=\\lim_{n\\to\\infty}\\frac{|x-2|\\sqrt n}{3\\sqrt{n+1}}=\\frac{|x-2|}{3}\\lim_{n\\to\\infty}\\left(\\frac{n}{n+1}\\right)^{1/2}=\\frac{|x-2|}{3}$$"
+          },
+          {
+            "do": "Call that limit $\\text{LimRatio}(x)$ and solve $|\\text{LimRatio}(x)|<1$. Rewrite it as $|x-\\text{center}|<R$: the center is the center of convergence and $R$ is the radius of convergence. The tentative interval of convergence is $(\\text{center}-R,\\ \\text{center}+R)$.",
+            "work": "$\\dfrac{|x-2|}{3}<1$ is the same as $|x-2|<3$: the center is $2$ and the radius is $R=3$. The tentative interval is $(-1,5)$."
+          },
+          {
+            "do": "Plug each endpoint into the series and decide, on its own merit, whether the resulting series converges or diverges. Each endpoint that converges is added to the interval (making it half-open or closed).",
+            "work": "At $x=-1$: $\\displaystyle\\sum\\frac{(-3)^n}{\\sqrt n\\,3^{n+1}}=\\frac13\\sum\\frac{(-1)^n}{\\sqrt n}$ converges by the alternating series test, so $x=-1$ is included. At $x=5$: $\\displaystyle\\frac13\\sum\\frac{1}{\\sqrt n}$ diverges by the $p$-test, so $x=5$ is not included."
+          }
+        ],
+        "answer": "Radius of convergence $3$; interval of convergence $[-1,5)$."
+      },
+      "practice": [
+        {
+          "problem": "Find the radius and interval of convergence of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(x+2)^n}{\\sqrt n\\,2^{n+1}}$. Enter which endpoints belong to the interval of convergence.",
+          "steps": [
+            {
+              "do": "Try the ratio test. Evaluate $\\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}(x+c)^{n+1}}{b_n(x+c)^n}\\right|=|x+c|\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}}{b_n}\\right|$, which should be a simple expression in $x$.",
+              "work": "$$\\lim_{n\\to\\infty}\\left|\\frac{(x+2)^{n+1}/(\\sqrt{n+1}\\,2^{n+2})}{(x+2)^n/(\\sqrt n\\,2^{n+1})}\\right|=\\frac{|x+2|}{2}\\lim_{n\\to\\infty}\\left(\\frac{n}{n+1}\\right)^{1/2}=\\frac{|x+2|}{2}$$"
+            },
+            {
+              "do": "Call that limit $\\text{LimRatio}(x)$ and solve $|\\text{LimRatio}(x)|<1$. Rewrite it as $|x-\\text{center}|<R$: the center is the center of convergence and $R$ is the radius of convergence. The tentative interval of convergence is $(\\text{center}-R,\\ \\text{center}+R)$.",
+              "work": "$\\dfrac{|x+2|}{2}<1$ is the same as $|x+2|<2$: the center is $-2$ and the radius is $R=2$. The tentative interval is $(-4,0)$."
+            },
+            {
+              "do": "Plug each endpoint into the series and decide, on its own merit, whether the resulting series converges or diverges. Each endpoint that converges is added to the interval (making it half-open or closed).",
+              "work": "At $x=-4$: $\\displaystyle\\sum\\frac{(-2)^n}{\\sqrt n\\,2^{n+1}}=\\frac12\\sum\\frac{(-1)^n}{\\sqrt n}$ converges by the alternating series test, so $-4$ is included. At $x=0$: $\\displaystyle\\frac12\\sum\\frac1{\\sqrt n}$ diverges by the $p$-test. So the interval is $[-4,0)$."
+            }
+          ],
+          "answer": "Radius $2$; interval of convergence $[-4,0)$ (left endpoint only).",
+          "check": {
+            "kind": "choice",
+            "value": "left endpoint only",
+            "options": [
+              "neither endpoint",
+              "left endpoint only",
+              "right endpoint only",
+              "both endpoints"
+            ]
+          }
+        },
+        {
+          "problem": "Find the radius and interval of convergence of $\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^n(x-2)^n}{\\sqrt n\\,4^n}$. Enter which endpoints belong to the interval of convergence.",
+          "steps": [
+            {
+              "do": "Try the ratio test. Evaluate $\\displaystyle\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}(x+c)^{n+1}}{b_n(x+c)^n}\\right|=|x+c|\\lim_{n\\to\\infty}\\left|\\frac{b_{n+1}}{b_n}\\right|$, which should be a simple expression in $x$.",
+              "work": "$$\\lim_{n\\to\\infty}\\left|\\frac{(-1)^{n+1}(x-2)^{n+1}/(\\sqrt{n+1}\\,4^{n+1})}{(-1)^n(x-2)^n/(\\sqrt n\\,4^n)}\\right|=\\frac{|x-2|}{4}\\lim_{n\\to\\infty}\\left(\\frac{n}{n+1}\\right)^{1/2}=\\frac{|x-2|}{4}$$"
+            },
+            {
+              "do": "Call that limit $\\text{LimRatio}(x)$ and solve $|\\text{LimRatio}(x)|<1$. Rewrite it as $|x-\\text{center}|<R$: the center is the center of convergence and $R$ is the radius of convergence. The tentative interval of convergence is $(\\text{center}-R,\\ \\text{center}+R)$.",
+              "work": "$\\dfrac{|x-2|}{4}<1$ is the same as $|x-2|<4$: the center is $2$ and the radius is $R=4$. The tentative interval is $(-2,6)$."
+            },
+            {
+              "do": "Plug each endpoint into the series and decide, on its own merit, whether the resulting series converges or diverges. Each endpoint that converges is added to the interval (making it half-open or closed).",
+              "work": "At $x=6$: $\\displaystyle\\sum\\frac{(-1)^n4^n}{\\sqrt n\\,4^n}=\\sum\\frac{(-1)^n}{\\sqrt n}$ converges by the alternating series test, so $6$ is included. At $x=-2$: $\\displaystyle\\sum\\frac{(-1)^n(-4)^n}{\\sqrt n\\,4^n}=\\sum\\frac1{\\sqrt n}$ diverges by the $p$-test. So the interval is $(-2,6]$."
+            }
+          ],
+          "answer": "Radius $4$; interval of convergence $(-2,6]$ (right endpoint only).",
+          "check": {
+            "kind": "choice",
+            "value": "right endpoint only",
+            "options": [
+              "neither endpoint",
+              "left endpoint only",
+              "right endpoint only",
+              "both endpoints"
+            ]
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.9.1",
+      "course": "calc2",
+      "section": "11.9",
+      "topic": "Representations of Functions as Power Series",
+      "title": "Power series from the geometric series",
+      "type": "Find a power series representation for $f(x)=\\dfrac{x^M}{a+bx^N}$ (for integers $N$, $M$ and numbers $a$, $b$) and determine the interval of convergence.",
+      "example": {
+        "problem": "Find a power series representation for $f(x)=\\dfrac{x^3}{4+36x^2}$ and determine the interval of convergence.",
+        "steps": [
+          {
+            "do": "Rewrite $f$ so that you can use the geometric series $\\dfrac{1}{1-z}=\\displaystyle\\sum_{n=0}^{\\infty}z^n$ (valid for $|z|<1$): $$x^M\\cdot\\frac{1}{a+bx^N}=\\frac{x^M}{a}\\cdot\\frac{1}{1-(-b/a)x^N}.$$",
+            "work": "$$\\frac{x^3}{4+36x^2}=x^3\\cdot\\frac{1}{4(1+9x^2)}=\\frac{x^3}{4}\\cdot\\frac{1}{1-(-9x^2)}$$"
+          },
+          {
+            "do": "Plug $z=(-b/a)x^N$ into the geometric series (valid for $|(-b/a)x^N|<1$) and simplify.",
+            "work": "Plugging $z=-9x^2$ into $\\dfrac1{1-z}=\\sum z^n$: $$\\frac{1}{1-(-9x^2)}=\\sum_{n=0}^{\\infty}(-9x^2)^n=\\sum_{n=0}^{\\infty}(-9)^nx^{2n},$$ valid for $|9x^2|<1$, i.e. $|x|<\\tfrac13$."
+          },
+          {
+            "do": "Finish by multiplying both sides by $x^M/a$ and simplifying. Also simplify the condition of validity to get the interval of convergence.",
+            "work": "$$\\frac{x^3}{4+36x^2}=\\frac{x^3}{4}\\sum_{n=0}^{\\infty}(-9)^nx^{2n}=\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{4}x^{2n+3}=\\tfrac14x^3-\\tfrac94x^5+\\tfrac{81}{4}x^7-\\cdots$$ valid for $|x|<\\tfrac13$, i.e. on the interval $(-\\tfrac13,\\tfrac13)$."
+          }
+        ],
+        "answer": "$\\dfrac{x^3}{4+36x^2}=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{4}x^{2n+3}$, with interval of convergence $\\left(-\\tfrac13,\\tfrac13\\right)$ (radius $\\tfrac13$)."
+      },
+      "practice": [
+        {
+          "problem": "Find a power series representation for $f(x)=\\dfrac{x^2}{2+8x^2}$ and determine the interval of convergence. Enter the coefficient of $x^6$ in the series.",
+          "steps": [
+            {
+              "do": "Rewrite $f$ so that you can use the geometric series $\\dfrac{1}{1-z}=\\displaystyle\\sum_{n=0}^{\\infty}z^n$ (valid for $|z|<1$): $$x^M\\cdot\\frac{1}{a+bx^N}=\\frac{x^M}{a}\\cdot\\frac{1}{1-(-b/a)x^N}.$$",
+              "work": "$$\\frac{x^2}{2+8x^2}=x^2\\cdot\\frac{1}{2(1+4x^2)}=\\frac{x^2}{2}\\cdot\\frac{1}{1-(-4x^2)}$$"
+            },
+            {
+              "do": "Plug $z=(-b/a)x^N$ into the geometric series (valid for $|(-b/a)x^N|<1$) and simplify.",
+              "work": "Plugging $z=-4x^2$: $$\\frac{1}{1-(-4x^2)}=\\sum_{n=0}^{\\infty}(-4)^nx^{2n},$$ valid for $|4x^2|<1$, i.e. $|x|<\\tfrac12$."
+            },
+            {
+              "do": "Finish by multiplying both sides by $x^M/a$ and simplifying. Also simplify the condition of validity to get the interval of convergence.",
+              "work": "$$\\frac{x^2}{2+8x^2}=\\sum_{n=0}^{\\infty}\\frac{(-4)^n}{2}x^{2n+2}=\\tfrac12x^2-2x^4+8x^6-\\cdots$$ valid on $(-\\tfrac12,\\tfrac12)$. The $x^6$ term has $2n+2=6$, i.e. $n=2$: coefficient $\\dfrac{16}{2}=8$."
+            }
+          ],
+          "answer": "$\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-4)^n}{2}x^{2n+2}$, interval of convergence $\\left(-\\tfrac12,\\tfrac12\\right)$; the coefficient of $x^6$ is $8$.",
+          "check": {
+            "kind": "number",
+            "value": "8"
+          }
+        },
+        {
+          "problem": "Find a power series representation for $f(x)=\\dfrac{x}{5-125x^2}$ and determine the interval of convergence. Enter the radius of convergence.",
+          "steps": [
+            {
+              "do": "Rewrite $f$ so that you can use the geometric series $\\dfrac{1}{1-z}=\\displaystyle\\sum_{n=0}^{\\infty}z^n$ (valid for $|z|<1$): $$x^M\\cdot\\frac{1}{a+bx^N}=\\frac{x^M}{a}\\cdot\\frac{1}{1-(-b/a)x^N}.$$",
+              "work": "$$\\frac{x}{5-125x^2}=x\\cdot\\frac{1}{5(1-25x^2)}=\\frac{x}{5}\\cdot\\frac{1}{1-25x^2}$$"
+            },
+            {
+              "do": "Plug $z=(-b/a)x^N$ into the geometric series (valid for $|(-b/a)x^N|<1$) and simplify.",
+              "work": "Plugging $z=25x^2$: $$\\frac{1}{1-25x^2}=\\sum_{n=0}^{\\infty}25^nx^{2n},$$ valid for $|25x^2|<1$, i.e. $|x|<\\tfrac15$."
+            },
+            {
+              "do": "Finish by multiplying both sides by $x^M/a$ and simplifying. Also simplify the condition of validity to get the interval of convergence.",
+              "work": "$$\\frac{x}{5-125x^2}=\\sum_{n=0}^{\\infty}\\frac{25^n}{5}x^{2n+1}=\\tfrac15x+5x^3+125x^5+\\cdots$$ valid for $|x|<\\tfrac15$, i.e. on the interval $(-\\tfrac15,\\tfrac15)$. The radius of convergence is $\\tfrac15$."
+            }
+          ],
+          "answer": "$\\displaystyle\\sum_{n=0}^{\\infty}\\frac{25^n}{5}x^{2n+1}$, interval of convergence $\\left(-\\tfrac15,\\tfrac15\\right)$; radius $\\tfrac15$.",
+          "check": {
+            "kind": "number",
+            "value": "1/5"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.9.2",
+      "course": "calc2",
+      "section": "11.9",
+      "topic": "Representations of Functions as Power Series",
+      "title": "Integrate a power series",
+      "type": "Evaluate the indefinite integral $\\displaystyle\\int f(x)\\,dx$ as a power series and give its radius of convergence, where $f(x)$ is a function whose power series you can find (from the formula sheet, or by manipulating geometric series as in the previous recipe).",
+      "example": {
+        "problem": "Evaluate the indefinite integral $\\displaystyle\\int\\frac{x^3}{4+36x^2}\\,dx$ as a power series. What is the radius of convergence?",
+        "steps": [
+          {
+            "do": "Express the integrand as a power series. In other words, apply the previous recipe.",
+            "work": "Using the previous recipe: $$\\frac{x^3}{4+36x^2}=\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{4}x^{2n+3}.$$"
+          },
+          {
+            "do": "Integrate term by term, using $\\displaystyle\\int x^m\\,dx=\\frac{x^{m+1}}{m+1}$. Do not worry about the $+C$ until the very end.",
+            "work": "$$\\int\\frac{x^3}{4+36x^2}\\,dx=\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{4}\\int x^{2n+3}\\,dx=\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{4}\\cdot\\frac{x^{2n+4}}{2n+4}$$"
+          },
+          {
+            "do": "Add $+C$ at the beginning, and note that the radius of convergence is always the same as that of the integrand.",
+            "work": "The radius of convergence is the same as for the series you integrated, namely $\\tfrac13$."
+          }
+        ],
+        "answer": "$C+\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{4(2n+4)}x^{2n+4}$, with radius of convergence $\\tfrac13$."
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{x}{1+9x^2}\\,dx$ as a power series. Enter the coefficient of $x^6$ in the series.",
+          "steps": [
+            {
+              "do": "Express the integrand as a power series. In other words, apply the previous recipe.",
+              "work": "$$\\frac{x}{1+9x^2}=x\\cdot\\frac{1}{1-(-9x^2)}=\\sum_{n=0}^{\\infty}(-9)^nx^{2n+1}$$ valid for $|x|<\\tfrac13$."
+            },
+            {
+              "do": "Integrate term by term, using $\\displaystyle\\int x^m\\,dx=\\frac{x^{m+1}}{m+1}$. Do not worry about the $+C$ until the very end.",
+              "work": "$$\\int\\frac{x}{1+9x^2}\\,dx=\\sum_{n=0}^{\\infty}(-9)^n\\int x^{2n+1}\\,dx=\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{2n+2}\\,x^{2n+2}$$"
+            },
+            {
+              "do": "Add $+C$ at the beginning, and note that the radius of convergence is always the same as that of the integrand.",
+              "work": "$$C+\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{2n+2}\\,x^{2n+2},\\qquad\\text{radius }\\tfrac13.$$ For $x^6$: $2n+2=6$, so $n=2$ and the coefficient is $\\dfrac{81}{6}=\\dfrac{27}{2}$."
+            }
+          ],
+          "answer": "$C+\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-9)^n}{2n+2}x^{2n+2}$, radius $\\tfrac13$; the coefficient of $x^6$ is $\\dfrac{27}{2}$.",
+          "check": {
+            "kind": "number",
+            "value": "27/2"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{x}{4-x^2}\\,dx$ as a power series. Enter the radius of convergence.",
+          "steps": [
+            {
+              "do": "Express the integrand as a power series. In other words, apply the previous recipe.",
+              "work": "$$\\frac{x}{4-x^2}=\\frac{x}{4}\\cdot\\frac{1}{1-x^2/4}=\\sum_{n=0}^{\\infty}\\frac{x^{2n+1}}{4^{n+1}}$$ valid for $|x^2/4|<1$, i.e. $|x|<2$."
+            },
+            {
+              "do": "Integrate term by term, using $\\displaystyle\\int x^m\\,dx=\\frac{x^{m+1}}{m+1}$. Do not worry about the $+C$ until the very end.",
+              "work": "$$\\int\\frac{x}{4-x^2}\\,dx=\\sum_{n=0}^{\\infty}\\frac{1}{4^{n+1}}\\int x^{2n+1}\\,dx=\\sum_{n=0}^{\\infty}\\frac{x^{2n+2}}{4^{n+1}(2n+2)}$$"
+            },
+            {
+              "do": "Add $+C$ at the beginning, and note that the radius of convergence is always the same as that of the integrand.",
+              "work": "$$C+\\sum_{n=0}^{\\infty}\\frac{x^{2n+2}}{4^{n+1}(2n+2)},$$ and the radius of convergence is the same as that of the integrand: $2$."
+            }
+          ],
+          "answer": "$C+\\displaystyle\\sum_{n=0}^{\\infty}\\frac{x^{2n+2}}{4^{n+1}(2n+2)}$, radius of convergence $2$.",
+          "check": {
+            "kind": "number",
+            "value": "2"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-11.10.1",
+      "course": "calc2",
+      "section": "11.10",
+      "topic": "Taylor and Maclaurin Series",
+      "title": "Maclaurin series by definition",
+      "type": "Find the Maclaurin series for $f(x)$ using the definition of a Maclaurin series.",
+      "example": {
+        "problem": "Find the Maclaurin series for $f(x)=\\sin x$ using the definition of a Maclaurin series.",
+        "steps": [
+          {
+            "do": "Find the first few derivatives of $f(x)$, then plug in $x=0$.",
+            "work": "$f=\\sin x$, $f'=\\cos x$, $f''=-\\sin x$, $f'''=-\\cos x$, $f^{(4)}=\\sin x$, $f^{(5)}=\\cos x,\\dots$ At $x=0$: $$f(0)=0,\\ f'(0)=1,\\ f''(0)=0,\\ f'''(0)=-1,\\ f^{(4)}(0)=0,\\ f^{(5)}(0)=1,\\dots$$"
+          },
+          {
+            "do": "Write down the general formula $f(x)=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(0)}{n!}x^n$ and plug in the values above.",
+            "work": "$$\\sin x=\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(0)}{n!}x^n=\\frac{0}{0!}+\\frac{1}{1!}x+\\frac{0}{2!}x^2+\\frac{-1}{3!}x^3+\\frac{0}{4!}x^4+\\frac{1}{5!}x^5+\\cdots=x-\\frac{x^3}{3!}+\\frac{x^5}{5!}-\\cdots$$"
+          },
+          {
+            "do": "If possible, detect a pattern and write the general series.",
+            "work": "$$\\sin x=\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n+1}}{(2n+1)!}$$"
+          }
+        ],
+        "answer": "$\\sin x=\\displaystyle\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{2n+1}}{(2n+1)!}$"
+      },
+      "practice": [
+        {
+          "problem": "Find the Maclaurin series for $f(x)=e^{-2x}$ using the definition. Enter the coefficient of $x^4$.",
+          "steps": [
+            {
+              "do": "Find the first few derivatives of $f(x)$, then plug in $x=0$.",
+              "work": "$f^{(n)}(x)=(-2)^ne^{-2x}$, so $f^{(n)}(0)=(-2)^n$: $\\ f(0)=1,\\ f'(0)=-2,\\ f''(0)=4,\\ f'''(0)=-8,\\ f^{(4)}(0)=16,\\dots$"
+            },
+            {
+              "do": "Write down the general formula $f(x)=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(0)}{n!}x^n$ and plug in the values above.",
+              "work": "$$e^{-2x}=\\sum_{n=0}^{\\infty}\\frac{(-2)^n}{n!}x^n=1-2x+2x^2-\\tfrac43x^3+\\tfrac23x^4-\\cdots$$"
+            },
+            {
+              "do": "If possible, detect a pattern and write the general series.",
+              "work": "$$e^{-2x}=\\sum_{n=0}^{\\infty}\\frac{(-2)^n}{n!}x^n.$$ The coefficient of $x^4$ is $\\dfrac{(-2)^4}{4!}=\\dfrac{16}{24}=\\dfrac23$."
+            }
+          ],
+          "answer": "$e^{-2x}=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-2)^n}{n!}x^n$; the coefficient of $x^4$ is $\\dfrac23$.",
+          "check": {
+            "kind": "number",
+            "value": "2/3"
+          }
+        },
+        {
+          "problem": "Find the Maclaurin series for $f(x)=\\ln(1+x)$ using the definition. Enter the coefficient of $x^6$.",
+          "steps": [
+            {
+              "do": "Find the first few derivatives of $f(x)$, then plug in $x=0$.",
+              "work": "$f'=\\dfrac1{1+x}$, $f''=-\\dfrac{1}{(1+x)^2}$, $f'''=\\dfrac{2}{(1+x)^3}$, $f^{(4)}=-\\dfrac{6}{(1+x)^4}$, $\\dots$ At $x=0$: $$f(0)=0,\\ f'(0)=1,\\ f''(0)=-1,\\ f'''(0)=2,\\ f^{(4)}(0)=-6,\\ f^{(5)}(0)=24,\\ f^{(6)}(0)=-120,\\dots$$"
+            },
+            {
+              "do": "Write down the general formula $f(x)=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(0)}{n!}x^n$ and plug in the values above.",
+              "work": "$$\\ln(1+x)=\\sum_{n=1}^{\\infty}\\frac{f^{(n)}(0)}{n!}x^n=x-\\frac{1}{2}x^2+\\frac{2}{3!}x^3-\\frac{6}{4!}x^4+\\cdots=x-\\frac{x^2}{2}+\\frac{x^3}{3}-\\frac{x^4}{4}+\\cdots$$"
+            },
+            {
+              "do": "If possible, detect a pattern and write the general series.",
+              "work": "Since $f^{(n)}(0)=(-1)^{n-1}(n-1)!$, $$\\ln(1+x)=\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n}x^n.$$ The coefficient of $x^6$ is $-\\dfrac16$."
+            }
+          ],
+          "answer": "$\\ln(1+x)=\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n}x^n$; the coefficient of $x^6$ is $-\\dfrac16$.",
+          "check": {
+            "kind": "number",
+            "value": "-1/6"
+          }
+        }
+      ],
+      "scene": "taylor"
+    },
+    {
+      "id": "c2-11.10.2",
+      "course": "calc2",
+      "section": "11.10",
+      "topic": "Taylor and Maclaurin Series",
+      "title": "Taylor series at a point",
+      "type": "Find the Taylor series for $f(x)$ centered at the given value $a$.",
+      "example": {
+        "problem": "Find the Taylor series for $f(x)=\\sin x$ centered at $a=\\pi/2$.",
+        "steps": [
+          {
+            "do": "Find the first few derivatives of $f(x)$, then plug in $x=a$.",
+            "work": "$f=\\sin x$, $f'=\\cos x$, $f''=-\\sin x$, $f'''=-\\cos x$, $f^{(4)}=\\sin x,\\dots$ At $x=\\pi/2$: $$f(\\pi/2)=1,\\ f'(\\pi/2)=0,\\ f''(\\pi/2)=-1,\\ f'''(\\pi/2)=0,\\ f^{(4)}(\\pi/2)=1,\\ f^{(5)}(\\pi/2)=0,\\dots$$"
+          },
+          {
+            "do": "Write down the general formula $f(x)=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n$ and plug in the values above.",
+            "work": "$$\\sin x=\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(\\pi/2)}{n!}\\left(x-\\tfrac\\pi2\\right)^n=1-\\frac{(x-\\pi/2)^2}{2!}+\\frac{(x-\\pi/2)^4}{4!}-\\frac{(x-\\pi/2)^6}{6!}+\\cdots$$"
+          },
+          {
+            "do": "If possible, detect a pattern and write the general series.",
+            "work": "$$\\sin x=\\sum_{n=0}^{\\infty}(-1)^n\\frac{(x-\\pi/2)^{2n}}{(2n)!}$$"
+          }
+        ],
+        "answer": "$\\sin x=\\displaystyle\\sum_{n=0}^{\\infty}(-1)^n\\frac{(x-\\pi/2)^{2n}}{(2n)!}$"
+      },
+      "practice": [
+        {
+          "problem": "Find the Taylor series for $f(x)=\\ln x$ centered at $a=1$. Enter the coefficient of $(x-1)^4$.",
+          "steps": [
+            {
+              "do": "Find the first few derivatives of $f(x)$, then plug in $x=a$.",
+              "work": "$f'=\\dfrac1x$, $f''=-\\dfrac1{x^2}$, $f'''=\\dfrac{2}{x^3}$, $f^{(4)}=-\\dfrac{6}{x^4}$, $\\dots$ At $x=1$: $$f(1)=0,\\ f'(1)=1,\\ f''(1)=-1,\\ f'''(1)=2,\\ f^{(4)}(1)=-6,\\dots$$"
+            },
+            {
+              "do": "Write down the general formula $f(x)=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n$ and plug in the values above.",
+              "work": "$$\\ln x=\\sum_{n=1}^{\\infty}\\frac{f^{(n)}(1)}{n!}(x-1)^n=(x-1)-\\frac{(x-1)^2}{2}+\\frac{2(x-1)^3}{3!}-\\frac{6(x-1)^4}{4!}+\\cdots$$"
+            },
+            {
+              "do": "If possible, detect a pattern and write the general series.",
+              "work": "Since $f^{(n)}(1)=(-1)^{n-1}(n-1)!$, $$\\ln x=\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n}(x-1)^n.$$ The coefficient of $(x-1)^4$ is $-\\dfrac14$."
+            }
+          ],
+          "answer": "$\\ln x=\\displaystyle\\sum_{n=1}^{\\infty}\\frac{(-1)^{n-1}}{n}(x-1)^n$; the coefficient of $(x-1)^4$ is $-\\dfrac14$.",
+          "check": {
+            "kind": "number",
+            "value": "-1/4"
+          }
+        },
+        {
+          "problem": "Find the Taylor series for $f(x)=\\dfrac1x$ centered at $a=2$. Enter the coefficient of $(x-2)^3$.",
+          "steps": [
+            {
+              "do": "Find the first few derivatives of $f(x)$, then plug in $x=a$.",
+              "work": "$f=x^{-1}$, $f'=-x^{-2}$, $f''=2x^{-3}$, $f'''=-6x^{-4},\\dots$, so $f^{(n)}(x)=(-1)^nn!\\,x^{-n-1}$. At $x=2$: $$f^{(n)}(2)=\\frac{(-1)^nn!}{2^{n+1}}$$"
+            },
+            {
+              "do": "Write down the general formula $f(x)=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n$ and plug in the values above.",
+              "work": "$$\\frac1x=\\sum_{n=0}^{\\infty}\\frac{f^{(n)}(2)}{n!}(x-2)^n=\\frac12-\\frac{(x-2)}{4}+\\frac{(x-2)^2}{8}-\\frac{(x-2)^3}{16}+\\cdots$$"
+            },
+            {
+              "do": "If possible, detect a pattern and write the general series.",
+              "work": "$$\\frac1x=\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{2^{n+1}}(x-2)^n.$$ The coefficient of $(x-2)^3$ is $-\\dfrac{1}{16}$."
+            }
+          ],
+          "answer": "$\\dfrac1x=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-1)^n}{2^{n+1}}(x-2)^n$; the coefficient of $(x-2)^3$ is $-\\dfrac1{16}$.",
+          "check": {
+            "kind": "number",
+            "value": "-1/16"
+          }
+        }
+      ],
+      "scene": "taylor"
+    },
+    {
+      "id": "c2-11.10.3",
+      "course": "calc2",
+      "section": "11.10",
+      "topic": "Taylor and Maclaurin Series",
+      "title": "Maclaurin series from known series",
+      "type": "Use known Maclaurin series to obtain the Maclaurin series for $f(x)$, where $f(x)$ is a product and/or composition of standard functions.",
+      "example": {
+        "problem": "Use known Maclaurin series to obtain the Maclaurin series for $f(x)=x^3e^{-4x}$.",
+        "steps": [
+          {
+            "do": "Decide which function is the most important in the expression and write down its Maclaurin series, using $w$ rather than $x$.",
+            "work": "$f(x)=x^3e^{-4x}$ features the exponential function. Recall $$e^w=\\sum_{n=0}^{\\infty}\\frac{w^n}{n!}.$$"
+          },
+          {
+            "do": "Find what is inside the important function and plug it in for $w$.",
+            "work": "Plugging in $w=-4x$: $$e^{-4x}=\\sum_{n=0}^{\\infty}\\frac{(-4x)^n}{n!}=\\sum_{n=0}^{\\infty}\\frac{(-4)^n}{n!}x^n.$$"
+          },
+          {
+            "do": "Use series manipulation (multiply by the remaining factors) to finish.",
+            "work": "$$f(x)=x^3\\sum_{n=0}^{\\infty}\\frac{(-4)^n}{n!}x^n=\\sum_{n=0}^{\\infty}\\frac{(-4)^n}{n!}x^{n+3}.$$"
+          }
+        ],
+        "answer": "$x^3e^{-4x}=\\displaystyle\\sum_{n=0}^{\\infty}\\frac{(-4)^n}{n!}x^{n+3}$"
+      },
+      "practice": [
+        {
+          "problem": "Use known Maclaurin series to find the Maclaurin series for $f(x)=x^2\\sin 3x$. Enter the coefficient of $x^5$.",
+          "steps": [
+            {
+              "do": "Decide which function is the most important in the expression and write down its Maclaurin series, using $w$ rather than $x$.",
+              "work": "The important function is $\\sin$: $$\\sin w=\\sum_{n=0}^{\\infty}(-1)^n\\frac{w^{2n+1}}{(2n+1)!}.$$"
+            },
+            {
+              "do": "Find what is inside the important function and plug it in for $w$.",
+              "work": "Plugging in $w=3x$: $$\\sin3x=\\sum_{n=0}^{\\infty}(-1)^n\\frac{3^{2n+1}}{(2n+1)!}x^{2n+1}.$$"
+            },
+            {
+              "do": "Use series manipulation (multiply by the remaining factors) to finish.",
+              "work": "$$f(x)=x^2\\sin3x=\\sum_{n=0}^{\\infty}(-1)^n\\frac{3^{2n+1}}{(2n+1)!}x^{2n+3}=3x^3-\\tfrac92x^5+\\cdots$$ For $x^5$: $2n+3=5$, so $n=1$ and the coefficient is $-\\dfrac{27}{6}=-\\dfrac92$."
+            }
+          ],
+          "answer": "$x^2\\sin3x=\\displaystyle\\sum_{n=0}^{\\infty}(-1)^n\\frac{3^{2n+1}}{(2n+1)!}x^{2n+3}$; the coefficient of $x^5$ is $-\\dfrac92$.",
+          "check": {
+            "kind": "number",
+            "value": "-9/2"
+          }
+        },
+        {
+          "problem": "Use known Maclaurin series to find the Maclaurin series for $f(x)=x\\cos(x^2)$. Enter the coefficient of $x^9$.",
+          "steps": [
+            {
+              "do": "Decide which function is the most important in the expression and write down its Maclaurin series, using $w$ rather than $x$.",
+              "work": "The important function is $\\cos$: $$\\cos w=\\sum_{n=0}^{\\infty}(-1)^n\\frac{w^{2n}}{(2n)!}.$$"
+            },
+            {
+              "do": "Find what is inside the important function and plug it in for $w$.",
+              "work": "Plugging in $w=x^2$: $$\\cos(x^2)=\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{4n}}{(2n)!}.$$"
+            },
+            {
+              "do": "Use series manipulation (multiply by the remaining factors) to finish.",
+              "work": "$$f(x)=x\\cos(x^2)=\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{4n+1}}{(2n)!}=x-\\tfrac12x^5+\\tfrac1{24}x^9-\\cdots$$ For $x^9$: $4n+1=9$, so $n=2$ and the coefficient is $\\dfrac{1}{4!}=\\dfrac1{24}$."
+            }
+          ],
+          "answer": "$x\\cos(x^2)=\\displaystyle\\sum_{n=0}^{\\infty}(-1)^n\\frac{x^{4n+1}}{(2n)!}$; the coefficient of $x^9$ is $\\dfrac{1}{24}$.",
+          "check": {
+            "kind": "number",
+            "value": "1/24"
+          }
+        }
+      ],
+      "scene": "taylor"
+    },
+    {
+      "id": "c2-11.10.4",
+      "course": "calc2",
+      "section": "11.10",
+      "topic": "Taylor and Maclaurin Series",
+      "title": "Multiply or divide series",
+      "type": "Use multiplication or division of power series to find the first four (or however many) non-zero terms of the Maclaurin series for $f(x)$, where $f(x)$ is a product and/or quotient of several standard functions.",
+      "example": {
+        "problem": "Find the first four non-zero terms of the Maclaurin expansion of $e^{2x}\\cos(3x)$.",
+        "steps": [
+          {
+            "do": "Write the first few terms of the Maclaurin series of the 'ingredients', from the formula sheet or from memory.",
+            "work": "$e^x=1+x+\\tfrac{x^2}{2}+\\tfrac{x^3}{6}+\\cdots$ and $\\cos x=1-\\tfrac{x^2}{2}+\\tfrac{x^4}{24}-\\cdots$, which yield $$e^{2x}=1+2x+2x^2+\\tfrac43x^3+\\cdots,\\qquad\\cos3x=1-\\tfrac92x^2+\\tfrac{27}{8}x^4-\\cdots$$"
+          },
+          {
+            "do": "Use algebra to multiply (or divide) the ingredients together, discarding all terms of higher order than you need.",
+            "work": "$$e^{2x}\\cos3x=\\left(1+2x+2x^2+\\tfrac43x^3+\\cdots\\right)\\left(1-\\tfrac92x^2+\\tfrac{27}{8}x^4-\\cdots\\right)$$ Multiply, keeping terms up to $x^3$: $$1\\cdot\\left(1-\\tfrac92x^2\\right)+2x\\cdot\\left(1-\\tfrac92x^2\\right)+2x^2\\cdot1+\\tfrac43x^3\\cdot1+\\cdots$$"
+          },
+          {
+            "do": "Collect terms up to the desired power.",
+            "work": "Collecting: constant $1$; $x$: $2$; $x^2$: $2-\\tfrac92=-\\tfrac52$; $x^3$: $\\tfrac43-9=-\\tfrac{23}{3}$. So $$f(x)=1+2x-\\tfrac52x^2-\\tfrac{23}{3}x^3+\\cdots$$"
+          }
+        ],
+        "answer": "$e^{2x}\\cos3x=1+2x-\\dfrac52x^2-\\dfrac{23}{3}x^3+\\cdots$"
+      },
+      "practice": [
+        {
+          "problem": "Find the first four non-zero terms of the Maclaurin expansion of $e^{x}\\cos(2x)$. Enter the coefficient of $x^3$.",
+          "steps": [
+            {
+              "do": "Write the first few terms of the Maclaurin series of the 'ingredients', from the formula sheet or from memory.",
+              "work": "$e^x=1+x+\\tfrac{x^2}{2}+\\tfrac{x^3}{6}+\\cdots$ and $\\cos2x=1-\\tfrac{(2x)^2}{2}+\\tfrac{(2x)^4}{24}-\\cdots=1-2x^2+\\tfrac23x^4-\\cdots$"
+            },
+            {
+              "do": "Use algebra to multiply (or divide) the ingredients together, discarding all terms of higher order than you need.",
+              "work": "$$\\left(1+x+\\tfrac12x^2+\\tfrac16x^3+\\cdots\\right)\\left(1-2x^2+\\tfrac23x^4-\\cdots\\right)$$ Multiply, keeping terms up to $x^3$: $$1\\cdot(1-2x^2)+x\\cdot(1-2x^2)+\\tfrac12x^2\\cdot1+\\tfrac16x^3\\cdot1+\\cdots$$"
+            },
+            {
+              "do": "Collect terms up to the desired power.",
+              "work": "Collecting: constant $1$; $x$: $1$; $x^2$: $\\tfrac12-2=-\\tfrac32$; $x^3$: $\\tfrac16-2=-\\tfrac{11}{6}$. So $$f(x)=1+x-\\tfrac32x^2-\\tfrac{11}{6}x^3+\\cdots$$"
+            }
+          ],
+          "answer": "$e^x\\cos2x=1+x-\\dfrac32x^2-\\dfrac{11}{6}x^3+\\cdots$; the coefficient of $x^3$ is $-\\dfrac{11}{6}$.",
+          "check": {
+            "kind": "number",
+            "value": "-11/6"
+          }
+        },
+        {
+          "problem": "Find the first four non-zero terms of the Maclaurin expansion of $\\dfrac{\\sin x}{1+x}$. Enter the coefficient of $x^4$.",
+          "steps": [
+            {
+              "do": "Write the first few terms of the Maclaurin series of the 'ingredients', from the formula sheet or from memory.",
+              "work": "$\\sin x=x-\\tfrac{x^3}{6}+\\cdots$ and, by the geometric series, $\\dfrac{1}{1+x}=1-x+x^2-x^3+\\cdots$"
+            },
+            {
+              "do": "Use algebra to multiply (or divide) the ingredients together, discarding all terms of higher order than you need.",
+              "work": "$$\\left(x-\\tfrac16x^3+\\cdots\\right)\\left(1-x+x^2-x^3+\\cdots\\right)$$ Multiply, keeping terms up to $x^4$: $$x\\cdot(1-x+x^2-x^3)-\\tfrac16x^3\\cdot(1-x)+\\cdots$$"
+            },
+            {
+              "do": "Collect terms up to the desired power.",
+              "work": "Collecting: $x$: $1$; $x^2$: $-1$; $x^3$: $1-\\tfrac16=\\tfrac56$; $x^4$: $-1+\\tfrac16=-\\tfrac56$. So $$f(x)=x-x^2+\\tfrac56x^3-\\tfrac56x^4+\\cdots$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\sin x}{1+x}=x-x^2+\\dfrac56x^3-\\dfrac56x^4+\\cdots$; the coefficient of $x^4$ is $-\\dfrac56$.",
+          "check": {
+            "kind": "number",
+            "value": "-5/6"
+          }
+        }
+      ],
+      "scene": "taylor"
+    },
+    {
+      "id": "c2-11.11.1",
+      "course": "calc2",
+      "section": "11.11",
+      "topic": "The Binomial Series",
+      "title": "Binomial series estimate",
+      "type": "(a) Expand $\\sqrt[m]{a+bx^n}$ (or $1/\\sqrt[m]{a+bx^n}$) as a power series. (b) Use part (a) to estimate some function value correct to so-and-so many decimal places.",
+      "example": {
+        "problem": "(a) Expand $\\sqrt[5]{1+x}$ as a power series. (b) Use part (a) to estimate $\\sqrt[5]{1.01}$ correct to six decimal places.",
+        "steps": [
+          {
+            "do": "First rewrite the function in pure exponent notation $A(1+Bx^n)^k$ for some numbers $A$, $B$, $k$.",
+            "work": "$f(x)=(1+x)^{1/5}$."
+          },
+          {
+            "do": "Write down the binomial series $(1+w)^k=\\displaystyle\\sum_{n=0}^{\\infty}\\binom{k}{n}w^n$, where $\\dbinom{k}{n}=\\dfrac{k(k-1)\\cdots(k-n+1)}{n!}$. Replace $w$ by whatever makes it coincide with $f(x)$, and spell out the first few terms.",
+            "work": "$$(1+x)^{1/5}=\\sum_{n=0}^{\\infty}\\binom{1/5}{n}x^n=1+\\tfrac15x+\\frac{(1/5)(-4/5)}{2!}x^2+\\frac{(1/5)(-4/5)(-9/5)}{3!}x^3+\\cdots=1+\\frac x5-\\frac{2x^2}{25}+\\frac{6x^3}{125}-\\frac{21x^4}{625}+\\cdots$$ This is the answer to (a)."
+          },
+          {
+            "do": "Decide which $x$ to plug in, and plug it into the expansion. Quit when the next term to be added (or subtracted) is smaller than the desired error ($0.5\\times10^{-d}$ for $d$ decimal places).",
+            "work": "Here $x=0.01$: $$\\sqrt[5]{1.01}=1+0.002-0.000008+0.000000048-\\cdots$$ Six decimal places allow an error of $0.5\\times10^{-6}$; the third term ($4.8\\times10^{-8}$) is already smaller, so we ignore it and everything after it: $$\\sqrt[5]{1.01}\\approx1+0.002-0.000008=1.001992.$$"
+          }
+        ],
+        "answer": "(a) $1+\\dfrac x5-\\dfrac{2x^2}{25}+\\dfrac{6x^3}{125}-\\cdots$; (b) $\\sqrt[5]{1.01}\\approx1.001992$."
+      },
+      "practice": [
+        {
+          "problem": "(a) Expand $\\sqrt[3]{1+x}$ as a power series. (b) Use part (a) to estimate $\\sqrt[3]{1.03}$ correct to six decimal places. Enter the estimate from (b).",
+          "steps": [
+            {
+              "do": "First rewrite the function in pure exponent notation $A(1+Bx^n)^k$ for some numbers $A$, $B$, $k$.",
+              "work": "$f(x)=(1+x)^{1/3}$."
+            },
+            {
+              "do": "Write down the binomial series $(1+w)^k=\\displaystyle\\sum_{n=0}^{\\infty}\\binom{k}{n}w^n$, where $\\dbinom{k}{n}=\\dfrac{k(k-1)\\cdots(k-n+1)}{n!}$. Replace $w$ by whatever makes it coincide with $f(x)$, and spell out the first few terms.",
+              "work": "$$(1+x)^{1/3}=\\sum_{n=0}^{\\infty}\\binom{1/3}{n}x^n=1+\\frac x3+\\frac{(1/3)(-2/3)}{2!}x^2+\\frac{(1/3)(-2/3)(-5/3)}{3!}x^3+\\cdots=1+\\frac x3-\\frac{x^2}{9}+\\frac{5x^3}{81}-\\frac{10x^4}{243}+\\cdots$$ This is the answer to (a)."
+            },
+            {
+              "do": "Decide which $x$ to plug in, and plug it into the expansion. Quit when the next term to be added (or subtracted) is smaller than the desired error ($0.5\\times10^{-d}$ for $d$ decimal places).",
+              "work": "Here $x=0.03$: $$\\sqrt[3]{1.03}=1+0.01-0.0001+0.0000016667-0.0000000333+\\cdots$$ Six decimal places allow an error of $0.5\\times10^{-6}$; the fourth term ($3.3\\times10^{-8}$) is smaller, so we stop after the third: $$\\sqrt[3]{1.03}\\approx1+0.01-0.0001+0.0000017\\approx1.009902.$$"
+            }
+          ],
+          "answer": "(a) $1+\\dfrac x3-\\dfrac{x^2}{9}+\\dfrac{5x^3}{81}-\\cdots$; (b) $\\sqrt[3]{1.03}\\approx1.009902$.",
+          "check": {
+            "kind": "number",
+            "value": "1.009902",
+            "tol": 1e-06
+          }
+        },
+        {
+          "problem": "(a) Expand $1/\\sqrt{1+x}$ as a power series. (b) Use part (a) to estimate $1/\\sqrt{1.04}$ correct to six decimal places. Enter the estimate from (b).",
+          "steps": [
+            {
+              "do": "First rewrite the function in pure exponent notation $A(1+Bx^n)^k$ for some numbers $A$, $B$, $k$.",
+              "work": "$f(x)=(1+x)^{-1/2}$."
+            },
+            {
+              "do": "Write down the binomial series $(1+w)^k=\\displaystyle\\sum_{n=0}^{\\infty}\\binom{k}{n}w^n$, where $\\dbinom{k}{n}=\\dfrac{k(k-1)\\cdots(k-n+1)}{n!}$. Replace $w$ by whatever makes it coincide with $f(x)$, and spell out the first few terms.",
+              "work": "$$(1+x)^{-1/2}=\\sum_{n=0}^{\\infty}\\binom{-1/2}{n}x^n=1-\\frac x2+\\frac{(-1/2)(-3/2)}{2!}x^2+\\frac{(-1/2)(-3/2)(-5/2)}{3!}x^3+\\cdots=1-\\frac x2+\\frac{3x^2}{8}-\\frac{5x^3}{16}+\\frac{35x^4}{128}-\\cdots$$ This is the answer to (a)."
+            },
+            {
+              "do": "Decide which $x$ to plug in, and plug it into the expansion. Quit when the next term to be added (or subtracted) is smaller than the desired error ($0.5\\times10^{-d}$ for $d$ decimal places).",
+              "work": "Here $x=0.04$: $$\\frac1{\\sqrt{1.04}}=1-0.02+0.0006-0.00002+0.0000007-0.000000025+\\cdots$$ Six decimal places allow an error of $0.5\\times10^{-6}$; the fifth term ($2.5\\times10^{-8}$) is smaller, so we stop after the fourth non-constant term: $$\\frac1{\\sqrt{1.04}}\\approx1-0.02+0.0006-0.00002+0.0000007=0.9805807\\approx0.980581.$$"
+            }
+          ],
+          "answer": "(a) $1-\\dfrac x2+\\dfrac{3x^2}{8}-\\dfrac{5x^3}{16}+\\cdots$; (b) $1/\\sqrt{1.04}\\approx0.980581$.",
+          "check": {
+            "kind": "number",
+            "value": "0.980581",
+            "tol": 1e-06
+          }
+        }
+      ],
+      "scene": "taylor"
+    },
+    {
+      "id": "c2-11.11.2",
+      "course": "calc2",
+      "section": "11.11",
+      "topic": "The Binomial Series",
+      "title": "Binomial series to inverse trig",
+      "type": "(a) Use the binomial series to expand functions involving a square root, like $1/\\sqrt{1-x^2}$ or $1/\\sqrt{1+x^2}$. (b) Use part (a) to find the Maclaurin series for an inverse trig function that is known to be the indefinite integral of the function in part (a).",
+      "example": {
+        "problem": "(a) Use the binomial series to expand $1/\\sqrt{1-x^2}$. (b) Use part (a) to find the Maclaurin series for $\\sin^{-1}x$.",
+        "steps": [
+          {
+            "do": "First rewrite the function in exponent notation $A(1+Bx^n)^k$ for some numbers $A$, $B$, $k$.",
+            "work": "$f(x)=(1-x^2)^{-1/2}$."
+          },
+          {
+            "do": "Write down the binomial series using $w$, then replace $w$ by the right monomial in $x$. Use algebra to simplify $\\dbinom{k}{n}$.",
+            "work": "Replace $w$ by $-x^2$ and $k$ by $-\\tfrac12$: $(1-x^2)^{-1/2}=1+\\displaystyle\\sum_{n=1}^{\\infty}\\binom{-1/2}{n}(-x^2)^n$. Here $$\\binom{-1/2}{n}=\\frac{(-\\frac12)(-\\frac32)\\cdots(-\\frac{2n-1}{2})}{n!}=\\frac{(-1)^n\\,1\\cdot3\\cdots(2n-1)}{2^nn!},$$ so, since $(-x^2)^n=(-1)^nx^{2n}$, $$(1-x^2)^{-1/2}=1+\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!}x^{2n}.$$ This is the answer to (a)."
+          },
+          {
+            "do": "Integrate term by term, plug in $x=0$ to find $C$, and plug that $C$ back.",
+            "work": "$$\\sin^{-1}x=\\int(1-x^2)^{-1/2}\\,dx=C+x+\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!}\\cdot\\frac{x^{2n+1}}{2n+1}.$$ At $x=0$: $\\sin^{-1}0=0$, so $C=0$, and $$\\sin^{-1}x=x+\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!\\,(2n+1)}x^{2n+1}.$$"
+          }
+        ],
+        "answer": "(a) $1+\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!}x^{2n}$; (b) $\\sin^{-1}x=x+\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!\\,(2n+1)}x^{2n+1}$."
+      },
+      "practice": [
+        {
+          "problem": "(a) Use the binomial series to expand $1/\\sqrt{1+x^2}$. (b) Use part (a) to find the Maclaurin series for $\\sinh^{-1}x$, which is the integral of $1/\\sqrt{1+x^2}$. Enter the coefficient of $x^7$ in (b).",
+          "steps": [
+            {
+              "do": "First rewrite the function in exponent notation $A(1+Bx^n)^k$ for some numbers $A$, $B$, $k$.",
+              "work": "$f(x)=(1+x^2)^{-1/2}$."
+            },
+            {
+              "do": "Write down the binomial series using $w$, then replace $w$ by the right monomial in $x$. Use algebra to simplify $\\dbinom{k}{n}$.",
+              "work": "Replace $w$ by $x^2$ and $k$ by $-\\tfrac12$: $$(1+x^2)^{-1/2}=1+\\sum_{n=1}^{\\infty}\\binom{-1/2}{n}x^{2n}=1+\\sum_{n=1}^{\\infty}(-1)^n\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!}x^{2n}$$ (using $\\binom{-1/2}{n}=\\frac{(-1)^n\\,1\\cdot3\\cdots(2n-1)}{2^nn!}$). This is the answer to (a)."
+            },
+            {
+              "do": "Integrate term by term, plug in $x=0$ to find $C$, and plug that $C$ back.",
+              "work": "$$\\sinh^{-1}x=C+x+\\sum_{n=1}^{\\infty}(-1)^n\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!\\,(2n+1)}x^{2n+1}.$$ At $x=0$: $\\sinh^{-1}0=0$, so $C=0$. The $x^7$ term has $n=3$: $$(-1)^3\\frac{1\\cdot3\\cdot5}{2^3\\cdot3!\\cdot7}=-\\frac{15}{336}=-\\frac{5}{112}.$$"
+            }
+          ],
+          "answer": "(a) $1+\\displaystyle\\sum_{n=1}^{\\infty}(-1)^n\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!}x^{2n}$; (b) $\\sinh^{-1}x=x-\\dfrac{x^3}{6}+\\dfrac{3x^5}{40}-\\dfrac{5x^7}{112}+\\cdots$; the coefficient of $x^7$ is $-\\dfrac{5}{112}$.",
+          "check": {
+            "kind": "number",
+            "value": "-5/112"
+          }
+        },
+        {
+          "problem": "(a) Use the binomial series to expand $1/\\sqrt{4-x^2}$. (b) Use part (a) to find the Maclaurin series for $\\sin^{-1}(x/2)$, which is the integral of $1/\\sqrt{4-x^2}$. Enter the coefficient of $x^5$ in (b).",
+          "steps": [
+            {
+              "do": "First rewrite the function in exponent notation $A(1+Bx^n)^k$ for some numbers $A$, $B$, $k$.",
+              "work": "$$f(x)=\\frac{1}{\\sqrt{4-x^2}}=\\frac12\\left(1-\\frac{x^2}{4}\\right)^{-1/2}.$$"
+            },
+            {
+              "do": "Write down the binomial series using $w$, then replace $w$ by the right monomial in $x$. Use algebra to simplify $\\dbinom{k}{n}$.",
+              "work": "Replace $w$ by $-\\dfrac{x^2}{4}$ and $k$ by $-\\tfrac12$: $$\\frac{1}{\\sqrt{4-x^2}}=\\frac12\\left[1+\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!}\\cdot\\frac{x^{2n}}{4^n}\\right].$$ This is the answer to (a)."
+            },
+            {
+              "do": "Integrate term by term, plug in $x=0$ to find $C$, and plug that $C$ back.",
+              "work": "$$\\sin^{-1}\\frac x2=C+\\frac12\\left[x+\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!\\,4^n(2n+1)}x^{2n+1}\\right].$$ At $x=0$: $\\sin^{-1}0=0$, so $C=0$. The $x^5$ term has $n=2$: $$\\frac12\\cdot\\frac{1\\cdot3}{2^2\\cdot2!\\cdot4^2\\cdot5}=\\frac12\\cdot\\frac{3}{640}=\\frac{3}{1280}.$$"
+            }
+          ],
+          "answer": "(a) $\\dfrac12\\left[1+\\displaystyle\\sum_{n=1}^{\\infty}\\frac{1\\cdot3\\cdots(2n-1)}{2^nn!}\\frac{x^{2n}}{4^n}\\right]$; (b) $\\sin^{-1}\\dfrac x2=\\dfrac x2+\\dfrac{x^3}{48}+\\dfrac{3x^5}{1280}+\\cdots$; the coefficient of $x^5$ is $\\dfrac{3}{1280}$.",
+          "check": {
+            "kind": "number",
+            "value": "3/1280"
+          }
+        }
+      ],
+      "scene": "taylor"
+    },
+    {
+      "id": "c2-11.12.1",
+      "course": "calc2",
+      "section": "11.12",
+      "topic": "Applications of Taylor Polynomials",
+      "title": "Taylor polynomial and error bound",
+      "type": "(a) Approximate $f$ by a Taylor polynomial of degree $n$ at the number $a$. (b) Use Taylor's inequality to estimate the accuracy of the approximation $f(x)\\approx T_n(x)$ when $x$ lies in the given interval.",
+      "example": {
+        "problem": "Ditto with $f(x)=x^{2/3}$, $a=1$, $n=3$, $0.8\\le x\\le1.2$.",
+        "steps": [
+          {
+            "do": "Write down the general Taylor polynomial of degree $n$, $T_n(x)=\\displaystyle\\sum_{k=0}^{n}\\frac{f^{(k)}(a)}{k!}(x-a)^k$, and implement it for the function and the center $a$ by computing the derivatives you need at $x=a$.",
+            "work": "$f=x^{2/3}$, $f'=\\tfrac23x^{-1/3}$, $f''=-\\tfrac29x^{-4/3}$, $f'''=\\tfrac{8}{27}x^{-7/3}$. At $x=1$: $f(1)=1$, $f'(1)=\\tfrac23$, $f''(1)=-\\tfrac29$, $f'''(1)=\\tfrac{8}{27}$. So $$T_3(x)=1+\\tfrac23(x-1)-\\tfrac19(x-1)^2+\\tfrac{4}{81}(x-1)^3.$$ This is the answer to (a)."
+          },
+          {
+            "do": "Write down Taylor's inequality for the remainder, $|R_n(x)|\\le\\dfrac{M}{(n+1)!}|x-a|^{n+1}$, where $M$ is the maximum of $|f^{(n+1)}(x)|$ on the designated interval. Find $M$ and the largest value of $|x-a|$, and plug in.",
+            "work": "$|R_3(x)|\\le\\dfrac{M}{4!}|x-1|^4$. Here $f^{(4)}(x)=-\\tfrac{56}{81}x^{-10/3}$, so $|f^{(4)}(x)|=\\tfrac{56}{81}x^{-10/3}$, which is decreasing, so its maximum on $[0.8,1.2]$ is at $x=0.8$: $M=\\dfrac{56/81}{(0.8)^{10/3}}\\approx1.455$. Also $|x-1|\\le0.2$. So $$|R_3(x)|\\le\\frac{1.455}{24}(0.2)^4\\approx0.000097.$$"
+          }
+        ],
+        "answer": "(a) $T_3(x)=1+\\tfrac23(x-1)-\\tfrac19(x-1)^2+\\tfrac{4}{81}(x-1)^3$; (b) on $0.8\\le x\\le1.2$ the error is less than $0.000097$."
+      },
+      "practice": [
+        {
+          "problem": "Let $f(x)=\\sqrt x$, $a=1$, $n=2$, $0.9\\le x\\le1.1$. (a) Find $T_2(x)$. (b) Use Taylor's inequality to bound the error. Enter the bound from (b) as a decimal.",
+          "steps": [
+            {
+              "do": "Write down the general Taylor polynomial of degree $n$, $T_n(x)=\\displaystyle\\sum_{k=0}^{n}\\frac{f^{(k)}(a)}{k!}(x-a)^k$, and implement it for the function and the center $a$ by computing the derivatives you need at $x=a$.",
+              "work": "$f=x^{1/2}$, $f'=\\tfrac12x^{-1/2}$, $f''=-\\tfrac14x^{-3/2}$. At $x=1$: $f(1)=1$, $f'(1)=\\tfrac12$, $f''(1)=-\\tfrac14$. So $$T_2(x)=1+\\tfrac12(x-1)-\\tfrac18(x-1)^2.$$ This is the answer to (a)."
+            },
+            {
+              "do": "Write down Taylor's inequality for the remainder, $|R_n(x)|\\le\\dfrac{M}{(n+1)!}|x-a|^{n+1}$, where $M$ is the maximum of $|f^{(n+1)}(x)|$ on the designated interval. Find $M$ and the largest value of $|x-a|$, and plug in.",
+              "work": "$|R_2(x)|\\le\\dfrac{M}{3!}|x-1|^3$. Here $f'''(x)=\\tfrac38x^{-5/2}$, which is decreasing, so its maximum on $[0.9,1.1]$ is at $x=0.9$: $M=\\tfrac38(0.9)^{-5/2}\\approx0.4880$. Also $|x-1|\\le0.1$. So $$|R_2(x)|\\le\\frac{0.4880}{6}(0.1)^3\\approx0.0000813.$$"
+            }
+          ],
+          "answer": "(a) $T_2(x)=1+\\tfrac12(x-1)-\\tfrac18(x-1)^2$; (b) the error is less than $0.0000813$.",
+          "check": {
+            "kind": "number",
+            "value": "(3/8)*0.9^(-5/2)/6*0.001",
+            "tol": 1e-06
+          }
+        },
+        {
+          "problem": "Let $f(x)=\\ln x$, $a=1$, $n=3$, $0.8\\le x\\le1.2$. (a) Find $T_3(x)$. (b) Use Taylor's inequality to bound the error. Enter the bound from (b) as a decimal.",
+          "steps": [
+            {
+              "do": "Write down the general Taylor polynomial of degree $n$, $T_n(x)=\\displaystyle\\sum_{k=0}^{n}\\frac{f^{(k)}(a)}{k!}(x-a)^k$, and implement it for the function and the center $a$ by computing the derivatives you need at $x=a$.",
+              "work": "$f=\\ln x$, $f'=\\tfrac1x$, $f''=-\\tfrac{1}{x^2}$, $f'''=\\tfrac{2}{x^3}$. At $x=1$: $f(1)=0$, $f'(1)=1$, $f''(1)=-1$, $f'''(1)=2$. So $$T_3(x)=(x-1)-\\tfrac12(x-1)^2+\\tfrac13(x-1)^3.$$ This is the answer to (a)."
+            },
+            {
+              "do": "Write down Taylor's inequality for the remainder, $|R_n(x)|\\le\\dfrac{M}{(n+1)!}|x-a|^{n+1}$, where $M$ is the maximum of $|f^{(n+1)}(x)|$ on the designated interval. Find $M$ and the largest value of $|x-a|$, and plug in.",
+              "work": "$|R_3(x)|\\le\\dfrac{M}{4!}|x-1|^4$. Here $f^{(4)}(x)=-\\tfrac{6}{x^4}$, so $|f^{(4)}(x)|=6x^{-4}$, which is decreasing, so its maximum on $[0.8,1.2]$ is at $x=0.8$: $M=\\dfrac{6}{(0.8)^4}\\approx14.65$. Also $|x-1|\\le0.2$. So $$|R_3(x)|\\le\\frac{14.65}{24}(0.2)^4=\\frac{1}{1024}\\approx0.000977.$$"
+            }
+          ],
+          "answer": "(a) $T_3(x)=(x-1)-\\tfrac12(x-1)^2+\\tfrac13(x-1)^3$; (b) the error is less than $\\tfrac{1}{1024}\\approx0.000977$.",
+          "check": {
+            "kind": "number",
+            "value": "1/1024",
+            "tol": 1e-06
+          }
+        }
+      ],
+      "scene": "taylor"
+    },
+    {
+      "id": "c2-Last.1",
+      "course": "calc2",
+      "section": "Last",
+      "topic": "Review: Limits of Sequences and Series",
+      "title": "Limit of a recurrence",
+      "type": "A sequence is defined by the recurrence $a_1=a$, $a_{n+1}=F(a_n)$ for $n=1,2,3,\\dots$ Assume that this sequence converges. Find the possible values for $\\displaystyle\\lim_{n\\to\\infty}a_n$.",
+      "example": {
+        "problem": "A sequence is defined by the recurrence $a_1=5$, $a_{n+1}=1+\\dfrac{1}{a_n}$ for $n=1,2,3,\\dots$ Assume that this sequence converges. Find the possible values for $\\displaystyle\\lim_{n\\to\\infty}a_n$.",
+        "steps": [
+          {
+            "do": "We could write a computer program that computes $a_2,a_3,a_4,\\dots$ step by step, but we are supposed to use calculus. Call $\\lim_{n\\to\\infty}a_n=x$, and take the limit of both sides of the recurrence: $\\displaystyle\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}F(a_n)$.",
+            "work": "Call $\\lim a_n=x$ and take limits of both sides: $$\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}\\left(1+\\frac{1}{a_n}\\right).$$"
+          },
+          {
+            "do": "Since obviously $\\lim a_{n+1}$ is also $x$ (when $n\\to\\infty$, so does $n+1$), we get the algebraic equation $x=F(x)$. Solve for $x$: those are the possible values. Use what you know about the sequence to rule out impossible ones.",
+            "work": "We get $x=1+\\dfrac1x$, i.e. $x^2-x-1=0$, whose roots are $\\dfrac{1\\pm\\sqrt5}{2}$. The second root is negative, but $a_n$ is obviously positive, so its limit cannot be negative. The limit is $\\dfrac{1+\\sqrt5}{2}$."
+          }
+        ],
+        "answer": "The possible values are $\\dfrac{1\\pm\\sqrt5}{2}$, but $a_n>0$ rules out the negative one. The limit is $\\dfrac{1+\\sqrt5}{2}$.",
+        "check": {
+          "kind": "number",
+          "value": "(1+sqrt(5))/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A sequence is defined by $a_1=1$, $a_{n+1}=\\sqrt{2+a_n}$ for $n=1,2,3,\\dots$ Assume that it converges. Find its limit.",
+          "steps": [
+            {
+              "do": "We could write a computer program that computes $a_2,a_3,a_4,\\dots$ step by step, but we are supposed to use calculus. Call $\\lim_{n\\to\\infty}a_n=x$, and take the limit of both sides of the recurrence: $\\displaystyle\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}F(a_n)$.",
+              "work": "Call $\\lim a_n=x$ and take limits of both sides: $$\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}\\sqrt{2+a_n}.$$"
+            },
+            {
+              "do": "Since obviously $\\lim a_{n+1}$ is also $x$ (when $n\\to\\infty$, so does $n+1$), we get the algebraic equation $x=F(x)$. Solve for $x$: those are the possible values. Use what you know about the sequence to rule out impossible ones.",
+              "work": "We get $x=\\sqrt{2+x}$, so $x^2=2+x$, i.e. $x^2-x-2=(x-2)(x+1)=0$, giving $x=2$ or $x=-1$. Since every $a_n$ is positive, the limit cannot be $-1$. The limit is $2$."
+            }
+          ],
+          "answer": "The possible values are $2$ and $-1$, but $a_n>0$ rules out $-1$. The limit is $2$.",
+          "check": {
+            "kind": "number",
+            "value": "2"
+          }
+        },
+        {
+          "problem": "A sequence is defined by $a_1=1$, $a_{n+1}=2+\\dfrac{3}{a_n}$ for $n=1,2,3,\\dots$ Assume that it converges. Find its limit.",
+          "steps": [
+            {
+              "do": "We could write a computer program that computes $a_2,a_3,a_4,\\dots$ step by step, but we are supposed to use calculus. Call $\\lim_{n\\to\\infty}a_n=x$, and take the limit of both sides of the recurrence: $\\displaystyle\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}F(a_n)$.",
+              "work": "Call $\\lim a_n=x$ and take limits of both sides: $$\\lim_{n\\to\\infty}a_{n+1}=\\lim_{n\\to\\infty}\\left(2+\\frac{3}{a_n}\\right).$$"
+            },
+            {
+              "do": "Since obviously $\\lim a_{n+1}$ is also $x$ (when $n\\to\\infty$, so does $n+1$), we get the algebraic equation $x=F(x)$. Solve for $x$: those are the possible values. Use what you know about the sequence to rule out impossible ones.",
+              "work": "We get $x=2+\\dfrac3x$, so $x^2-2x-3=(x-3)(x+1)=0$, giving $x=3$ or $x=-1$. Since every $a_n$ is positive, the limit cannot be $-1$. The limit is $3$."
+            }
+          ],
+          "answer": "The possible values are $3$ and $-1$, but $a_n>0$ rules out $-1$. The limit is $3$.",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        }
+      ],
+      "scene": "series"
+    },
+    {
+      "id": "c2-Last.2",
+      "course": "calc2",
+      "section": "Last",
+      "topic": "Review: Limits of Sequences and Series",
+      "title": "Limit by Maclaurin series",
+      "type": "Without using L'Hôpital's Rule, compute $\\displaystyle\\lim_{x\\to0}\\text{COMPLICATED}(x)$.",
+      "example": {
+        "problem": "Without using L'Hôpital's Rule, compute $\\displaystyle\\lim_{x\\to0}\\frac{e^{3x}-1-3x}{1-\\cos(2x)}$.",
+        "steps": [
+          {
+            "do": "You are supposed to use Maclaurin series. Find the first couple of terms of the numerator and denominator and factor out the lowest power of $x$ from each.",
+            "work": "Since $e^w=1+w+\\tfrac{w^2}{2}+\\tfrac{w^3}{6}+\\cdots$: $e^{3x}=1+3x+\\tfrac92x^2+\\tfrac92x^3+\\cdots$, so $$e^{3x}-1-3x=\\tfrac92x^2+\\tfrac92x^3+\\cdots$$ Since $\\cos w=1-\\tfrac{w^2}{2}+\\tfrac{w^4}{24}-\\cdots$: $\\cos2x=1-2x^2+\\tfrac23x^4-\\cdots$, so $$1-\\cos2x=2x^2-\\tfrac23x^4+\\cdots$$ Therefore $$\\frac{e^{3x}-1-3x}{1-\\cos2x}=\\frac{\\tfrac92x^2+\\tfrac92x^3+\\cdots}{2x^2-\\tfrac23x^4+\\cdots}=\\frac{x^2\\left[\\tfrac92+\\tfrac92x+\\cdots\\right]}{x^2\\left[2-\\tfrac23x^2+\\cdots\\right]}=\\frac{\\tfrac92+\\tfrac92x+\\cdots}{2-\\tfrac23x^2+\\cdots}$$"
+          },
+          {
+            "do": "Now take the limit as $x\\to0$ by plugging in $x=0$ into what is left, if possible. (If the denominator still has a factor of $x$, the limit does not exist or is infinite; if it has no $x$ factor, it is a simple plug-in.)",
+            "work": "Plugging in $x=0$: $$\\lim_{x\\to0}\\frac{e^{3x}-1-3x}{1-\\cos2x}=\\frac{9/2}{2}=\\frac94.$$"
+          }
+        ],
+        "answer": "The limit is $\\dfrac94$.",
+        "check": {
+          "kind": "number",
+          "value": "9/4"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Without using L'Hôpital's Rule, compute $\\displaystyle\\lim_{x\\to0}\\frac{e^{2x}-1-2x}{1-\\cos(3x)}$.",
+          "steps": [
+            {
+              "do": "You are supposed to use Maclaurin series. Find the first couple of terms of the numerator and denominator and factor out the lowest power of $x$ from each.",
+              "work": "$e^{2x}=1+2x+2x^2+\\tfrac43x^3+\\cdots$, so $e^{2x}-1-2x=2x^2+\\tfrac43x^3+\\cdots$. And $\\cos3x=1-\\tfrac92x^2+\\tfrac{27}{8}x^4-\\cdots$, so $1-\\cos3x=\\tfrac92x^2-\\tfrac{27}{8}x^4+\\cdots$. Therefore $$\\frac{e^{2x}-1-2x}{1-\\cos3x}=\\frac{x^2\\left[2+\\tfrac43x+\\cdots\\right]}{x^2\\left[\\tfrac92-\\tfrac{27}{8}x^2+\\cdots\\right]}=\\frac{2+\\tfrac43x+\\cdots}{\\tfrac92-\\tfrac{27}{8}x^2+\\cdots}$$"
+            },
+            {
+              "do": "Now take the limit as $x\\to0$ by plugging in $x=0$ into what is left, if possible. (If the denominator still has a factor of $x$, the limit does not exist or is infinite; if it has no $x$ factor, it is a simple plug-in.)",
+              "work": "Plugging in $x=0$: $$\\lim_{x\\to0}\\frac{e^{2x}-1-2x}{1-\\cos3x}=\\frac{2}{9/2}=\\frac49.$$"
+            }
+          ],
+          "answer": "The limit is $\\dfrac49$.",
+          "check": {
+            "kind": "number",
+            "value": "4/9"
+          }
+        },
+        {
+          "problem": "Without using L'Hôpital's Rule, compute $\\displaystyle\\lim_{x\\to0}\\frac{x\\cos x-\\sin x}{x^3}$.",
+          "steps": [
+            {
+              "do": "You are supposed to use Maclaurin series. Find the first couple of terms of the numerator and denominator and factor out the lowest power of $x$ from each.",
+              "work": "$x\\cos x=x-\\tfrac12x^3+\\tfrac1{24}x^5-\\cdots$ and $\\sin x=x-\\tfrac16x^3+\\tfrac1{120}x^5-\\cdots$, so $$x\\cos x-\\sin x=-\\tfrac13x^3+\\tfrac1{30}x^5-\\cdots$$ Therefore $$\\frac{x\\cos x-\\sin x}{x^3}=\\frac{x^3\\left[-\\tfrac13+\\tfrac1{30}x^2-\\cdots\\right]}{x^3}=-\\tfrac13+\\tfrac1{30}x^2-\\cdots$$"
+            },
+            {
+              "do": "Now take the limit as $x\\to0$ by plugging in $x=0$ into what is left, if possible. (If the denominator still has a factor of $x$, the limit does not exist or is infinite; if it has no $x$ factor, it is a simple plug-in.)",
+              "work": "Plugging in $x=0$: $$\\lim_{x\\to0}\\frac{x\\cos x-\\sin x}{x^3}=-\\frac13.$$"
+            }
+          ],
+          "answer": "The limit is $-\\dfrac13$.",
+          "check": {
+            "kind": "number",
+            "value": "-1/3"
+          }
+        }
+      ],
+      "scene": "taylor"
+    }
+  ]
+}

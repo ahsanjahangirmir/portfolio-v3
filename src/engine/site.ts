@@ -24,7 +24,7 @@ function onPage() {
 
   let lenis: Lenis | undefined;
   if (!reduced) {
-    lenis = new Lenis({anchors:true, duration:.95});
+    lenis = new Lenis({duration:.95});
     const scrollTick = (t:number) => lenis?.raf(t*1000);
     gsap.ticker.add(scrollTick);
     cleanups.push(() => { gsap.ticker.remove(scrollTick); lenis?.destroy(); });
@@ -70,6 +70,67 @@ function onPage() {
       });
     }
   }
+  // In-page anchors. Lenis and the ClientRouter both reacted to hash clicks and fought over the scroll
+  // position, so one handler owns them: cancel the router's navigation, glide with Lenis (or jump when
+  // motion is reduced), keep the URL in sync and move focus to the target for keyboard users.
+  const samePage = (url: URL) => url.origin === location.origin && url.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '');
+  const onAnchorClick = (event: MouseEvent) => {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const link = (event.target as Element | null)?.closest?.<HTMLAnchorElement>('a[href*="#"]');
+    if (!link || (link.target && link.target !== '_self') || link.hasAttribute('download')) return;
+    const url = new URL(link.href, location.href);
+    if (!url.hash || !samePage(url)) return;
+    const target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+    if (!target) return;
+    event.preventDefault();
+    if (location.hash !== url.hash) history.pushState(history.state, '', url.hash);
+    const padding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    const offset = () => target.getBoundingClientRect().top - padding;
+    // Sections far from the viewport use estimated heights (content-visibility), so the target can
+    // move while we travel. Once there, re-measure for a few frames and nudge until it holds still.
+    let glides = 0;
+    const settle = (frames = 8) => {
+      const delta = offset();
+      // A large correction (the page grew or Lenis held a stale limit) glides; a small one snaps.
+      if (lenis && Math.abs(delta) > 48 && glides++ < 3) {
+        lenis.resize();
+        lenis.scrollTo(scrollY + delta, {duration:.55, easing:(t:number) => 1 - Math.pow(1 - t, 3), force:true, onComplete:() => settle()});
+        return;
+      }
+      if (Math.abs(delta) > 2) { lenis ? lenis.scrollTo(scrollY + delta, {immediate:true, force:true}) : window.scrollTo({top:scrollY + delta, behavior:'instant' as ScrollBehavior}); }
+      if (frames > 0) requestAnimationFrame(() => settle(frames - 1));
+    };
+    if (lenis) {
+      const smooth = lenis;
+      smooth.resize();
+      let destination = scrollY + offset();
+      const total = Math.min(1.8, .7 + Math.abs(destination - scrollY) / 9000);
+      const started = performance.now();
+      const ease = (t:number) => 1 - Math.pow(1 - t, 4);
+      let stop = () => {};
+      const go = (duration:number) => smooth.scrollTo(destination, {duration, easing:ease, onComplete:() => { stop(); settle(); }});
+      // Retarget in flight when the destination moves (sections above it render and change height).
+      const unwatch = smooth.on('scroll', () => {
+        const next = scrollY + offset();
+        if (Math.abs(next - destination) > 24) { destination = next; go(Math.max(.35, total - (performance.now() - started) / 1000)); }
+      });
+      // Any input of the reader's own ends the glide's bookkeeping.
+      const cancel = () => stop();
+      stop = () => { unwatch(); removeEventListener('wheel', cancel); removeEventListener('touchstart', cancel); removeEventListener('keydown', cancel); };
+      addEventListener('wheel', cancel, {passive:true, once:true});
+      addEventListener('touchstart', cancel, {passive:true, once:true});
+      addEventListener('keydown', cancel, {once:true});
+      go(total);
+    } else {
+      window.scrollTo({top:scrollY + offset(), behavior:'instant' as ScrollBehavior});
+      requestAnimationFrame(() => settle());
+    }
+    if (!target.matches('a, button, input, select, textarea, [tabindex]')) target.setAttribute('tabindex', '-1');
+    target.focus({preventScroll:true});
+  };
+  document.addEventListener('click', onAnchorClick, true);
+  cleanups.push(() => document.removeEventListener('click', onAnchorClick, true));
+
 
   // Index preview: the hovered product resolves beside the pointer; keyboard and reduced motion pin it to the row.
   const index = document.querySelector<HTMLElement>('.index');

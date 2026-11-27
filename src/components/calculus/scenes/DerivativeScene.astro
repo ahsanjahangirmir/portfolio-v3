@@ -1,0 +1,44 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="derivative" figure="tall" label="Two stacked graphs sharing one x-axis. On top, a function with a draggable point and its amber tangent line. Below, the derivative graph is traced in amber as the point moves: the height below always equals the slope above. Function choices: x cubed minus 3x, sin x, e to the x, the absolute value of x with a corner at 0, and the position of a particle, s = t⁴ − 2t² + 1, with its velocity and acceleration.">
+  <div class="beat" data-beat="A slope at every point">
+    <p>Every point on <Tex t="\cA{f(x) = x^3-3x}"/> has its own tangent line, and so its own slope. Drag the point and watch the <span class="k-c2">tangent</span> tilt.</p>
+    <p>A slope is a number. So for each <Tex t="x"/> we get a number, and that is a new function.</p>
+  </div>
+  <div class="beat" data-beat="Record the slope as a height">
+    <p>Below the curve, plot that number as a height. Where the tangent climbs steeply, the lower graph is high. Where it falls, the lower graph is below zero. The new curve is the <strong>derivative</strong> <Tex t="\cB{f'(x)}"/>.</p>
+    <Tex display t="\cB{f'(x)} = \lim_{h\to 0}\frac{\cA{f(x+h)}-\cA{f(x)}}{h}"/>
+    <p class="aside">For <Tex t="x^2"/> the limit works out by algebra: <Tex t="\frac{(x+h)^2-x^2}{h} = 2x+h \to 2x"/>. The same algebra gives <Tex t="3x^2-3"/> here.</p>
+  </div>
+  <div class="beat" data-beat="Read f from f′">
+    <p>The two graphs talk to each other. Where <Tex t="\cB{f'}"/> crosses zero, the tangent is flat: at <Tex t="x=\pm1"/>, the top of a hill and the bottom of a valley.</p>
+    <p>Where <Tex t="\cB{f'}>0"/>, <Tex t="\cA{f}"/> rises. Where <Tex t="\cB{f'}<0"/>, <Tex t="\cA{f}"/> falls. You can sketch one graph from the other without a formula.</p>
+  </div>
+  <div class="beat" data-beat="Old friends">
+    <p>Sweep across <Tex t="\cA{\sin x}"/>. The slope is <Tex t="1"/> at <Tex t="0"/>, zero at the peaks, <Tex t="-1"/> at <Tex t="\pi"/>. The trace below is <Tex t="\cB{\cos x}"/>.</p>
+    <p class="aside">Try <Tex t="e^x"/> from the menu: both panels show the same curve, because <Tex t="e^x"/> is its own derivative. The slope at each point equals the height.</p>
+  </div>
+  <div class="beat" data-beat="A corner">
+    <p>Not every function has a derivative everywhere. <Tex t="\cA{|x|}"/> has slope <Tex t="-1"/> on the left and <Tex t="+1"/> on the right. At the corner the two one-sided limits disagree, so <Tex t="f'(0)"/> does not exist and the lower graph jumps.</p>
+  </div>
+  <div class="beat" data-beat="Position, velocity, acceleration">
+    <p>When the variable is time, the derivative is a rate. A particle has position <Tex t="\cA{s(t) = t^4-2t^2+1}"/>. Its velocity is <Tex t="\cB{v = s' = 4t^3-4t}"/>, and its acceleration is the derivative of that, <Tex t="\cE{a = s'' = 12t^2-4}"/>.</p>
+    <p>The dot on the left edge is the particle. For <Tex t="0<t<1"/> the velocity is negative and it moves down. At <Tex t="t=1"/> it stops, then it heads back up.</p>
+    <p class="aside">Over the first 8 seconds it travels <Tex t="1 + 3969 = 3970"/> feet: the backward leg counts too.</p>
+  </div>
+  <Tex slot="takeaway" display t="\text{height of } \cB{f'} \text{ at } x \;=\; \text{slope of } \cA{f} \text{ at } x"/>
+  <Fragment slot="controls">
+    <Segmented name="fn" label="Function" options={[['cubic', 'x³ − 3x'], ['sin', 'sin x'], ['exp', 'eˣ'], ['abs', '|x|'], ['motion', 's(t)']]}/>
+    <Slider name="x" label="Point" min={-2.3} max={2.3} step={0.01} value={-1.6} color="c1"/>
+    <Action name="sweep" label="Sweep" icon="play"/>
+    <Action name="f2" label="Show f″" icon="step"/>
+    <Readout name="slope" label="Slope f′" color="c2"/>
+    <Readout name="second" label="f″" color="c5"/>
+  </Fragment>
+</Scene>

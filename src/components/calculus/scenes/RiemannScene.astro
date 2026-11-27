@@ -1,0 +1,46 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="riemann" label="The area under a curve approximated by n blue strips: rectangles using left endpoints, right endpoints or midpoints, trapezoids, or Simpson's parabolic arcs. Rose slivers show where the strips miss the true area. A table lists the error for n = 4, 8, 16, 32 and 64, and how much it shrinks each time n doubles. Curves: y = 2x − x² on [0, 1] and y = 1/x on [2, 6].">
+  <div class="beat" data-beat="Area under a curve">
+    <p>How much area lies under <Tex t="\cA{y = 2x - x^2}"/> between <Tex t="0"/> and <Tex t="1"/>? No formula from geometry fits a curved top.</p>
+    <p>The trick is to slice it into thin vertical strips. Each strip is almost a rectangle, and rectangles we can do.</p>
+  </div>
+  <div class="beat" data-beat="Rectangles">
+    <p>Cut <Tex t="[0,1]"/> into <Tex t="n"/> pieces of width <Tex t="\Delta x = 1/n"/>, and give each piece the height of the curve at its right end, <Tex t="x_i = i/n"/>. Add up the <span class="k-c3">rectangles</span>:</p>
+    <Tex display t="R_n = \sum_{i=1}^{n} \cA{f(x_i)}\,\Delta x = \sum_{i=1}^{n}\Big[\frac{2i}{n} - \Big(\frac in\Big)^2\Big]\frac1n"/>
+    <p>With <Tex t="n=4"/> this is <Tex t="0.78125"/>, too big: the curve rises, so each right edge is the tallest point of its strip. The <span class="k-c4">rose slivers</span> are the overshoot.</p>
+  </div>
+  <div class="beat" data-beat="More strips">
+    <p>Raise <Tex t="n"/>. The slivers get thinner and the sum closes in on the area. The area <em>is</em> the limit:</p>
+    <Tex display t="\int_0^1 (2x - x^2)\,dx = \lim_{n\to\infty} R_n = \tfrac23"/>
+    <p>The table shows the price: doubling <Tex t="n"/> only halves the error. Endpoint sums converge slowly.</p>
+    <p class="aside">This exact sum is a classic trick question on exams. Recognize it as a Riemann sum and the answer is the integral, <Tex t="2/3"/>.</p>
+  </div>
+  <div class="beat" data-beat="Better shapes">
+    <p>Smarter strips help. Use the <strong>midpoint</strong> height, or join the endpoints to make <strong>trapezoids</strong>. Now doubling <Tex t="n"/> cuts the error by about four.</p>
+    <p>The example: <Tex t="\int_2^6 \frac{dx}{x} = \ln 3 \approx 1.0986123"/> with <Tex t="n=8"/> gives <Tex t="M_8 \approx 1.0936247"/> and <Tex t="T_8 \approx 1.1032107"/>. The midpoint error is about half the trapezoid’s, with the opposite sign.</p>
+  </div>
+  <div class="beat" data-beat="Simpson's rule">
+    <p><strong>Simpson’s rule</strong> replaces each pair of strips with a parabola through three points. Weights <Tex t="1,4,2,4,\ldots,4,1"/>:</p>
+    <Tex display t="S_n = \frac{\Delta x}{3}\big[f(x_0) + 4f(x_1) + 2f(x_2) + \cdots + 4f(x_{n-1}) + f(x_n)\big]"/>
+    <p><Tex t="S_8 \approx 1.0987253"/>, off by about <Tex t="10^{-4}"/>. Doubling <Tex t="n"/> divides the error by about <Tex t="16"/>. On the parabola <Tex t="2x-x^2"/> Simpson is exact, since a parabola fits it perfectly.</p>
+    <p class="aside">Simpson needs an even <Tex t="n"/>, so an odd choice is rounded up.</p>
+  </div>
+  <Tex slot="takeaway" display t="\int_a^b \cA{f(x)}\,dx = \lim_{n\to\infty}\sum_{i=1}^{n} \cA{f(x_i)}\,\cC{\Delta x}"/>
+  <Fragment slot="controls">
+    <Segmented name="method" label="Method" value="right" options={[['left', 'Left'], ['right', 'Right'], ['mid', 'Mid'], ['trap', 'Trap'], ['simp', 'Simpson']]}/>
+    <Segmented name="fn" label="Function" options={[['par', '2x − x²'], ['inv', '1/x']]}/>
+    <Slider name="n" label="Strips n" min={1} max={200} step={1} value={4} color="c3" digits={0}/>
+    <Action name="double" label="Double n" icon="step"/>
+    <Action name="play" label="Play" icon="play"/>
+    <Readout name="est" label="Estimate" color="c3"/>
+    <Readout name="exact" label="Exact" color="c1"/>
+    <Readout name="err" label="Error" color="c4"/>
+  </Fragment>
+</Scene>

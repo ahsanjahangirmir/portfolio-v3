@@ -1,0 +1,8 @@
+---
+// Live value written by scene.readout(name)(text).
+const { name, label, color = 'ink', value = '—' } = Astro.props as { name: string; label: string; color?: string; value?: string };
+---
+<div class="ctl ctl-readout" style={`--ctl:var(--calc-${color}, var(--${color}))`}>
+  <span class="ctl-label">{label}</span>
+  <output data-readout={name}>{value}</output>
+</div>

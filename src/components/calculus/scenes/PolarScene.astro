@@ -1,0 +1,53 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+---
+<Scene id="polar" figure="square" label="A polar graph. A ray from the origin turns through the angle theta while a point at distance r equals f of theta traces the curve: a cardioid, a three-petal rose, or the circle r equals sine theta. The swept region is filled with thin circular sectors whose areas add up to one half the integral of r squared. A parametric mode shows the curve x equals 2 t squared plus 1, y equals t cubed over 3 minus t, with a draggable point, its tangent line, and the velocity components dx/dt and dy/dt.">
+  <div class="beat" data-beat="Angle and distance">
+    <p>Polar coordinates describe a point by how far to turn, <Tex t="\theta"/>, and how far to walk, <Tex t="r"/>. A polar curve <Tex t="r = f(\theta)"/> is a rule for the distance at each angle.</p>
+    <p>Watch the <span class="k-c2">ray</span> turn once around. Its length follows <Tex t="r = 1 + \cos\theta"/>: 2 when it points right, 0 when it points left. The tip traces a <span class="k-c1">cardioid</span>.</p>
+  </div>
+  <div class="beat" data-beat="Thin sectors">
+    <p>Areas here come in wedges, not rectangles. Over a small turn <Tex t="d\theta"/> the curve is almost a circular arc of radius <Tex t="r"/>, so the region is almost a <span class="k-c3">sector</span> of a circle:</p>
+    <Tex display t="\cC{dA} = \tfrac12\, r^2\, d\theta"/>
+    <p>Add up the sectors and let them get thinner. For the cardioid the total is <Tex t="\tfrac12\int_0^{2\pi}(1+\cos\theta)^2\,d\theta = 3\pi/2 \approx 4.712"/>.</p>
+  </div>
+  <div class="beat" data-beat="A worked example">
+    <p>The curve <Tex t="r = \sin\theta"/> is a circle of radius <Tex t="\tfrac12"/> sitting on the origin. Take only the part between <Tex t="\theta = \pi/3"/> and <Tex t="2\pi/3"/>:</p>
+    <Tex display t="\tfrac12\int_{\pi/3}^{2\pi/3} \sin^2\theta\,d\theta = \frac{\pi}{12} + \frac{\sqrt3}{8} \approx 0.47831"/>
+    <p class="aside">Drag the end of the ray, or move <Tex t="\alpha"/> and <Tex t="\beta"/>, and the sector sum tracks the integral.</p>
+  </div>
+  <div class="beat" data-beat="Negative r">
+    <p>In <Tex t="r = \cos 3\theta"/> the distance turns negative, and a negative <Tex t="r"/> means walk backward, to the opposite side of the origin. That is how three petals appear while <Tex t="\theta"/> only goes from <Tex t="0"/> to <Tex t="\pi"/>.</p>
+    <p>Since <Tex t="r^2"/> is never negative, every petal adds area. The whole rose has area <Tex t="\pi/4"/>. Going on past <Tex t="\pi"/> would trace it a second time and count it twice.</p>
+  </div>
+  <div class="beat" data-beat="Parametric curves">
+    <p>A parametric curve gives <Tex t="x"/> and <Tex t="y"/> separately, both driven by a parameter <Tex t="t"/>. Its slope is a ratio of two rates, the <span class="k-c5">rise rate</span> over the <span class="k-c3">run rate</span>:</p>
+    <Tex display t="\cB{\frac{dy}{dx}} = \frac{\cE{dy/dt}}{\cC{dx/dt}} = \frac{t^2-1}{4t}"/>
+    <p>At <Tex t="t = 3"/> the point is <Tex t="(19, 6)"/> and the slope is <Tex t="8/12 = 2/3"/>, so the tangent is <Tex t="y = \tfrac23 x - \tfrac{20}{3}"/>. Drag the point: at <Tex t="t = \pm1"/> the rise rate is zero and the tangent is flat, and at <Tex t="t = 0"/> the run rate is zero and it stands vertical.</p>
+  </div>
+  <Tex slot="takeaway" display t="\cC{A} = \tfrac12\int_\alpha^\beta r^2\,d\theta, \qquad \cB{\frac{dy}{dx}} = \frac{dy/dt}{dx/dt}"/>
+  <div slot="overlay" class="scene-overlay">
+    <span data-eq="cardioid"><Tex t="r = 1 + \cos\theta"/></span>
+    <span data-eq="rose" hidden><Tex t="r = \cos 3\theta"/></span>
+    <span data-eq="circle" hidden><Tex t="r = \sin\theta"/></span>
+    <span data-eq="param" hidden><Tex t="x = 2t^2 + 1,\ \ y = \tfrac13 t^3 - t"/></span>
+  </div>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Curve" options={[['cardioid', 'Cardioid'], ['rose', 'Rose'], ['circle', 'r = sin θ'], ['param', 'Parametric']]}/>
+    <Action name="trace" label="Trace" icon="play"/>
+    <Slider name="a" label="α" min={0} max={6.2832} step={0.01} value={0} color="c1"/>
+    <Slider name="b" label="β" min={0} max={6.2832} step={0.01} value={6.2832} color="c2"/>
+    <Slider name="n" label="Sectors" min={2} max={96} step={1} value={12} color="c3" digits={0}/>
+    <Slider name="t" label="t" min={-3} max={3} step={0.01} value={1.6} color="c2"/>
+    <Readout name="sum" label="Σ ½r²Δθ" color="c3"/>
+    <Readout name="integral" label="½∫r²dθ" color="c3"/>
+    <Readout name="dx" label="dx/dt" color="c3"/>
+    <Readout name="dy" label="dy/dt" color="c5"/>
+    <Readout name="slope" label="dy/dx" color="c2"/>
+  </Fragment>
+</Scene>

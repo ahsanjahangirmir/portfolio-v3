@@ -1,0 +1,52 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+---
+<Scene id="gradient" label="A contour map of a function of two variables: shaded bands for heights and thin level curves. A draggable point P carries the gradient arrow, drawn perpendicular to the level curve through P. A direction dial shows a unit vector u and the directional derivative as the shadow of the gradient on u. A ball can climb along the gradient to a peak, critical points are labelled max, min or saddle, and a Lagrange mode adds a constraint ellipse where the best point has the gradients of f and g parallel.">
+  <div class="beat" data-beat="A map of heights">
+    <p>Look down on the landscape <Tex t="z = f(x, y)"/> from above. Each thin curve joins points of equal height, <Tex t="f(x, y) = c"/>, like the contour lines on a hiking map. Lighter bands are higher ground.</p>
+    <p>Where the curves crowd together the ground is steep. Where they spread apart it is nearly flat.</p>
+  </div>
+  <div class="beat" data-beat="The gradient">
+    <p>Collect both partial derivatives into one arrow, the <span class="k-c2">gradient</span>:</p>
+    <Tex display t="\cB{\nabla f} = \langle f_x,\, f_y \rangle"/>
+    <p>Drag <Tex t="P"/> around. The arrow always crosses the level curve through <Tex t="P"/> at a right angle. Walking along a level curve keeps <Tex t="f"/> constant, so the rate of change in that direction is zero, and only a perpendicular arrow can have zero dot product with it.</p>
+    <p class="aside">The arrows are scaled down to fit. The readout gives the true length <Tex t="|\nabla f|"/>.</p>
+  </div>
+  <div class="beat" data-beat="Every direction">
+    <p>Pick any unit direction <Tex t="\cE{u}"/> on the dial. The slope you feel walking that way is the <span class="k-c5">directional derivative</span>, the shadow of <Tex t="\cB{\nabla f}"/> on <Tex t="\cE{u}"/>:</p>
+    <Tex display t="\cE{D_u f} = \cB{\nabla f}\cdot\cE{u} = |\cB{\nabla f}|\cos\theta"/>
+    <p>It is largest when <Tex t="\theta = 0"/>. So <Tex t="\cB{\nabla f}"/> points in the direction of steepest ascent, and its length is that steepest slope. Opposite it is steepest descent, and along the level curve the slope is zero.</p>
+    <p class="aside">For example, take <Tex t="f = \ln(x^2+y^2+z^2)"/> at <Tex t="(2,1,3)"/> toward <Tex t="\langle 1,2,2\rangle"/>, <Tex t="\nabla f = \langle \tfrac27, \tfrac17, \tfrac37\rangle"/> and <Tex t="D_u f = 10/21"/>. And <Tex t="f = \sin(xy)"/> at <Tex t="(1,0)"/> has <Tex t="\nabla f = \langle 0, 1\rangle"/>: the fastest rate is <Tex t="1"/>, due north.</p>
+  </div>
+  <div class="beat" data-beat="Climb">
+    <p>Follow the arrow, take a small step, and look again. Repeat. The ball traces a path of steepest ascent that cuts every level curve at a right angle, and it slows down as the ground flattens.</p>
+    <p>It stops where the arrow shrinks to nothing: a peak, where <Tex t="\cB{\nabla f} = \mathbf{0}"/>. Drag <Tex t="P"/> somewhere else and press Climb to see which hill it finds.</p>
+  </div>
+  <div class="beat" data-beat="Flat spots">
+    <p>Points where <Tex t="\nabla f = \mathbf 0"/> are <em>critical points</em>. Some are peaks, some are pits, and some are saddles, uphill one way and downhill the other. The second-derivative test tells them apart with</p>
+    <Tex display t="D = f_{xx}f_{yy} - f_{xy}^2"/>
+    <p><Tex t="D > 0"/> with <Tex t="f_{xx} < 0"/> is a <span class="k-c1">max</span>, <Tex t="D > 0"/> with <Tex t="f_{xx} > 0"/> is a <span class="k-c3">min</span>, and <Tex t="D < 0"/> is a <span class="k-c5">saddle</span>.</p>
+    <p class="aside">This map is a classic problem: <Tex t="f = 4x^2 + y^2 + 2x^2y - 1"/>. At <Tex t="(0,0)"/>, <Tex t="D = 8\cdot 2 - 0 = 16 > 0"/> with <Tex t="f_{xx} = 8 > 0"/>: a local min, value <Tex t="-1"/>. At <Tex t="(\pm\sqrt2, -2)"/>, <Tex t="D = 0\cdot 2 - (4\sqrt2)^2 = -32"/>: saddles.</p>
+  </div>
+  <div class="beat" data-beat="With a constraint">
+    <p>Now you may only walk on the <span class="k-c4">ellipse</span> <Tex t="g(x,y) = 3x^2 + 2y^2 = 6"/>. Where on it is <Tex t="f = xy"/> largest? Drag <Tex t="P"/> along it, or press Climb.</p>
+    <p>At the best point, the level curve of <Tex t="f"/> just touches the ellipse, so the two curves share a tangent and their gradients point the same way:</p>
+    <Tex display t="\cB{\nabla f} = \lambda\,\cD{\nabla g}"/>
+    <p>Here that gives <Tex t="x = \pm 1"/>, <Tex t="y = \pm\sqrt{3/2}"/>, and the maximum <Tex t="f = \sqrt{3/2} \approx 1.225"/>.</p>
+    <p class="aside">A two-variable cousin of the classic problem that maximizes <Tex t="xyz"/> on <Tex t="3x^2 + 2y^2 + z^2 = 6"/> and gets <Tex t="2/\sqrt3"/>. The arrows are scaled differently so both fit.</p>
+  </div>
+  <Tex slot="takeaway" display t="\cE{D_u f} = \cB{\nabla f}\cdot\cE{u}, \qquad \max_u D_u f = |\cB{\nabla f}|"/>
+  <Fragment slot="controls">
+    <Segmented name="land" label="Function" options={[['hills', 'Hills'], ['saddle', 'Saddles'], ['lagrange', 'Lagrange']]}/>
+    <Action name="climb" label="Climb" icon="play"/>
+    <Slider name="dir" label="Direction u" min={0} max={360} step={1} value={30} digits={0} unit="°" color="c5"/>
+    <Readout name="f" label="f(P)"/>
+    <Readout name="g" label="|∇f|" color="c2"/>
+    <Readout name="d" label="Dᵤf" color="c5"/>
+  </Fragment>
+</Scene>
