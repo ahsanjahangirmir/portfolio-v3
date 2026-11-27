@@ -1,0 +1,45 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+---
+<Scene id="solids" figure="square" label="A 3D figure. The flat region under y equals 1 over x squared, from x equals 1 to 2, is swept around the x-axis into a solid of revolution with checkered shading. A thin amber slice at a chosen x spins with it into a disk. Other modes show the region between y equals root x and y equals x squared spun into a solid with a hole, sliced into washers, and the first region spun around the y-axis, sliced into cylindrical shells. Drag to turn the figure.">
+  <div class="beat" data-beat="A flat region">
+    <p>Start flat: the <span class="k-c3">region</span> under <Tex t="\cA{y = 1/x^2}"/> between <Tex t="x = 1"/> and <Tex t="x = 2"/>. It has an area, and nothing more.</p>
+    <p>Now pick an axis, here the <span class="k-c5">x-axis</span>, and imagine spinning the region around it.</p>
+  </div>
+  <div class="beat" data-beat="Spin it">
+    <p>As it turns, the region sweeps out a <strong>solid of revolution</strong>, a flared horn. After a full turn of <Tex t="2\pi"/> it closes up.</p>
+    <p class="aside">Drag the figure to look at it from any side, or scrub the sweep angle yourself.</p>
+  </div>
+  <div class="beat" data-beat="Slice into disks">
+    <p>To find its volume, follow one thin <span class="k-c2">strip</span> of the region, of width <Tex t="dx"/> and height <Tex t="r = f(x)"/>. Spun around the axis, the strip becomes a <span class="k-c2">disk</span> of volume <Tex t="\pi r^2\,dx"/>. Add up all the disks:</p>
+    <Tex display t="V = \int_1^2 \pi\left(\frac{1}{x^2}\right)^2 dx = \pi\int_1^2 x^{-4}\,dx = \frac{7\pi}{24} \approx 0.91630"/>
+    <p class="aside">The figure computes the same integral numerically, and the readout shows the two agree.</p>
+  </div>
+  <div class="beat" data-beat="The skin">
+    <p>The surface of the horn can be measured the same way. A short piece of the curve, of length <Tex t="ds = \sqrt{1 + f'(x)^2}\,dx"/>, sweeps out a thin <span class="k-c2">band</span> of circumference <Tex t="2\pi f(x)"/>:</p>
+    <Tex display t="S = \int_a^b 2\pi f(x)\sqrt{1 + f'(x)^2}\;dx"/>
+    <p class="aside">For this horn the integral has no tidy closed form; the figure gives <Tex t="S \approx 4.4566"/> (not counting the two flat ends). Some curves do have one: <Tex t="y = \sqrt x"/> on <Tex t="[4, 9]"/> gives <Tex t="\tfrac{\pi}{6}(37\sqrt{37} - 17\sqrt{17})"/>.</p>
+  </div>
+  <div class="beat" data-beat="Washers">
+    <p>If the region does not touch the axis, the solid has a hole and each slice is a <span class="k-c2">washer</span>: a disk of outer radius <Tex t="R"/> with a disk of radius <Tex t="r"/> removed. Here the region lies between <Tex t="\cA{y = \sqrt x}"/> and <Tex t="\cE{y = x^2}"/>:</p>
+    <Tex display t="V = \pi\int_0^1 \big((\sqrt x)^2 - (x^2)^2\big)\,dx = \pi\int_0^1 (x - x^4)\,dx = \frac{3\pi}{10}"/>
+  </div>
+  <div class="beat" data-beat="Shells">
+    <p>Spin the first region around the <span class="k-c5">y-axis</span> instead. Now a vertical strip at distance <Tex t="x"/> sweeps out a thin <span class="k-c2">cylindrical shell</span>. Unrolled, it is nearly a flat sheet of length <Tex t="2\pi x"/>, height <Tex t="f(x)"/> and thickness <Tex t="dx"/>:</p>
+    <Tex display t="V = 2\pi\int_1^2 x\cdot\frac{1}{x^2}\,dx = 2\pi\int_1^2 \frac{dx}{x} = 2\pi\ln 2 \approx 4.35517"/>
+    <p class="aside">Same region, different axis, so a different solid and a different volume.</p>
+  </div>
+  <Tex slot="takeaway" display t="V = \int_a^b \cB{A(x)}\,dx, \qquad \cB{A} = \pi r^2,\ \ \pi(R^2 - r^2),\ \text{ or } 2\pi x\,h"/>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Slicing method" options={[['disk', 'Disks'], ['washer', 'Washers'], ['shell', 'Shells']]}/>
+    <Slider name="sweep" label="Sweep" min={0} max={6.2832} step={0.01} value={0} color="c3" unit=" rad"/>
+    <Slider name="x" label="Slice at x" min={1.035} max={1.965} step={0.005} value={1.5} color="c2"/>
+    <div class="ctl ctl-readout" style="--ctl:var(--calc-c2)"><span class="ctl-label" data-area-label>π r²</span><output data-readout="area">—</output></div>
+    <Readout name="volume" label="V = ∫ A dx" color="c3"/>
+    <Readout name="skin" label="Surface" color="c1"/>
+  </Fragment>
+</Scene>

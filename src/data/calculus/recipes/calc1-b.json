@@ -1,0 +1,2662 @@
+{
+  "recipes": [
+    {
+      "id": "c1-4.1.1",
+      "course": "calc1",
+      "section": "4.1",
+      "topic": "The Linear Approximation",
+      "title": "Estimating a change with the linear approximation",
+      "type": "Use the linear approximation to estimate $\\Delta f = f(a+h)-f(a)$ for the given function $f(x)$, with the given $a$ and $h$.",
+      "example": {
+        "problem": "Use the linear approximation to estimate $\\Delta f = f(4+0.01)-f(4)$ for $f(x)=1/x$.",
+        "steps": [
+          {
+            "do": "Compute $f'(x)$, and decide who is $a$ and who is $h$.",
+            "work": "$f'(x)=-x^{-2}=-\\dfrac{1}{x^2}$, $a=4$, and $h=0.01$."
+          },
+          {
+            "do": "Set up the formula $\\Delta f\\approx f'(a)\\,h$ and do the plugging-in.",
+            "work": "$\\Delta f\\approx f'(4)\\cdot(0.01)=-\\dfrac{1}{4^2}\\cdot(0.01)=-\\dfrac{1}{1600}$."
+          }
+        ],
+        "answer": "$\\Delta f\\approx -\\dfrac{1}{1600}$",
+        "check": {
+          "kind": "number",
+          "value": "-1/1600"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the linear approximation to estimate $\\Delta f = f(25+0.2)-f(25)$ for $f(x)=\\sqrt{x}$. Enter the estimate.",
+          "steps": [
+            {
+              "do": "Compute $f'(x)$, and decide who is $a$ and who is $h$.",
+              "work": "$f'(x)=\\dfrac{1}{2\\sqrt{x}}$, $a=25$, and $h=0.2$."
+            },
+            {
+              "do": "Set up the formula $\\Delta f\\approx f'(a)\\,h$ and do the plugging-in.",
+              "work": "$\\Delta f\\approx f'(25)\\cdot(0.2)=\\dfrac{1}{2\\cdot 5}\\cdot(0.2)=\\dfrac{1}{50}$."
+            }
+          ],
+          "answer": "$\\Delta f\\approx \\dfrac{1}{50}=0.02$",
+          "check": {
+            "kind": "number",
+            "value": "1/50"
+          }
+        },
+        {
+          "problem": "Use the linear approximation to estimate $\\Delta f = f(5+0.1)-f(5)$ for $f(x)=1/x^2$. Enter the estimate.",
+          "steps": [
+            {
+              "do": "Compute $f'(x)$, and decide who is $a$ and who is $h$.",
+              "work": "$f'(x)=-2x^{-3}=-\\dfrac{2}{x^3}$, $a=5$, and $h=0.1$."
+            },
+            {
+              "do": "Set up the formula $\\Delta f\\approx f'(a)\\,h$ and do the plugging-in.",
+              "work": "$\\Delta f\\approx f'(5)\\cdot(0.1)=-\\dfrac{2}{5^3}\\cdot(0.1)=-\\dfrac{1}{625}$."
+            }
+          ],
+          "answer": "$\\Delta f\\approx -\\dfrac{1}{625}=-0.0016$",
+          "check": {
+            "kind": "number",
+            "value": "-1/625"
+          }
+        }
+      ],
+      "scene": "linear"
+    },
+    {
+      "id": "c1-4.1.2",
+      "course": "calc1",
+      "section": "4.1",
+      "topic": "The Linear Approximation",
+      "title": "Estimating a quantity by linear approximation",
+      "type": "Estimate the given quantity using the linear approximation.",
+      "example": {
+        "problem": "Estimate the quantity $\\dfrac{1}{\\sqrt{97}}-\\dfrac{1}{10}$.",
+        "steps": [
+          {
+            "do": "By pattern recognition decide (i) what the function $f$ is, (ii) what the “nice” point $a$ is, (iii) what the deviation $h$ is. Also find $f'(x)$.",
+            "work": "Here $f(x)=\\dfrac{1}{\\sqrt{x}}=x^{-1/2}$. The nice point near $97$ is $a=100$, and $h=-3$. $$f'(x)=-\\tfrac12 x^{-3/2}=-\\dfrac{1}{2\\sqrt{x}^{\\,3}}$$"
+          },
+          {
+            "do": "Set up $\\Delta f\\approx f'(a)\\,h$ and carry it out for the specific problem.",
+            "work": "$$\\Delta f\\approx f'(100)(-3)=-\\dfrac{1}{2(\\sqrt{100})^3}\\cdot(-3)=\\dfrac{3}{2000}$$"
+          }
+        ],
+        "answer": "$\\dfrac{1}{\\sqrt{97}}-\\dfrac{1}{10}\\approx \\dfrac{3}{2000}$",
+        "check": {
+          "kind": "number",
+          "value": "3/2000"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Estimate the quantity $\\sqrt[3]{65}-4$. Enter the estimate.",
+          "steps": [
+            {
+              "do": "By pattern recognition decide (i) what the function $f$ is, (ii) what the “nice” point $a$ is, (iii) what the deviation $h$ is. Also find $f'(x)$.",
+              "work": "Here $f(x)=\\sqrt[3]{x}=x^{1/3}$, the nice point is $a=64$ (so $f(a)=4$), and $h=1$. $$f'(x)=\\tfrac13 x^{-2/3}$$"
+            },
+            {
+              "do": "Set up $\\Delta f\\approx f'(a)\\,h$ and carry it out for the specific problem.",
+              "work": "$$\\Delta f\\approx f'(64)\\cdot 1=\\dfrac{1}{3\\cdot 64^{2/3}}=\\dfrac{1}{3\\cdot 16}=\\dfrac{1}{48}$$"
+            }
+          ],
+          "answer": "$\\sqrt[3]{65}-4\\approx\\dfrac{1}{48}$",
+          "check": {
+            "kind": "number",
+            "value": "1/48"
+          }
+        },
+        {
+          "problem": "Estimate the quantity $\\dfrac{1}{\\sqrt{17}}-\\dfrac{1}{4}$. Enter the estimate.",
+          "steps": [
+            {
+              "do": "By pattern recognition decide (i) what the function $f$ is, (ii) what the “nice” point $a$ is, (iii) what the deviation $h$ is. Also find $f'(x)$.",
+              "work": "Here $f(x)=\\dfrac{1}{\\sqrt{x}}=x^{-1/2}$, the nice point is $a=16$ (so $f(a)=\\tfrac14$), and $h=1$. $$f'(x)=-\\tfrac12 x^{-3/2}$$"
+            },
+            {
+              "do": "Set up $\\Delta f\\approx f'(a)\\,h$ and carry it out for the specific problem.",
+              "work": "$$\\Delta f\\approx f'(16)\\cdot 1=-\\dfrac{1}{2\\cdot 16^{3/2}}=-\\dfrac{1}{2\\cdot 64}=-\\dfrac{1}{128}$$"
+            }
+          ],
+          "answer": "$\\dfrac{1}{\\sqrt{17}}-\\dfrac14\\approx-\\dfrac{1}{128}$",
+          "check": {
+            "kind": "number",
+            "value": "-1/128"
+          }
+        }
+      ],
+      "scene": "linear"
+    },
+    {
+      "id": "c1-4.1.3",
+      "course": "calc1",
+      "section": "4.1",
+      "topic": "The Linear Approximation",
+      "title": "Finding a linearization",
+      "type": "Find the linearization $L(x)$ of $y=\\text{SomeFunction}(x)$ at $x=a$, where $a=\\text{SomeNumber}$.",
+      "example": {
+        "problem": "Find the linearization at $x=a$ of $f(x)=(5+x^2)^{-1/2}$, $a=2$.",
+        "steps": [
+          {
+            "do": "Find $f'(x)$.",
+            "work": "$$f'(x)=-\\tfrac12(5+x^2)^{-3/2}(2x)=-x(5+x^2)^{-3/2}=-\\dfrac{x}{\\left(\\sqrt{5+x^2}\\right)^3}$$"
+          },
+          {
+            "do": "Plug everything into the formula $L(x)=f'(a)(x-a)+f(a)$.",
+            "work": "$$\\begin{aligned}L(x)&=f'(2)(x-2)+f(2)\\\\&=-\\dfrac{2}{\\left(\\sqrt{5+2^2}\\right)^3}(x-2)+(5+2^2)^{-1/2}\\\\&=-\\dfrac{2}{27}(x-2)+9^{-1/2}=-\\dfrac{2}{27}(x-2)+\\dfrac13\\end{aligned}$$"
+          }
+        ],
+        "answer": "$L(x)=-\\dfrac{2}{27}(x-2)+\\dfrac13$",
+        "check": {
+          "kind": "expr",
+          "value": "-2/27*(x-2)+1/3",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the linearization at $x=a$ of $f(x)=\\sqrt{x^2+16}$, $a=3$. Enter $L(x)$.",
+          "steps": [
+            {
+              "do": "Find $f'(x)$.",
+              "work": "$$f'(x)=\\tfrac12(x^2+16)^{-1/2}(2x)=\\dfrac{x}{\\sqrt{x^2+16}}$$"
+            },
+            {
+              "do": "Plug everything into the formula $L(x)=f'(a)(x-a)+f(a)$.",
+              "work": "$$L(x)=f'(3)(x-3)+f(3)=\\dfrac{3}{5}(x-3)+\\sqrt{25}=\\dfrac35(x-3)+5$$"
+            }
+          ],
+          "answer": "$L(x)=\\dfrac35(x-3)+5$",
+          "check": {
+            "kind": "expr",
+            "value": "3/5*(x-3)+5",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find the linearization at $x=a$ of $f(x)=(4x+1)^{3/2}$, $a=2$. Enter $L(x)$.",
+          "steps": [
+            {
+              "do": "Find $f'(x)$.",
+              "work": "$$f'(x)=\\tfrac32(4x+1)^{1/2}\\cdot 4=6\\sqrt{4x+1}$$"
+            },
+            {
+              "do": "Plug everything into the formula $L(x)=f'(a)(x-a)+f(a)$.",
+              "work": "$$L(x)=f'(2)(x-2)+f(2)=6\\cdot 3\\,(x-2)+9^{3/2}=18(x-2)+27$$"
+            }
+          ],
+          "answer": "$L(x)=18(x-2)+27$",
+          "check": {
+            "kind": "expr",
+            "value": "18*(x-2)+27",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "linear"
+    },
+    {
+      "id": "c1-4.2.1",
+      "course": "calc1",
+      "section": "4.2",
+      "topic": "Extreme Values",
+      "title": "Finding critical numbers",
+      "type": "Find the critical numbers of the function $f(x)=\\text{Expression}(x)$.",
+      "example": {
+        "problem": "Find the critical numbers of $f(x)=x^3+3x^2-24x$.",
+        "steps": [
+          {
+            "do": "Find the derivative of $f(x)$ and set it equal to $0$.",
+            "work": "$f'(x)=3x^2+6x-24$. We have to solve $3x^2+6x-24=0$."
+          },
+          {
+            "do": "Solve this equation, by any method.",
+            "work": "$$3(x^2+2x-8)=3(x+4)(x-2)=0$$ There are two roots, $x=-4$ and $x=2$."
+          },
+          {
+            "do": "If applicable, find where $f'(x)$ is undefined (while $f(x)$ is defined). The critical numbers combine both kinds.",
+            "work": "$f'(x)=3x^2+6x-24$ is a polynomial, so it is always defined. The other kind of critical number does not show up."
+          }
+        ],
+        "answer": "The critical numbers are $\\{-4,\\ 2\\}$.",
+        "check": {
+          "kind": "set",
+          "values": [
+            "-4",
+            "2"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the critical numbers of $f(x)=2x^3-9x^2+12x$. Enter them separated by commas.",
+          "steps": [
+            {
+              "do": "Find the derivative of $f(x)$ and set it equal to $0$.",
+              "work": "$f'(x)=6x^2-18x+12$. We have to solve $6x^2-18x+12=0$."
+            },
+            {
+              "do": "Solve this equation, by any method.",
+              "work": "$$6(x^2-3x+2)=6(x-1)(x-2)=0$$ The roots are $x=1$ and $x=2$."
+            },
+            {
+              "do": "If applicable, find where $f'(x)$ is undefined (while $f(x)$ is defined). The critical numbers combine both kinds.",
+              "work": "$f'(x)$ is a polynomial, so it is always defined. No further critical numbers."
+            }
+          ],
+          "answer": "The critical numbers are $\\{1,\\ 2\\}$.",
+          "check": {
+            "kind": "set",
+            "values": [
+              "1",
+              "2"
+            ]
+          }
+        },
+        {
+          "problem": "Find the critical numbers of $f(x)=x^{4/3}-4x^{1/3}$. Enter them separated by commas.",
+          "steps": [
+            {
+              "do": "Find the derivative of $f(x)$ and set it equal to $0$.",
+              "work": "$$f'(x)=\\tfrac43x^{1/3}-\\tfrac43x^{-2/3}=\\dfrac{4(x-1)}{3x^{2/3}}$$ Setting $f'(x)=0$ means $x-1=0$."
+            },
+            {
+              "do": "Solve this equation, by any method.",
+              "work": "The only root is $x=1$."
+            },
+            {
+              "do": "If applicable, find where $f'(x)$ is undefined (while $f(x)$ is defined). The critical numbers combine both kinds.",
+              "work": "$f'(x)$ blows up at $x=0$ (the denominator vanishes), but $f(0)=0$ is defined, so $x=0$ is also a critical number."
+            }
+          ],
+          "answer": "The critical numbers are $\\{0,\\ 1\\}$.",
+          "check": {
+            "kind": "set",
+            "values": [
+              "0",
+              "1"
+            ]
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.2.2",
+      "course": "calc1",
+      "section": "4.2",
+      "topic": "Extreme Values",
+      "title": "Absolute extrema on a closed interval",
+      "type": "Find the absolute maximum and absolute minimum values of $f(x)=\\text{Expression}(x)$ on the closed interval $[a,b]$.",
+      "example": {
+        "problem": "Find the absolute maximum and absolute minimum values of $f(x)=x^3-3x+2$ on the interval $[0,2]$.",
+        "steps": [
+          {
+            "do": "Find the critical numbers of $f(x)$ by solving $f'(x)=0$ (and where $f'$ is undefined).",
+            "work": "$f'(x)=3x^2-3=3(x-1)(x+1)$. Solving $3(x-1)(x+1)=0$ gives the critical numbers $x=-1$ and $x=1$."
+          },
+          {
+            "do": "The slate of finalists: the critical numbers from step 1 that lie in the interval, plus the endpoints $a$ and $b$.",
+            "work": "$x=-1$ is not in $[0,2]$ but $x=1$ is. The finalists are $\\{0,\\,1,\\,2\\}$."
+          },
+          {
+            "do": "Plug each finalist into $f(x)$ and compare. The smallest score is the absolute minimum value, the largest is the absolute maximum value.",
+            "work": "$$f(0)=2,\\qquad f(1)=1-3+2=0,\\qquad f(2)=8-6+2=4$$"
+          }
+        ],
+        "answer": "Absolute minimum value $0$ (at $x=1$); absolute maximum value $4$ (at $x=2$)."
+      },
+      "practice": [
+        {
+          "problem": "Find the absolute maximum and absolute minimum values of $f(x)=2x^3-3x^2-12x+1$ on $[-2,3]$. Enter the absolute maximum value.",
+          "steps": [
+            {
+              "do": "Find the critical numbers of $f(x)$ by solving $f'(x)=0$ (and where $f'$ is undefined).",
+              "work": "$f'(x)=6x^2-6x-12=6(x-2)(x+1)$, so the critical numbers are $x=-1$ and $x=2$."
+            },
+            {
+              "do": "The slate of finalists: the critical numbers from step 1 that lie in the interval, plus the endpoints $a$ and $b$.",
+              "work": "Both $-1$ and $2$ lie in $[-2,3]$. The finalists are $\\{-2,\\,-1,\\,2,\\,3\\}$."
+            },
+            {
+              "do": "Plug each finalist into $f(x)$ and compare. The smallest score is the absolute minimum value, the largest is the absolute maximum value.",
+              "work": "$$f(-2)=-3,\\quad f(-1)=8,\\quad f(2)=-19,\\quad f(3)=-8$$"
+            }
+          ],
+          "answer": "Absolute maximum value $8$ (at $x=-1$); absolute minimum value $-19$ (at $x=2$).",
+          "check": {
+            "kind": "number",
+            "value": "8"
+          }
+        },
+        {
+          "problem": "Find the absolute maximum and absolute minimum values of $f(x)=x^4-8x^2+3$ on $[-1,3]$. Enter the absolute minimum value.",
+          "steps": [
+            {
+              "do": "Find the critical numbers of $f(x)$ by solving $f'(x)=0$ (and where $f'$ is undefined).",
+              "work": "$f'(x)=4x^3-16x=4x(x-2)(x+2)$, so the critical numbers are $x=-2,\\,0,\\,2$."
+            },
+            {
+              "do": "The slate of finalists: the critical numbers from step 1 that lie in the interval, plus the endpoints $a$ and $b$.",
+              "work": "$x=-2$ is not in $[-1,3]$, but $0$ and $2$ are. The finalists are $\\{-1,\\,0,\\,2,\\,3\\}$."
+            },
+            {
+              "do": "Plug each finalist into $f(x)$ and compare. The smallest score is the absolute minimum value, the largest is the absolute maximum value.",
+              "work": "$$f(-1)=-4,\\quad f(0)=3,\\quad f(2)=-13,\\quad f(3)=12$$"
+            }
+          ],
+          "answer": "Absolute minimum value $-13$ (at $x=2$); absolute maximum value $12$ (at $x=3$).",
+          "check": {
+            "kind": "number",
+            "value": "-13"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.3.1",
+      "course": "calc1",
+      "section": "4.3",
+      "topic": "The Mean Value Theorem and Monotonicity",
+      "title": "Mean Value Theorem: finding c",
+      "type": "Verify that $f(x)=\\text{Expression}(x)$ satisfies the hypotheses of the Mean Value Theorem on the interval $[a,b]$. Then find all numbers $c$ that satisfy the conclusion of the Mean Value Theorem.",
+      "example": {
+        "problem": "Verify that $f(x)=x^3+x-1$ satisfies the hypotheses of the Mean Value Theorem on $[0,2]$. Then find all numbers $c$ that satisfy its conclusion.",
+        "steps": [
+          {
+            "do": "Verify that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$. Polynomials, exponentials, $\\sin x$ and $\\cos x$ always are. Watch out for denominators that vanish and for radicals.",
+            "work": "$f(x)=x^3+x-1$ is a polynomial, so it is continuous and differentiable everywhere. The MVT applies."
+          },
+          {
+            "do": "Find $f'(x)$ and set up the equation $f'(c)=\\dfrac{f(b)-f(a)}{b-a}$, where $c$ is still a symbol.",
+            "work": "$f'(x)=3x^2+1$. With $[a,b]=[0,2]$: $$3c^2+1=\\dfrac{f(2)-f(0)}{2-0}=\\dfrac{(8+2-1)-(0+0-1)}{2}=\\dfrac{10}{2}=5$$"
+          },
+          {
+            "do": "Solve the equation of step 2 for $c$, and keep the solution(s) that lie in the open interval $(a,b)$.",
+            "work": "$3c^2+1=5$ means $c^2=\\tfrac43$, so $c=\\pm\\dfrac{2}{\\sqrt3}=\\pm\\dfrac{2\\sqrt3}{3}$. The negative root is not in $(0,2)$; the positive one is."
+          }
+        ],
+        "answer": "$c=\\dfrac{2\\sqrt3}{3}$",
+        "check": {
+          "kind": "number",
+          "value": "2*sqrt(3)/3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Verify that $f(x)=x^3-2x$ satisfies the hypotheses of the Mean Value Theorem on $[0,3]$. Then find the number $c$ in $(0,3)$ that satisfies its conclusion. Enter $c$.",
+          "steps": [
+            {
+              "do": "Verify that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$. Polynomials, exponentials, $\\sin x$ and $\\cos x$ always are. Watch out for denominators that vanish and for radicals.",
+              "work": "$f(x)=x^3-2x$ is a polynomial, so it is continuous and differentiable everywhere. The MVT applies."
+            },
+            {
+              "do": "Find $f'(x)$ and set up the equation $f'(c)=\\dfrac{f(b)-f(a)}{b-a}$, where $c$ is still a symbol.",
+              "work": "$f'(x)=3x^2-2$. With $[a,b]=[0,3]$: $$3c^2-2=\\dfrac{f(3)-f(0)}{3-0}=\\dfrac{21-0}{3}=7$$"
+            },
+            {
+              "do": "Solve the equation of step 2 for $c$, and keep the solution(s) that lie in the open interval $(a,b)$.",
+              "work": "$3c^2-2=7$ means $c^2=3$, so $c=\\pm\\sqrt3$. Only $\\sqrt3\\approx1.73$ lies in $(0,3)$."
+            }
+          ],
+          "answer": "$c=\\sqrt3$",
+          "check": {
+            "kind": "number",
+            "value": "sqrt(3)"
+          }
+        },
+        {
+          "problem": "Verify that $f(x)=\\sqrt{x}$ satisfies the hypotheses of the Mean Value Theorem on $[1,9]$. Then find the number $c$ in $(1,9)$ that satisfies its conclusion. Enter $c$.",
+          "steps": [
+            {
+              "do": "Verify that $f(x)$ is continuous on $[a,b]$ and differentiable on $(a,b)$. Polynomials, exponentials, $\\sin x$ and $\\cos x$ always are. Watch out for denominators that vanish and for radicals.",
+              "work": "$\\sqrt{x}$ is continuous on $[0,\\infty)$, which contains $[1,9]$, and differentiable on $(0,\\infty)$, which contains $(1,9)$. The MVT applies."
+            },
+            {
+              "do": "Find $f'(x)$ and set up the equation $f'(c)=\\dfrac{f(b)-f(a)}{b-a}$, where $c$ is still a symbol.",
+              "work": "$f'(x)=\\dfrac{1}{2\\sqrt{x}}$. With $[a,b]=[1,9]$: $$\\dfrac{1}{2\\sqrt{c}}=\\dfrac{f(9)-f(1)}{9-1}=\\dfrac{3-1}{8}=\\dfrac14$$"
+            },
+            {
+              "do": "Solve the equation of step 2 for $c$, and keep the solution(s) that lie in the open interval $(a,b)$.",
+              "work": "$\\dfrac{1}{2\\sqrt c}=\\dfrac14$ means $\\sqrt c=2$, so $c=4$, which lies in $(1,9)$."
+            }
+          ],
+          "answer": "$c=4$",
+          "check": {
+            "kind": "number",
+            "value": "4"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.3.2",
+      "course": "calc1",
+      "section": "4.3",
+      "topic": "The Mean Value Theorem and Monotonicity",
+      "title": "Showing exactly one root",
+      "type": "Show that the equation $f(x)=0$, with $f(x)=\\text{Polynomial}(x)$ of odd degree, has exactly one real root.",
+      "example": {
+        "problem": "Show that the equation $f(x)=1+5x+4x^3+11x^5+9x^7=0$ has exactly one real root.",
+        "steps": [
+          {
+            "do": "Check that $\\displaystyle\\lim_{x\\to-\\infty}f(x)$ and $\\displaystyle\\lim_{x\\to\\infty}f(x)$ are $-\\infty$ and $\\infty$ (or the other way around). By the Intermediate Value Theorem $f$ crosses the $x$-axis, so $f(x)=0$ has at least one root. (This always happens for odd degree.)",
+            "work": "$f$ is a polynomial of odd degree $7$ with positive leading coefficient, so $\\lim_{x\\to-\\infty}f(x)=-\\infty$ and $\\lim_{x\\to\\infty}f(x)=\\infty$. Hence $f(x)=0$ has at least one real root."
+          },
+          {
+            "do": "Find $f'(x)$ and show it is always positive (or always negative), e.g. all its terms have even degree and positive coefficients.",
+            "work": "$$f'(x)=5+12x^2+55x^4+63x^6$$ This is obviously always positive."
+          },
+          {
+            "do": "Conclude by Rolle's Theorem that there cannot be two roots. Together with step 1, there is exactly one root.",
+            "work": "Suppose there were two real roots $x=a$ and $x=b$ with $f(a)=f(b)=0$. By Rolle's Theorem there would be a $c$ in $(a,b)$ with $f'(c)=0$. But $f'$ is always positive: a contradiction. So there is at most one root, and by step 1 exactly one."
+          }
+        ],
+        "answer": "$f(x)=0$ has exactly one real root."
+      },
+      "practice": [
+        {
+          "problem": "Show that $x^5+3x^3+2x-10=0$ has exactly one real root. Enter whether $f'(x)$ is positive or negative for all $x$.",
+          "steps": [
+            {
+              "do": "Check that $\\displaystyle\\lim_{x\\to-\\infty}f(x)$ and $\\displaystyle\\lim_{x\\to\\infty}f(x)$ are $-\\infty$ and $\\infty$ (or the other way around). By the Intermediate Value Theorem $f$ crosses the $x$-axis, so $f(x)=0$ has at least one root. (This always happens for odd degree.)",
+              "work": "$f(x)=x^5+3x^3+2x-10$ has odd degree $5$ and positive leading coefficient, so $f\\to-\\infty$ as $x\\to-\\infty$ and $f\\to\\infty$ as $x\\to\\infty$. At least one real root."
+            },
+            {
+              "do": "Find $f'(x)$ and show it is always positive (or always negative), e.g. all its terms have even degree and positive coefficients.",
+              "work": "$$f'(x)=5x^4+9x^2+2\\ge 2>0$$ so $f'(x)$ is positive for all $x$."
+            },
+            {
+              "do": "Conclude by Rolle's Theorem that there cannot be two roots. Together with step 1, there is exactly one root.",
+              "work": "Two roots $a<b$ would give, by Rolle's Theorem, a $c$ with $f'(c)=0$, impossible since $f'>0$. So at most one root, hence exactly one."
+            }
+          ],
+          "answer": "Exactly one real root; $f'(x)$ is positive for all $x$.",
+          "check": {
+            "kind": "choice",
+            "value": "positive",
+            "options": [
+              "positive",
+              "negative"
+            ]
+          }
+        },
+        {
+          "problem": "Show that $3-2x-x^5=0$ has exactly one real root. Enter whether $f'(x)$ is positive or negative for all $x$.",
+          "steps": [
+            {
+              "do": "Check that $\\displaystyle\\lim_{x\\to-\\infty}f(x)$ and $\\displaystyle\\lim_{x\\to\\infty}f(x)$ are $-\\infty$ and $\\infty$ (or the other way around). By the Intermediate Value Theorem $f$ crosses the $x$-axis, so $f(x)=0$ has at least one root. (This always happens for odd degree.)",
+              "work": "$f(x)=3-2x-x^5$ has odd degree $5$ and negative leading coefficient, so $f\\to\\infty$ as $x\\to-\\infty$ and $f\\to-\\infty$ as $x\\to\\infty$. At least one real root."
+            },
+            {
+              "do": "Find $f'(x)$ and show it is always positive (or always negative), e.g. all its terms have even degree and positive coefficients.",
+              "work": "$$f'(x)=-2-5x^4\\le -2<0$$ so $f'(x)$ is negative for all $x$."
+            },
+            {
+              "do": "Conclude by Rolle's Theorem that there cannot be two roots. Together with step 1, there is exactly one root.",
+              "work": "Two roots $a<b$ would give, by Rolle's Theorem, a $c$ with $f'(c)=0$, impossible since $f'<0$. So at most one root, hence exactly one."
+            }
+          ],
+          "answer": "Exactly one real root; $f'(x)$ is negative for all $x$.",
+          "check": {
+            "kind": "choice",
+            "value": "negative",
+            "options": [
+              "positive",
+              "negative"
+            ]
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.3.3",
+      "course": "calc1",
+      "section": "4.3",
+      "topic": "The Mean Value Theorem and Monotonicity",
+      "title": "Bounding a function with its derivative",
+      "type": "If $f(a)=A$ and $f'(x)\\ge C$ for $a\\le x\\le b$, how small can $f(b)$ possibly be?",
+      "example": {
+        "problem": "If $f(2)=3$ and $f'(x)\\ge4$ for $2\\le x\\le5$, how small can $f(5)$ possibly be?",
+        "steps": [
+          {
+            "do": "By the MVT there is a $c$ with $f'(c)=\\dfrac{f(b)-f(a)}{b-a}=\\dfrac{f(b)-A}{b-a}$. We are told $f'(x)\\ge C$ for every $x$, in particular at that $c$. So $\\dfrac{f(b)-A}{b-a}\\ge C$.",
+            "work": "By the MVT there is a $c$ with $f'(c)=\\dfrac{f(5)-f(2)}{5-2}=\\dfrac{f(5)-3}{3}$. Since $f'(x)\\ge4$, $$\\dfrac{f(5)-3}{3}\\ge4$$"
+          },
+          {
+            "do": "Solve the inequality of step 1 for $f(b)$.",
+            "work": "$f(5)-3\\ge12$, which implies $f(5)\\ge15$."
+          }
+        ],
+        "answer": "The smallest $f(5)$ can possibly be is $15$.",
+        "check": {
+          "kind": "number",
+          "value": "15"
+        }
+      },
+      "practice": [
+        {
+          "problem": "If $f(1)=-2$ and $f'(x)\\ge5$ for $1\\le x\\le4$, how small can $f(4)$ possibly be? Enter the smallest possible value.",
+          "steps": [
+            {
+              "do": "By the MVT there is a $c$ with $f'(c)=\\dfrac{f(b)-f(a)}{b-a}=\\dfrac{f(b)-A}{b-a}$. We are told $f'(x)\\ge C$ for every $x$, in particular at that $c$. So $\\dfrac{f(b)-A}{b-a}\\ge C$.",
+              "work": "By the MVT there is a $c$ with $f'(c)=\\dfrac{f(4)-f(1)}{4-1}=\\dfrac{f(4)+2}{3}$. Since $f'(x)\\ge5$, $$\\dfrac{f(4)+2}{3}\\ge5$$"
+            },
+            {
+              "do": "Solve the inequality of step 1 for $f(b)$.",
+              "work": "$f(4)+2\\ge15$, which implies $f(4)\\ge13$."
+            }
+          ],
+          "answer": "The smallest $f(4)$ can possibly be is $13$.",
+          "check": {
+            "kind": "number",
+            "value": "13"
+          }
+        },
+        {
+          "problem": "If $f(0)=7$ and $f'(x)\\ge-2$ for $0\\le x\\le3$, how small can $f(3)$ possibly be? Enter the smallest possible value.",
+          "steps": [
+            {
+              "do": "By the MVT there is a $c$ with $f'(c)=\\dfrac{f(b)-f(a)}{b-a}=\\dfrac{f(b)-A}{b-a}$. We are told $f'(x)\\ge C$ for every $x$, in particular at that $c$. So $\\dfrac{f(b)-A}{b-a}\\ge C$.",
+              "work": "By the MVT there is a $c$ with $f'(c)=\\dfrac{f(3)-f(0)}{3-0}=\\dfrac{f(3)-7}{3}$. Since $f'(x)\\ge-2$, $$\\dfrac{f(3)-7}{3}\\ge-2$$"
+            },
+            {
+              "do": "Solve the inequality of step 1 for $f(b)$.",
+              "work": "$f(3)-7\\ge-6$, which implies $f(3)\\ge1$."
+            }
+          ],
+          "answer": "The smallest $f(3)$ can possibly be is $1$.",
+          "check": {
+            "kind": "number",
+            "value": "1"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.4.1",
+      "course": "calc1",
+      "section": "4.4",
+      "topic": "The Shape of a Graph",
+      "title": "Increasing, extrema and concavity of a polynomial",
+      "type": "Given a function $f(x)=\\text{Polynomial}(x)$: (a) find the intervals on which $f$ is increasing or decreasing; (b) find the local maximum and minimum values of $f$; (c) find the intervals of concavity and the inflection points.",
+      "example": {
+        "problem": "Do (a), (b), (c) for $f(x)=5-3x^2+x^3$.",
+        "steps": [
+          {
+            "do": "(a) Find $f'(x)$ and the critical numbers (solve $f'(x)=0$, and add any ‘blow-up’ points). They cut the real line into intervals. Test the sign of $f'$ at a convenient point in each interval: positive means $f$ is increasing, negative means decreasing.",
+            "work": "$f'(x)=-6x+3x^2=3x(x-2)$, so the critical numbers are $x=0$ and $x=2$. Test points: $f'(-1)=9>0$, so $f$ is increasing on $(-\\infty,0)$; $f'(1)=-3<0$, so $f$ is decreasing on $(0,2)$; $f'(3)=9>0$, so $f$ is increasing on $(2,\\infty)$."
+          },
+          {
+            "do": "(b) At each critical number compare the interval on its left with the one on its right: increasing then decreasing is a local maximum, decreasing then increasing is a local minimum, no change is neither. Plug the critical number into $f$ for the local value.",
+            "work": "At $x=0$ the function goes from increasing to decreasing: a local maximum, with value $f(0)=5$ (a peak at $(0,5)$). At $x=2$ it goes from decreasing to increasing: a local minimum, with value $f(2)=5-12+8=1$ (a valley at $(2,1)$)."
+          },
+          {
+            "do": "(c) Find $f''(x)$ and solve $f''(x)=0$ (add ‘blow-up’ points). Test the sign of $f''$ in each interval: positive means concave up, negative means concave down. A change of concavity is an inflection point.",
+            "work": "$f''(x)=6x-6=0$ gives $x=1$. $f''(0)=-6<0$: concave down on $(-\\infty,1)$. $f''(2)=6>0$: concave up on $(1,\\infty)$. The inflection point is at $x=1$, with $f(1)=5-3+1=3$: the point $(1,3)$."
+          }
+        ],
+        "answer": "Increasing on $(-\\infty,0)$ and $(2,\\infty)$, decreasing on $(0,2)$. Local maximum at $(0,5)$, local minimum at $(2,1)$. Concave down on $(-\\infty,1)$, concave up on $(1,\\infty)$. Inflection point $(1,3)$."
+      },
+      "practice": [
+        {
+          "problem": "Do (a), (b), (c) for $f(x)=x^3-6x^2+9x+1$. Enter the local maximum value.",
+          "steps": [
+            {
+              "do": "(a) Find $f'(x)$ and the critical numbers (solve $f'(x)=0$, and add any ‘blow-up’ points). They cut the real line into intervals. Test the sign of $f'$ at a convenient point in each interval: positive means $f$ is increasing, negative means decreasing.",
+              "work": "$f'(x)=3x^2-12x+9=3(x-1)(x-3)$, so the critical numbers are $x=1$ and $x=3$. $f'(0)=9>0$: increasing on $(-\\infty,1)$. $f'(2)=-3<0$: decreasing on $(1,3)$. $f'(4)=9>0$: increasing on $(3,\\infty)$."
+            },
+            {
+              "do": "(b) At each critical number compare the interval on its left with the one on its right: increasing then decreasing is a local maximum, decreasing then increasing is a local minimum, no change is neither. Plug the critical number into $f$ for the local value.",
+              "work": "$x=1$ goes from increasing to decreasing: a local maximum, value $f(1)=1-6+9+1=5$. $x=3$ goes from decreasing to increasing: a local minimum, value $f(3)=27-54+27+1=1$."
+            },
+            {
+              "do": "(c) Find $f''(x)$ and solve $f''(x)=0$ (add ‘blow-up’ points). Test the sign of $f''$ in each interval: positive means concave up, negative means concave down. A change of concavity is an inflection point.",
+              "work": "$f''(x)=6x-12=0$ gives $x=2$. $f''(0)=-12<0$: concave down on $(-\\infty,2)$. $f''(3)=6>0$: concave up on $(2,\\infty)$. The inflection point is $(2,\\,f(2))=(2,3)$."
+            }
+          ],
+          "answer": "Local maximum value $5$ at $(1,5)$; local minimum value $1$ at $(3,1)$; inflection point $(2,3)$.",
+          "check": {
+            "kind": "number",
+            "value": "5"
+          }
+        },
+        {
+          "problem": "Do (a), (b), (c) for $f(x)=2x^3+3x^2-12x$. Enter the inflection point as $(x,y)$.",
+          "steps": [
+            {
+              "do": "(a) Find $f'(x)$ and the critical numbers (solve $f'(x)=0$, and add any ‘blow-up’ points). They cut the real line into intervals. Test the sign of $f'$ at a convenient point in each interval: positive means $f$ is increasing, negative means decreasing.",
+              "work": "$f'(x)=6x^2+6x-12=6(x+2)(x-1)$, so the critical numbers are $x=-2$ and $x=1$. $f'(-3)=24>0$: increasing on $(-\\infty,-2)$. $f'(0)=-12<0$: decreasing on $(-2,1)$. $f'(2)=24>0$: increasing on $(1,\\infty)$."
+            },
+            {
+              "do": "(b) At each critical number compare the interval on its left with the one on its right: increasing then decreasing is a local maximum, decreasing then increasing is a local minimum, no change is neither. Plug the critical number into $f$ for the local value.",
+              "work": "$x=-2$ is a local maximum, value $f(-2)=-16+12+24=20$. $x=1$ is a local minimum, value $f(1)=2+3-12=-7$."
+            },
+            {
+              "do": "(c) Find $f''(x)$ and solve $f''(x)=0$ (add ‘blow-up’ points). Test the sign of $f''$ in each interval: positive means concave up, negative means concave down. A change of concavity is an inflection point.",
+              "work": "$f''(x)=12x+6=0$ gives $x=-\\tfrac12$. $f''(-1)=-6<0$: concave down on $(-\\infty,-\\tfrac12)$. $f''(0)=6>0$: concave up on $(-\\tfrac12,\\infty)$. $f(-\\tfrac12)=-\\tfrac14+\\tfrac34+6=\\tfrac{13}{2}$, so the inflection point is $\\left(-\\tfrac12,\\tfrac{13}{2}\\right)$."
+            }
+          ],
+          "answer": "Local maximum value $20$ at $(-2,20)$; local minimum value $-7$ at $(1,-7)$; inflection point $\\left(-\\tfrac12,\\tfrac{13}{2}\\right)$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "-1/2",
+              "13/2"
+            ]
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.4.2",
+      "course": "calc1",
+      "section": "4.4",
+      "topic": "The Shape of a Graph",
+      "title": "Second Derivative Test",
+      "type": "Find the critical points of $f(x)$ and use the Second Derivative Test (if possible) to determine whether each corresponds to a local minimum or maximum.",
+      "example": {
+        "problem": "Find the critical points of $f(x)=3x^5-5x^3$ and use the Second Derivative Test (if possible) to decide whether each is a local minimum or maximum.",
+        "steps": [
+          {
+            "do": "Compute $f'(x)$ and $f''(x)$.",
+            "work": "$f'(x)=15x^4-15x^2$, $\\quad f''(x)=60x^3-30x$."
+          },
+          {
+            "do": "Find the critical points by solving $f'(x)=0$.",
+            "work": "$15x^4-15x^2=15x^2(1-x^2)=0$ has roots $x=-1,\\ x=0,\\ x=1$."
+          },
+          {
+            "do": "Plug each critical point into $f''(x)$: positive means a local minimum, negative means a local maximum, zero means we don't know (the test is inconclusive).",
+            "work": "$f''(-1)=-60+30=-30<0$, so $x=-1$ is a local maximum. $f''(0)=0$, so for $x=0$ we don't know. $f''(1)=60-30=30>0$, so $x=1$ is a local minimum. (By the First Derivative Test, $f'$ does not change sign at $x=0$, so it is neither: a horizontal inflection point.)"
+          }
+        ],
+        "answer": "Local maximum at $x=-1$, local minimum at $x=1$, and the test is inconclusive at $x=0$ (it is neither)."
+      },
+      "practice": [
+        {
+          "problem": "Find the critical points of $f(x)=x^4-4x^3$ and use the Second Derivative Test (if possible). Enter the $x$-value of the local minimum.",
+          "steps": [
+            {
+              "do": "Compute $f'(x)$ and $f''(x)$.",
+              "work": "$f'(x)=4x^3-12x^2$, $\\quad f''(x)=12x^2-24x$."
+            },
+            {
+              "do": "Find the critical points by solving $f'(x)=0$.",
+              "work": "$4x^3-12x^2=4x^2(x-3)=0$ has roots $x=0$ and $x=3$."
+            },
+            {
+              "do": "Plug each critical point into $f''(x)$: positive means a local minimum, negative means a local maximum, zero means we don't know (the test is inconclusive).",
+              "work": "$f''(0)=0$, so for $x=0$ we don't know. (Since $f'(x)=4x^2(x-3)$ is negative on both sides of $0$, it is neither a max nor a min.) $f''(3)=108-72=36>0$, so $x=3$ is a local minimum."
+            }
+          ],
+          "answer": "Local minimum at $x=3$; the test is inconclusive at $x=0$.",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        },
+        {
+          "problem": "Find the critical points of $f(x)=2x^3-9x^2+12x$ and use the Second Derivative Test. Enter the $x$-value of the local maximum.",
+          "steps": [
+            {
+              "do": "Compute $f'(x)$ and $f''(x)$.",
+              "work": "$f'(x)=6x^2-18x+12$, $\\quad f''(x)=12x-18$."
+            },
+            {
+              "do": "Find the critical points by solving $f'(x)=0$.",
+              "work": "$6x^2-18x+12=6(x-1)(x-2)=0$ has roots $x=1$ and $x=2$."
+            },
+            {
+              "do": "Plug each critical point into $f''(x)$: positive means a local minimum, negative means a local maximum, zero means we don't know (the test is inconclusive).",
+              "work": "$f''(1)=-6<0$, so $x=1$ is a local maximum. $f''(2)=6>0$, so $x=2$ is a local minimum."
+            }
+          ],
+          "answer": "Local maximum at $x=1$, local minimum at $x=2$.",
+          "check": {
+            "kind": "number",
+            "value": "1"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.5.1",
+      "course": "calc1",
+      "section": "4.5",
+      "topic": "Graph Sketching and Asymptotes",
+      "title": "Sketching a polynomial curve",
+      "type": "Sketch the curve $y=\\text{Polynomial}(x)$.",
+      "example": {
+        "problem": "Sketch the curve $y=x^4+4x^3$.",
+        "steps": [
+          {
+            "do": "Find the first and second derivatives $dy/dx$ and $d^2y/dx^2$.",
+            "work": "$y=x^4+4x^3$, $\\ \\dfrac{dy}{dx}=4x^3+12x^2=4x^2(x+3)$, $\\ \\dfrac{d^2y}{dx^2}=12x^2+24x=12x(x+2)$."
+          },
+          {
+            "do": "Find the critical numbers by solving $dy/dx=0$, and the potential inflection points by solving $d^2y/dx^2=0$. Combine them into the important numbers.",
+            "work": "$4x^2(x+3)=0$ gives $x=-3$ and $x=0$. $12x(x+2)=0$ gives $x=-2$ and $x=0$. Important numbers: $x=-3,\\,-2,\\,0$."
+          },
+          {
+            "do": "Plug the important numbers into $y$ to get the important points.",
+            "work": "$y=x^3(x+4)$. At $x=-3$: $y=-27$. At $x=-2$: $y=-8\\cdot2=-16$. At $x=0$: $y=0$. Important points: $(-3,-27)$, $(-2,-16)$, $(0,0)$."
+          },
+          {
+            "do": "Use the second derivative test on the critical numbers: local maximum if $d^2y/dx^2<0$, local minimum if $>0$, and if it is $0$ check whether $dy/dx$ changes sign.",
+            "work": "At $x=-3$: $y''=12(-3)(-1)=36>0$, a local minimum. At $x=0$: $y''=0$, inconclusive; $y'=4x^2(x+3)$ is positive on both sides of $0$, so $x=0$ is neither: a horizontal inflection point."
+          },
+          {
+            "do": "Summarize each important point and its claim to fame.",
+            "work": "$(-3,-27)$: local minimum. $(-2,-16)$: inflection point. $(0,0)$: horizontal inflection point."
+          },
+          {
+            "do": "Mark the important points on the $xy$-plane (a little cup at a minimum, a cap at a maximum, a short underline at a horizontal inflection point) and connect the dots.",
+            "work": "Coming from the upper left the curve falls to the valley at $(-3,-27)$ and then rises for good. It is concave up until $(-2,-16)$, concave down between $-2$ and $0$, flattens out at the origin, and then rises concave up to the upper right."
+          }
+        ],
+        "answer": "Local minimum $(-3,-27)$; inflection point $(-2,-16)$; horizontal inflection point $(0,0)$."
+      },
+      "practice": [
+        {
+          "problem": "Sketch the curve $y=3x^4-4x^3$. Enter the inflection point that is not horizontal, as $(x,y)$.",
+          "steps": [
+            {
+              "do": "Find the first and second derivatives $dy/dx$ and $d^2y/dx^2$.",
+              "work": "$\\dfrac{dy}{dx}=12x^3-12x^2=12x^2(x-1)$, $\\ \\dfrac{d^2y}{dx^2}=36x^2-24x=12x(3x-2)$."
+            },
+            {
+              "do": "Find the critical numbers by solving $dy/dx=0$, and the potential inflection points by solving $d^2y/dx^2=0$. Combine them into the important numbers.",
+              "work": "$12x^2(x-1)=0$ gives $x=0$ and $x=1$. $12x(3x-2)=0$ gives $x=0$ and $x=\\tfrac23$. Important numbers: $x=0,\\,\\tfrac23,\\,1$."
+            },
+            {
+              "do": "Plug the important numbers into $y$ to get the important points.",
+              "work": "$y=x^3(3x-4)$. $y(0)=0$, $\\ y\\!\\left(\\tfrac23\\right)=\\tfrac{8}{27}(2-4)=-\\tfrac{16}{27}$, $\\ y(1)=-1$. Important points: $(0,0)$, $\\left(\\tfrac23,-\\tfrac{16}{27}\\right)$, $(1,-1)$."
+            },
+            {
+              "do": "Use the second derivative test on the critical numbers: local maximum if $d^2y/dx^2<0$, local minimum if $>0$, and if it is $0$ check whether $dy/dx$ changes sign.",
+              "work": "At $x=1$: $y''=12\\cdot1\\cdot1=12>0$, a local minimum. At $x=0$: $y''=0$, inconclusive; $y'=12x^2(x-1)$ is negative on both sides of $0$, so it is neither: a horizontal inflection point."
+            },
+            {
+              "do": "Summarize each important point and its claim to fame.",
+              "work": "$(0,0)$: horizontal inflection point. $\\left(\\tfrac23,-\\tfrac{16}{27}\\right)$: inflection point. $(1,-1)$: local minimum."
+            },
+            {
+              "do": "Mark the important points on the $xy$-plane (a little cup at a minimum, a cap at a maximum, a short underline at a horizontal inflection point) and connect the dots.",
+              "work": "The curve falls from the upper left, flattens briefly at the origin, keeps falling through the inflection point $\\left(\\tfrac23,-\\tfrac{16}{27}\\right)$ to the valley at $(1,-1)$, and then rises steeply to the upper right."
+            }
+          ],
+          "answer": "Local minimum $(1,-1)$; horizontal inflection point $(0,0)$; inflection point $\\left(\\tfrac23,-\\tfrac{16}{27}\\right)$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "2/3",
+              "-16/27"
+            ]
+          }
+        },
+        {
+          "problem": "Sketch the curve $y=x^4-2x^3$. Enter the local minimum as $(x,y)$.",
+          "steps": [
+            {
+              "do": "Find the first and second derivatives $dy/dx$ and $d^2y/dx^2$.",
+              "work": "$\\dfrac{dy}{dx}=4x^3-6x^2=2x^2(2x-3)$, $\\ \\dfrac{d^2y}{dx^2}=12x^2-12x=12x(x-1)$."
+            },
+            {
+              "do": "Find the critical numbers by solving $dy/dx=0$, and the potential inflection points by solving $d^2y/dx^2=0$. Combine them into the important numbers.",
+              "work": "$2x^2(2x-3)=0$ gives $x=0$ and $x=\\tfrac32$. $12x(x-1)=0$ gives $x=0$ and $x=1$. Important numbers: $x=0,\\,1,\\,\\tfrac32$."
+            },
+            {
+              "do": "Plug the important numbers into $y$ to get the important points.",
+              "work": "$y=x^3(x-2)$. $y(0)=0$, $\\ y(1)=-1$, $\\ y\\!\\left(\\tfrac32\\right)=\\tfrac{27}{8}\\cdot\\left(-\\tfrac12\\right)=-\\tfrac{27}{16}$. Important points: $(0,0)$, $(1,-1)$, $\\left(\\tfrac32,-\\tfrac{27}{16}\\right)$."
+            },
+            {
+              "do": "Use the second derivative test on the critical numbers: local maximum if $d^2y/dx^2<0$, local minimum if $>0$, and if it is $0$ check whether $dy/dx$ changes sign.",
+              "work": "At $x=\\tfrac32$: $y''=12\\cdot\\tfrac32\\cdot\\tfrac12=9>0$, a local minimum. At $x=0$: $y''=0$; $y'=2x^2(2x-3)$ is negative on both sides of $0$, so it is a horizontal inflection point."
+            },
+            {
+              "do": "Summarize each important point and its claim to fame.",
+              "work": "$(0,0)$: horizontal inflection point. $(1,-1)$: inflection point. $\\left(\\tfrac32,-\\tfrac{27}{16}\\right)$: local minimum."
+            },
+            {
+              "do": "Mark the important points on the $xy$-plane (a little cup at a minimum, a cap at a maximum, a short underline at a horizontal inflection point) and connect the dots.",
+              "work": "The curve falls from the upper left, flattens at the origin, passes through the inflection point $(1,-1)$, bottoms out at the valley $\\left(\\tfrac32,-\\tfrac{27}{16}\\right)$, and then rises to the upper right."
+            }
+          ],
+          "answer": "Local minimum $\\left(\\tfrac32,-\\tfrac{27}{16}\\right)$; horizontal inflection point $(0,0)$; inflection point $(1,-1)$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "3/2",
+              "-27/16"
+            ]
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.5.2",
+      "course": "calc1",
+      "section": "4.5",
+      "topic": "Graph Sketching and Asymptotes",
+      "title": "Sketching a rational curve",
+      "type": "Sketch the curve $y=\\text{Rational}(x)$.",
+      "example": {
+        "problem": "Sketch the curve $y=\\dfrac{x}{x^2-9}$.",
+        "steps": [
+          {
+            "do": "Find the horizontal asymptotes by taking the limit as $x\\to\\infty$ (and $x\\to-\\infty$). Find the vertical asymptotes by setting the denominator equal to $0$.",
+            "work": "Horizontal asymptote: $\\displaystyle y=\\lim_{x\\to\\infty}\\dfrac{x}{x^2-9}=0$. Vertical asymptotes: $x^2-9=0$ gives $x=-3$ and $x=3$."
+          },
+          {
+            "do": "Find $dy/dx$ and $d^2y/dx^2$. Find the critical numbers (besides the vertical asymptotes) by solving $dy/dx=0$ and classify them with the second derivative test. Find the inflection points by solving $d^2y/dx^2=0$.",
+            "work": "$$\\dfrac{dy}{dx}=-\\dfrac{x^2+9}{(x^2-9)^2},\\qquad \\dfrac{d^2y}{dx^2}=\\dfrac{2x(x^2+27)}{(x^2-9)^3}$$ Critical numbers: $dy/dx=0$ would need $x^2+9=0$, which has no real roots, so there is no local maximum or minimum. Inflection point: $x=0$, where $y=0$. So $(0,0)$ is an inflection point, with slope $-\\tfrac19$ there."
+          },
+          {
+            "do": "For each vertical asymptote $x=a$ find $\\lim_{x\\to a^-}f(x)$ and $\\lim_{x\\to a^+}f(x)$, each of which is $\\infty$ or $-\\infty$. The sign of $y$ on each side tells you which.",
+            "work": "$y=\\dfrac{x}{(x-3)(x+3)}$ is negative for $x<-3$, so $\\lim_{x\\to-3^-}f(x)=-\\infty$ (the curve shoots down before $x=-3$). It is positive between $-3$ and $0$, so it comes down from $+\\infty$ after $x=-3$. It is negative just before $x=3$, so it shoots down to $-\\infty$ at $x=3$, and positive for $x>3$, so it comes down from $+\\infty$ after $x=3$."
+          }
+        ],
+        "answer": "Asymptotes $y=0$, $x=-3$, $x=3$; no extrema; inflection point $(0,0)$ with slope $-\\tfrac19$."
+      },
+      "practice": [
+        {
+          "problem": "Sketch the curve $y=\\dfrac{x^2}{x^2-1}$. Enter the value $y$ of the horizontal asymptote.",
+          "steps": [
+            {
+              "do": "Find the horizontal asymptotes by taking the limit as $x\\to\\infty$ (and $x\\to-\\infty$). Find the vertical asymptotes by setting the denominator equal to $0$.",
+              "work": "Horizontal asymptote: $\\displaystyle y=\\lim_{x\\to\\pm\\infty}\\dfrac{x^2}{x^2-1}=1$. Vertical asymptotes: $x^2-1=0$ gives $x=-1$ and $x=1$."
+            },
+            {
+              "do": "Find $dy/dx$ and $d^2y/dx^2$. Find the critical numbers (besides the vertical asymptotes) by solving $dy/dx=0$ and classify them with the second derivative test. Find the inflection points by solving $d^2y/dx^2=0$.",
+              "work": "$$\\dfrac{dy}{dx}=-\\dfrac{2x}{(x^2-1)^2},\\qquad \\dfrac{d^2y}{dx^2}=\\dfrac{6x^2+2}{(x^2-1)^3}$$ Critical number: $x=0$, and $y''(0)=\\dfrac{2}{-1}=-2<0$, so $(0,0)$ is a local maximum. Inflection points: $6x^2+2=0$ has no real roots, so none."
+            },
+            {
+              "do": "For each vertical asymptote $x=a$ find $\\lim_{x\\to a^-}f(x)$ and $\\lim_{x\\to a^+}f(x)$, each of which is $\\infty$ or $-\\infty$. The sign of $y$ on each side tells you which.",
+              "work": "$y$ has the sign of $x^2-1$ (the numerator is $\\ge0$). For $x<-1$ it is positive, so $\\lim_{x\\to-1^-}f=+\\infty$. Between $-1$ and $1$ it is negative, so $\\lim_{x\\to-1^+}f=-\\infty$ and $\\lim_{x\\to1^-}f=-\\infty$. For $x>1$ it is positive, so $\\lim_{x\\to1^+}f=+\\infty$."
+            }
+          ],
+          "answer": "Horizontal asymptote $y=1$; vertical asymptotes $x=\\pm1$; local maximum $(0,0)$; no inflection points.",
+          "check": {
+            "kind": "number",
+            "value": "1"
+          }
+        },
+        {
+          "problem": "Sketch the curve $y=\\dfrac{3x}{x^2-1}$. Enter the slope of the curve at its inflection point.",
+          "steps": [
+            {
+              "do": "Find the horizontal asymptotes by taking the limit as $x\\to\\infty$ (and $x\\to-\\infty$). Find the vertical asymptotes by setting the denominator equal to $0$.",
+              "work": "Horizontal asymptote: $\\displaystyle y=\\lim_{x\\to\\pm\\infty}\\dfrac{3x}{x^2-1}=0$. Vertical asymptotes: $x=-1$ and $x=1$."
+            },
+            {
+              "do": "Find $dy/dx$ and $d^2y/dx^2$. Find the critical numbers (besides the vertical asymptotes) by solving $dy/dx=0$ and classify them with the second derivative test. Find the inflection points by solving $d^2y/dx^2=0$.",
+              "work": "$$\\dfrac{dy}{dx}=-\\dfrac{3(x^2+1)}{(x^2-1)^2},\\qquad \\dfrac{d^2y}{dx^2}=\\dfrac{6x(x^2+3)}{(x^2-1)^3}$$ Critical numbers: $x^2+1=0$ has no real roots, so no local extrema. Inflection point: $x=0$, where $y=0$. The slope there is $y'(0)=-\\dfrac{3\\cdot1}{1}=-3$."
+            },
+            {
+              "do": "For each vertical asymptote $x=a$ find $\\lim_{x\\to a^-}f(x)$ and $\\lim_{x\\to a^+}f(x)$, each of which is $\\infty$ or $-\\infty$. The sign of $y$ on each side tells you which.",
+              "work": "$y=\\dfrac{3x}{(x-1)(x+1)}$. For $x<-1$ it is negative: $\\lim_{x\\to-1^-}f=-\\infty$. For $-1<x<0$ it is positive: $\\lim_{x\\to-1^+}f=+\\infty$. For $0<x<1$ it is negative: $\\lim_{x\\to1^-}f=-\\infty$. For $x>1$ it is positive: $\\lim_{x\\to1^+}f=+\\infty$."
+            }
+          ],
+          "answer": "Inflection point $(0,0)$ with slope $-3$; no extrema; asymptotes $y=0$, $x=\\pm1$.",
+          "check": {
+            "kind": "number",
+            "value": "-3"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.6.1",
+      "course": "calc1",
+      "section": "4.6",
+      "topic": "Applied Optimization",
+      "title": "Fencing a divided rectangle",
+      "type": "A farmer wants to fence an area of $A$ square units and then divide it into $n+1$ parts by placing $n$ fences parallel to one of the sides of the rectangle. What dimensions minimize the cost of the fence?",
+      "example": {
+        "problem": "A farmer wants to fence an area of $5000$ square feet and then divide it into $3$ parts by placing $2$ fences parallel to one of the sides of the rectangle. What dimensions minimize the cost of the fence?",
+        "steps": [
+          {
+            "do": "Give names to the variables of the problem.",
+            "work": "Call the side parallel to the interior fences $x$, and the other side $y$."
+          },
+          {
+            "do": "Write down the constraint and translate it into mathematics: $xy=A$. Express $y$ in terms of $x$.",
+            "work": "$xy=5000$, so $y=\\dfrac{5000}{x}$."
+          },
+          {
+            "do": "Find an expression for the goal function. Here the length of fencing is $2x+2y+nx$.",
+            "work": "Goal: $2x+2y+2x=4x+2y$."
+          },
+          {
+            "do": "Using step 2, express the goal function in terms of $x$ alone; call it $f(x)$.",
+            "work": "$$f(x)=4x+\\dfrac{10000}{x}$$"
+          },
+          {
+            "do": "Using calculus, minimize $f(x)$: take its derivative and set it equal to zero.",
+            "work": "$$f'(x)=4-\\dfrac{10000}{x^2}=0\\ \\Rightarrow\\ x^2=2500\\ \\Rightarrow\\ x=50,\\qquad y=\\dfrac{5000}{50}=100$$"
+          }
+        ],
+        "answer": "The rectangle should be $50\\times100$ feet; the total length of fencing is then $400$ feet."
+      },
+      "practice": [
+        {
+          "problem": "A farmer wants to fence an area of $1000$ square feet and then divide it into $4$ parts by placing $3$ fences parallel to one of the sides of the rectangle. Enter the dimensions $(x,y)$, where $x$ is the side parallel to the interior fences.",
+          "steps": [
+            {
+              "do": "Give names to the variables of the problem.",
+              "work": "Call the side parallel to the interior fences $x$, and the other side $y$."
+            },
+            {
+              "do": "Write down the constraint and translate it into mathematics: $xy=A$. Express $y$ in terms of $x$.",
+              "work": "$xy=1000$, so $y=\\dfrac{1000}{x}$."
+            },
+            {
+              "do": "Find an expression for the goal function. Here the length of fencing is $2x+2y+nx$.",
+              "work": "Goal: $2x+2y+3x=5x+2y$."
+            },
+            {
+              "do": "Using step 2, express the goal function in terms of $x$ alone; call it $f(x)$.",
+              "work": "$$f(x)=5x+\\dfrac{2000}{x}$$"
+            },
+            {
+              "do": "Using calculus, minimize $f(x)$: take its derivative and set it equal to zero.",
+              "work": "$$f'(x)=5-\\dfrac{2000}{x^2}=0\\ \\Rightarrow\\ x^2=400\\ \\Rightarrow\\ x=20,\\qquad y=\\dfrac{1000}{20}=50$$"
+            }
+          ],
+          "answer": "$20\\times50$ feet (total fencing $200$ feet).",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "20",
+              "50"
+            ]
+          }
+        },
+        {
+          "problem": "A farmer wants to fence an area of $1350$ square feet and then divide it into $2$ parts by placing $1$ fence parallel to one of the sides of the rectangle. Enter the minimum total length of fencing.",
+          "steps": [
+            {
+              "do": "Give names to the variables of the problem.",
+              "work": "Call the side parallel to the interior fence $x$, and the other side $y$."
+            },
+            {
+              "do": "Write down the constraint and translate it into mathematics: $xy=A$. Express $y$ in terms of $x$.",
+              "work": "$xy=1350$, so $y=\\dfrac{1350}{x}$."
+            },
+            {
+              "do": "Find an expression for the goal function. Here the length of fencing is $2x+2y+nx$.",
+              "work": "Goal: $2x+2y+x=3x+2y$."
+            },
+            {
+              "do": "Using step 2, express the goal function in terms of $x$ alone; call it $f(x)$.",
+              "work": "$$f(x)=3x+\\dfrac{2700}{x}$$"
+            },
+            {
+              "do": "Using calculus, minimize $f(x)$: take its derivative and set it equal to zero.",
+              "work": "$$f'(x)=3-\\dfrac{2700}{x^2}=0\\ \\Rightarrow\\ x^2=900\\ \\Rightarrow\\ x=30,\\qquad y=\\dfrac{1350}{30}=45$$ The minimum length is $f(30)=3\\cdot30+2\\cdot45=180$."
+            }
+          ],
+          "answer": "The minimum length of fencing is $180$ feet (dimensions $30\\times45$).",
+          "check": {
+            "kind": "number",
+            "value": "180"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.6.2",
+      "course": "calc1",
+      "section": "4.6",
+      "topic": "Applied Optimization",
+      "title": "Farthest point on an ellipse",
+      "type": "Find the points on the ellipse $ax^2+by^2=c$ that are furthest from the point $(p,q)$.",
+      "example": {
+        "problem": "Find the points on the ellipse $x^2+4y^2=4$ that are furthest from the point $(0,1)$.",
+        "steps": [
+          {
+            "do": "Write down the formula for the squared distance from a general point $(x,y)$ to the designated point. This is your goal function.",
+            "work": "Goal: $(x-0)^2+(y-1)^2=x^2+y^2-2y+1$."
+          },
+          {
+            "do": "The constraint is the equation of the ellipse. Take one of the variables (whichever is convenient) as the main variable and eliminate the other.",
+            "work": "$x^2+4y^2=4$ means $x^2=4-4y^2$. It is more convenient to take $y$ as the main variable (here $-1\\le y\\le1$): $$f(y)=4-4y^2+y^2-2y+1=5-2y-3y^2$$"
+          },
+          {
+            "do": "Find the maximum of the goal as a function of the main variable: take the derivative and set it equal to $0$.",
+            "work": "$f'(y)=-2-6y=0$ gives $y=-\\tfrac13$, and then $x^2=4-\\tfrac49=\\tfrac{32}{9}$, so $x=\\pm\\dfrac{4\\sqrt2}{3}$. (Check: $f(-\\tfrac13)=\\tfrac{16}{3}$ beats the endpoints $f(1)=0$ and $f(-1)=4$.)"
+          }
+        ],
+        "answer": "The farthest points are $\\left(\\pm\\dfrac{4\\sqrt2}{3},\\,-\\dfrac13\\right)$."
+      },
+      "practice": [
+        {
+          "problem": "Find the points on the ellipse $x^2+9y^2=9$ that are furthest from the point $(0,2)$. Enter the $y$-coordinate of the farthest points.",
+          "steps": [
+            {
+              "do": "Write down the formula for the squared distance from a general point $(x,y)$ to the designated point. This is your goal function.",
+              "work": "Goal: $(x-0)^2+(y-2)^2=x^2+y^2-4y+4$."
+            },
+            {
+              "do": "The constraint is the equation of the ellipse. Take one of the variables (whichever is convenient) as the main variable and eliminate the other.",
+              "work": "$x^2=9-9y^2$. Take $y$ as the main variable (here $-1\\le y\\le1$): $$f(y)=9-9y^2+y^2-4y+4=13-4y-8y^2$$"
+            },
+            {
+              "do": "Find the maximum of the goal as a function of the main variable: take the derivative and set it equal to $0$.",
+              "work": "$f'(y)=-4-16y=0$ gives $y=-\\tfrac14$, and then $x^2=9-\\tfrac{9}{16}=\\tfrac{135}{16}$, so $x=\\pm\\dfrac{3\\sqrt{15}}{4}$. (Check: $f(-\\tfrac14)=\\tfrac{27}{2}$ beats $f(1)=1$ and $f(-1)=9$.)"
+            }
+          ],
+          "answer": "The farthest points are $\\left(\\pm\\dfrac{3\\sqrt{15}}{4},\\,-\\dfrac14\\right)$.",
+          "check": {
+            "kind": "number",
+            "value": "-1/4"
+          }
+        },
+        {
+          "problem": "Find the points on the ellipse $4x^2+y^2=16$ that are furthest from the point $(2,0)$. Enter the $x$-coordinate of the farthest points.",
+          "steps": [
+            {
+              "do": "Write down the formula for the squared distance from a general point $(x,y)$ to the designated point. This is your goal function.",
+              "work": "Goal: $(x-2)^2+(y-0)^2=x^2-4x+4+y^2$."
+            },
+            {
+              "do": "The constraint is the equation of the ellipse. Take one of the variables (whichever is convenient) as the main variable and eliminate the other.",
+              "work": "$y^2=16-4x^2$. Take $x$ as the main variable (here $-2\\le x\\le2$): $$f(x)=x^2-4x+4+16-4x^2=20-4x-3x^2$$"
+            },
+            {
+              "do": "Find the maximum of the goal as a function of the main variable: take the derivative and set it equal to $0$.",
+              "work": "$f'(x)=-4-6x=0$ gives $x=-\\tfrac23$, and then $y^2=16-\\tfrac{16}{9}=\\tfrac{128}{9}$, so $y=\\pm\\dfrac{8\\sqrt2}{3}$. (Check: $f(-\\tfrac23)=\\tfrac{64}{3}$ beats $f(-2)=16$ and $f(2)=0$.)"
+            }
+          ],
+          "answer": "The farthest points are $\\left(-\\dfrac23,\\,\\pm\\dfrac{8\\sqrt2}{3}\\right)$.",
+          "check": {
+            "kind": "number",
+            "value": "-2/3"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.6.3",
+      "course": "calc1",
+      "section": "4.6",
+      "topic": "Applied Optimization",
+      "title": "Cheapest cylindrical can",
+      "type": "A cylindrical can (with or without a top) is made to contain $V$ cm$^3$ of liquid. Find the dimensions that minimize the cost of the metal used to make the can. (Variations: two kinds of metal with different prices per unit area.)",
+      "example": {
+        "problem": "A cylindrical can without a top is made to contain $V$ cm$^3$ of liquid. Find the dimensions that minimize the cost of the metal.",
+        "steps": [
+          {
+            "do": "Decide who the variables are.",
+            "work": "The variables are the radius $r$ and the height $h$."
+          },
+          {
+            "do": "Write down the constraint and express one variable in terms of the other.",
+            "work": "The volume is fixed at $V$, and the volume of a cylinder is $\\pi r^2h$. Constraint: $\\pi r^2h=V$, so $h=\\dfrac{V}{\\pi r^2}$."
+          },
+          {
+            "do": "Your goal is to minimize the amount (or cost) of metal. The area has parts: the bottom (and top, if any) and the side.",
+            "work": "The bottom has area $\\pi r^2$ and the side has area $2\\pi rh$ (cut it and roll it flat: a rectangle with sides $2\\pi r$ and $h$). Goal: $\\pi r^2+2\\pi rh$, which in terms of $r$ alone is $$f(r)=\\pi r^2+\\dfrac{2V}{r}$$"
+          },
+          {
+            "do": "Use calculus to minimize the goal function.",
+            "work": "$f'(r)=2\\pi r-\\dfrac{2V}{r^2}=0$ when $r^3=\\dfrac{V}{\\pi}$, so $r=\\left(\\dfrac V\\pi\\right)^{1/3}$. Then $h=\\dfrac{V}{\\pi r^2}=\\left(\\dfrac V\\pi\\right)^{1/3}$."
+          }
+        ],
+        "answer": "Both the radius and the height should equal $\\left(\\dfrac V\\pi\\right)^{1/3}$."
+      },
+      "practice": [
+        {
+          "problem": "A cylindrical can with a top and bottom is made to contain $54\\pi$ cm$^3$ of liquid. Find the dimensions that minimize the amount of metal. Enter the radius.",
+          "steps": [
+            {
+              "do": "Decide who the variables are.",
+              "work": "The variables are the radius $r$ and the height $h$."
+            },
+            {
+              "do": "Write down the constraint and express one variable in terms of the other.",
+              "work": "$\\pi r^2h=54\\pi$, so $h=\\dfrac{54}{r^2}$."
+            },
+            {
+              "do": "Your goal is to minimize the amount (or cost) of metal. The area has parts: the bottom (and top, if any) and the side.",
+              "work": "Top and bottom: $2\\pi r^2$. Side: $2\\pi rh$. Goal: $$f(r)=2\\pi r^2+2\\pi r\\cdot\\dfrac{54}{r^2}=2\\pi r^2+\\dfrac{108\\pi}{r}$$"
+            },
+            {
+              "do": "Use calculus to minimize the goal function.",
+              "work": "$f'(r)=4\\pi r-\\dfrac{108\\pi}{r^2}=0$ when $r^3=27$, so $r=3$, and $h=\\dfrac{54}{9}=6$."
+            }
+          ],
+          "answer": "Radius $3$ cm and height $6$ cm (the height is twice the radius).",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        },
+        {
+          "problem": "A cylindrical can without a top is made to contain $16\\pi$ cm$^3$ of liquid. The metal for the bottom costs twice as much per unit area as the metal for the side. Find the dimensions that minimize the cost. Enter the height.",
+          "steps": [
+            {
+              "do": "Decide who the variables are.",
+              "work": "The variables are the radius $r$ and the height $h$."
+            },
+            {
+              "do": "Write down the constraint and express one variable in terms of the other.",
+              "work": "$\\pi r^2h=16\\pi$, so $h=\\dfrac{16}{r^2}$."
+            },
+            {
+              "do": "Your goal is to minimize the amount (or cost) of metal. The area has parts: the bottom (and top, if any) and the side.",
+              "work": "Measure cost in units where the side costs $1$ per unit area. Bottom: $2\\cdot\\pi r^2$. Side: $2\\pi rh$. Goal: $$f(r)=2\\pi r^2+2\\pi r\\cdot\\dfrac{16}{r^2}=2\\pi r^2+\\dfrac{32\\pi}{r}$$"
+            },
+            {
+              "do": "Use calculus to minimize the goal function.",
+              "work": "$f'(r)=4\\pi r-\\dfrac{32\\pi}{r^2}=0$ when $r^3=8$, so $r=2$, and $h=\\dfrac{16}{4}=4$."
+            }
+          ],
+          "answer": "Radius $2$ cm and height $4$ cm.",
+          "check": {
+            "kind": "number",
+            "value": "4"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.7.1",
+      "course": "calc1",
+      "section": "4.7",
+      "topic": "L’Hôpital’s Rule",
+      "title": "Recognizing indeterminate forms",
+      "type": "Given the limits of functions $f(x),g(x),\\dots$ at $x=a$, decide whether the limit of their quotient $f/g$, product $fg$, difference $f-g$, or power $f^g$ at the same point is an indeterminate form.",
+      "example": {
+        "problem": "Given $\\displaystyle\\lim_{x\\to a}f(x)=0$, $\\lim_{x\\to a}g(x)=0$, $\\lim_{x\\to a}p(x)=\\infty$, $\\lim_{x\\to a}q(x)=\\infty$, which of the following are indeterminate forms? (a) $\\lim[f/g]$ (b) $\\lim[f\\,p]$ (c) $\\lim[p-q]$ (d) $\\lim[f^{\\,g}]$",
+        "steps": [
+          {
+            "do": "(a) For a quotient, the limit is indeterminate whenever plugging in gives $0/0$ or $\\infty/\\infty$.",
+            "work": "$\\displaystyle\\lim\\dfrac{f}{g}=\\dfrac00$, so this is an indeterminate form."
+          },
+          {
+            "do": "(b) For a product, the limit is indeterminate whenever plugging in gives $0\\cdot\\infty$ (or $0\\cdot(-\\infty)$).",
+            "work": "$\\lim f\\cdot\\lim p=0\\cdot\\infty$, so it is indeterminate."
+          },
+          {
+            "do": "(c) For a difference, the limit is indeterminate whenever it is of the type $\\infty-\\infty$.",
+            "work": "$\\lim[p-q]=\\infty-\\infty$, so it is indeterminate."
+          },
+          {
+            "do": "(d) For a power, the limit is indeterminate whenever it is of the type $0^0$, $\\infty^0$ or $1^\\infty$.",
+            "work": "$\\lim f^{g}=0^0$, so it is indeterminate."
+          }
+        ],
+        "answer": "All four, (a) through (d), are indeterminate."
+      },
+      "practice": [
+        {
+          "problem": "Given $\\displaystyle\\lim_{x\\to a}f(x)=0$, $\\lim g(x)=0$, $\\lim p(x)=\\infty$, $\\lim r(x)=1$, how many of the following are indeterminate forms? (a) $\\lim[p/f]$ (b) $\\lim[g\\,p]$ (c) $\\lim[p-r]$ (d) $\\lim[r^{\\,p}]$",
+          "steps": [
+            {
+              "do": "(a) For a quotient, the limit is indeterminate whenever plugging in gives $0/0$ or $\\infty/\\infty$.",
+              "work": "$\\dfrac{p}{f}\\to\\dfrac{\\infty}{0}$: not of the type $0/0$ or $\\infty/\\infty$ (the quotient blows up), so it is not indeterminate."
+            },
+            {
+              "do": "(b) For a product, the limit is indeterminate whenever plugging in gives $0\\cdot\\infty$ (or $0\\cdot(-\\infty)$).",
+              "work": "$g\\cdot p\\to0\\cdot\\infty$: indeterminate."
+            },
+            {
+              "do": "(c) For a difference, the limit is indeterminate whenever it is of the type $\\infty-\\infty$.",
+              "work": "$p-r\\to\\infty-1=\\infty$: not of the type $\\infty-\\infty$, so not indeterminate."
+            },
+            {
+              "do": "(d) For a power, the limit is indeterminate whenever it is of the type $0^0$, $\\infty^0$ or $1^\\infty$.",
+              "work": "$r^{p}\\to1^\\infty$: indeterminate."
+            }
+          ],
+          "answer": "Exactly two, (b) and (d).",
+          "check": {
+            "kind": "number",
+            "value": "2"
+          }
+        },
+        {
+          "problem": "Given $\\displaystyle\\lim_{x\\to a}f(x)=0$, $\\lim p(x)=\\infty$, $\\lim q(x)=\\infty$, $\\lim s(x)=2$, how many of the following are indeterminate forms? (a) $\\lim[p/q]$ (b) $\\lim[f\\,p]$ (c) $\\lim[p-s]$ (d) $\\lim[p^{\\,f}]$",
+          "steps": [
+            {
+              "do": "(a) For a quotient, the limit is indeterminate whenever plugging in gives $0/0$ or $\\infty/\\infty$.",
+              "work": "$\\dfrac pq\\to\\dfrac\\infty\\infty$: indeterminate."
+            },
+            {
+              "do": "(b) For a product, the limit is indeterminate whenever plugging in gives $0\\cdot\\infty$ (or $0\\cdot(-\\infty)$).",
+              "work": "$f\\cdot p\\to0\\cdot\\infty$: indeterminate."
+            },
+            {
+              "do": "(c) For a difference, the limit is indeterminate whenever it is of the type $\\infty-\\infty$.",
+              "work": "$p-s\\to\\infty-2=\\infty$: not of the type $\\infty-\\infty$, so not indeterminate."
+            },
+            {
+              "do": "(d) For a power, the limit is indeterminate whenever it is of the type $0^0$, $\\infty^0$ or $1^\\infty$.",
+              "work": "$p^{f}\\to\\infty^0$: indeterminate."
+            }
+          ],
+          "answer": "Exactly three, (a), (b) and (d).",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.7.2",
+      "course": "calc1",
+      "section": "4.7",
+      "topic": "L’Hôpital’s Rule",
+      "title": "L’Hôpital's rule",
+      "type": "Use L'Hôpital's rule, if appropriate, to evaluate $\\displaystyle\\lim_{x\\to a}\\dfrac{TOP(x)}{BOT(x)}$.",
+      "example": {
+        "problem": "Use L'Hôpital's rule, if appropriate, to evaluate $\\displaystyle\\lim_{x\\to1}\\dfrac{x^8-1}{x^3-1}$.",
+        "steps": [
+          {
+            "do": "Plug $x=a$ into $\\dfrac{TOP(x)}{BOT(x)}$. If $\\dfrac{TOP(a)}{BOT(a)}$ gives $\\dfrac00$ or $\\dfrac\\infty\\infty$, L'Hôpital's rule is applicable.",
+            "work": "Plugging $x=1$ into $\\dfrac{x^8-1}{x^3-1}$ gives $\\dfrac00$, so L'Hôpital's rule is applicable."
+          },
+          {
+            "do": "Invoke L'Hôpital's rule: $\\displaystyle\\lim_{x\\to a}\\dfrac{TOP(x)}{BOT(x)}=\\lim_{x\\to a}\\dfrac{TOP'(x)}{BOT'(x)}$. If you still get an indeterminate form, keep doing it until you get a doable limit.",
+            "work": "$$\\lim_{x\\to1}\\dfrac{x^8-1}{x^3-1}=\\lim_{x\\to1}\\dfrac{8x^7}{3x^2}$$"
+          },
+          {
+            "do": "Evaluate the limit by simplifying and plugging in.",
+            "work": "$$=\\lim_{x\\to1}\\dfrac{8x^5}{3}=\\dfrac{8\\cdot1^5}{3}=\\dfrac83$$"
+          }
+        ],
+        "answer": "$\\dfrac83$",
+        "check": {
+          "kind": "number",
+          "value": "8/3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use L'Hôpital's rule to evaluate $\\displaystyle\\lim_{x\\to2}\\dfrac{x^5-32}{x^2-4}$.",
+          "steps": [
+            {
+              "do": "Plug $x=a$ into $\\dfrac{TOP(x)}{BOT(x)}$. If $\\dfrac{TOP(a)}{BOT(a)}$ gives $\\dfrac00$ or $\\dfrac\\infty\\infty$, L'Hôpital's rule is applicable.",
+              "work": "Plugging $x=2$ into $\\dfrac{x^5-32}{x^2-4}$ gives $\\dfrac00$, so L'Hôpital's rule is applicable."
+            },
+            {
+              "do": "Invoke L'Hôpital's rule: $\\displaystyle\\lim_{x\\to a}\\dfrac{TOP(x)}{BOT(x)}=\\lim_{x\\to a}\\dfrac{TOP'(x)}{BOT'(x)}$. If you still get an indeterminate form, keep doing it until you get a doable limit.",
+              "work": "$$\\lim_{x\\to2}\\dfrac{x^5-32}{x^2-4}=\\lim_{x\\to2}\\dfrac{5x^4}{2x}$$"
+            },
+            {
+              "do": "Evaluate the limit by simplifying and plugging in.",
+              "work": "$$=\\lim_{x\\to2}\\dfrac{5x^3}{2}=\\dfrac{5\\cdot8}{2}=20$$"
+            }
+          ],
+          "answer": "$20$",
+          "check": {
+            "kind": "number",
+            "value": "20"
+          }
+        },
+        {
+          "problem": "Use L'Hôpital's rule to evaluate $\\displaystyle\\lim_{x\\to0}\\dfrac{e^{3x}-1}{\\sin 2x}$.",
+          "steps": [
+            {
+              "do": "Plug $x=a$ into $\\dfrac{TOP(x)}{BOT(x)}$. If $\\dfrac{TOP(a)}{BOT(a)}$ gives $\\dfrac00$ or $\\dfrac\\infty\\infty$, L'Hôpital's rule is applicable.",
+              "work": "Plugging $x=0$ into $\\dfrac{e^{3x}-1}{\\sin2x}$ gives $\\dfrac00$, so L'Hôpital's rule is applicable."
+            },
+            {
+              "do": "Invoke L'Hôpital's rule: $\\displaystyle\\lim_{x\\to a}\\dfrac{TOP(x)}{BOT(x)}=\\lim_{x\\to a}\\dfrac{TOP'(x)}{BOT'(x)}$. If you still get an indeterminate form, keep doing it until you get a doable limit.",
+              "work": "$$\\lim_{x\\to0}\\dfrac{e^{3x}-1}{\\sin 2x}=\\lim_{x\\to0}\\dfrac{3e^{3x}}{2\\cos 2x}$$"
+            },
+            {
+              "do": "Evaluate the limit by simplifying and plugging in.",
+              "work": "$$=\\dfrac{3e^{0}}{2\\cos 0}=\\dfrac32$$"
+            }
+          ],
+          "answer": "$\\dfrac32$",
+          "check": {
+            "kind": "number",
+            "value": "3/2"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.7.3",
+      "course": "calc1",
+      "section": "4.7",
+      "topic": "L’Hôpital’s Rule",
+      "title": "Repeated L’Hôpital's rule",
+      "type": "Same as the previous recipe, but now you have to use L'Hôpital's rule more than once.",
+      "example": {
+        "problem": "Use L'Hôpital's rule, if appropriate, to evaluate $\\displaystyle\\lim_{x\\to0}\\dfrac{1-\\cos x}{x^2}$.",
+        "steps": [
+          {
+            "do": "Plug $x=a$ into $\\dfrac{TOP(x)}{BOT(x)}$. If $\\dfrac{TOP(a)}{BOT(a)}$ gives $\\dfrac00$ or $\\dfrac\\infty\\infty$, L'Hôpital's rule is applicable.",
+            "work": "Plugging $x=0$ into $\\dfrac{1-\\cos x}{x^2}$ gives $\\dfrac00$, so L'Hôpital's rule is applicable."
+          },
+          {
+            "do": "Invoke L'Hôpital's rule. If you still get an indeterminate form (this time you do!), keep doing it until you get a doable limit.",
+            "work": "$$\\lim_{x\\to0}\\dfrac{1-\\cos x}{x^2}=\\lim_{x\\to0}\\dfrac{\\sin x}{2x}$$ Plugging in $x=0$ still gives $\\dfrac00$, so do it again: $$=\\lim_{x\\to0}\\dfrac{\\cos x}{2}$$"
+          },
+          {
+            "do": "Evaluate the limit by simplifying and plugging in.",
+            "work": "$$=\\dfrac{\\cos0}{2}=\\dfrac12$$"
+          }
+        ],
+        "answer": "$\\dfrac12$",
+        "check": {
+          "kind": "number",
+          "value": "1/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use L'Hôpital's rule to evaluate $\\displaystyle\\lim_{x\\to0}\\dfrac{x-\\sin x}{x^3}$.",
+          "steps": [
+            {
+              "do": "Plug $x=a$ into $\\dfrac{TOP(x)}{BOT(x)}$. If $\\dfrac{TOP(a)}{BOT(a)}$ gives $\\dfrac00$ or $\\dfrac\\infty\\infty$, L'Hôpital's rule is applicable.",
+              "work": "Plugging $x=0$ into $\\dfrac{x-\\sin x}{x^3}$ gives $\\dfrac00$, so L'Hôpital's rule is applicable."
+            },
+            {
+              "do": "Invoke L'Hôpital's rule. If you still get an indeterminate form (this time you do!), keep doing it until you get a doable limit.",
+              "work": "$$\\lim_{x\\to0}\\dfrac{x-\\sin x}{x^3}=\\lim_{x\\to0}\\dfrac{1-\\cos x}{3x^2}\\ \\ (\\tfrac00\\text{ again})=\\lim_{x\\to0}\\dfrac{\\sin x}{6x}\\ \\ (\\tfrac00\\text{ again})=\\lim_{x\\to0}\\dfrac{\\cos x}{6}$$"
+            },
+            {
+              "do": "Evaluate the limit by simplifying and plugging in.",
+              "work": "$$=\\dfrac{\\cos0}{6}=\\dfrac16$$"
+            }
+          ],
+          "answer": "$\\dfrac16$",
+          "check": {
+            "kind": "number",
+            "value": "1/6"
+          }
+        },
+        {
+          "problem": "Use L'Hôpital's rule to evaluate $\\displaystyle\\lim_{x\\to0}\\dfrac{e^{2x}-1-2x}{x^2}$.",
+          "steps": [
+            {
+              "do": "Plug $x=a$ into $\\dfrac{TOP(x)}{BOT(x)}$. If $\\dfrac{TOP(a)}{BOT(a)}$ gives $\\dfrac00$ or $\\dfrac\\infty\\infty$, L'Hôpital's rule is applicable.",
+              "work": "Plugging $x=0$ into $\\dfrac{e^{2x}-1-2x}{x^2}$ gives $\\dfrac00$, so L'Hôpital's rule is applicable."
+            },
+            {
+              "do": "Invoke L'Hôpital's rule. If you still get an indeterminate form (this time you do!), keep doing it until you get a doable limit.",
+              "work": "$$\\lim_{x\\to0}\\dfrac{e^{2x}-1-2x}{x^2}=\\lim_{x\\to0}\\dfrac{2e^{2x}-2}{2x}\\ \\ (\\tfrac00\\text{ again})=\\lim_{x\\to0}\\dfrac{4e^{2x}}{2}$$"
+            },
+            {
+              "do": "Evaluate the limit by simplifying and plugging in.",
+              "work": "$$=\\dfrac{4e^{0}}{2}=2$$"
+            }
+          ],
+          "answer": "$2$",
+          "check": {
+            "kind": "number",
+            "value": "2"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.7.4",
+      "course": "calc1",
+      "section": "4.7",
+      "topic": "L’Hôpital’s Rule",
+      "title": "Limits of the form infinity minus infinity",
+      "type": "Use L'Hôpital's rule (or any other method) to evaluate $\\displaystyle\\lim_{x\\to\\infty}\\left[\\text{Expression}_1(x)-\\text{Expression}_2(x)\\right]$, where one of the expressions is a radical and plugging in gives $\\infty-\\infty$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\lim_{x\\to\\infty}\\left[\\sqrt{x^2+3x}-x\\right]$.",
+        "steps": [
+          {
+            "do": "Multiply top and bottom by the conjugate $\\text{Expr}_1(x)+\\text{Expr}_2(x)$ and simplify as much as you can, using $(a-b)(a+b)=a^2-b^2$.",
+            "work": "$$\\begin{aligned}\\lim_{x\\to\\infty}\\left[\\sqrt{x^2+3x}-x\\right]&=\\lim_{x\\to\\infty}\\dfrac{(\\sqrt{x^2+3x}-x)(\\sqrt{x^2+3x}+x)}{\\sqrt{x^2+3x}+x}\\\\&=\\lim_{x\\to\\infty}\\dfrac{(x^2+3x)-x^2}{\\sqrt{x^2+3x}+x}=\\lim_{x\\to\\infty}\\dfrac{3x}{\\sqrt{x^2+3x}+x}\\end{aligned}$$"
+          },
+          {
+            "do": "If you can get by without L'Hôpital's rule, don't bother using it. Try ‘only the leading terms count as $x\\to\\infty$’: forget about the little ones.",
+            "work": "For large $x$, $\\sqrt{x^2+3x}\\approx x$ (ignore $3x$ next to $x^2$), so $$\\lim_{x\\to\\infty}\\dfrac{3x}{x+x}=\\lim_{x\\to\\infty}\\dfrac32=\\dfrac32$$"
+          }
+        ],
+        "answer": "$\\dfrac32$",
+        "check": {
+          "kind": "number",
+          "value": "3/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to\\infty}\\left[\\sqrt{4x^2+x}-2x\\right]$.",
+          "steps": [
+            {
+              "do": "Multiply top and bottom by the conjugate $\\text{Expr}_1(x)+\\text{Expr}_2(x)$ and simplify as much as you can, using $(a-b)(a+b)=a^2-b^2$.",
+              "work": "$$\\lim_{x\\to\\infty}\\dfrac{(\\sqrt{4x^2+x}-2x)(\\sqrt{4x^2+x}+2x)}{\\sqrt{4x^2+x}+2x}=\\lim_{x\\to\\infty}\\dfrac{(4x^2+x)-4x^2}{\\sqrt{4x^2+x}+2x}=\\lim_{x\\to\\infty}\\dfrac{x}{\\sqrt{4x^2+x}+2x}$$"
+            },
+            {
+              "do": "If you can get by without L'Hôpital's rule, don't bother using it. Try ‘only the leading terms count as $x\\to\\infty$’: forget about the little ones.",
+              "work": "For large $x$, $\\sqrt{4x^2+x}\\approx2x$, so $$\\lim_{x\\to\\infty}\\dfrac{x}{2x+2x}=\\dfrac14$$"
+            }
+          ],
+          "answer": "$\\dfrac14$",
+          "check": {
+            "kind": "number",
+            "value": "1/4"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to\\infty}\\left[x-\\sqrt{x^2-6x}\\right]$.",
+          "steps": [
+            {
+              "do": "Multiply top and bottom by the conjugate $\\text{Expr}_1(x)+\\text{Expr}_2(x)$ and simplify as much as you can, using $(a-b)(a+b)=a^2-b^2$.",
+              "work": "$$\\lim_{x\\to\\infty}\\dfrac{(x-\\sqrt{x^2-6x})(x+\\sqrt{x^2-6x})}{x+\\sqrt{x^2-6x}}=\\lim_{x\\to\\infty}\\dfrac{x^2-(x^2-6x)}{x+\\sqrt{x^2-6x}}=\\lim_{x\\to\\infty}\\dfrac{6x}{x+\\sqrt{x^2-6x}}$$"
+            },
+            {
+              "do": "If you can get by without L'Hôpital's rule, don't bother using it. Try ‘only the leading terms count as $x\\to\\infty$’: forget about the little ones.",
+              "work": "For large $x$, $\\sqrt{x^2-6x}\\approx x$, so $$\\lim_{x\\to\\infty}\\dfrac{6x}{x+x}=3$$"
+            }
+          ],
+          "answer": "$3$",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.7.5",
+      "course": "calc1",
+      "section": "4.7",
+      "topic": "L’Hôpital’s Rule",
+      "title": "Limits of the form infinity to the zero",
+      "type": "Use L'Hôpital's rule (or any other method) to evaluate $\\displaystyle\\lim_{x\\to\\infty}\\text{Expression}_1(x)^{1/\\text{Expression}_2(x)}$, where plugging in gives $\\infty^0$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\lim_{x\\to\\infty}x^{1/(2x)}$.",
+        "steps": [
+          {
+            "do": "Take natural logarithms: evaluate instead $\\displaystyle\\lim_{x\\to\\infty}\\dfrac{\\ln\\left(\\text{Expression}_1(x)\\right)}{\\text{Expression}_2(x)}$, using L'Hôpital's rule if necessary.",
+            "work": "$$\\lim_{x\\to\\infty}\\ln\\!\\left(x^{1/(2x)}\\right)=\\lim_{x\\to\\infty}\\dfrac{\\ln x}{2x}=\\lim_{x\\to\\infty}\\dfrac{1/x}{2}=\\lim_{x\\to\\infty}\\dfrac{1}{2x}=0$$"
+          },
+          {
+            "do": "What you got is not the answer but the natural log of the answer. Undo the $\\ln$ by exponentiating: the final answer is $e^{(\\text{above limit})}$.",
+            "work": "The answer is $e^0=1$."
+          }
+        ],
+        "answer": "$1$",
+        "check": {
+          "kind": "number",
+          "value": "1"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to\\infty}(x^2+1)^{1/\\ln x}$.",
+          "steps": [
+            {
+              "do": "Take natural logarithms: evaluate instead $\\displaystyle\\lim_{x\\to\\infty}\\dfrac{\\ln\\left(\\text{Expression}_1(x)\\right)}{\\text{Expression}_2(x)}$, using L'Hôpital's rule if necessary.",
+              "work": "$$\\lim_{x\\to\\infty}\\dfrac{\\ln(x^2+1)}{\\ln x}=\\lim_{x\\to\\infty}\\dfrac{2x/(x^2+1)}{1/x}=\\lim_{x\\to\\infty}\\dfrac{2x^2}{x^2+1}=\\lim_{x\\to\\infty}\\dfrac{2}{1+1/x^2}=2$$"
+            },
+            {
+              "do": "What you got is not the answer but the natural log of the answer. Undo the $\\ln$ by exponentiating: the final answer is $e^{(\\text{above limit})}$.",
+              "work": "The answer is $e^2$."
+            }
+          ],
+          "answer": "$e^2$",
+          "check": {
+            "kind": "number",
+            "value": "exp(2)"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to\\infty}(x+e^x)^{1/x}$.",
+          "steps": [
+            {
+              "do": "Take natural logarithms: evaluate instead $\\displaystyle\\lim_{x\\to\\infty}\\dfrac{\\ln\\left(\\text{Expression}_1(x)\\right)}{\\text{Expression}_2(x)}$, using L'Hôpital's rule if necessary.",
+              "work": "$$\\lim_{x\\to\\infty}\\dfrac{\\ln(x+e^x)}{x}=\\lim_{x\\to\\infty}\\dfrac{1+e^x}{x+e^x}\\ (\\tfrac\\infty\\infty)=\\lim_{x\\to\\infty}\\dfrac{e^x}{1+e^x}\\ (\\tfrac\\infty\\infty)=\\lim_{x\\to\\infty}\\dfrac{e^x}{e^x}=1$$"
+            },
+            {
+              "do": "What you got is not the answer but the natural log of the answer. Undo the $\\ln$ by exponentiating: the final answer is $e^{(\\text{above limit})}$.",
+              "work": "The answer is $e^1=e$."
+            }
+          ],
+          "answer": "$e$",
+          "check": {
+            "kind": "number",
+            "value": "e"
+          }
+        }
+      ],
+      "scene": "shape"
+    },
+    {
+      "id": "c1-4.8.1",
+      "course": "calc1",
+      "section": "4.8",
+      "topic": "Newton’s Method",
+      "title": "Newton's method iterations",
+      "type": "Use Newton's method with the specified initial approximation $x_1$ to find $x_3$, the third approximation to the root of the given equation $f(x)=0$. (Give your answer to four decimal places.)",
+      "example": {
+        "problem": "Use Newton's method with $x_1=1$ to find $x_3$ for the equation $x^3-x^2-1=0$.",
+        "steps": [
+          {
+            "do": "If not already so, convert the equation to one whose right side is $0$. The left side is $f(x)$.",
+            "work": "The right side is already $0$, so $f(x)=x^3-x^2-1$."
+          },
+          {
+            "do": "Find $f'(x)$ and set up Newton's law $x_{n+1}=x_n-\\dfrac{f(x_n)}{f'(x_n)}$.",
+            "work": "$f'(x)=3x^2-2x$, so $$x_{n+1}=x_n-\\dfrac{x_n^3-x_n^2-1}{3x_n^2-2x_n}$$"
+          },
+          {
+            "do": "Plug in $n=1$ to get $x_2$. Then plug in $n=2$ to get $x_3$.",
+            "work": "$$x_2=1-\\dfrac{1-1-1}{3-2}=2,\\qquad x_3=2-\\dfrac{8-4-1}{12-4}=2-\\dfrac38=\\dfrac{13}{8}=1.625$$"
+          }
+        ],
+        "answer": "$x_3=\\dfrac{13}{8}=1.6250$",
+        "check": {
+          "kind": "number",
+          "value": "1.625"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Newton's method with $x_1=2$ to find $x_3$ for $x^3-2x-5=0$. Enter $x_3$ to four decimal places.",
+          "steps": [
+            {
+              "do": "If not already so, convert the equation to one whose right side is $0$. The left side is $f(x)$.",
+              "work": "The right side is already $0$, so $f(x)=x^3-2x-5$."
+            },
+            {
+              "do": "Find $f'(x)$ and set up Newton's law $x_{n+1}=x_n-\\dfrac{f(x_n)}{f'(x_n)}$.",
+              "work": "$f'(x)=3x^2-2$, so $$x_{n+1}=x_n-\\dfrac{x_n^3-2x_n-5}{3x_n^2-2}$$"
+            },
+            {
+              "do": "Plug in $n=1$ to get $x_2$. Then plug in $n=2$ to get $x_3$.",
+              "work": "$$x_2=2-\\dfrac{8-4-5}{12-2}=2+\\dfrac{1}{10}=2.1$$ $$x_3=2.1-\\dfrac{2.1^3-2(2.1)-5}{3(2.1)^2-2}=2.1-\\dfrac{0.061}{11.23}\\approx2.0946$$"
+            }
+          ],
+          "answer": "$x_3\\approx2.0946$",
+          "check": {
+            "kind": "number",
+            "value": "2.0946"
+          }
+        },
+        {
+          "problem": "Use Newton's method with $x_1=1$ to find $x_3$ for $x^3+2x-4=0$. Enter $x_3$ to four decimal places.",
+          "steps": [
+            {
+              "do": "If not already so, convert the equation to one whose right side is $0$. The left side is $f(x)$.",
+              "work": "The right side is already $0$, so $f(x)=x^3+2x-4$."
+            },
+            {
+              "do": "Find $f'(x)$ and set up Newton's law $x_{n+1}=x_n-\\dfrac{f(x_n)}{f'(x_n)}$.",
+              "work": "$f'(x)=3x^2+2$, so $$x_{n+1}=x_n-\\dfrac{x_n^3+2x_n-4}{3x_n^2+2}$$"
+            },
+            {
+              "do": "Plug in $n=1$ to get $x_2$. Then plug in $n=2$ to get $x_3$.",
+              "work": "$$x_2=1-\\dfrac{1+2-4}{3+2}=1+\\dfrac15=1.2$$ $$x_3=1.2-\\dfrac{1.2^3+2(1.2)-4}{3(1.2)^2+2}=1.2-\\dfrac{0.128}{6.32}\\approx1.1797$$"
+            }
+          ],
+          "answer": "$x_3\\approx1.1797$",
+          "check": {
+            "kind": "number",
+            "value": "1.1797"
+          }
+        }
+      ],
+      "scene": "linear"
+    },
+    {
+      "id": "c1-4.8.2",
+      "course": "calc1",
+      "section": "4.8",
+      "topic": "Newton’s Method",
+      "title": "Approximating a root with Newton's method",
+      "type": "Use Newton's method to approximate $\\sqrt[m]{a}$ to $8$ decimal places.",
+      "example": {
+        "problem": "Use Newton's method to approximate $\\sqrt[6]{100}$ to $8$ decimal places.",
+        "steps": [
+          {
+            "do": "We have to approximate a root of $x^m-a=0$, so use Newton's method with $f(x)=x^m-a$.",
+            "work": "We approximate a root of $x^6-100=0$, so $f(x)=x^6-100$."
+          },
+          {
+            "do": "Write Newton's formula for this function: $x_{n+1}=x_n-\\dfrac{x_n^m-a}{m\\,x_n^{m-1}}$.",
+            "work": "$$x_{n+1}=x_n-\\dfrac{x_n^6-100}{6x_n^5}$$"
+          },
+          {
+            "do": "By trial and error find the best integer to start with (this is $x_1$), then keep applying step 2 until $x_{n+1}$ and $x_n$ agree to the desired accuracy.",
+            "work": "$2^6-100=-36$ is closer to $0$ than $1^6-100$ or $3^6-100$, so $x_1=2$. $$\\begin{aligned}x_1&=2 \\\\ x_2&=2.18750000 \\\\ x_3&=2.15565929 \\\\ x_4&=2.15443643 \\\\ x_5&=2.15443469 \\\\ x_6&=2.15443469\\end{aligned}$$ Now $x_5$ and $x_6$ agree to eight decimal places, so $\\sqrt[6]{100}\\approx 2.15443469$."
+          }
+        ],
+        "answer": "$\\sqrt[6]{100}\\approx 2.15443469$",
+        "check": {
+          "kind": "number",
+          "value": "2.15443469",
+          "tol": 1e-08
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Newton's method to approximate $\\sqrt[3]{30}$ to $8$ decimal places. Enter the approximation.",
+          "steps": [
+            {
+              "do": "We have to approximate a root of $x^m-a=0$, so use Newton's method with $f(x)=x^m-a$.",
+              "work": "We approximate a root of $x^3-30=0$, so $f(x)=x^3-30$."
+            },
+            {
+              "do": "Write Newton's formula for this function: $x_{n+1}=x_n-\\dfrac{x_n^m-a}{m\\,x_n^{m-1}}$.",
+              "work": "$$x_{n+1}=x_n-\\dfrac{x_n^3-30}{3x_n^2}$$"
+            },
+            {
+              "do": "By trial and error find the best integer to start with (this is $x_1$), then keep applying step 2 until $x_{n+1}$ and $x_n$ agree to the desired accuracy.",
+              "work": "$3^3=27$ is the closest cube to $30$, so $x_1=3$. $$\\begin{aligned}x_1&=3 \\\\ x_2&=3.11111111 \\\\ x_3&=3.10723734 \\\\ x_4&=3.10723251 \\\\ x_5&=3.10723251\\end{aligned}$$ Now $x_4$ and $x_5$ agree to eight decimal places, so $\\sqrt[3]{30}\\approx 3.10723251$."
+            }
+          ],
+          "answer": "$\\sqrt[3]{30}\\approx 3.10723251$",
+          "check": {
+            "kind": "number",
+            "value": "3.10723251",
+            "tol": 1e-08
+          }
+        },
+        {
+          "problem": "Use Newton's method to approximate $\\sqrt[5]{200}$ to $8$ decimal places. Enter the approximation.",
+          "steps": [
+            {
+              "do": "We have to approximate a root of $x^m-a=0$, so use Newton's method with $f(x)=x^m-a$.",
+              "work": "We approximate a root of $x^5-200=0$, so $f(x)=x^5-200$."
+            },
+            {
+              "do": "Write Newton's formula for this function: $x_{n+1}=x_n-\\dfrac{x_n^m-a}{m\\,x_n^{m-1}}$.",
+              "work": "$$x_{n+1}=x_n-\\dfrac{x_n^5-200}{5x_n^4}$$"
+            },
+            {
+              "do": "By trial and error find the best integer to start with (this is $x_1$), then keep applying step 2 until $x_{n+1}$ and $x_n$ agree to the desired accuracy.",
+              "work": "$2^5=32$ and $3^5=243$; $243$ is much closer to $200$, so $x_1=3$. $$\\begin{aligned}x_1&=3 \\\\ x_2&=2.89382716 \\\\ x_3&=2.88544875 \\\\ x_4&=2.88539981 \\\\ x_5&=2.88539981\\end{aligned}$$ Now $x_4$ and $x_5$ agree to eight decimal places, so $\\sqrt[5]{200}\\approx 2.88539981$."
+            }
+          ],
+          "answer": "$\\sqrt[5]{200}\\approx 2.88539981$",
+          "check": {
+            "kind": "number",
+            "value": "2.88539981",
+            "tol": 1e-08
+          }
+        }
+      ],
+      "scene": "linear"
+    },
+    {
+      "id": "c1-4.9.1",
+      "course": "calc1",
+      "section": "4.9",
+      "topic": "Antiderivatives",
+      "title": "Most general antiderivative",
+      "type": "Find the most general antiderivative of the function $f(x)$.",
+      "example": {
+        "problem": "Find the most general antiderivative of $f(x)=5e^x+8\\sec^2x$.",
+        "steps": [
+          {
+            "do": "Memorize the differentiation table in reverse: an antiderivative of $x^n$ is $\\dfrac{x^{n+1}}{n+1}$ (except when $n=-1$), of $\\cos x$ is $\\sin x$, of $\\sin x$ is $-\\cos x$, of $\\sec^2x$ is $\\tan x$, and so on. Do it piece by piece.",
+            "work": "An antiderivative of $e^x$ is $e^x$, and of $\\sec^2x$ is $\\tan x$. Hence an antiderivative of $f$ is $5e^x+8\\tan x$."
+          },
+          {
+            "do": "To get the most general antiderivative, add an arbitrary constant $C$.",
+            "work": "$5e^x+8\\tan x+C$."
+          }
+        ],
+        "answer": "$5e^x+8\\tan x+C$",
+        "check": {
+          "kind": "expr",
+          "value": "5*exp(x)+8*tan(x)",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the most general antiderivative of $f(x)=4x^3+2\\sin x-\\dfrac{7}{x^2}$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Memorize the differentiation table in reverse: an antiderivative of $x^n$ is $\\dfrac{x^{n+1}}{n+1}$ (except when $n=-1$), of $\\cos x$ is $\\sin x$, of $\\sin x$ is $-\\cos x$, of $\\sec^2x$ is $\\tan x$, and so on. Do it piece by piece.",
+              "work": "$4x^3\\to x^4$. $\\ 2\\sin x\\to-2\\cos x$. $\\ -7x^{-2}\\to-7\\cdot\\dfrac{x^{-1}}{-1}=\\dfrac7x$. So an antiderivative is $x^4-2\\cos x+\\dfrac7x$."
+            },
+            {
+              "do": "To get the most general antiderivative, add an arbitrary constant $C$.",
+              "work": "$x^4-2\\cos x+\\dfrac7x+C$."
+            }
+          ],
+          "answer": "$x^4-2\\cos x+\\dfrac7x+C$",
+          "check": {
+            "kind": "expr",
+            "value": "x^4-2*cos(x)+7/x",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Find the most general antiderivative of $f(x)=7e^x-4\\sin x+\\dfrac{6}{1+x^2}$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Memorize the differentiation table in reverse: an antiderivative of $x^n$ is $\\dfrac{x^{n+1}}{n+1}$ (except when $n=-1$), of $\\cos x$ is $\\sin x$, of $\\sin x$ is $-\\cos x$, of $\\sec^2x$ is $\\tan x$, and so on. Do it piece by piece.",
+              "work": "$7e^x\\to7e^x$. $\\ -4\\sin x\\to4\\cos x$. $\\ \\dfrac{6}{1+x^2}\\to6\\arctan x$. So an antiderivative is $7e^x+4\\cos x+6\\arctan x$."
+            },
+            {
+              "do": "To get the most general antiderivative, add an arbitrary constant $C$.",
+              "work": "$7e^x+4\\cos x+6\\arctan x+C$."
+            }
+          ],
+          "answer": "$7e^x+4\\cos x+6\\arctan x+C$",
+          "check": {
+            "kind": "expr",
+            "value": "7*exp(x)+4*cos(x)+6*atan(x)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ],
+      "scene": "ftc"
+    },
+    {
+      "id": "c1-4.9.2",
+      "course": "calc1",
+      "section": "4.9",
+      "topic": "Antiderivatives",
+      "title": "Antiderivative with an initial condition",
+      "type": "Find $f$ if $f'(x)=\\text{Expression}(x)$ and $f(a)=\\text{Number}$.",
+      "example": {
+        "problem": "Find $f$ if $f'(x)=6x-\\dfrac{2}{x^2}$, $x>0$, and $f(1)=4$.",
+        "steps": [
+          {
+            "do": "Find the most general antiderivative, as for the basic antiderivatives above, featuring $C$.",
+            "work": "$f(x)=3x^2+2x^{-1}+C$."
+          },
+          {
+            "do": "Plug in $x=a$ and solve for $C$ the equation $f(a)=\\text{Number}$.",
+            "work": "$f(1)=3\\cdot1^2+\\dfrac21+C=5+C$. From the data $f(1)=4$, so $5+C=4$ and $C=-1$."
+          },
+          {
+            "do": "Plug the specific $C$ from step 2 into the answer of step 1.",
+            "work": "$f(x)=3x^2+\\dfrac2x-1$."
+          }
+        ],
+        "answer": "$f(x)=3x^2+\\dfrac2x-1$",
+        "check": {
+          "kind": "expr",
+          "value": "3*x^2+2/x-1",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find $f$ if $f'(x)=9x^2-\\dfrac{4}{x^2}$, $x>0$, and $f(1)=3$. Enter $f(x)$.",
+          "steps": [
+            {
+              "do": "Find the most general antiderivative, as for the basic antiderivatives above, featuring $C$.",
+              "work": "$f(x)=3x^3+4x^{-1}+C$."
+            },
+            {
+              "do": "Plug in $x=a$ and solve for $C$ the equation $f(a)=\\text{Number}$.",
+              "work": "$f(1)=3+4+C=7+C$. From the data $f(1)=3$, so $7+C=3$ and $C=-4$."
+            },
+            {
+              "do": "Plug the specific $C$ from step 2 into the answer of step 1.",
+              "work": "$f(x)=3x^3+\\dfrac4x-4$."
+            }
+          ],
+          "answer": "$f(x)=3x^3+\\dfrac4x-4$",
+          "check": {
+            "kind": "expr",
+            "value": "3*x^3+4/x-4",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find $f$ if $f'(x)=2e^x+3\\sin x$ and $f(0)=7$. Enter $f(x)$.",
+          "steps": [
+            {
+              "do": "Find the most general antiderivative, as for the basic antiderivatives above, featuring $C$.",
+              "work": "$f(x)=2e^x-3\\cos x+C$."
+            },
+            {
+              "do": "Plug in $x=a$ and solve for $C$ the equation $f(a)=\\text{Number}$.",
+              "work": "$f(0)=2e^0-3\\cos0+C=-1+C$. From the data $f(0)=7$, so $-1+C=7$ and $C=8$."
+            },
+            {
+              "do": "Plug the specific $C$ from step 2 into the answer of step 1.",
+              "work": "$f(x)=2e^x-3\\cos x+8$."
+            }
+          ],
+          "answer": "$f(x)=2e^x-3\\cos x+8$",
+          "check": {
+            "kind": "expr",
+            "value": "2*exp(x)-3*cos(x)+8",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "ftc"
+    },
+    {
+      "id": "c1-5.1.1",
+      "course": "calc1",
+      "section": "5.1",
+      "topic": "The Definite Integral",
+      "title": "Integral from the definition",
+      "type": "Use the definition of the integral, $\\displaystyle\\int_a^b f(x)\\,dx=\\lim_{n\\to\\infty}\\sum_{i=1}^{n}f(x_i)\\,\\Delta x$ (where $\\Delta x=\\dfrac{b-a}{n}$ and $x_i=a+i\\,\\Delta x$), to evaluate $\\displaystyle\\int_a^bf(x)\\,dx$.",
+      "example": {
+        "problem": "Use the definition of the integral to evaluate $\\displaystyle\\int_{-1}^{2}(2+3x)\\,dx$.",
+        "steps": [
+          {
+            "do": "Determine $\\Delta x=\\dfrac{b-a}{n}$, and write down an expression for $x_i=a+i\\,\\Delta x$, which should involve both $i$ and $n$.",
+            "work": "$\\Delta x=\\dfrac{2-(-1)}{n}=\\dfrac3n$, and $x_i=-1+\\dfrac{3i}{n}$."
+          },
+          {
+            "do": "Spell out $\\displaystyle\\lim_{n\\to\\infty}\\sum_{i=1}^nf(x_i)\\Delta x$ in the present context.",
+            "work": "$$\\lim_{n\\to\\infty}\\sum_{i=1}^nf\\!\\left(-1+\\tfrac{3i}{n}\\right)\\tfrac3n=\\lim_{n\\to\\infty}\\dfrac3n\\sum_{i=1}^n\\left[2+3\\left(-1+\\tfrac{3i}{n}\\right)\\right]=\\lim_{n\\to\\infty}\\dfrac3n\\sum_{i=1}^n\\left(-1+\\dfrac{9i}{n}\\right)$$"
+          },
+          {
+            "do": "Evaluate the sum using $\\displaystyle\\sum_{i=1}^n1=n$, $\\ \\sum_{i=1}^ni=\\dfrac{n(n+1)}{2}$, $\\ \\sum_{i=1}^ni^2=\\dfrac{n(n+1)(2n+1)}{6}$, $\\ \\sum_{i=1}^ni^3=\\left(\\dfrac{n(n+1)}{2}\\right)^2$.",
+            "work": "$$\\sum_{i=1}^n\\left(-1+\\dfrac{9i}{n}\\right)=-n+\\dfrac9n\\cdot\\dfrac{n(n+1)}{2}=-n+\\dfrac{9(n+1)}{2}=\\dfrac{7n+9}{2}$$"
+          },
+          {
+            "do": "Incorporate the evaluated sum from step 3 into the limit of step 2, and evaluate the limit.",
+            "work": "$$\\lim_{n\\to\\infty}\\dfrac3n\\cdot\\dfrac{7n+9}{2}=\\lim_{n\\to\\infty}\\dfrac{3(7n+9)}{2n}=\\dfrac{21}{2}$$"
+          }
+        ],
+        "answer": "$\\dfrac{21}{2}$",
+        "check": {
+          "kind": "number",
+          "value": "21/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the definition of the integral to evaluate $\\displaystyle\\int_{0}^{2}(x^2+1)\\,dx$.",
+          "steps": [
+            {
+              "do": "Determine $\\Delta x=\\dfrac{b-a}{n}$, and write down an expression for $x_i=a+i\\,\\Delta x$, which should involve both $i$ and $n$.",
+              "work": "$\\Delta x=\\dfrac{2-0}{n}=\\dfrac2n$, and $x_i=\\dfrac{2i}{n}$."
+            },
+            {
+              "do": "Spell out $\\displaystyle\\lim_{n\\to\\infty}\\sum_{i=1}^nf(x_i)\\Delta x$ in the present context.",
+              "work": "$$\\lim_{n\\to\\infty}\\sum_{i=1}^nf\\!\\left(\\tfrac{2i}{n}\\right)\\tfrac2n=\\lim_{n\\to\\infty}\\dfrac2n\\sum_{i=1}^n\\left(\\dfrac{4i^2}{n^2}+1\\right)$$"
+            },
+            {
+              "do": "Evaluate the sum using $\\displaystyle\\sum_{i=1}^n1=n$, $\\ \\sum_{i=1}^ni=\\dfrac{n(n+1)}{2}$, $\\ \\sum_{i=1}^ni^2=\\dfrac{n(n+1)(2n+1)}{6}$, $\\ \\sum_{i=1}^ni^3=\\left(\\dfrac{n(n+1)}{2}\\right)^2$.",
+              "work": "$$\\sum_{i=1}^n\\left(\\dfrac{4i^2}{n^2}+1\\right)=\\dfrac{4}{n^2}\\cdot\\dfrac{n(n+1)(2n+1)}{6}+n=\\dfrac{2(n+1)(2n+1)}{3n}+n$$"
+            },
+            {
+              "do": "Incorporate the evaluated sum from step 3 into the limit of step 2, and evaluate the limit.",
+              "work": "$$\\lim_{n\\to\\infty}\\dfrac2n\\left[\\dfrac{2(n+1)(2n+1)}{3n}+n\\right]=\\lim_{n\\to\\infty}\\left[\\dfrac{4(n+1)(2n+1)}{3n^2}+2\\right]=\\dfrac{4\\cdot2}{3}+2=\\dfrac{14}{3}$$"
+            }
+          ],
+          "answer": "$\\dfrac{14}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "14/3"
+          }
+        },
+        {
+          "problem": "Use the definition of the integral to evaluate $\\displaystyle\\int_{1}^{3}(3x-1)\\,dx$.",
+          "steps": [
+            {
+              "do": "Determine $\\Delta x=\\dfrac{b-a}{n}$, and write down an expression for $x_i=a+i\\,\\Delta x$, which should involve both $i$ and $n$.",
+              "work": "$\\Delta x=\\dfrac{3-1}{n}=\\dfrac2n$, and $x_i=1+\\dfrac{2i}{n}$."
+            },
+            {
+              "do": "Spell out $\\displaystyle\\lim_{n\\to\\infty}\\sum_{i=1}^nf(x_i)\\Delta x$ in the present context.",
+              "work": "$$\\lim_{n\\to\\infty}\\dfrac2n\\sum_{i=1}^n\\left[3\\left(1+\\tfrac{2i}{n}\\right)-1\\right]=\\lim_{n\\to\\infty}\\dfrac2n\\sum_{i=1}^n\\left(2+\\dfrac{6i}{n}\\right)$$"
+            },
+            {
+              "do": "Evaluate the sum using $\\displaystyle\\sum_{i=1}^n1=n$, $\\ \\sum_{i=1}^ni=\\dfrac{n(n+1)}{2}$, $\\ \\sum_{i=1}^ni^2=\\dfrac{n(n+1)(2n+1)}{6}$, $\\ \\sum_{i=1}^ni^3=\\left(\\dfrac{n(n+1)}{2}\\right)^2$.",
+              "work": "$$\\sum_{i=1}^n\\left(2+\\dfrac{6i}{n}\\right)=2n+\\dfrac6n\\cdot\\dfrac{n(n+1)}{2}=2n+3(n+1)=5n+3$$"
+            },
+            {
+              "do": "Incorporate the evaluated sum from step 3 into the limit of step 2, and evaluate the limit.",
+              "work": "$$\\lim_{n\\to\\infty}\\dfrac2n(5n+3)=\\lim_{n\\to\\infty}\\dfrac{10n+6}{n}=10$$"
+            }
+          ],
+          "answer": "$10$",
+          "check": {
+            "kind": "number",
+            "value": "10"
+          }
+        }
+      ],
+      "scene": "riemann"
+    },
+    {
+      "id": "c1-5.1.2",
+      "course": "calc1",
+      "section": "5.1",
+      "topic": "The Definite Integral",
+      "title": "Writing an integral as a Riemann sum limit",
+      "type": "Express the integral $\\displaystyle\\int_a^bf(x)\\,dx$ as a limit of Riemann sums. Do not evaluate the limit.",
+      "example": {
+        "problem": "Express $\\displaystyle\\int_2^6\\dfrac{x}{3+x^5}\\,dx$ as a limit of Riemann sums. Do not evaluate the limit.",
+        "steps": [
+          {
+            "do": "Determine $\\Delta x=\\dfrac{b-a}{n}$, and write down an expression for $x_i=a+i\\,\\Delta x$, which should involve both $i$ and $n$.",
+            "work": "$\\Delta x=\\dfrac{6-2}{n}=\\dfrac4n$, and $x_i=2+\\dfrac{4i}{n}$."
+          },
+          {
+            "do": "Spell out $\\displaystyle\\lim_{n\\to\\infty}\\sum_{i=1}^nf(x_i)\\Delta x$ in the present context. That's it: do not try to evaluate.",
+            "work": "$$\\lim_{n\\to\\infty}\\sum_{i=1}^nf\\!\\left(2+\\tfrac{4i}{n}\\right)\\tfrac4n=\\lim_{n\\to\\infty}\\dfrac4n\\sum_{i=1}^n\\dfrac{2+4i/n}{3+(2+4i/n)^5}$$"
+          }
+        ],
+        "answer": "$\\displaystyle\\lim_{n\\to\\infty}\\dfrac4n\\sum_{i=1}^n\\dfrac{2+4i/n}{3+(2+4i/n)^5}$",
+        "check": {
+          "kind": "expr",
+          "value": "2+4*i/n",
+          "vars": [
+            "i",
+            "n"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Express $\\displaystyle\\int_0^3\\dfrac{x^3}{1+x^2}\\,dx$ as a limit of Riemann sums. Do not evaluate the limit. Enter $x_i$ in terms of $i$ and $n$.",
+          "steps": [
+            {
+              "do": "Determine $\\Delta x=\\dfrac{b-a}{n}$, and write down an expression for $x_i=a+i\\,\\Delta x$, which should involve both $i$ and $n$.",
+              "work": "$\\Delta x=\\dfrac{3-0}{n}=\\dfrac3n$, and $x_i=\\dfrac{3i}{n}$."
+            },
+            {
+              "do": "Spell out $\\displaystyle\\lim_{n\\to\\infty}\\sum_{i=1}^nf(x_i)\\Delta x$ in the present context. That's it: do not try to evaluate.",
+              "work": "$$\\lim_{n\\to\\infty}\\sum_{i=1}^nf\\!\\left(\\tfrac{3i}{n}\\right)\\tfrac3n=\\lim_{n\\to\\infty}\\dfrac3n\\sum_{i=1}^n\\dfrac{(3i/n)^3}{1+(3i/n)^2}$$"
+            }
+          ],
+          "answer": "$\\displaystyle\\lim_{n\\to\\infty}\\dfrac3n\\sum_{i=1}^n\\dfrac{(3i/n)^3}{1+(3i/n)^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "3*i/n",
+            "vars": [
+              "i",
+              "n"
+            ]
+          }
+        },
+        {
+          "problem": "Express $\\displaystyle\\int_{-2}^{3}\\dfrac{x}{x^2+4}\\,dx$ as a limit of Riemann sums. Do not evaluate the limit. Enter $x_i$ in terms of $i$ and $n$.",
+          "steps": [
+            {
+              "do": "Determine $\\Delta x=\\dfrac{b-a}{n}$, and write down an expression for $x_i=a+i\\,\\Delta x$, which should involve both $i$ and $n$.",
+              "work": "$\\Delta x=\\dfrac{3-(-2)}{n}=\\dfrac5n$, and $x_i=-2+\\dfrac{5i}{n}$."
+            },
+            {
+              "do": "Spell out $\\displaystyle\\lim_{n\\to\\infty}\\sum_{i=1}^nf(x_i)\\Delta x$ in the present context. That's it: do not try to evaluate.",
+              "work": "$$\\lim_{n\\to\\infty}\\sum_{i=1}^nf\\!\\left(-2+\\tfrac{5i}{n}\\right)\\tfrac5n=\\lim_{n\\to\\infty}\\dfrac5n\\sum_{i=1}^n\\dfrac{-2+5i/n}{(-2+5i/n)^2+4}$$"
+            }
+          ],
+          "answer": "$\\displaystyle\\lim_{n\\to\\infty}\\dfrac5n\\sum_{i=1}^n\\dfrac{-2+5i/n}{(-2+5i/n)^2+4}$",
+          "check": {
+            "kind": "expr",
+            "value": "-2+5*i/n",
+            "vars": [
+              "i",
+              "n"
+            ]
+          }
+        }
+      ],
+      "scene": "riemann"
+    },
+    {
+      "id": "c1-5.2.1",
+      "course": "calc1",
+      "section": "5.2",
+      "topic": "Signed Area and Symmetry",
+      "title": "Signed area using geometry",
+      "type": "Draw a graph of the signed area represented by $\\displaystyle\\int_a^bf(x)\\,dx$ and compute it using geometry.",
+      "example": {
+        "problem": "Draw a graph of the signed area represented by $\\displaystyle\\int_{-2}^{1}(3x+4)\\,dx$ and compute it using geometry.",
+        "steps": [
+          {
+            "do": "Draw a picture and mark the area under the $x$-axis and the area above the $x$-axis.",
+            "work": "$y=3x+4$ is a line crossing the $x$-axis at $\\left(-\\tfrac43,0\\right)$. The “negative area” is the triangle with vertices $(-2,0)$, $\\left(-\\tfrac43,0\\right)$, $(-2,-2)$. The “positive area” is the triangle with vertices $\\left(-\\tfrac43,0\\right)$, $(1,0)$, $(1,7)$."
+          },
+          {
+            "do": "Using geometry (areas of triangles, circles, rectangles, trapezoids) compute the individual areas.",
+            "work": "Below: height $2$, base $2-\\tfrac43=\\tfrac23$, area $\\dfrac{2\\cdot\\frac23}{2}=\\dfrac23$. Above: height $7$, base $1+\\tfrac43=\\tfrac73$, area $\\dfrac{7\\cdot\\frac73}{2}=\\dfrac{49}{6}$."
+          },
+          {
+            "do": "Do ‘area above’ minus ‘area below’.",
+            "work": "$$\\dfrac{49}{6}-\\dfrac23=\\dfrac{49}{6}-\\dfrac46=\\dfrac{45}{6}=\\dfrac{15}{2}$$"
+          }
+        ],
+        "answer": "$\\dfrac{15}{2}$",
+        "check": {
+          "kind": "number",
+          "value": "15/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Draw a graph of the signed area represented by $\\displaystyle\\int_{-1}^{4}(2x-2)\\,dx$ and compute it using geometry.",
+          "steps": [
+            {
+              "do": "Draw a picture and mark the area under the $x$-axis and the area above the $x$-axis.",
+              "work": "$y=2x-2$ crosses the $x$-axis at $(1,0)$. The negative area is the triangle with vertices $(-1,0)$, $(1,0)$, $(-1,-4)$. The positive area is the triangle with vertices $(1,0)$, $(4,0)$, $(4,6)$."
+            },
+            {
+              "do": "Using geometry (areas of triangles, circles, rectangles, trapezoids) compute the individual areas.",
+              "work": "Below: base $2$, height $4$, area $\\dfrac{2\\cdot4}{2}=4$. Above: base $3$, height $6$, area $\\dfrac{3\\cdot6}{2}=9$."
+            },
+            {
+              "do": "Do ‘area above’ minus ‘area below’.",
+              "work": "$9-4=5$."
+            }
+          ],
+          "answer": "$5$",
+          "check": {
+            "kind": "number",
+            "value": "5"
+          }
+        },
+        {
+          "problem": "Draw a graph of the signed area represented by $\\displaystyle\\int_{-1}^{5}(3-x)\\,dx$ and compute it using geometry.",
+          "steps": [
+            {
+              "do": "Draw a picture and mark the area under the $x$-axis and the area above the $x$-axis.",
+              "work": "$y=3-x$ crosses the $x$-axis at $(3,0)$. The positive area is the triangle with vertices $(-1,0)$, $(3,0)$, $(-1,4)$. The negative area is the triangle with vertices $(3,0)$, $(5,0)$, $(5,-2)$."
+            },
+            {
+              "do": "Using geometry (areas of triangles, circles, rectangles, trapezoids) compute the individual areas.",
+              "work": "Above: base $4$, height $4$, area $\\dfrac{4\\cdot4}{2}=8$. Below: base $2$, height $2$, area $\\dfrac{2\\cdot2}{2}=2$."
+            },
+            {
+              "do": "Do ‘area above’ minus ‘area below’.",
+              "work": "$8-2=6$."
+            }
+          ],
+          "answer": "$6$",
+          "check": {
+            "kind": "number",
+            "value": "6"
+          }
+        }
+      ],
+      "scene": "riemann"
+    },
+    {
+      "id": "c1-5.2.2",
+      "course": "calc1",
+      "section": "5.2",
+      "topic": "Signed Area and Symmetry",
+      "title": "Integrating an odd function over a symmetric interval",
+      "type": "Use graphical considerations to compute $\\displaystyle\\int_{-a}^{a}\\text{Complicated}(x)\\,dx$, where $\\text{Complicated}(x)$ happens to be an odd function (recall that $f$ is odd if $f(-x)=-f(x)$).",
+      "example": {
+        "problem": "Use graphical considerations to compute $\\displaystyle\\int_{-2}^{2}\\left(\\tan(x^3)+3x\\right)dx$.",
+        "steps": [
+          {
+            "do": "The limits of integration must have the form $\\int_{-a}^{a}$ (for $\\int_{-1}^{2}$ this method fails). Also check that the integrand is odd, by plugging in $-x$ and simplifying: $f(-x)=-f(x)$.",
+            "work": "The limits have the form $-a$ to $a$ with $a=2$. For $f(x)=\\tan(x^3)+3x$: $$f(-x)=\\tan\\!\\left((-x)^3\\right)+3(-x)=\\tan(-x^3)-3x=-\\tan(x^3)-3x=-f(x)$$ (recall that $\\tan$ is odd: $\\tan(-w)=-\\tan w$)."
+          },
+          {
+            "do": "Since the function is odd, the region between $x=-a$ and the $y$-axis is the mirror image, upside down, of the region between the $y$-axis and $x=a$. So the “positive area” equals the “negative area”, and their difference is $0$.",
+            "work": "The region between $x=-2$ and the $y$-axis is the opposite of the region between the $y$-axis and $x=2$, so positive and negative areas cancel."
+          }
+        ],
+        "answer": "$0$",
+        "check": {
+          "kind": "number",
+          "value": "0"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use graphical considerations to compute $\\displaystyle\\int_{-1}^{1}\\left(x^3\\cos x+4x\\right)dx$.",
+          "steps": [
+            {
+              "do": "The limits of integration must have the form $\\int_{-a}^{a}$ (for $\\int_{-1}^{2}$ this method fails). Also check that the integrand is odd, by plugging in $-x$ and simplifying: $f(-x)=-f(x)$.",
+              "work": "The limits have the form $-a$ to $a$ with $a=1$. For $f(x)=x^3\\cos x+4x$: $$f(-x)=(-x)^3\\cos(-x)+4(-x)=-x^3\\cos x-4x=-f(x)$$ (recall that $\\cos$ is even)."
+            },
+            {
+              "do": "Since the function is odd, the region between $x=-a$ and the $y$-axis is the mirror image, upside down, of the region between the $y$-axis and $x=a$. So the “positive area” equals the “negative area”, and their difference is $0$.",
+              "work": "The positive and negative areas on the two sides of the $y$-axis cancel."
+            }
+          ],
+          "answer": "$0$",
+          "check": {
+            "kind": "number",
+            "value": "0"
+          }
+        },
+        {
+          "problem": "Use graphical considerations to compute $\\displaystyle\\int_{-\\pi}^{\\pi}\\dfrac{\\sin x}{2+\\cos x}\\,dx$.",
+          "steps": [
+            {
+              "do": "The limits of integration must have the form $\\int_{-a}^{a}$ (for $\\int_{-1}^{2}$ this method fails). Also check that the integrand is odd, by plugging in $-x$ and simplifying: $f(-x)=-f(x)$.",
+              "work": "The limits have the form $-a$ to $a$ with $a=\\pi$. For $f(x)=\\dfrac{\\sin x}{2+\\cos x}$: $$f(-x)=\\dfrac{\\sin(-x)}{2+\\cos(-x)}=\\dfrac{-\\sin x}{2+\\cos x}=-f(x)$$"
+            },
+            {
+              "do": "Since the function is odd, the region between $x=-a$ and the $y$-axis is the mirror image, upside down, of the region between the $y$-axis and $x=a$. So the “positive area” equals the “negative area”, and their difference is $0$.",
+              "work": "The positive and negative areas on the two sides of the $y$-axis cancel."
+            }
+          ],
+          "answer": "$0$",
+          "check": {
+            "kind": "number",
+            "value": "0"
+          }
+        }
+      ],
+      "scene": "riemann"
+    },
+    {
+      "id": "c1-5.3.1",
+      "course": "calc1",
+      "section": "5.3",
+      "topic": "The Fundamental Theorem of Calculus, Part I",
+      "title": "Evaluating a definite integral",
+      "type": "Evaluate the definite integral $\\displaystyle\\int_a^bf(u)\\,du$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int_{-1}^{1}(u^5-u^3+u^2)\\,du$.",
+        "steps": [
+          {
+            "do": "First find the antiderivative (see Antiderivatives) and get an expression in the variable.",
+            "work": "$$\\int(u^5-u^3+u^2)\\,du=\\dfrac{u^6}{6}-\\dfrac{u^4}{4}+\\dfrac{u^3}{3}$$"
+          },
+          {
+            "do": "Stick the limits of integration on the left and an evaluation bar on the right: $\\displaystyle\\int_a^bf(u)\\,du=F(u)\\Big|_a^b$.",
+            "work": "$$\\int_{-1}^{1}(u^5-u^3+u^2)\\,du=\\left(\\dfrac{u^6}{6}-\\dfrac{u^4}{4}+\\dfrac{u^3}{3}\\right)\\Bigg|_{-1}^{1}$$"
+          },
+          {
+            "do": "Compute $F(b)-F(a)$: plug in the upper limit and subtract $F$ at the lower limit.",
+            "work": "$$\\left[\\tfrac16-\\tfrac14+\\tfrac13\\right]-\\left[\\tfrac16-\\tfrac14-\\tfrac13\\right]=\\dfrac23$$"
+          }
+        ],
+        "answer": "$\\dfrac23$",
+        "check": {
+          "kind": "number",
+          "value": "2/3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int_{-1}^{2}(3u^2-4u+1)\\,du$.",
+          "steps": [
+            {
+              "do": "First find the antiderivative (see Antiderivatives) and get an expression in the variable.",
+              "work": "$$\\int(3u^2-4u+1)\\,du=u^3-2u^2+u$$"
+            },
+            {
+              "do": "Stick the limits of integration on the left and an evaluation bar on the right: $\\displaystyle\\int_a^bf(u)\\,du=F(u)\\Big|_a^b$.",
+              "work": "$$\\int_{-1}^{2}(3u^2-4u+1)\\,du=\\left(u^3-2u^2+u\\right)\\Big|_{-1}^{2}$$"
+            },
+            {
+              "do": "Compute $F(b)-F(a)$: plug in the upper limit and subtract $F$ at the lower limit.",
+              "work": "$$(8-8+2)-(-1-2-1)=2-(-4)=6$$"
+            }
+          ],
+          "answer": "$6$",
+          "check": {
+            "kind": "number",
+            "value": "6"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int_{0}^{2}(u^4-2u^3+3)\\,du$.",
+          "steps": [
+            {
+              "do": "First find the antiderivative (see Antiderivatives) and get an expression in the variable.",
+              "work": "$$\\int(u^4-2u^3+3)\\,du=\\dfrac{u^5}{5}-\\dfrac{u^4}{2}+3u$$"
+            },
+            {
+              "do": "Stick the limits of integration on the left and an evaluation bar on the right: $\\displaystyle\\int_a^bf(u)\\,du=F(u)\\Big|_a^b$.",
+              "work": "$$\\int_{0}^{2}(u^4-2u^3+3)\\,du=\\left(\\dfrac{u^5}{5}-\\dfrac{u^4}{2}+3u\\right)\\Bigg|_{0}^{2}$$"
+            },
+            {
+              "do": "Compute $F(b)-F(a)$: plug in the upper limit and subtract $F$ at the lower limit.",
+              "work": "$$\\left(\\tfrac{32}{5}-8+6\\right)-0=\\dfrac{22}{5}$$"
+            }
+          ],
+          "answer": "$\\dfrac{22}{5}$",
+          "check": {
+            "kind": "number",
+            "value": "22/5"
+          }
+        }
+      ],
+      "scene": "ftc"
+    },
+    {
+      "id": "c1-5.3.2",
+      "course": "calc1",
+      "section": "5.3",
+      "topic": "The Fundamental Theorem of Calculus, Part I",
+      "title": "Definite integral with roots and reciprocals",
+      "type": "Evaluate the definite integral $\\displaystyle\\int_a^bf(x)\\,dx$, where there are reciprocals and square-root signs inside the integral.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int_1^4\\left(\\sqrt x+\\dfrac{1}{x^2}+\\dfrac{3}{\\sqrt x}\\right)dx$.",
+        "steps": [
+          {
+            "do": "Convert everything to power notation. Remember $\\sqrt w=w^{1/2}$ and $1/w^n=w^{-n}$.",
+            "work": "$$\\int_1^4\\left(x^{1/2}+x^{-2}+3x^{-1/2}\\right)dx$$"
+          },
+          {
+            "do": "Find the antiderivative piece by piece using $\\int x^n\\,dx=\\dfrac{x^{n+1}}{n+1}$ (provided $n\\neq-1$). Clean up, and get it to the form $F(x)\\Big|_a^b$.",
+            "work": "$$\\left(\\dfrac{x^{3/2}}{3/2}+\\dfrac{x^{-1}}{-1}+\\dfrac{3x^{1/2}}{1/2}\\right)\\Bigg|_1^4=\\left(\\tfrac23x^{3/2}-\\dfrac1x+6\\sqrt x\\right)\\Bigg|_1^4$$"
+          },
+          {
+            "do": "Compute $F(b)-F(a)$: plug in the upper limit and subtract $F$ at the lower limit.",
+            "work": "$$\\left(\\tfrac23\\cdot4^{3/2}-\\tfrac14+6\\sqrt4\\right)-\\left(\\tfrac23\\cdot1-1+6\\right)=\\tfrac{16}3-\\tfrac14+12-\\tfrac23+1-6=\\dfrac{137}{12}$$"
+          }
+        ],
+        "answer": "$\\dfrac{137}{12}$",
+        "check": {
+          "kind": "number",
+          "value": "137/12"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int_1^4\\left(3\\sqrt x-\\dfrac{4}{x^2}+\\dfrac{1}{\\sqrt x}\\right)dx$.",
+          "steps": [
+            {
+              "do": "Convert everything to power notation. Remember $\\sqrt w=w^{1/2}$ and $1/w^n=w^{-n}$.",
+              "work": "$$\\int_1^4\\left(3x^{1/2}-4x^{-2}+x^{-1/2}\\right)dx$$"
+            },
+            {
+              "do": "Find the antiderivative piece by piece using $\\int x^n\\,dx=\\dfrac{x^{n+1}}{n+1}$ (provided $n\\neq-1$). Clean up, and get it to the form $F(x)\\Big|_a^b$.",
+              "work": "$$\\left(\\dfrac{3x^{3/2}}{3/2}-\\dfrac{4x^{-1}}{-1}+\\dfrac{x^{1/2}}{1/2}\\right)\\Bigg|_1^4=\\left(2x^{3/2}+\\dfrac4x+2\\sqrt x\\right)\\Bigg|_1^4$$"
+            },
+            {
+              "do": "Compute $F(b)-F(a)$: plug in the upper limit and subtract $F$ at the lower limit.",
+              "work": "$$(16+1+4)-(2+4+2)=21-8=13$$"
+            }
+          ],
+          "answer": "$13$",
+          "check": {
+            "kind": "number",
+            "value": "13"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int_1^8\\left(\\sqrt[3]{x}+\\dfrac{1}{x^2}\\right)dx$.",
+          "steps": [
+            {
+              "do": "Convert everything to power notation. Remember $\\sqrt w=w^{1/2}$ and $1/w^n=w^{-n}$.",
+              "work": "$$\\int_1^8\\left(x^{1/3}+x^{-2}\\right)dx$$"
+            },
+            {
+              "do": "Find the antiderivative piece by piece using $\\int x^n\\,dx=\\dfrac{x^{n+1}}{n+1}$ (provided $n\\neq-1$). Clean up, and get it to the form $F(x)\\Big|_a^b$.",
+              "work": "$$\\left(\\dfrac{x^{4/3}}{4/3}+\\dfrac{x^{-1}}{-1}\\right)\\Bigg|_1^8=\\left(\\tfrac34x^{4/3}-\\dfrac1x\\right)\\Bigg|_1^8$$"
+            },
+            {
+              "do": "Compute $F(b)-F(a)$: plug in the upper limit and subtract $F$ at the lower limit.",
+              "work": "$$\\left(\\tfrac34\\cdot16-\\tfrac18\\right)-\\left(\\tfrac34-1\\right)=\\tfrac{95}{8}+\\tfrac14=\\dfrac{97}{8}$$"
+            }
+          ],
+          "answer": "$\\dfrac{97}{8}$",
+          "check": {
+            "kind": "number",
+            "value": "97/8"
+          }
+        }
+      ],
+      "scene": "ftc"
+    },
+    {
+      "id": "c1-5.4.1",
+      "course": "calc1",
+      "section": "5.4",
+      "topic": "The Fundamental Theorem of Calculus, Part II",
+      "title": "Derivative of an integral with variable upper limit",
+      "type": "Differentiate $f(t)=\\displaystyle\\int_{\\text{Number}}^{t}\\text{Expression}(x)\\,dx$, using the Fundamental Theorem of Calculus.",
+      "example": {
+        "problem": "Use the Fundamental Theorem of Calculus to find the derivative of $g(u)=\\displaystyle\\int_3^u\\dfrac{1}{x+x^2}\\,dx$.",
+        "steps": [
+          {
+            "do": "Make sure that the argument of the function on the left is the same as the upper limit of the integral, that the lower limit is a number, and that the integrand is an expression in the variable after the ‘$d$’. (Other letters are silent constants.)",
+            "work": "The argument $u$ of $g$ is the upper limit of the integral. The lower limit is a number ($3$). The integration variable is $x$ (because of the $dx$), and $\\dfrac{1}{x+x^2}$ is an expression in $x$. All is well."
+          },
+          {
+            "do": "To differentiate with respect to the upper limit, just replace the integration variable by the upper-limit variable in the integrand.",
+            "work": "Replacing $x$ by $u$ in $\\dfrac{1}{x+x^2}$ gives $g'(u)=\\dfrac{1}{u+u^2}$."
+          }
+        ],
+        "answer": "$g'(u)=\\dfrac{1}{u+u^2}$",
+        "check": {
+          "kind": "expr",
+          "value": "1/(u+u^2)",
+          "vars": [
+            "u"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the derivative of $F(t)=\\displaystyle\\int_1^t\\ln(1+x^2)\\,dx$. Enter $F'(t)$.",
+          "steps": [
+            {
+              "do": "Make sure that the argument of the function on the left is the same as the upper limit of the integral, that the lower limit is a number, and that the integrand is an expression in the variable after the ‘$d$’. (Other letters are silent constants.)",
+              "work": "The argument $t$ is the upper limit, the lower limit is the number $1$, and the integrand $\\ln(1+x^2)$ is an expression in the integration variable $x$."
+            },
+            {
+              "do": "To differentiate with respect to the upper limit, just replace the integration variable by the upper-limit variable in the integrand.",
+              "work": "Replacing $x$ by $t$ gives $F'(t)=\\ln(1+t^2)$."
+            }
+          ],
+          "answer": "$F'(t)=\\ln(1+t^2)$",
+          "check": {
+            "kind": "expr",
+            "value": "ln(1+t^2)",
+            "vars": [
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "Find the derivative of $G(s)=\\displaystyle\\int_\\pi^s\\dfrac{\\sin x}{x}\\,dx$. Enter $G'(s)$.",
+          "steps": [
+            {
+              "do": "Make sure that the argument of the function on the left is the same as the upper limit of the integral, that the lower limit is a number, and that the integrand is an expression in the variable after the ‘$d$’. (Other letters are silent constants.)",
+              "work": "The argument $s$ is the upper limit, the lower limit is the number $\\pi$, and $\\dfrac{\\sin x}{x}$ is an expression in the integration variable $x$."
+            },
+            {
+              "do": "To differentiate with respect to the upper limit, just replace the integration variable by the upper-limit variable in the integrand.",
+              "work": "Replacing $x$ by $s$ gives $G'(s)=\\dfrac{\\sin s}{s}$."
+            }
+          ],
+          "answer": "$G'(s)=\\dfrac{\\sin s}{s}$",
+          "check": {
+            "kind": "expr",
+            "value": "sin(s)/s",
+            "vars": [
+              "s"
+            ]
+          }
+        }
+      ],
+      "scene": "ftc"
+    },
+    {
+      "id": "c1-5.4.2",
+      "course": "calc1",
+      "section": "5.4",
+      "topic": "The Fundamental Theorem of Calculus, Part II",
+      "title": "Variable upper limit with chain rule",
+      "type": "Use Part 1 of the Fundamental Theorem of Calculus to find the derivative of $h(x)=\\displaystyle\\int_{\\text{Number}}^{g(x)}\\text{Expr}(r)\\,dr$, where the upper limit is an expression $g(x)$ rather than just $x$. (If the lower limit is the variable one, first flip the integral with a minus sign.)",
+      "example": {
+        "problem": "Use Part 1 of the Fundamental Theorem of Calculus to find the derivative of $h(x)=\\displaystyle\\int_0^{x^2}\\sqrt{1+r^3}\\,dr$.",
+        "steps": [
+          {
+            "do": "Here the upper limit is an expression $g(x)$ in the variable of the function on the left, not just the variable itself. Rewrite the derivative with the chain rule: $h'(x)=\\dfrac{dg(x)}{dx}\\cdot\\dfrac{d}{dg(x)}\\!\\left(\\displaystyle\\int_{\\text{Number}}^{g(x)}\\text{Expr}(r)\\,dr\\right)$.",
+            "work": "$$h'(x)=\\dfrac{d(x^2)}{dx}\\cdot\\dfrac{d}{dx^2}\\left(\\int_0^{x^2}\\sqrt{1+r^3}\\,dr\\right)$$"
+          },
+          {
+            "do": "Differentiate $g(x)$, and do the other part exactly as in the previous recipe, plugging $g(x)$ in for the integration variable.",
+            "work": "$$h'(x)=2x\\sqrt{1+(x^2)^3}=2x\\sqrt{1+x^6}$$"
+          }
+        ],
+        "answer": "$h'(x)=2x\\sqrt{1+x^6}$",
+        "check": {
+          "kind": "expr",
+          "value": "2*x*sqrt(1+x^6)",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the derivative of $h(x)=\\displaystyle\\int_1^{x^3}\\dfrac{dt}{1+t^2}$. Enter $h'(x)$.",
+          "steps": [
+            {
+              "do": "Here the upper limit is an expression $g(x)$ in the variable of the function on the left, not just the variable itself. Rewrite the derivative with the chain rule: $h'(x)=\\dfrac{dg(x)}{dx}\\cdot\\dfrac{d}{dg(x)}\\!\\left(\\displaystyle\\int_{\\text{Number}}^{g(x)}\\text{Expr}(r)\\,dr\\right)$.",
+              "work": "$$h'(x)=\\dfrac{d(x^3)}{dx}\\cdot\\dfrac{d}{dx^3}\\left(\\int_1^{x^3}\\dfrac{dt}{1+t^2}\\right)$$"
+            },
+            {
+              "do": "Differentiate $g(x)$, and do the other part exactly as in the previous recipe, plugging $g(x)$ in for the integration variable.",
+              "work": "$$h'(x)=3x^2\\cdot\\dfrac{1}{1+(x^3)^2}=\\dfrac{3x^2}{1+x^6}$$"
+            }
+          ],
+          "answer": "$h'(x)=\\dfrac{3x^2}{1+x^6}$",
+          "check": {
+            "kind": "expr",
+            "value": "3*x^2/(1+x^6)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find the derivative of $h(x)=\\displaystyle\\int_0^{\\sin x}\\sqrt{1+t^2}\\,dt$. Enter $h'(x)$.",
+          "steps": [
+            {
+              "do": "Here the upper limit is an expression $g(x)$ in the variable of the function on the left, not just the variable itself. Rewrite the derivative with the chain rule: $h'(x)=\\dfrac{dg(x)}{dx}\\cdot\\dfrac{d}{dg(x)}\\!\\left(\\displaystyle\\int_{\\text{Number}}^{g(x)}\\text{Expr}(r)\\,dr\\right)$.",
+              "work": "$$h'(x)=\\dfrac{d(\\sin x)}{dx}\\cdot\\dfrac{d}{d\\sin x}\\left(\\int_0^{\\sin x}\\sqrt{1+t^2}\\,dt\\right)$$"
+            },
+            {
+              "do": "Differentiate $g(x)$, and do the other part exactly as in the previous recipe, plugging $g(x)$ in for the integration variable.",
+              "work": "$$h'(x)=\\cos x\\cdot\\sqrt{1+\\sin^2x}$$"
+            }
+          ],
+          "answer": "$h'(x)=\\cos x\\,\\sqrt{1+\\sin^2x}$",
+          "check": {
+            "kind": "expr",
+            "value": "cos(x)*sqrt(1+sin(x)^2)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "ftc"
+    },
+    {
+      "id": "c1-5.6.1",
+      "course": "calc1",
+      "section": "5.6",
+      "topic": "The Substitution Rule",
+      "title": "Substitution for an indefinite integral",
+      "type": "Evaluate the indefinite integral $\\displaystyle\\int\\text{Complicated}(x)\\,dx$ using the substitution rule.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int e^x\\sqrt{1+e^x}\\,dx$.",
+        "steps": [
+          {
+            "do": "Try to find a good $u$. Usually what is inside parentheses or a root sign is a good bet. (There may be several obvious choices and usually only one works.)",
+            "work": "$1+e^x$ is inside the square root, so try $u=1+e^x$."
+          },
+          {
+            "do": "Find $\\dfrac{du}{dx}$ and, by ‘cross-multiplying’, express $dx$ in terms of $du$.",
+            "work": "$\\dfrac{du}{dx}=e^x$, hence $dx=\\dfrac{du}{e^x}$."
+          },
+          {
+            "do": "Translate from the $x$ language to the $u$ language. You should end up with ONLY $u$ (use algebra if some $x$-stuff remains).",
+            "work": "$$\\int e^x\\sqrt{1+e^x}\\,dx=\\int e^x\\sqrt u\\,\\dfrac{du}{e^x}=\\int\\sqrt u\\,du$$"
+          },
+          {
+            "do": "Do this far simpler $u$-integral. Finally replace $u$ by the expression in $x$ it stands for, and add $+C$.",
+            "work": "$$\\int u^{1/2}\\,du=\\dfrac{u^{3/2}}{3/2}=\\tfrac23\\left(\\sqrt{u}\\right)^3=\\tfrac23\\left(\\sqrt{1+e^x}\\right)^3+C$$"
+          }
+        ],
+        "answer": "$\\tfrac23\\left(\\sqrt{1+e^x}\\right)^3+C$",
+        "check": {
+          "kind": "expr",
+          "value": "2/3*(1+exp(x))^(3/2)",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int x^2(x^3+1)^4\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Try to find a good $u$. Usually what is inside parentheses or a root sign is a good bet. (There may be several obvious choices and usually only one works.)",
+              "work": "$x^3+1$ is inside the parentheses, so try $u=x^3+1$."
+            },
+            {
+              "do": "Find $\\dfrac{du}{dx}$ and, by ‘cross-multiplying’, express $dx$ in terms of $du$.",
+              "work": "$\\dfrac{du}{dx}=3x^2$, hence $dx=\\dfrac{du}{3x^2}$."
+            },
+            {
+              "do": "Translate from the $x$ language to the $u$ language. You should end up with ONLY $u$ (use algebra if some $x$-stuff remains).",
+              "work": "$$\\int x^2(x^3+1)^4\\,dx=\\int x^2u^4\\,\\dfrac{du}{3x^2}=\\tfrac13\\int u^4\\,du$$"
+            },
+            {
+              "do": "Do this far simpler $u$-integral. Finally replace $u$ by the expression in $x$ it stands for, and add $+C$.",
+              "work": "$$\\tfrac13\\cdot\\dfrac{u^5}{5}=\\dfrac{u^5}{15}=\\dfrac{(x^3+1)^5}{15}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{(x^3+1)^5}{15}+C$",
+          "check": {
+            "kind": "expr",
+            "value": "(x^3+1)^5/15",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\sin x\\,e^{\\cos x}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Try to find a good $u$. Usually what is inside parentheses or a root sign is a good bet. (There may be several obvious choices and usually only one works.)",
+              "work": "$\\cos x$ is inside the exponential, so try $u=\\cos x$."
+            },
+            {
+              "do": "Find $\\dfrac{du}{dx}$ and, by ‘cross-multiplying’, express $dx$ in terms of $du$.",
+              "work": "$\\dfrac{du}{dx}=-\\sin x$, hence $dx=-\\dfrac{du}{\\sin x}$."
+            },
+            {
+              "do": "Translate from the $x$ language to the $u$ language. You should end up with ONLY $u$ (use algebra if some $x$-stuff remains).",
+              "work": "$$\\int\\sin x\\,e^{\\cos x}\\,dx=\\int\\sin x\\,e^{u}\\left(-\\dfrac{du}{\\sin x}\\right)=-\\int e^u\\,du$$"
+            },
+            {
+              "do": "Do this far simpler $u$-integral. Finally replace $u$ by the expression in $x$ it stands for, and add $+C$.",
+              "work": "$$-e^u=-e^{\\cos x}+C$$"
+            }
+          ],
+          "answer": "$-e^{\\cos x}+C$",
+          "check": {
+            "kind": "expr",
+            "value": "-exp(cos(x))",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ],
+      "scene": "ftc"
+    },
+    {
+      "id": "c1-5.6.2",
+      "course": "calc1",
+      "section": "5.6",
+      "topic": "The Substitution Rule",
+      "title": "Substitution for a definite integral",
+      "type": "Evaluate the definite integral $\\displaystyle\\int_a^b\\text{Complicated}(x)\\,dx$ using the substitution rule.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int_0^{\\sqrt\\pi}x\\cos(x^2)\\,dx$.",
+        "steps": [
+          {
+            "do": "As before, try to find a good $u$.",
+            "work": "$x^2$ is inside the cosine, so try $u=x^2$."
+          },
+          {
+            "do": "Find $\\dfrac{du}{dx}$ and, by ‘cross-multiplying’, express $dx$ in terms of $du$.",
+            "work": "$\\dfrac{du}{dx}=2x$, hence $dx=\\dfrac{du}{2x}$."
+          },
+          {
+            "do": "Translate from $x$ to $u$, and also translate the limits of integration by plugging $a$ and $b$ into $u$. You should get a definite integral involving ONLY $u$. Evaluate it.",
+            "work": "When $x=0$, $u=0$. When $x=\\sqrt\\pi$, $u=\\pi$. $$\\int_0^{\\pi}x\\cos u\\,\\dfrac{du}{2x}=\\tfrac12\\int_0^\\pi\\cos u\\,du=\\tfrac12\\sin u\\Big|_0^\\pi=\\tfrac12(\\sin\\pi-\\sin0)=0$$"
+          }
+        ],
+        "answer": "$0$",
+        "check": {
+          "kind": "number",
+          "value": "0"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int_0^1x\\,e^{x^2}\\,dx$.",
+          "steps": [
+            {
+              "do": "As before, try to find a good $u$.",
+              "work": "$x^2$ is inside the exponential, so try $u=x^2$."
+            },
+            {
+              "do": "Find $\\dfrac{du}{dx}$ and, by ‘cross-multiplying’, express $dx$ in terms of $du$.",
+              "work": "$\\dfrac{du}{dx}=2x$, hence $dx=\\dfrac{du}{2x}$."
+            },
+            {
+              "do": "Translate from $x$ to $u$, and also translate the limits of integration by plugging $a$ and $b$ into $u$. You should get a definite integral involving ONLY $u$. Evaluate it.",
+              "work": "When $x=0$, $u=0$. When $x=1$, $u=1$. $$\\int_0^1x\\,e^{u}\\,\\dfrac{du}{2x}=\\tfrac12\\int_0^1e^u\\,du=\\tfrac12e^u\\Big|_0^1=\\dfrac{e-1}{2}$$"
+            }
+          ],
+          "answer": "$\\dfrac{e-1}{2}$",
+          "check": {
+            "kind": "number",
+            "value": "(e-1)/2"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int_0^{\\pi/2}\\sin x\\cos^3x\\,dx$.",
+          "steps": [
+            {
+              "do": "As before, try to find a good $u$.",
+              "work": "$\\cos x$ is raised to a power, so try $u=\\cos x$."
+            },
+            {
+              "do": "Find $\\dfrac{du}{dx}$ and, by ‘cross-multiplying’, express $dx$ in terms of $du$.",
+              "work": "$\\dfrac{du}{dx}=-\\sin x$, hence $dx=-\\dfrac{du}{\\sin x}$."
+            },
+            {
+              "do": "Translate from $x$ to $u$, and also translate the limits of integration by plugging $a$ and $b$ into $u$. You should get a definite integral involving ONLY $u$. Evaluate it.",
+              "work": "When $x=0$, $u=\\cos0=1$. When $x=\\tfrac\\pi2$, $u=\\cos\\tfrac\\pi2=0$. $$\\int_1^0\\sin x\\,u^3\\left(-\\dfrac{du}{\\sin x}\\right)=-\\int_1^0u^3\\,du=\\int_0^1u^3\\,du=\\dfrac{u^4}{4}\\Big|_0^1=\\dfrac14$$"
+            }
+          ],
+          "answer": "$\\dfrac14$",
+          "check": {
+            "kind": "number",
+            "value": "1/4"
+          }
+        }
+      ],
+      "scene": "ftc"
+    }
+  ]
+}

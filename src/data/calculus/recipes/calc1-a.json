@@ -1,0 +1,2858 @@
+{
+  "recipes": [
+    {
+      "id": "c1-2.1.1",
+      "course": "calc1",
+      "section": "2.1",
+      "topic": "Limits, Rates of Change, and Tangent Lines",
+      "title": "Slope of a tangent from secants",
+      "type": "The point $P(a,f(a))$ lies on the curve $y=f(x)$. (a) If $Q$ is the point $(x,f(x))$, compute the slope of the secant line $PQ$ (to six decimal places) for several values of $x$: one ordinary value, $x=a+\\text{tiny}$ and $x=a+\\text{very tiny}$. (b) From these, guess the slope of the tangent line at $P$. (c) Use that slope to find the equation of the tangent line at $P$.",
+      "example": {
+        "problem": "The point $P(2,8)$ lies on the curve $y=x^3$. (a) If $Q$ is the point $(x,x^3)$, use your calculator to find the slope of the secant line $PQ$ (correct to six decimal places) for (i) $x=3$, (ii) $x=2.001$, (iii) $x=2.0001$. (b) Using part (a), guess the slope of the tangent line at $P$. (c) Find the equation of the tangent line at $P$.",
+        "steps": [
+          {
+            "do": "(a) The slope of the secant line between $P(a,f(a))$ and $Q(x,f(x))$ is $\\dfrac{f(x)-f(a)}{x-a}$.",
+            "work": "$$\\begin{aligned}\\text{(i)}\\ &\\frac{3^3-2^3}{3-2}=\\frac{27-8}{1}=19\\\\ \\text{(ii)}\\ &\\frac{2.001^3-2^3}{2.001-2}=\\frac{8.012006-8}{0.001}=12.006001\\\\ \\text{(iii)}\\ &\\frac{2.0001^3-2^3}{2.0001-2}=\\frac{8.00120006-8}{0.0001}=12.000600\\end{aligned}$$"
+          },
+          {
+            "do": "(b) The answers for the two tiny values should be very close to each other; if they are close to a \"nice\" value, that is a good guess for the tangent slope.",
+            "work": "Both tiny-step slopes are close to $12$, so the guessed slope is $12$."
+          },
+          {
+            "do": "(c) Use the point-slope form $y-f(a)=(\\text{slope})(x-a)$.",
+            "work": "$y-8=12(x-2)$, so $y=12x-24+8=12x-16$."
+          }
+        ],
+        "answer": "$y=12x-16$",
+        "check": {
+          "kind": "expr",
+          "value": "12*x-16",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "The point $P(1,1)$ lies on the curve $y=x^4$. (a) If $Q$ is the point $(x,x^4)$, find the slope of the secant line $PQ$ (correct to six decimal places) for (i) $x=2$, (ii) $x=1.001$, (iii) $x=1.0001$. (b) Guess the slope of the tangent line at $P$. (c) Enter the equation of the tangent line at $P$.",
+          "steps": [
+            {
+              "do": "(a) The slope of the secant line between $P(a,f(a))$ and $Q(x,f(x))$ is $\\dfrac{f(x)-f(a)}{x-a}$.",
+              "work": "$$\\begin{aligned}\\text{(i)}\\ &\\frac{2^4-1^4}{2-1}=15\\\\ \\text{(ii)}\\ &\\frac{1.001^4-1}{0.001}=\\frac{1.004006004-1}{0.001}\\approx 4.006004\\\\ \\text{(iii)}\\ &\\frac{1.0001^4-1}{0.0001}\\approx 4.000600\\end{aligned}$$"
+            },
+            {
+              "do": "(b) The answers for the two tiny values should be very close to each other; if they are close to a \"nice\" value, that is a good guess for the tangent slope.",
+              "work": "Both tiny-step slopes are close to $4$, so the guessed slope is $4$."
+            },
+            {
+              "do": "(c) Use the point-slope form $y-f(a)=(\\text{slope})(x-a)$.",
+              "work": "$y-1=4(x-1)$, so $y=4x-3$."
+            }
+          ],
+          "answer": "$y=4x-3$",
+          "check": {
+            "kind": "expr",
+            "value": "4*x-3",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "The point $P(4,2)$ lies on the curve $y=\\sqrt{x}$. (a) If $Q$ is the point $(x,\\sqrt{x})$, find the slope of the secant line $PQ$ (correct to six decimal places) for (i) $x=9$, (ii) $x=4.001$, (iii) $x=4.0001$. (b) Guess the slope of the tangent line at $P$. (c) Enter the equation of the tangent line at $P$.",
+          "steps": [
+            {
+              "do": "(a) The slope of the secant line between $P(a,f(a))$ and $Q(x,f(x))$ is $\\dfrac{f(x)-f(a)}{x-a}$.",
+              "work": "$$\\begin{aligned}\\text{(i)}\\ &\\frac{\\sqrt9-\\sqrt4}{9-4}=\\frac{3-2}{5}=0.200000\\\\ \\text{(ii)}\\ &\\frac{\\sqrt{4.001}-2}{0.001}\\approx 0.249984\\\\ \\text{(iii)}\\ &\\frac{\\sqrt{4.0001}-2}{0.0001}\\approx 0.249998\\end{aligned}$$"
+            },
+            {
+              "do": "(b) The answers for the two tiny values should be very close to each other; if they are close to a \"nice\" value, that is a good guess for the tangent slope.",
+              "work": "Both tiny-step slopes are close to $0.25=\\tfrac14$, so the guessed slope is $\\tfrac14$."
+            },
+            {
+              "do": "(c) Use the point-slope form $y-f(a)=(\\text{slope})(x-a)$.",
+              "work": "$y-2=\\tfrac14(x-4)$, so $y=\\tfrac14x-1+2=\\tfrac14x+1$."
+            }
+          ],
+          "answer": "$y=\\tfrac14x+1$",
+          "check": {
+            "kind": "expr",
+            "value": "x/4+1",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "secant"
+    },
+    {
+      "id": "c1-2.1.2",
+      "course": "calc1",
+      "section": "2.1",
+      "topic": "Limits, Rates of Change, and Tangent Lines",
+      "title": "Average to instantaneous velocity",
+      "type": "A stone is thrown vertically upwards with velocity $v_0$, so its height is $h=v_0t-At^2$. (a) Find the average velocity over the time intervals (i) $[a,b]$, (ii) $[a,a+\\text{tiny}]$, (iii) $[a,a+\\text{very tiny}]$. (b) Estimate the instantaneous velocity at time $t=a$.",
+      "example": {
+        "problem": "On a certain planet the height of a stone thrown vertically upwards with velocity $100$ m/s is $h=100t-t^2$. (a) Find the average velocity over the time intervals (i) $[1,2]$, (ii) $[1,1.01]$, (iii) $[1,1.001]$. (b) Estimate the instantaneous velocity after one second.",
+        "steps": [
+          {
+            "do": "(a) The average velocity of a particle whose height (or distance) is $h(t)$ over a time interval $[a,b]$ is $\\dfrac{h(b)-h(a)}{b-a}$.",
+            "work": "$$\\begin{aligned}\\text{(i)}\\ &\\frac{h(2)-h(1)}{2-1}=\\frac{196-99}{1}=97\\\\ \\text{(ii)}\\ &\\frac{h(1.01)-h(1)}{0.01}=\\frac{99.9799-99}{0.01}=97.99\\\\ \\text{(iii)}\\ &\\frac{h(1.001)-h(1)}{0.001}=97.999\\end{aligned}$$"
+          },
+          {
+            "do": "(b) The answers for the two tiny intervals should be very close to each other; if they are close to a \"nice\" value, that is a good estimate of the instantaneous velocity.",
+            "work": "The last two are close to $98$, so the instantaneous velocity after one second is about $98$ m/s."
+          }
+        ],
+        "answer": "$97,\\ 97.99,\\ 97.999$; instantaneous velocity $\\approx 98$ m/s",
+        "check": {
+          "kind": "number",
+          "value": "98"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A stone is thrown vertically upwards on a certain planet, with $h=60t-t^2$ (in metres, $t$ in seconds). (a) Find the average velocity over (i) $[2,3]$, (ii) $[2,2.01]$, (iii) $[2,2.001]$. (b) Enter your estimate of the instantaneous velocity after two seconds.",
+          "steps": [
+            {
+              "do": "(a) The average velocity of a particle whose height (or distance) is $h(t)$ over a time interval $[a,b]$ is $\\dfrac{h(b)-h(a)}{b-a}$.",
+              "work": "$$\\begin{aligned}\\text{(i)}\\ &\\frac{h(3)-h(2)}{1}=\\frac{171-116}{1}=55\\\\ \\text{(ii)}\\ &\\frac{h(2.01)-h(2)}{0.01}=\\frac{116.5599-116}{0.01}=55.99\\\\ \\text{(iii)}\\ &\\frac{h(2.001)-h(2)}{0.001}=55.999\\end{aligned}$$"
+            },
+            {
+              "do": "(b) The answers for the two tiny intervals should be very close to each other; if they are close to a \"nice\" value, that is a good estimate of the instantaneous velocity.",
+              "work": "The last two are close to $56$, so the instantaneous velocity after two seconds is about $56$ m/s."
+            }
+          ],
+          "answer": "$55,\\ 55.99,\\ 55.999$; instantaneous velocity $\\approx 56$ m/s",
+          "check": {
+            "kind": "number",
+            "value": "56"
+          }
+        },
+        {
+          "problem": "On another planet a stone thrown upwards has height $h=40t-2t^2$. (a) Find the average velocity over (i) $[3,4]$, (ii) $[3,3.01]$, (iii) $[3,3.001]$. (b) Enter your estimate of the instantaneous velocity after three seconds.",
+          "steps": [
+            {
+              "do": "(a) The average velocity of a particle whose height (or distance) is $h(t)$ over a time interval $[a,b]$ is $\\dfrac{h(b)-h(a)}{b-a}$.",
+              "work": "$$\\begin{aligned}\\text{(i)}\\ &\\frac{h(4)-h(3)}{1}=\\frac{128-102}{1}=26\\\\ \\text{(ii)}\\ &\\frac{h(3.01)-h(3)}{0.01}=\\frac{102.2798-102}{0.01}=27.98\\\\ \\text{(iii)}\\ &\\frac{h(3.001)-h(3)}{0.001}=27.998\\end{aligned}$$"
+            },
+            {
+              "do": "(b) The answers for the two tiny intervals should be very close to each other; if they are close to a \"nice\" value, that is a good estimate of the instantaneous velocity.",
+              "work": "The last two are close to $28$, so the instantaneous velocity after three seconds is about $28$."
+            }
+          ],
+          "answer": "$26,\\ 27.98,\\ 27.998$; instantaneous velocity $\\approx 28$",
+          "check": {
+            "kind": "number",
+            "value": "28"
+          }
+        }
+      ],
+      "scene": "secant"
+    },
+    {
+      "id": "c1-2.2.1",
+      "course": "calc1",
+      "section": "2.2",
+      "topic": "Limits: A Numerical and Graphical Approach",
+      "title": "Limits from a graph",
+      "type": "Given a graph of a function, find the limit from the left, the limit from the right, and the limit (if it exists) at various points, as well as some function values.",
+      "example": {
+        "problem": "A graph of $f$ shows a jump at $x=1$: the curve approaches $-1$ from the left and $-2$ from the right. At $x=2$ it approaches $2$ from the left and $0$ from the right, and a filled dot sits at $(2,1)$. Near $x=4$ the curve is smooth and passes through $(4,3)$. Find (a) $\\lim_{x\\to1^-}f(x)$, (b) $\\lim_{x\\to1^+}f(x)$, (c) $\\lim_{x\\to1}f(x)$, (d) $\\lim_{x\\to2^-}f(x)$, (e) $\\lim_{x\\to2^+}f(x)$, (f) $\\lim_{x\\to2}f(x)$, (g) $f(2)$ and (h) $\\lim_{x\\to4}f(x)$.",
+        "steps": [
+          {
+            "do": "Limit from the left: if the function \"looks\" continuous from the left at the given point, the limit from the left is the natural continuation (possibly marked by a hollow dot) from the left.",
+            "work": "Reading the graph: (a) the left limit at $x=1$ is $-1$; (d) the left limit at $x=2$ is $2$."
+          },
+          {
+            "do": "Limit from the right: if the function \"looks\" continuous from the right at the given point, the limit from the right is the natural continuation (possibly marked by a hollow dot) from the right.",
+            "work": "(b) the right limit at $x=1$ is $-2$; (e) the right limit at $x=2$ is $0$."
+          },
+          {
+            "do": "Limit: if BOTH $\\lim_{x\\to a^-}$ and $\\lim_{x\\to a^+}$ exist AND are equal, the limit $\\lim_{x\\to a}$ exists and equals their common value. Otherwise it does not exist.",
+            "work": "(c) $-1\\ne-2$, so the limit does not exist. (f) $2\\ne0$, so the limit at $x=2$ does not exist. (h) At $x=4$ everything is smooth, so all the limits exist and equal $3$."
+          },
+          {
+            "do": "Function value: if the curve passes smoothly through $x=a$, then $f(a)$ is the obvious value; otherwise it is the value of the filled-in dot.",
+            "work": "(g) The filled dot above $x=2$ is at $(2,1)$, so $f(2)=1$. At $x=4$, $f(4)=3$."
+          }
+        ],
+        "answer": "(a) $-1$ (b) $-2$ (c) does not exist (d) $2$ (e) $0$ (f) does not exist (g) $1$ (h) $3$"
+      },
+      "practice": [
+        {
+          "problem": "The graph of $g$ is described as follows. For $x<2$ it is the line $y=x-1$, ending in a hollow dot at $(2,1)$. There is a filled dot at $(2,4)$. For $x>2$ it is the line $y=7-x$, starting from a hollow dot at $(2,5)$. Find the limits and value at $x=2$, and enter $\\lim_{x\\to2^+}g(x)$.",
+          "steps": [
+            {
+              "do": "Limit from the left: if the function \"looks\" continuous from the left at the given point, the limit from the left is the natural continuation (possibly marked by a hollow dot) from the left.",
+              "work": "Following the line $y=x-1$ toward $x=2$ from the left, it heads to the hollow dot: $\\lim_{x\\to2^-}g(x)=1$."
+            },
+            {
+              "do": "Limit from the right: if the function \"looks\" continuous from the right at the given point, the limit from the right is the natural continuation (possibly marked by a hollow dot) from the right.",
+              "work": "Following $y=7-x$ toward $x=2$ from the right, it heads to the hollow dot at height $5$: $\\lim_{x\\to2^+}g(x)=5$."
+            },
+            {
+              "do": "Limit: if BOTH $\\lim_{x\\to a^-}$ and $\\lim_{x\\to a^+}$ exist AND are equal, the limit $\\lim_{x\\to a}$ exists and equals their common value. Otherwise it does not exist.",
+              "work": "$1\\ne5$, so $\\lim_{x\\to2}g(x)$ does not exist."
+            },
+            {
+              "do": "Function value: if the curve passes smoothly through $x=a$, then $f(a)$ is the obvious value; otherwise it is the value of the filled-in dot.",
+              "work": "The filled dot is at $(2,4)$, so $g(2)=4$."
+            }
+          ],
+          "answer": "$\\lim_{x\\to2^-}g=1$, $\\lim_{x\\to2^+}g=5$, $\\lim_{x\\to2}g$ does not exist, $g(2)=4$; the requested right-hand limit is $5$",
+          "check": {
+            "kind": "number",
+            "value": "5"
+          }
+        },
+        {
+          "problem": "The graph of $h$ is described as follows. For $x<0$ it is the line $y=x+3$, ending in a hollow dot at $(0,3)$. There is a filled dot at $(0,1)$. For $x>0$ it is the parabola $y=x^2+3$, starting from a hollow dot at $(0,3)$. Find the one-sided limits, the limit and the value at $x=0$, and enter $\\lim_{x\\to0}h(x)$.",
+          "steps": [
+            {
+              "do": "Limit from the left: if the function \"looks\" continuous from the left at the given point, the limit from the left is the natural continuation (possibly marked by a hollow dot) from the left.",
+              "work": "Following $y=x+3$ toward $x=0$ from the left: $\\lim_{x\\to0^-}h(x)=3$."
+            },
+            {
+              "do": "Limit from the right: if the function \"looks\" continuous from the right at the given point, the limit from the right is the natural continuation (possibly marked by a hollow dot) from the right.",
+              "work": "Following $y=x^2+3$ toward $x=0$ from the right: $\\lim_{x\\to0^+}h(x)=3$."
+            },
+            {
+              "do": "Limit: if BOTH $\\lim_{x\\to a^-}$ and $\\lim_{x\\to a^+}$ exist AND are equal, the limit $\\lim_{x\\to a}$ exists and equals their common value. Otherwise it does not exist.",
+              "work": "Both one-sided limits equal $3$, so $\\lim_{x\\to0}h(x)=3$."
+            },
+            {
+              "do": "Function value: if the curve passes smoothly through $x=a$, then $f(a)$ is the obvious value; otherwise it is the value of the filled-in dot.",
+              "work": "The filled dot is at $(0,1)$, so $h(0)=1$ (the limit and the value differ)."
+            }
+          ],
+          "answer": "$\\lim_{x\\to0^-}h=3$, $\\lim_{x\\to0^+}h=3$, $\\lim_{x\\to0}h=3$, $h(0)=1$",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.2.2",
+      "course": "calc1",
+      "section": "2.2",
+      "topic": "Limits: A Numerical and Graphical Approach",
+      "title": "One-sided infinite limits",
+      "type": "Determine the infinite limit $\\displaystyle\\lim_{x\\to a^+}\\frac{\\text{Top}(x)}{\\text{Bottom}(x)}$, where $\\text{Bottom}(x)$ vanishes at $x=a$ and $\\text{Top}(x)$ does not.",
+      "example": {
+        "problem": "Determine the infinite limit $$\\lim_{x\\to-2^+}\\frac{x-1}{x^2(x+2)}.$$",
+        "steps": [
+          {
+            "do": "First make sure that the bottom vanishes at $x=a$ and the top does not. (If they both vanish, you may need L'Hôpital's rule, coming later.)",
+            "work": "$\\text{Top}(x)=x-1$, $\\text{Bottom}(x)=x^2(x+2)$. $\\text{Top}(-2)=-3$ and $\\text{Bottom}(-2)=0$, so the limit is $\\infty$ or $-\\infty$."
+          },
+          {
+            "do": "Plug in a value very close to $a$ on the correct side (for the right-hand limit, $a+0.0001$; for the left-hand limit, $a-0.0001$). The result is either very negative, so the limit is $-\\infty$, or very positive, so the limit is $\\infty$.",
+            "work": "$\\text{Top}(-1.9999)=-2.9999$ and $\\text{Bottom}(-1.9999)=(-1.9999)^2(0.0001)>0$ is tiny, so the quotient $\\dfrac{-2.9999}{(-1.9999)^2(0.0001)}$ is VERY NEGATIVE."
+          }
+        ],
+        "answer": "$-\\infty$",
+        "check": {
+          "kind": "choice",
+          "value": "-infinity",
+          "options": [
+            "infinity",
+            "-infinity"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Determine the infinite limit $\\displaystyle\\lim_{x\\to3^-}\\frac{x+1}{x^2(x-3)}$. Enter \"infinity\" or \"-infinity\".",
+          "steps": [
+            {
+              "do": "First make sure that the bottom vanishes at $x=a$ and the top does not. (If they both vanish, you may need L'Hôpital's rule, coming later.)",
+              "work": "$\\text{Top}(3)=4\\ne0$ and $\\text{Bottom}(3)=9\\cdot0=0$, so the limit is $\\pm\\infty$."
+            },
+            {
+              "do": "Plug in a value very close to $a$ on the correct side (for the right-hand limit, $a+0.0001$; for the left-hand limit, $a-0.0001$). The result is either very negative, so the limit is $-\\infty$, or very positive, so the limit is $\\infty$.",
+              "work": "At $x=2.9999$: $\\text{Top}=3.9999>0$ and $\\text{Bottom}=(2.9999)^2(-0.0001)<0$, so the quotient is VERY NEGATIVE."
+            }
+          ],
+          "answer": "$-\\infty$",
+          "check": {
+            "kind": "choice",
+            "value": "-infinity",
+            "options": [
+              "infinity",
+              "-infinity"
+            ]
+          }
+        },
+        {
+          "problem": "Determine the infinite limit $\\displaystyle\\lim_{x\\to1^-}\\frac{x-3}{(x-1)(x+2)}$. Enter \"infinity\" or \"-infinity\".",
+          "steps": [
+            {
+              "do": "First make sure that the bottom vanishes at $x=a$ and the top does not. (If they both vanish, you may need L'Hôpital's rule, coming later.)",
+              "work": "$\\text{Top}(1)=-2\\ne0$ and $\\text{Bottom}(1)=0\\cdot3=0$, so the limit is $\\pm\\infty$."
+            },
+            {
+              "do": "Plug in a value very close to $a$ on the correct side (for the right-hand limit, $a+0.0001$; for the left-hand limit, $a-0.0001$). The result is either very negative, so the limit is $-\\infty$, or very positive, so the limit is $\\infty$.",
+              "work": "At $x=0.9999$: $\\text{Top}=-2.0001<0$ and $\\text{Bottom}=(-0.0001)(2.9999)<0$, so the quotient is VERY POSITIVE."
+            }
+          ],
+          "answer": "$\\infty$",
+          "check": {
+            "kind": "choice",
+            "value": "infinity",
+            "options": [
+              "infinity",
+              "-infinity"
+            ]
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.3.1",
+      "course": "calc1",
+      "section": "2.3",
+      "topic": "Basic Limit Laws",
+      "title": "Limit of a polynomial by the laws",
+      "type": "Evaluate the limit using the Limit Laws: $\\displaystyle\\lim_{x\\to a}f(x)$, where $f(x)$ is a specific function of $x$.",
+      "example": {
+        "problem": "Evaluate the limit using the Limit Laws: $\\displaystyle\\lim_{x\\to-4}(x^3-4x)$.",
+        "steps": [
+          {
+            "do": "Use the appropriate limit law at each stage, mimicking the algebra. The bottom lines are $\\lim_{x\\to c}x=c$ and $\\lim_{x\\to c}k=k$ for a constant $k$.",
+            "work": "$$\\lim_{x\\to-4}(x^3-4x)=\\lim_{x\\to-4}x^3-\\lim_{x\\to-4}4x=\\Big(\\lim_{x\\to-4}x\\Big)^3-4\\lim_{x\\to-4}x=(-4)^3-4(-4)=-48$$"
+          }
+        ],
+        "answer": "$-48$",
+        "check": {
+          "kind": "number",
+          "value": "-48"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate the limit using the Limit Laws: $\\displaystyle\\lim_{x\\to3}(x^3-5x+2)$.",
+          "steps": [
+            {
+              "do": "Use the appropriate limit law at each stage, mimicking the algebra. The bottom lines are $\\lim_{x\\to c}x=c$ and $\\lim_{x\\to c}k=k$ for a constant $k$.",
+              "work": "$$\\lim_{x\\to3}(x^3-5x+2)=\\Big(\\lim_{x\\to3}x\\Big)^3-5\\lim_{x\\to3}x+\\lim_{x\\to3}2=3^3-5(3)+2=14$$"
+            }
+          ],
+          "answer": "$14$",
+          "check": {
+            "kind": "number",
+            "value": "14"
+          }
+        },
+        {
+          "problem": "Evaluate the limit using the Limit Laws: $\\displaystyle\\lim_{x\\to-2}(2x^4+3x)$.",
+          "steps": [
+            {
+              "do": "Use the appropriate limit law at each stage, mimicking the algebra. The bottom lines are $\\lim_{x\\to c}x=c$ and $\\lim_{x\\to c}k=k$ for a constant $k$.",
+              "work": "$$\\lim_{x\\to-2}(2x^4+3x)=2\\Big(\\lim_{x\\to-2}x\\Big)^4+3\\lim_{x\\to-2}x=2(-2)^4+3(-2)=26$$"
+            }
+          ],
+          "answer": "$26$",
+          "check": {
+            "kind": "number",
+            "value": "26"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.3.2",
+      "course": "calc1",
+      "section": "2.3",
+      "topic": "Basic Limit Laws",
+      "title": "Limit laws on abstract functions",
+      "type": "Given general (abstract) functions $f(x)$ and $g(x)$ and their limits at a certain point, evaluate the limits of algebraic expressions in them at that very same point.",
+      "example": {
+        "problem": "Assuming that $\\lim_{x\\to3}f(x)=5$ and $\\lim_{x\\to3}g(x)=-2$, evaluate the limits (a) $\\displaystyle\\lim_{x\\to3}\\big(2f(x)-3g(x)\\big)$, (b) $\\displaystyle\\lim_{x\\to3}f(x)g(x)$, (c) $\\displaystyle\\lim_{x\\to3}\\frac{f(x)+1}{2g(x)+1}$.",
+        "steps": [
+          {
+            "do": "Use the Limit Laws on the abstract functions, and at the end plug in the given data.",
+            "work": "$$\\begin{aligned}\\text{(a)}\\ &2\\lim f-3\\lim g=2(5)-3(-2)=16\\\\ \\text{(b)}\\ &\\Big(\\lim f\\Big)\\Big(\\lim g\\Big)=(5)(-2)=-10\\\\ \\text{(c)}\\ &\\frac{\\lim f+\\lim 1}{2\\lim g+\\lim 1}=\\frac{5+1}{2(-2)+1}=\\frac{6}{-3}=-2\\end{aligned}$$"
+          }
+        ],
+        "answer": "(a) $16$ (b) $-10$ (c) $-2$",
+        "check": {
+          "kind": "number",
+          "value": "-2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Assuming that $\\lim_{x\\to1}f(x)=4$ and $\\lim_{x\\to1}g(x)=-3$, evaluate (a) $\\lim\\big(3f(x)-2g(x)\\big)$, (b) $\\lim f(x)g(x)$, (c) $\\displaystyle\\lim_{x\\to1}\\frac{f(x)+2}{1-g(x)}$. Enter the answer to (c).",
+          "steps": [
+            {
+              "do": "Use the Limit Laws on the abstract functions, and at the end plug in the given data.",
+              "work": "$$\\begin{aligned}\\text{(a)}\\ &3(4)-2(-3)=18\\\\ \\text{(b)}\\ &(4)(-3)=-12\\\\ \\text{(c)}\\ &\\frac{\\lim f+\\lim 2}{\\lim 1-\\lim g}=\\frac{4+2}{1-(-3)}=\\frac{6}{4}=\\frac32\\end{aligned}$$"
+            }
+          ],
+          "answer": "(a) $18$ (b) $-12$ (c) $\\tfrac32$",
+          "check": {
+            "kind": "number",
+            "value": "3/2"
+          }
+        },
+        {
+          "problem": "Assuming that $\\lim_{x\\to-1}f(x)=-1$ and $\\lim_{x\\to-1}g(x)=6$, evaluate (a) $\\lim\\big(4f(x)+g(x)\\big)$, (b) $\\lim f(x)g(x)$, (c) $\\displaystyle\\lim_{x\\to-1}\\frac{g(x)-2}{f(x)-1}$. Enter the answer to (c).",
+          "steps": [
+            {
+              "do": "Use the Limit Laws on the abstract functions, and at the end plug in the given data.",
+              "work": "$$\\begin{aligned}\\text{(a)}\\ &4(-1)+6=2\\\\ \\text{(b)}\\ &(-1)(6)=-6\\\\ \\text{(c)}\\ &\\frac{\\lim g-\\lim 2}{\\lim f-\\lim 1}=\\frac{6-2}{-1-1}=\\frac{4}{-2}=-2\\end{aligned}$$"
+            }
+          ],
+          "answer": "(a) $2$ (b) $-6$ (c) $-2$",
+          "check": {
+            "kind": "number",
+            "value": "-2"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.4.1",
+      "course": "calc1",
+      "section": "2.4",
+      "topic": "Limits and Continuity",
+      "title": "Removable discontinuity check",
+      "type": "Explain why the function is discontinuous at $x=a$: $f(x)=\\text{Expression}(x)$ if $x\\ne a$, and $f(a)=\\text{Number}$.",
+      "example": {
+        "problem": "Explain why the function is discontinuous at $x=1$: $$f(x)=\\begin{cases}\\dfrac{x^2-x}{x^2-1}, & x\\ne1\\\\[2mm] 3, & x=1\\end{cases}$$",
+        "steps": [
+          {
+            "do": "Find $\\displaystyle\\lim_{x\\to a}\\text{Expression}(x)$; call it $b$.",
+            "work": "$$\\lim_{x\\to1}\\frac{x^2-x}{x^2-1}=\\lim_{x\\to1}\\frac{x(x-1)}{(x+1)(x-1)}=\\lim_{x\\to1}\\frac{x}{x+1}=\\frac12$$"
+          },
+          {
+            "do": "If $f$ were continuous at $x=a$, then $\\text{Number}$ would have to equal $b$. Since they are not the same, $f$ is discontinuous at $x=a$.",
+            "work": "If $f$ were continuous at $x=1$, then $3$ would have to equal $\\tfrac12$. They are not the same, so $f$ is discontinuous at $x=1$."
+          }
+        ],
+        "answer": "$\\lim_{x\\to1}f(x)=\\tfrac12\\ne3=f(1)$, so $f$ is discontinuous at $x=1$.",
+        "check": {
+          "kind": "number",
+          "value": "1/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Explain why $f$ is discontinuous at $x=2$, where $f(x)=\\dfrac{x^2-4}{x^2-2x}$ for $x\\ne2$ and $f(2)=1$. Enter the limit $b=\\lim_{x\\to2}\\dfrac{x^2-4}{x^2-2x}$.",
+          "steps": [
+            {
+              "do": "Find $\\displaystyle\\lim_{x\\to a}\\text{Expression}(x)$; call it $b$.",
+              "work": "$$\\lim_{x\\to2}\\frac{x^2-4}{x^2-2x}=\\lim_{x\\to2}\\frac{(x-2)(x+2)}{x(x-2)}=\\lim_{x\\to2}\\frac{x+2}{x}=\\frac42=2$$"
+            },
+            {
+              "do": "If $f$ were continuous at $x=a$, then $\\text{Number}$ would have to equal $b$. Since they are not the same, $f$ is discontinuous at $x=a$.",
+              "work": "If $f$ were continuous at $x=2$, then $1$ would have to equal $2$. They are not the same, so $f$ is discontinuous at $x=2$."
+            }
+          ],
+          "answer": "$b=2\\ne1=f(2)$, so $f$ is discontinuous at $x=2$.",
+          "check": {
+            "kind": "number",
+            "value": "2"
+          }
+        },
+        {
+          "problem": "Explain why $f$ is discontinuous at $x=3$, where $f(x)=\\dfrac{x^2-x-6}{x^2-9}$ for $x\\ne3$ and $f(3)=1$. Enter the limit $b=\\lim_{x\\to3}\\dfrac{x^2-x-6}{x^2-9}$.",
+          "steps": [
+            {
+              "do": "Find $\\displaystyle\\lim_{x\\to a}\\text{Expression}(x)$; call it $b$.",
+              "work": "$$\\lim_{x\\to3}\\frac{x^2-x-6}{x^2-9}=\\lim_{x\\to3}\\frac{(x-3)(x+2)}{(x-3)(x+3)}=\\lim_{x\\to3}\\frac{x+2}{x+3}=\\frac56$$"
+            },
+            {
+              "do": "If $f$ were continuous at $x=a$, then $\\text{Number}$ would have to equal $b$. Since they are not the same, $f$ is discontinuous at $x=a$.",
+              "work": "If $f$ were continuous at $x=3$, then $1$ would have to equal $\\tfrac56$. They are not the same, so $f$ is discontinuous at $x=3$."
+            }
+          ],
+          "answer": "$b=\\tfrac56\\ne1=f(3)$, so $f$ is discontinuous at $x=3$.",
+          "check": {
+            "kind": "number",
+            "value": "5/6"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.4.2",
+      "course": "calc1",
+      "section": "2.4",
+      "topic": "Limits and Continuity",
+      "title": "Existence of a value (IVT)",
+      "type": "If $f(x)=\\text{Expression}(x)$, show that there is a number $c$ such that $f(c)=\\text{Number}$.",
+      "example": {
+        "problem": "If $f(x)=x^3-x^2+3x$, show that there is a number $c$ such that $f(c)=20$.",
+        "steps": [
+          {
+            "do": "Assuming the function is continuous (and usually it is), find, by trial and error (or by plotting), two numbers $a$ and $b$ such that $f(a)<\\text{Number}$ and $f(b)>\\text{Number}$.",
+            "work": "$f(0)=0$ and $f(10)=930$ (there are many other possibilities, of course)."
+          },
+          {
+            "do": "Since $\\text{Number}$ lies between $f(a)$ and $f(b)$, the Intermediate Value Theorem guarantees a number $c$ with $f(c)=\\text{Number}$, in fact at least one such $c$ between $a$ and $b$.",
+            "work": "Since $20$ is between $0$ and $930$, there is a number $c$ with $f(c)=20$; in fact at least one such $c$ lies between $0$ and $10$."
+          }
+        ],
+        "answer": "By the IVT (since $f$ is a polynomial, hence continuous), such a $c$ exists in $(0,10)$."
+      },
+      "practice": [
+        {
+          "problem": "If $f(x)=x^3+2x$, show that there is a number $c$ such that $f(c)=20$. Enter the smallest positive integer $b$ with $f(b)>20$ (so that $c$ lies between $b-1$ and $b$).",
+          "steps": [
+            {
+              "do": "Assuming the function is continuous (and usually it is), find, by trial and error (or by plotting), two numbers $a$ and $b$ such that $f(a)<\\text{Number}$ and $f(b)>\\text{Number}$.",
+              "work": "$f(2)=12<20$ and $f(3)=33>20$ ($f(0)=0$ is also below $20$)."
+            },
+            {
+              "do": "Since $\\text{Number}$ lies between $f(a)$ and $f(b)$, the Intermediate Value Theorem guarantees a number $c$ with $f(c)=\\text{Number}$, in fact at least one such $c$ between $a$ and $b$.",
+              "work": "Since $20$ is between $12$ and $33$, the IVT gives a $c$ with $f(c)=20$, between $2$ and $3$."
+            }
+          ],
+          "answer": "$b=3$; a solution $c$ lies in $(2,3)$",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        },
+        {
+          "problem": "If $f(x)=x^4-x$, show that there is a number $c$ such that $f(c)=100$. Enter the smallest positive integer $b$ with $f(b)>100$ (so that $c$ lies between $b-1$ and $b$).",
+          "steps": [
+            {
+              "do": "Assuming the function is continuous (and usually it is), find, by trial and error (or by plotting), two numbers $a$ and $b$ such that $f(a)<\\text{Number}$ and $f(b)>\\text{Number}$.",
+              "work": "$f(3)=78<100$ and $f(4)=252>100$ ($f(0)=0$ is also below $100$)."
+            },
+            {
+              "do": "Since $\\text{Number}$ lies between $f(a)$ and $f(b)$, the Intermediate Value Theorem guarantees a number $c$ with $f(c)=\\text{Number}$, in fact at least one such $c$ between $a$ and $b$.",
+              "work": "Since $100$ is between $78$ and $252$, the IVT gives a $c$ with $f(c)=100$, between $3$ and $4$."
+            }
+          ],
+          "answer": "$b=4$; a solution $c$ lies in $(3,4)$",
+          "check": {
+            "kind": "number",
+            "value": "4"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.7.1",
+      "course": "calc1",
+      "section": "2.7",
+      "topic": "The Intermediate Value Theorem",
+      "title": "Existence of a value (IVT)",
+      "type": "If $f(x)=\\text{Expression}(x)$, show that there is a number $c$ such that $f(c)=\\text{Number}$.",
+      "example": {
+        "problem": "If $f(x)=x^3-x^2+3x$, show that there is a number $c$ such that $f(c)=20$.",
+        "steps": [
+          {
+            "do": "Assuming the function is continuous (and usually it is), find, by trial and error (or by plotting), two numbers $a$ and $b$ such that $f(a)<\\text{Number}$ and $f(b)>\\text{Number}$.",
+            "work": "$f(0)=0$ and $f(10)=930$ (there are many other possibilities, of course)."
+          },
+          {
+            "do": "Since $\\text{Number}$ lies between $f(a)$ and $f(b)$, the Intermediate Value Theorem guarantees a number $c$ with $f(c)=\\text{Number}$, in fact at least one such $c$ between $a$ and $b$.",
+            "work": "Since $20$ is between $0$ and $930$, there is a number $c$ with $f(c)=20$; in fact at least one such $c$ lies between $0$ and $10$."
+          }
+        ],
+        "answer": "By the IVT (since $f$ is a polynomial, hence continuous), such a $c$ exists in $(0,10)$."
+      },
+      "practice": [
+        {
+          "problem": "If $f(x)=2x^3+x$, show that there is a number $c$ such that $f(c)=50$. Enter the smallest positive integer $b$ with $f(b)>50$ (so that $c$ lies between $b-1$ and $b$).",
+          "steps": [
+            {
+              "do": "Assuming the function is continuous (and usually it is), find, by trial and error (or by plotting), two numbers $a$ and $b$ such that $f(a)<\\text{Number}$ and $f(b)>\\text{Number}$.",
+              "work": "$f(2)=18<50$ and $f(3)=57>50$ ($f(0)=0$ is also below $50$)."
+            },
+            {
+              "do": "Since $\\text{Number}$ lies between $f(a)$ and $f(b)$, the Intermediate Value Theorem guarantees a number $c$ with $f(c)=\\text{Number}$, in fact at least one such $c$ between $a$ and $b$.",
+              "work": "Since $50$ is between $18$ and $57$, the IVT gives a $c$ with $f(c)=50$, between $2$ and $3$."
+            }
+          ],
+          "answer": "$b=3$; a solution $c$ lies in $(2,3)$",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        },
+        {
+          "problem": "If $f(x)=x^5+x$, show that there is a number $c$ such that $f(c)=100$. Enter the smallest positive integer $b$ with $f(b)>100$ (so that $c$ lies between $b-1$ and $b$).",
+          "steps": [
+            {
+              "do": "Assuming the function is continuous (and usually it is), find, by trial and error (or by plotting), two numbers $a$ and $b$ such that $f(a)<\\text{Number}$ and $f(b)>\\text{Number}$.",
+              "work": "$f(2)=34<100$ and $f(3)=246>100$ ($f(0)=0$ is also below $100$)."
+            },
+            {
+              "do": "Since $\\text{Number}$ lies between $f(a)$ and $f(b)$, the Intermediate Value Theorem guarantees a number $c$ with $f(c)=\\text{Number}$, in fact at least one such $c$ between $a$ and $b$.",
+              "work": "Since $100$ is between $34$ and $246$, the IVT gives a $c$ with $f(c)=100$, between $2$ and $3$."
+            }
+          ],
+          "answer": "$b=3$; a solution $c$ lies in $(2,3)$",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.4.3",
+      "course": "calc1",
+      "section": "2.4",
+      "topic": "Limits and Continuity",
+      "title": "Discontinuity of a piecewise function",
+      "type": "Explain why the function is discontinuous at $x=a$: $f(x)=\\text{LeftExpression}(x)$ if $x<a$, and $f(x)=\\text{RightExpression}(x)$ if $x\\ge a$.",
+      "example": {
+        "problem": "Explain why the function is discontinuous at $x=0$: $$f(x)=\\begin{cases}e^x, & x<0\\\\ x^2, & x\\ge0\\end{cases}$$",
+        "steps": [
+          {
+            "do": "Find the limit from the left at $x=a$, $\\lim_{x\\to a^-}f(x)=\\lim_{x\\to a}\\text{LeftExpression}(x)$, and the limit from the right, $\\lim_{x\\to a^+}f(x)=\\lim_{x\\to a}\\text{RightExpression}(x)$.",
+            "work": "$$\\lim_{x\\to0^-}f(x)=\\lim_{x\\to0}e^x=e^0=1,\\qquad \\lim_{x\\to0^+}f(x)=\\lim_{x\\to0}x^2=0$$"
+          },
+          {
+            "do": "If $f$ were continuous, these two numbers would have to be the same. Since they are not, $f$ is discontinuous at $x=a$.",
+            "work": "The two numbers ($1$ and $0$) are not the same, so $f$ is discontinuous at $x=0$."
+          }
+        ],
+        "answer": "Left limit $1\\ne0$ = right limit, so $f$ is discontinuous at $x=0$ (jump of $-1$).",
+        "check": {
+          "kind": "number",
+          "value": "-1"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Explain why $f$ is discontinuous at $x=1$, where $f(x)=3x+1$ for $x<1$ and $f(x)=x^2+5$ for $x\\ge1$. Enter the size of the jump, (right limit) $-$ (left limit).",
+          "steps": [
+            {
+              "do": "Find the limit from the left at $x=a$, $\\lim_{x\\to a^-}f(x)=\\lim_{x\\to a}\\text{LeftExpression}(x)$, and the limit from the right, $\\lim_{x\\to a^+}f(x)=\\lim_{x\\to a}\\text{RightExpression}(x)$.",
+              "work": "$$\\lim_{x\\to1^-}f(x)=\\lim_{x\\to1}(3x+1)=4,\\qquad \\lim_{x\\to1^+}f(x)=\\lim_{x\\to1}(x^2+5)=6$$"
+            },
+            {
+              "do": "If $f$ were continuous, these two numbers would have to be the same. Since they are not, $f$ is discontinuous at $x=a$.",
+              "work": "The two numbers ($4$ and $6$) are not the same, so $f$ is discontinuous at $x=1$; the jump is $6-4=2$."
+            }
+          ],
+          "answer": "Jump $=2$",
+          "check": {
+            "kind": "number",
+            "value": "2"
+          }
+        },
+        {
+          "problem": "Explain why $f$ is discontinuous at $x=0$, where $f(x)=e^{2x}+1$ for $x<0$ and $f(x)=5-x^2$ for $x\\ge0$. Enter the size of the jump, (right limit) $-$ (left limit).",
+          "steps": [
+            {
+              "do": "Find the limit from the left at $x=a$, $\\lim_{x\\to a^-}f(x)=\\lim_{x\\to a}\\text{LeftExpression}(x)$, and the limit from the right, $\\lim_{x\\to a^+}f(x)=\\lim_{x\\to a}\\text{RightExpression}(x)$.",
+              "work": "$$\\lim_{x\\to0^-}f(x)=\\lim_{x\\to0}(e^{2x}+1)=2,\\qquad \\lim_{x\\to0^+}f(x)=\\lim_{x\\to0}(5-x^2)=5$$"
+            },
+            {
+              "do": "If $f$ were continuous, these two numbers would have to be the same. Since they are not, $f$ is discontinuous at $x=a$.",
+              "work": "The two numbers ($2$ and $5$) are not the same, so $f$ is discontinuous at $x=0$; the jump is $5-2=3$."
+            }
+          ],
+          "answer": "Jump $=3$",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.5.1",
+      "course": "calc1",
+      "section": "2.5",
+      "topic": "Evaluating Limits Algebraically",
+      "title": "Limit by factoring",
+      "type": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to a}f(x)$.",
+      "example": {
+        "problem": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to-4}\\frac{x^2+5x+4}{x^2+3x-4}$.",
+        "steps": [
+          {
+            "do": "Try to plug in $x=a$. If the denominator is not zero, that value is the limit. If the top is nonzero and the bottom is $0$, the limit does not exist (it is infinite). If you get $0/0$, SIMPLIFY AS MUCH AS POSSIBLE (factor and cancel).",
+            "work": "Plugging in $x=-4$ gives $\\dfrac{16-20+4}{16-12-4}=\\dfrac00$, so simplify: $$\\frac{x^2+5x+4}{x^2+3x-4}=\\frac{(x+1)(x+4)}{(x-1)(x+4)}=\\frac{x+1}{x-1}$$"
+          },
+          {
+            "do": "Plug in $x=a$ again. If you still get $0/0$, go back to step 1; otherwise you are done.",
+            "work": "$$\\lim_{x\\to-4}\\frac{x+1}{x-1}=\\frac{-4+1}{-4-1}=\\frac{-3}{-5}=\\frac35$$"
+          }
+        ],
+        "answer": "$\\tfrac35$",
+        "check": {
+          "kind": "number",
+          "value": "3/5"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to-3}\\frac{x^2+2x-3}{x^2+5x+6}$.",
+          "steps": [
+            {
+              "do": "Try to plug in $x=a$. If the denominator is not zero, that value is the limit. If the top is nonzero and the bottom is $0$, the limit does not exist (it is infinite). If you get $0/0$, SIMPLIFY AS MUCH AS POSSIBLE (factor and cancel).",
+              "work": "Plugging in $x=-3$ gives $\\dfrac{9-6-3}{9-15+6}=\\dfrac00$, so simplify: $$\\frac{x^2+2x-3}{x^2+5x+6}=\\frac{(x-1)(x+3)}{(x+2)(x+3)}=\\frac{x-1}{x+2}$$"
+            },
+            {
+              "do": "Plug in $x=a$ again. If you still get $0/0$, go back to step 1; otherwise you are done.",
+              "work": "$$\\lim_{x\\to-3}\\frac{x-1}{x+2}=\\frac{-3-1}{-3+2}=\\frac{-4}{-1}=4$$"
+            }
+          ],
+          "answer": "$4$",
+          "check": {
+            "kind": "number",
+            "value": "4"
+          }
+        },
+        {
+          "problem": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to5}\\frac{x^2-3x-10}{x^2-25}$.",
+          "steps": [
+            {
+              "do": "Try to plug in $x=a$. If the denominator is not zero, that value is the limit. If the top is nonzero and the bottom is $0$, the limit does not exist (it is infinite). If you get $0/0$, SIMPLIFY AS MUCH AS POSSIBLE (factor and cancel).",
+              "work": "Plugging in $x=5$ gives $\\dfrac{25-15-10}{25-25}=\\dfrac00$, so simplify: $$\\frac{x^2-3x-10}{x^2-25}=\\frac{(x-5)(x+2)}{(x-5)(x+5)}=\\frac{x+2}{x+5}$$"
+            },
+            {
+              "do": "Plug in $x=a$ again. If you still get $0/0$, go back to step 1; otherwise you are done.",
+              "work": "$$\\lim_{x\\to5}\\frac{x+2}{x+5}=\\frac{7}{10}$$"
+            }
+          ],
+          "answer": "$\\tfrac{7}{10}$",
+          "check": {
+            "kind": "number",
+            "value": "7/10"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.5.2",
+      "course": "calc1",
+      "section": "2.5",
+      "topic": "Evaluating Limits Algebraically",
+      "title": "Limit with radicals (conjugate)",
+      "type": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to a}f(x)$, where $f(x)$ features radical (square-root) signs.",
+      "example": {
+        "problem": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to0}\\frac{x}{\\sqrt{2+x}-\\sqrt{2-x}}$.",
+        "steps": [
+          {
+            "do": "Typically the top or bottom has the form $\\sqrt{\\text{SomeThing}}-\\sqrt{\\text{SomeThingElse}}$. Multiply top and bottom by the conjugate $\\sqrt{\\text{SomeThing}}+\\sqrt{\\text{SomeThingElse}}$. (If it has the form $\\sqrt{\\ }+\\sqrt{\\ }$, multiply by $\\sqrt{\\ }-\\sqrt{\\ }$ instead.)",
+            "work": "The conjugate of $\\sqrt{2+x}-\\sqrt{2-x}$ is $\\sqrt{2+x}+\\sqrt{2-x}$: $$\\lim_{x\\to0}\\frac{x(\\sqrt{2+x}+\\sqrt{2-x})}{(\\sqrt{2+x}-\\sqrt{2-x})(\\sqrt{2+x}+\\sqrt{2-x})}$$"
+          },
+          {
+            "do": "Use $(A-B)(A+B)=A^2-B^2$ to get $(\\sqrt{\\text{SomeThing}}+\\sqrt{\\text{SomeThingElse}})(\\sqrt{\\text{SomeThing}}-\\sqrt{\\text{SomeThingElse}})=\\text{SomeThing}-\\text{SomeThingElse}$. Simplify as much as you can.",
+            "work": "$$=\\lim_{x\\to0}\\frac{x(\\sqrt{2+x}+\\sqrt{2-x})}{(2+x)-(2-x)}=\\lim_{x\\to0}\\frac{x(\\sqrt{2+x}+\\sqrt{2-x})}{2x}=\\lim_{x\\to0}\\frac{\\sqrt{2+x}+\\sqrt{2-x}}{2}$$"
+          },
+          {
+            "do": "Plug in $x=a$.",
+            "work": "$$\\frac{\\sqrt2+\\sqrt2}{2}=\\sqrt2$$"
+          }
+        ],
+        "answer": "$\\sqrt2$",
+        "check": {
+          "kind": "number",
+          "value": "sqrt(2)"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to0}\\frac{x}{\\sqrt{3+x}-\\sqrt{3-x}}$.",
+          "steps": [
+            {
+              "do": "Typically the top or bottom has the form $\\sqrt{\\text{SomeThing}}-\\sqrt{\\text{SomeThingElse}}$. Multiply top and bottom by the conjugate $\\sqrt{\\text{SomeThing}}+\\sqrt{\\text{SomeThingElse}}$. (If it has the form $\\sqrt{\\ }+\\sqrt{\\ }$, multiply by $\\sqrt{\\ }-\\sqrt{\\ }$ instead.)",
+              "work": "The conjugate of $\\sqrt{3+x}-\\sqrt{3-x}$ is $\\sqrt{3+x}+\\sqrt{3-x}$: $$\\lim_{x\\to0}\\frac{x(\\sqrt{3+x}+\\sqrt{3-x})}{(\\sqrt{3+x}-\\sqrt{3-x})(\\sqrt{3+x}+\\sqrt{3-x})}$$"
+            },
+            {
+              "do": "Use $(A-B)(A+B)=A^2-B^2$ to get $(\\sqrt{\\text{SomeThing}}+\\sqrt{\\text{SomeThingElse}})(\\sqrt{\\text{SomeThing}}-\\sqrt{\\text{SomeThingElse}})=\\text{SomeThing}-\\text{SomeThingElse}$. Simplify as much as you can.",
+              "work": "$$=\\lim_{x\\to0}\\frac{x(\\sqrt{3+x}+\\sqrt{3-x})}{(3+x)-(3-x)}=\\lim_{x\\to0}\\frac{x(\\sqrt{3+x}+\\sqrt{3-x})}{2x}=\\lim_{x\\to0}\\frac{\\sqrt{3+x}+\\sqrt{3-x}}{2}$$"
+            },
+            {
+              "do": "Plug in $x=a$.",
+              "work": "$$\\frac{\\sqrt3+\\sqrt3}{2}=\\sqrt3$$"
+            }
+          ],
+          "answer": "$\\sqrt3$",
+          "check": {
+            "kind": "number",
+            "value": "sqrt(3)"
+          }
+        },
+        {
+          "problem": "Evaluate the limit if it exists: $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{x+9}-3}{x}$.",
+          "steps": [
+            {
+              "do": "Typically the top or bottom has the form $\\sqrt{\\text{SomeThing}}-\\sqrt{\\text{SomeThingElse}}$. Multiply top and bottom by the conjugate $\\sqrt{\\text{SomeThing}}+\\sqrt{\\text{SomeThingElse}}$. (If it has the form $\\sqrt{\\ }+\\sqrt{\\ }$, multiply by $\\sqrt{\\ }-\\sqrt{\\ }$ instead.)",
+              "work": "The conjugate of $\\sqrt{x+9}-3$ is $\\sqrt{x+9}+3$: $$\\lim_{x\\to0}\\frac{(\\sqrt{x+9}-3)(\\sqrt{x+9}+3)}{x(\\sqrt{x+9}+3)}$$"
+            },
+            {
+              "do": "Use $(A-B)(A+B)=A^2-B^2$ to get $(\\sqrt{\\text{SomeThing}}+\\sqrt{\\text{SomeThingElse}})(\\sqrt{\\text{SomeThing}}-\\sqrt{\\text{SomeThingElse}})=\\text{SomeThing}-\\text{SomeThingElse}$. Simplify as much as you can.",
+              "work": "$$=\\lim_{x\\to0}\\frac{(x+9)-9}{x(\\sqrt{x+9}+3)}=\\lim_{x\\to0}\\frac{x}{x(\\sqrt{x+9}+3)}=\\lim_{x\\to0}\\frac{1}{\\sqrt{x+9}+3}$$"
+            },
+            {
+              "do": "Plug in $x=a$.",
+              "work": "$$\\frac{1}{\\sqrt9+3}=\\frac16$$"
+            }
+          ],
+          "answer": "$\\tfrac16$",
+          "check": {
+            "kind": "number",
+            "value": "1/6"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.6.1",
+      "course": "calc1",
+      "section": "2.6",
+      "topic": "Trigonometric Limits",
+      "title": "Squeeze: zero times bounded",
+      "type": "Use the Squeeze Theorem to prove that $\\displaystyle\\lim_{x\\to a}\\text{GoesToZero}(x)\\cdot\\text{Bounded}(x)=0$.",
+      "example": {
+        "problem": "Use the Squeeze Theorem to prove that $\\displaystyle\\lim_{x\\to0}\\sqrt{x^3+x^2}\\,\\sin(\\pi/x)=0$.",
+        "steps": [
+          {
+            "do": "Show that $\\displaystyle\\lim_{x\\to a}\\text{GoesToZero}(x)$ indeed equals $0$.",
+            "work": "$$\\lim_{x\\to0}\\sqrt{x^3+x^2}=\\sqrt{0^3+0^2}=\\sqrt0=0$$"
+          },
+          {
+            "do": "Show that $\\text{Bounded}(x)$ is indeed bounded, at least near $x=a$. (Then $-|\\text{GoesToZero}|\\le \\text{GoesToZero}\\cdot\\text{Bounded}\\le|\\text{GoesToZero}|$ and the Squeeze Theorem finishes the proof.)",
+            "work": "The sine function is always between $-1$ and $1$, hence bounded. So $-\\sqrt{x^3+x^2}\\le\\sqrt{x^3+x^2}\\sin(\\pi/x)\\le\\sqrt{x^3+x^2}$ and both bounds go to $0$. $\\square$"
+          }
+        ],
+        "answer": "The limit is $0$ by the Squeeze Theorem."
+      },
+      "practice": [
+        {
+          "problem": "Use the Squeeze Theorem to prove that $\\displaystyle\\lim_{x\\to0}x^4\\cos(2/x)=0$. Enter the function $g(x)$ that serves as the upper bound, $x^4\\cos(2/x)\\le g(x)$ (the lower bound is $-g(x)$).",
+          "steps": [
+            {
+              "do": "Show that $\\displaystyle\\lim_{x\\to a}\\text{GoesToZero}(x)$ indeed equals $0$.",
+              "work": "$\\displaystyle\\lim_{x\\to0}x^4=0^4=0$."
+            },
+            {
+              "do": "Show that $\\text{Bounded}(x)$ is indeed bounded, at least near $x=a$. (Then $-|\\text{GoesToZero}|\\le \\text{GoesToZero}\\cdot\\text{Bounded}\\le|\\text{GoesToZero}|$ and the Squeeze Theorem finishes the proof.)",
+              "work": "The cosine function is always between $-1$ and $1$, hence bounded. So $-x^4\\le x^4\\cos(2/x)\\le x^4$, and both bounds go to $0$. $\\square$"
+            }
+          ],
+          "answer": "$g(x)=x^4$; the limit is $0$.",
+          "check": {
+            "kind": "expr",
+            "value": "x^4",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Use the Squeeze Theorem to prove that $\\displaystyle\\lim_{x\\to0}x^2\\big(2+\\sin(1/x)\\big)=0$. Enter the function $g(x)$ that serves as the upper bound, $x^2(2+\\sin(1/x))\\le g(x)$ (the lower bound is $0$).",
+          "steps": [
+            {
+              "do": "Show that $\\displaystyle\\lim_{x\\to a}\\text{GoesToZero}(x)$ indeed equals $0$.",
+              "work": "$\\displaystyle\\lim_{x\\to0}x^2=0$."
+            },
+            {
+              "do": "Show that $\\text{Bounded}(x)$ is indeed bounded, at least near $x=a$. (Then $-|\\text{GoesToZero}|\\le \\text{GoesToZero}\\cdot\\text{Bounded}\\le|\\text{GoesToZero}|$ and the Squeeze Theorem finishes the proof.)",
+              "work": "Since $-1\\le\\sin(1/x)\\le1$, the factor $2+\\sin(1/x)$ is between $1$ and $3$, hence bounded. So $0\\le x^2(2+\\sin(1/x))\\le 3x^2$, and both bounds go to $0$. $\\square$"
+            }
+          ],
+          "answer": "$g(x)=3x^2$; the limit is $0$.",
+          "check": {
+            "kind": "expr",
+            "value": "3*x^2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.6.2",
+      "course": "calc1",
+      "section": "2.6",
+      "topic": "Trigonometric Limits",
+      "title": "Limits with sin w over w",
+      "type": "Evaluate $\\displaystyle\\lim_{t\\to0}\\text{ExpressionInSinesAndOrCosines}(t)$ by rearranging into $\\frac{\\sin w}{w}$ and $\\frac{1-\\cos w}{w}$ pieces.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\sin7x}{3x}$.",
+        "steps": [
+          {
+            "do": "The official way: rearrange so you can use $\\displaystyle\\lim_{w\\to0}\\frac{\\sin w}{w}=1$ and/or $\\displaystyle\\lim_{w\\to0}\\frac{1-\\cos w}{w}=0$, where $w$ is whatever goes to $0$.",
+            "work": "Divide and multiply by $7x$: $$\\lim_{x\\to0}\\frac{\\sin7x}{3x}=\\lim_{x\\to0}\\frac{\\sin7x}{7x}\\cdot\\frac{7x}{3x}=\\Big(\\lim_{7x\\to0}\\frac{\\sin7x}{7x}\\Big)\\cdot\\frac73=1\\cdot\\frac73=\\frac73$$"
+          },
+          {
+            "do": "The unofficial shortcut: replace $\\sin w$ by $w$ everywhere.",
+            "work": "$$\\lim_{x\\to0}\\frac{\\sin7x}{3x}=\\lim_{x\\to0}\\frac{7x}{3x}=\\frac73$$"
+          }
+        ],
+        "answer": "$\\tfrac73$",
+        "check": {
+          "kind": "number",
+          "value": "7/3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\sin9x}{4x}$.",
+          "steps": [
+            {
+              "do": "The official way: rearrange so you can use $\\displaystyle\\lim_{w\\to0}\\frac{\\sin w}{w}=1$ and/or $\\displaystyle\\lim_{w\\to0}\\frac{1-\\cos w}{w}=0$, where $w$ is whatever goes to $0$.",
+              "work": "$$\\lim_{x\\to0}\\frac{\\sin9x}{4x}=\\lim_{x\\to0}\\frac{\\sin9x}{9x}\\cdot\\frac{9x}{4x}=1\\cdot\\frac94=\\frac94$$"
+            },
+            {
+              "do": "The unofficial shortcut: replace $\\sin w$ by $w$ everywhere.",
+              "work": "$$\\lim_{x\\to0}\\frac{9x}{4x}=\\frac94$$"
+            }
+          ],
+          "answer": "$\\tfrac94$",
+          "check": {
+            "kind": "number",
+            "value": "9/4"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\sin6x}{\\sin5x}$.",
+          "steps": [
+            {
+              "do": "The official way: rearrange so you can use $\\displaystyle\\lim_{w\\to0}\\frac{\\sin w}{w}=1$ and/or $\\displaystyle\\lim_{w\\to0}\\frac{1-\\cos w}{w}=0$, where $w$ is whatever goes to $0$.",
+              "work": "$$\\lim_{x\\to0}\\frac{\\sin6x}{\\sin5x}=\\lim_{x\\to0}\\frac{\\sin6x}{6x}\\cdot\\frac{5x}{\\sin5x}\\cdot\\frac{6x}{5x}=1\\cdot1\\cdot\\frac65=\\frac65$$"
+            },
+            {
+              "do": "The unofficial shortcut: replace $\\sin w$ by $w$ everywhere.",
+              "work": "$$\\lim_{x\\to0}\\frac{6x}{5x}=\\frac65$$"
+            }
+          ],
+          "answer": "$\\tfrac65$",
+          "check": {
+            "kind": "number",
+            "value": "6/5"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.6.3",
+      "course": "calc1",
+      "section": "2.6",
+      "topic": "Trigonometric Limits",
+      "title": "Limits with 1 minus cos w over w",
+      "type": "Evaluate $\\displaystyle\\lim_{t\\to0}\\text{ExpressionInSinesAndOrCosines}(t)$, where the top must be rearranged to use $\\frac{1-\\cos w}{w}\\to0$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\cos5x-\\cos3x}{x}$.",
+        "steps": [
+          {
+            "do": "Use algebra to rearrange the top so you can take advantage of $\\displaystyle\\lim_{w\\to0}\\frac{1-\\cos w}{w}=0$ (and $\\lim_{w\\to0}\\frac{\\sin w}{w}=1$ if sines also appear), where $w$ is whatever goes to $0$.",
+            "work": "$$\\begin{aligned}\\lim_{x\\to0}\\frac{\\cos5x-\\cos3x}{x}&=\\lim_{x\\to0}\\frac{(1-\\cos3x)-(1-\\cos5x)}{x}\\\\&=3\\lim_{3x\\to0}\\frac{1-\\cos3x}{3x}-5\\lim_{5x\\to0}\\frac{1-\\cos5x}{5x}=3\\cdot0-5\\cdot0=0\\end{aligned}$$"
+          }
+        ],
+        "answer": "$0$",
+        "check": {
+          "kind": "number",
+          "value": "0"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\cos7x-\\cos2x}{x}$.",
+          "steps": [
+            {
+              "do": "Use algebra to rearrange the top so you can take advantage of $\\displaystyle\\lim_{w\\to0}\\frac{1-\\cos w}{w}=0$ (and $\\lim_{w\\to0}\\frac{\\sin w}{w}=1$ if sines also appear), where $w$ is whatever goes to $0$.",
+              "work": "$$\\begin{aligned}\\lim_{x\\to0}\\frac{\\cos7x-\\cos2x}{x}&=\\lim_{x\\to0}\\frac{(1-\\cos2x)-(1-\\cos7x)}{x}\\\\&=2\\lim_{2x\\to0}\\frac{1-\\cos2x}{2x}-7\\lim_{7x\\to0}\\frac{1-\\cos7x}{7x}=2\\cdot0-7\\cdot0=0\\end{aligned}$$"
+            }
+          ],
+          "answer": "$0$",
+          "check": {
+            "kind": "number",
+            "value": "0"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\sin5x+\\cos3x-1}{x}$.",
+          "steps": [
+            {
+              "do": "Use algebra to rearrange the top so you can take advantage of $\\displaystyle\\lim_{w\\to0}\\frac{1-\\cos w}{w}=0$ (and $\\lim_{w\\to0}\\frac{\\sin w}{w}=1$ if sines also appear), where $w$ is whatever goes to $0$.",
+              "work": "$$\\begin{aligned}\\lim_{x\\to0}\\frac{\\sin5x+\\cos3x-1}{x}&=\\lim_{x\\to0}\\frac{\\sin5x}{x}-\\lim_{x\\to0}\\frac{1-\\cos3x}{x}\\\\&=5\\lim_{5x\\to0}\\frac{\\sin5x}{5x}-3\\lim_{3x\\to0}\\frac{1-\\cos3x}{3x}=5\\cdot1-3\\cdot0=5\\end{aligned}$$"
+            }
+          ],
+          "answer": "$5$",
+          "check": {
+            "kind": "number",
+            "value": "5"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.7.2",
+      "course": "calc1",
+      "section": "2.7",
+      "topic": "The Intermediate Value Theorem",
+      "title": "Locating a root with the IVT",
+      "type": "Find an interval of length $\\tfrac1N$ inside $[a,b]$ that contains a root of $f(x)$.",
+      "example": {
+        "problem": "Find an interval of length $\\tfrac14$ in $[1,2]$ that contains a root of $x^3-2x-1$.",
+        "steps": [
+          {
+            "do": "Plug in $x=a,\\ a+\\frac{b-a}{N},\\ a+\\frac{2(b-a)}{N},\\ \\dots,\\ b$ until two consecutive values have opposite signs.",
+            "work": "With $f(x)=x^3-2x-1$: $f(1)=-2$, $f(\\tfrac54)=-\\tfrac{99}{64}$, $f(\\tfrac32)=-\\tfrac58$, $f(\\tfrac74)=\\tfrac{55}{64}$."
+          },
+          {
+            "do": "Invoke the Intermediate Value Theorem: on the first subinterval where $f$ takes opposite signs at the endpoints, the continuous function $f$ must vanish somewhere inside.",
+            "work": "$f$ is negative at $x=\\tfrac32$ and positive at $x=\\tfrac74$, so by the IVT $f$ has a root in the open interval $(\\tfrac32,\\tfrac74)$."
+          }
+        ],
+        "answer": "$\\left(\\tfrac32,\\tfrac74\\right)$. Left endpoint $=\\tfrac32$.",
+        "check": {
+          "kind": "number",
+          "value": "3/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find an interval of length $\\tfrac14$ in $[1,2]$ that contains a root of $x^3-x-1$. Enter the left endpoint of that interval.",
+          "steps": [
+            {
+              "do": "Plug in $x=a,\\ a+\\frac{b-a}{N},\\ a+\\frac{2(b-a)}{N},\\ \\dots,\\ b$ until two consecutive values have opposite signs.",
+              "work": "With $f(x)=x^3-x-1$: $f(1)=-1$, $f(\\tfrac54)=-\\tfrac{19}{64}$, $f(\\tfrac32)=\\tfrac78$."
+            },
+            {
+              "do": "Invoke the Intermediate Value Theorem: on the first subinterval where $f$ takes opposite signs at the endpoints, the continuous function $f$ must vanish somewhere inside.",
+              "work": "$f$ is negative at $x=\\tfrac54$ and positive at $x=\\tfrac32$, so by the IVT $f$ has a root in the open interval $(\\tfrac54,\\tfrac32)$."
+            }
+          ],
+          "answer": "$\\left(\\tfrac54,\\tfrac32\\right)$. Left endpoint $=\\tfrac54$.",
+          "check": {
+            "kind": "number",
+            "value": "5/4"
+          }
+        },
+        {
+          "problem": "Find an interval of length $\\tfrac14$ in $[0,1]$ that contains a root of $x^3+3x-1$. Enter the left endpoint of that interval.",
+          "steps": [
+            {
+              "do": "Plug in $x=a,\\ a+\\frac{b-a}{N},\\ a+\\frac{2(b-a)}{N},\\ \\dots,\\ b$ until two consecutive values have opposite signs.",
+              "work": "With $f(x)=x^3+3x-1$: $f(0)=-1$, $f(\\tfrac14)=-\\tfrac{15}{64}$, $f(\\tfrac12)=\\tfrac58$."
+            },
+            {
+              "do": "Invoke the Intermediate Value Theorem: on the first subinterval where $f$ takes opposite signs at the endpoints, the continuous function $f$ must vanish somewhere inside.",
+              "work": "$f$ is negative at $x=\\tfrac14$ and positive at $x=\\tfrac12$, so by the IVT $f$ has a root in the open interval $(\\tfrac14,\\tfrac12)$."
+            }
+          ],
+          "answer": "$\\left(\\tfrac14,\\tfrac12\\right)$. Left endpoint $=\\tfrac14$.",
+          "check": {
+            "kind": "number",
+            "value": "1/4"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-2.8.1",
+      "course": "calc1",
+      "section": "2.8",
+      "topic": "The Formal Definition of a Limit",
+      "title": "Epsilon-delta proof for a line",
+      "type": "Prove rigorously that $\\displaystyle\\lim_{x\\to c}f(x)=L$, for specific numbers $c$, $L$ and a (usually very simple) function $f(x)$ such as $ax+b$.",
+      "example": {
+        "problem": "Prove rigorously that $\\displaystyle\\lim_{x\\to2}(3x+1)=7$.",
+        "steps": [
+          {
+            "do": "We must show that for every $\\epsilon>0$ there is a $\\delta>0$ such that $|f(x)-L|<\\epsilon$ whenever $|x-c|<\\delta$. Spell this out for the given $f$, $c$ and $L$, then use algebra to bring the left sides to the same form.",
+            "work": "Here $c=2$, $L=7$, $f(x)=3x+1$. We must show: $|3x+1-7|<\\epsilon$ whenever $|x-2|<\\delta$. Simplify the left side: $$|3x-6|<\\epsilon\\iff3|x-2|<\\epsilon\\iff|x-2|<\\epsilon/3.$$"
+          },
+          {
+            "do": "If you are lucky (the problem is simple enough) you get the same left sides; the expression in $\\epsilon$ that appears on the right of the $|x-c|<\\dots$ is your $\\delta$.",
+            "work": "Comparing, take $\\delta=\\epsilon/3$: then \"$|x-2|<\\delta$\" is exactly \"$|x-2|<\\epsilon/3$\", so $|f(x)-7|<\\epsilon$. Hence $\\lim_{x\\to2}(3x+1)=7$ rigorously."
+          }
+        ],
+        "answer": "$\\delta=\\epsilon/3$ works."
+      },
+      "practice": [
+        {
+          "problem": "Prove rigorously that $\\displaystyle\\lim_{x\\to4}(5x-3)=17$. Then enter the largest $\\delta$ given by your proof for $\\epsilon=0.05$.",
+          "steps": [
+            {
+              "do": "We must show that for every $\\epsilon>0$ there is a $\\delta>0$ such that $|f(x)-L|<\\epsilon$ whenever $|x-c|<\\delta$. Spell this out for the given $f$, $c$ and $L$, then use algebra to bring the left sides to the same form.",
+              "work": "Here $c=4$, $L=17$, $f(x)=5x-3$. We must show $|5x-3-17|<\\epsilon$ whenever $|x-4|<\\delta$. Simplify: $$|5x-20|<\\epsilon\\iff5|x-4|<\\epsilon\\iff|x-4|<\\epsilon/5.$$"
+            },
+            {
+              "do": "If you are lucky (the problem is simple enough) you get the same left sides; the expression in $\\epsilon$ that appears on the right of the $|x-c|<\\dots$ is your $\\delta$.",
+              "work": "Take $\\delta=\\epsilon/5$; then $|x-4|<\\delta$ gives $|f(x)-17|<\\epsilon$. For $\\epsilon=0.05$: $\\delta=0.05/5=0.01$."
+            }
+          ],
+          "answer": "$\\delta=\\epsilon/5$; for $\\epsilon=0.05$, $\\delta=0.01$",
+          "check": {
+            "kind": "number",
+            "value": "0.01"
+          }
+        },
+        {
+          "problem": "Prove rigorously that $\\displaystyle\\lim_{x\\to-2}(2-3x)=8$. Then enter the largest $\\delta$ given by your proof for $\\epsilon=0.3$.",
+          "steps": [
+            {
+              "do": "We must show that for every $\\epsilon>0$ there is a $\\delta>0$ such that $|f(x)-L|<\\epsilon$ whenever $|x-c|<\\delta$. Spell this out for the given $f$, $c$ and $L$, then use algebra to bring the left sides to the same form.",
+              "work": "Here $c=-2$, $L=8$, $f(x)=2-3x$. We must show $|2-3x-8|<\\epsilon$ whenever $|x+2|<\\delta$. Simplify: $$|-3x-6|<\\epsilon\\iff3|x+2|<\\epsilon\\iff|x+2|<\\epsilon/3.$$"
+            },
+            {
+              "do": "If you are lucky (the problem is simple enough) you get the same left sides; the expression in $\\epsilon$ that appears on the right of the $|x-c|<\\dots$ is your $\\delta$.",
+              "work": "Take $\\delta=\\epsilon/3$. For $\\epsilon=0.3$: $\\delta=0.1$."
+            }
+          ],
+          "answer": "$\\delta=\\epsilon/3$; for $\\epsilon=0.3$, $\\delta=0.1$",
+          "check": {
+            "kind": "number",
+            "value": "0.1"
+          }
+        }
+      ],
+      "scene": "limit"
+    },
+    {
+      "id": "c1-3.1.1",
+      "course": "calc1",
+      "section": "3.1",
+      "topic": "Derivatives and Rates of Change",
+      "title": "Derivative at a point by definition",
+      "type": "Compute the derivative at the given point $x=a$ of a given function $f(x)$, using the limit definition, and find an equation of the tangent line.",
+      "example": {
+        "problem": "Compute the derivative at $x=-2$ of $f(x)=\\dfrac1{x+3}$ using the limit definition, and find an equation of the tangent line.",
+        "steps": [
+          {
+            "do": "Write down the definition $f'(a)=\\displaystyle\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$ and put in the specific $a$ and $f(x)$.",
+            "work": "$$f'(-2)=\\lim_{h\\to0}\\frac{f(-2+h)-f(-2)}{h},\\quad f(-2+h)=\\frac1{-2+h+3}=\\frac1{h+1},\\quad f(-2)=\\frac1{-2+3}=1$$"
+          },
+          {
+            "do": "Use algebra to simplify what is inside the limit, then take the limit (with respect to $h$).",
+            "work": "$$f'(-2)=\\lim_{h\\to0}\\frac{\\frac1{h+1}-1}{h}=\\lim_{h\\to0}\\frac{\\frac{-h}{h+1}}{h}=\\lim_{h\\to0}\\frac{-1}{h+1}=-1$$"
+          },
+          {
+            "do": "The derivative at $x=a$ is the slope of the tangent line at $(a,f(a))$. Compute $f(a)$ for the $y$-coordinate and use point-slope form $y-y_0=m(x-x_0)$.",
+            "work": "$f(-2)=1$, so the point is $(-2,1)$ and $m=-1$: $y-1=(-1)(x+2)$, i.e. $y=-x-1$."
+          }
+        ],
+        "answer": "$f'(-2)=-1$; tangent line $y=-x-1$",
+        "check": {
+          "kind": "expr",
+          "value": "-x-1",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Compute the derivative at $x=3$ of $f(x)=\\dfrac1{x-1}$ using the limit definition, and enter the equation of the tangent line there.",
+          "steps": [
+            {
+              "do": "Write down the definition $f'(a)=\\displaystyle\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$ and put in the specific $a$ and $f(x)$.",
+              "work": "$$f'(3)=\\lim_{h\\to0}\\frac{f(3+h)-f(3)}{h},\\quad f(3+h)=\\frac1{2+h},\\quad f(3)=\\frac12$$"
+            },
+            {
+              "do": "Use algebra to simplify what is inside the limit, then take the limit (with respect to $h$).",
+              "work": "$$\\lim_{h\\to0}\\frac{\\frac1{2+h}-\\frac12}{h}=\\lim_{h\\to0}\\frac{\\frac{2-(2+h)}{2(2+h)}}{h}=\\lim_{h\\to0}\\frac{-1}{2(2+h)}=-\\frac14$$"
+            },
+            {
+              "do": "The derivative at $x=a$ is the slope of the tangent line at $(a,f(a))$. Compute $f(a)$ for the $y$-coordinate and use point-slope form $y-y_0=m(x-x_0)$.",
+              "work": "The point is $(3,\\tfrac12)$ and $m=-\\tfrac14$: $y-\\tfrac12=-\\tfrac14(x-3)$, so $y=-\\tfrac14x+\\tfrac54$."
+            }
+          ],
+          "answer": "$f'(3)=-\\tfrac14$; tangent line $y=-\\tfrac14x+\\tfrac54$",
+          "check": {
+            "kind": "expr",
+            "value": "-x/4+5/4",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Compute the derivative at $x=4$ of $f(x)=\\sqrt{2x+1}$ using the limit definition, and enter the equation of the tangent line there.",
+          "steps": [
+            {
+              "do": "Write down the definition $f'(a)=\\displaystyle\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$ and put in the specific $a$ and $f(x)$.",
+              "work": "$$f'(4)=\\lim_{h\\to0}\\frac{f(4+h)-f(4)}{h},\\quad f(4+h)=\\sqrt{9+2h},\\quad f(4)=3$$"
+            },
+            {
+              "do": "Use algebra to simplify what is inside the limit, then take the limit (with respect to $h$).",
+              "work": "$$\\lim_{h\\to0}\\frac{\\sqrt{9+2h}-3}{h}=\\lim_{h\\to0}\\frac{(9+2h)-9}{h(\\sqrt{9+2h}+3)}=\\lim_{h\\to0}\\frac{2}{\\sqrt{9+2h}+3}=\\frac26=\\frac13$$"
+            },
+            {
+              "do": "The derivative at $x=a$ is the slope of the tangent line at $(a,f(a))$. Compute $f(a)$ for the $y$-coordinate and use point-slope form $y-y_0=m(x-x_0)$.",
+              "work": "The point is $(4,3)$ and $m=\\tfrac13$: $y-3=\\tfrac13(x-4)$, so $y=\\tfrac13x+\\tfrac53$."
+            }
+          ],
+          "answer": "$f'(4)=\\tfrac13$; tangent line $y=\\tfrac13x+\\tfrac53$",
+          "check": {
+            "kind": "expr",
+            "value": "x/3+5/3",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "secant"
+    },
+    {
+      "id": "c1-3.1.2",
+      "course": "calc1",
+      "section": "3.1",
+      "topic": "Derivatives and Rates of Change",
+      "title": "Limit as a derivative f'(a)",
+      "type": "The following limit represents a derivative $f'(a)$ for some function $f(x)$ and number $a$. Find $f(x)$ and $a$. First version: $\\displaystyle\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$. Second version: $\\displaystyle\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}$.",
+      "example": {
+        "problem": "The following limits represent a derivative $f'(a)$ for some function $f$ and number $a$. Find $f(x)$ and $a$: (a) $\\displaystyle\\lim_{h\\to0}\\frac{(3+h)^4-81}{h}$, (b) $\\displaystyle\\lim_{x\\to\\pi}\\frac{\\cos x-\\cos\\pi}{x-\\pi}$.",
+        "steps": [
+          {
+            "do": "Decide which version is being used. The second version, $\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}$, is transparent: $a$ is the point where the limit is taken. In the first version, $\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$, the denominator is always $h$, so read both $a$ and $f$ from the $f(a+h)$ part.",
+            "work": "(b) uses the second version: the bottom is $x-\\pi$, so $a=\\pi$. (a) is the first version: $(3+h)^4$ must be $f(a+h)$, so $a=3$."
+          },
+          {
+            "do": "Pattern-match the top to get $f(x)$ (in the second version the top is $f(x)-f(a)$).",
+            "work": "(b) The top is $\\cos x-\\cos\\pi$, so $f(x)=\\cos x$. (a) $f(3+h)=(3+h)^4$ gives $f(x)=x^4$ (and indeed $f(3)=81$)."
+          }
+        ],
+        "answer": "(a) $f(x)=x^4$, $a=3$ (b) $f(x)=\\cos x$, $a=\\pi$"
+      },
+      "practice": [
+        {
+          "problem": "The following limits represent a derivative $f'(a)$. Find $f$ and $a$ in each: (a) $\\displaystyle\\lim_{h\\to0}\\frac{(2+h)^5-32}{h}$, (b) $\\displaystyle\\lim_{x\\to4}\\frac{\\sqrt x-2}{x-4}$. Enter the value of the limit in (a).",
+          "steps": [
+            {
+              "do": "Decide which version is being used. The second version, $\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}$, is transparent: $a$ is the point where the limit is taken. In the first version, $\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$, the denominator is always $h$, so read both $a$ and $f$ from the $f(a+h)$ part.",
+              "work": "(b) is the second version: the bottom is $x-4$, so $a=4$. (a) is the first version: $(2+h)^5=f(a+h)$, so $a=2$."
+            },
+            {
+              "do": "Pattern-match the top to get $f(x)$ (in the second version the top is $f(x)-f(a)$).",
+              "work": "(b) The top is $\\sqrt x-2=\\sqrt x-\\sqrt4$, so $f(x)=\\sqrt x$. (a) $f(x)=x^5$ (and $f(2)=32$). The value in (a) is $f'(2)=5\\cdot2^4=80$."
+            }
+          ],
+          "answer": "(a) $f(x)=x^5$, $a=2$, limit $=80$ (b) $f(x)=\\sqrt x$, $a=4$",
+          "check": {
+            "kind": "number",
+            "value": "80"
+          }
+        },
+        {
+          "problem": "The following limits represent a derivative $f'(a)$. Find $f$ and $a$ in each: (a) $\\displaystyle\\lim_{h\\to0}\\frac{\\sin(\\pi/3+h)-\\sin(\\pi/3)}{h}$, (b) $\\displaystyle\\lim_{x\\to2}\\frac{x^6-64}{x-2}$. Enter the value of the limit in (b).",
+          "steps": [
+            {
+              "do": "Decide which version is being used. The second version, $\\lim_{x\\to a}\\frac{f(x)-f(a)}{x-a}$, is transparent: $a$ is the point where the limit is taken. In the first version, $\\lim_{h\\to0}\\frac{f(a+h)-f(a)}{h}$, the denominator is always $h$, so read both $a$ and $f$ from the $f(a+h)$ part.",
+              "work": "(b) is the second version: the bottom is $x-2$, so $a=2$. (a) is the first version: $\\sin(\\pi/3+h)=f(a+h)$, so $a=\\pi/3$."
+            },
+            {
+              "do": "Pattern-match the top to get $f(x)$ (in the second version the top is $f(x)-f(a)$).",
+              "work": "(b) The top is $x^6-64=x^6-2^6$, so $f(x)=x^6$. (a) $f(x)=\\sin x$. The value in (b) is $f'(2)=6\\cdot2^5=192$."
+            }
+          ],
+          "answer": "(a) $f(x)=\\sin x$, $a=\\pi/3$ (b) $f(x)=x^6$, $a=2$, limit $=192$",
+          "check": {
+            "kind": "number",
+            "value": "192"
+          }
+        }
+      ],
+      "scene": "secant"
+    },
+    {
+      "id": "c1-3.2.1",
+      "course": "calc1",
+      "section": "3.2",
+      "topic": "The Derivative as a Function",
+      "title": "Derivative by definition: polynomial",
+      "type": "Compute $f'(x)$ from the limit definition (no credit for other methods!), where $f(x)$ is a polynomial such as $x^2$.",
+      "example": {
+        "problem": "Compute $f'(x)$ from the limit definition (no credit for other methods!), where $f(x)=x^2$.",
+        "steps": [
+          {
+            "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+            "work": "$$f'(x)=\\lim_{h\\to0}\\frac{(x+h)^2-x^2}{h}$$"
+          },
+          {
+            "do": "Use algebra to simplify the expression whose limit you are taking, until it makes sense to plug in $h=0$.",
+            "work": "$$\\lim_{h\\to0}\\frac{x^2+2xh+h^2-x^2}{h}=\\lim_{h\\to0}\\frac{2xh+h^2}{h}=\\lim_{h\\to0}(2x+h)=2x$$"
+          }
+        ],
+        "answer": "$f'(x)=2x$",
+        "check": {
+          "kind": "expr",
+          "value": "2*x",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=2x^2-x$.",
+          "steps": [
+            {
+              "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+              "work": "$$f'(x)=\\lim_{h\\to0}\\frac{2(x+h)^2-(x+h)-(2x^2-x)}{h}$$"
+            },
+            {
+              "do": "Use algebra to simplify the expression whose limit you are taking, until it makes sense to plug in $h=0$.",
+              "work": "$$\\lim_{h\\to0}\\frac{2x^2+4xh+2h^2-x-h-2x^2+x}{h}=\\lim_{h\\to0}\\frac{4xh+2h^2-h}{h}=\\lim_{h\\to0}(4x+2h-1)=4x-1$$"
+            }
+          ],
+          "answer": "$f'(x)=4x-1$",
+          "check": {
+            "kind": "expr",
+            "value": "4*x-1",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=x^3$.",
+          "steps": [
+            {
+              "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+              "work": "$$f'(x)=\\lim_{h\\to0}\\frac{(x+h)^3-x^3}{h}$$"
+            },
+            {
+              "do": "Use algebra to simplify the expression whose limit you are taking, until it makes sense to plug in $h=0$.",
+              "work": "$$\\lim_{h\\to0}\\frac{x^3+3x^2h+3xh^2+h^3-x^3}{h}=\\lim_{h\\to0}(3x^2+3xh+h^2)=3x^2$$"
+            }
+          ],
+          "answer": "$f'(x)=3x^2$",
+          "check": {
+            "kind": "expr",
+            "value": "3*x^2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "derivative"
+    },
+    {
+      "id": "c1-3.2.2",
+      "course": "calc1",
+      "section": "3.2",
+      "topic": "The Derivative as a Function",
+      "title": "Derivative by definition: reciprocal",
+      "type": "Compute $f'(x)$ from the limit definition (no credit for other methods!), where $f(x)$ is a reciprocal such as $1/x$.",
+      "example": {
+        "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=x^{-1}=\\dfrac1x$.",
+        "steps": [
+          {
+            "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+            "work": "$$f'(x)=\\lim_{h\\to0}\\frac{\\frac1{x+h}-\\frac1x}{h}$$"
+          },
+          {
+            "do": "Use algebra to simplify the expression whose limit you are taking, until it makes sense to plug in $h=0$.",
+            "work": "$$\\lim_{h\\to0}\\frac{\\frac{x-(x+h)}{(x+h)x}}{h}=\\lim_{h\\to0}\\frac{-h}{(x+h)x\\,h}=\\lim_{h\\to0}\\frac{-1}{(x+h)x}=-\\frac1{x^2}$$"
+          }
+        ],
+        "answer": "$f'(x)=-\\dfrac1{x^2}$",
+        "check": {
+          "kind": "expr",
+          "value": "-1/x^2",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=\\dfrac3x$.",
+          "steps": [
+            {
+              "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+              "work": "$$f'(x)=\\lim_{h\\to0}\\frac{\\frac3{x+h}-\\frac3x}{h}$$"
+            },
+            {
+              "do": "Use algebra to simplify the expression whose limit you are taking, until it makes sense to plug in $h=0$.",
+              "work": "$$\\lim_{h\\to0}\\frac{\\frac{3x-3(x+h)}{(x+h)x}}{h}=\\lim_{h\\to0}\\frac{-3h}{(x+h)x\\,h}=\\lim_{h\\to0}\\frac{-3}{(x+h)x}=-\\frac3{x^2}$$"
+            }
+          ],
+          "answer": "$f'(x)=-\\dfrac3{x^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "-3/x^2",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=\\dfrac1{x-2}$.",
+          "steps": [
+            {
+              "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+              "work": "$$f'(x)=\\lim_{h\\to0}\\frac{\\frac1{x+h-2}-\\frac1{x-2}}{h}$$"
+            },
+            {
+              "do": "Use algebra to simplify the expression whose limit you are taking, until it makes sense to plug in $h=0$.",
+              "work": "$$\\lim_{h\\to0}\\frac{\\frac{(x-2)-(x+h-2)}{(x+h-2)(x-2)}}{h}=\\lim_{h\\to0}\\frac{-1}{(x+h-2)(x-2)}=-\\frac1{(x-2)^2}$$"
+            }
+          ],
+          "answer": "$f'(x)=-\\dfrac1{(x-2)^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "-1/(x-2)^2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "derivative"
+    },
+    {
+      "id": "c1-3.2.3",
+      "course": "calc1",
+      "section": "3.2",
+      "topic": "The Derivative as a Function",
+      "title": "Derivative by definition: square root",
+      "type": "Compute $f'(x)$ from the limit definition (no credit for other methods!), where $f(x)$ involves a square root, such as $\\sqrt{x+2}$.",
+      "example": {
+        "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=\\sqrt{x+2}$.",
+        "steps": [
+          {
+            "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+            "work": "$$f'(x)=\\lim_{h\\to0}\\frac{\\sqrt{x+h+2}-\\sqrt{x+2}}{h}$$"
+          },
+          {
+            "do": "Use algebra to simplify. With square roots, multiply top and bottom by the conjugate.",
+            "work": "$$\\begin{aligned}&\\lim_{h\\to0}\\frac{(\\sqrt{x+h+2}-\\sqrt{x+2})(\\sqrt{x+h+2}+\\sqrt{x+2})}{h(\\sqrt{x+h+2}+\\sqrt{x+2})}=\\lim_{h\\to0}\\frac{(x+h+2)-(x+2)}{h(\\sqrt{x+h+2}+\\sqrt{x+2})}\\\\&=\\lim_{h\\to0}\\frac{1}{\\sqrt{x+h+2}+\\sqrt{x+2}}=\\frac1{2\\sqrt{x+2}}\\end{aligned}$$"
+          }
+        ],
+        "answer": "$f'(x)=\\dfrac1{2\\sqrt{x+2}}$",
+        "check": {
+          "kind": "expr",
+          "value": "1/(2*sqrt(x+2))",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=\\sqrt{3x+1}$.",
+          "steps": [
+            {
+              "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+              "work": "$$f'(x)=\\lim_{h\\to0}\\frac{\\sqrt{3x+3h+1}-\\sqrt{3x+1}}{h}$$"
+            },
+            {
+              "do": "Use algebra to simplify. With square roots, multiply top and bottom by the conjugate.",
+              "work": "$$\\begin{aligned}&\\lim_{h\\to0}\\frac{(3x+3h+1)-(3x+1)}{h(\\sqrt{3x+3h+1}+\\sqrt{3x+1})}=\\lim_{h\\to0}\\frac{3h}{h(\\sqrt{3x+3h+1}+\\sqrt{3x+1})}\\\\&=\\lim_{h\\to0}\\frac{3}{\\sqrt{3x+3h+1}+\\sqrt{3x+1}}=\\frac3{2\\sqrt{3x+1}}\\end{aligned}$$"
+            }
+          ],
+          "answer": "$f'(x)=\\dfrac3{2\\sqrt{3x+1}}$",
+          "check": {
+            "kind": "expr",
+            "value": "3/(2*sqrt(3*x+1))",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Compute $f'(x)$ from the limit definition, where $f(x)=\\sqrt{x+7}$.",
+          "steps": [
+            {
+              "do": "Recall the definition $f'(x)=\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}$ (the first version is usually easier) and implement it for the particular function.",
+              "work": "$$f'(x)=\\lim_{h\\to0}\\frac{\\sqrt{x+h+7}-\\sqrt{x+7}}{h}$$"
+            },
+            {
+              "do": "Use algebra to simplify. With square roots, multiply top and bottom by the conjugate.",
+              "work": "$$\\lim_{h\\to0}\\frac{(x+h+7)-(x+7)}{h(\\sqrt{x+h+7}+\\sqrt{x+7})}=\\lim_{h\\to0}\\frac{1}{\\sqrt{x+h+7}+\\sqrt{x+7}}=\\frac1{2\\sqrt{x+7}}$$"
+            }
+          ],
+          "answer": "$f'(x)=\\dfrac1{2\\sqrt{x+7}}$",
+          "check": {
+            "kind": "expr",
+            "value": "1/(2*sqrt(x+7))",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "derivative"
+    },
+    {
+      "id": "c1-3.3.1",
+      "course": "calc1",
+      "section": "3.3",
+      "topic": "The Product and Quotient Rules",
+      "title": "Product rule",
+      "type": "Differentiate $f(x)=\\text{Expression}_1(x)\\times\\text{Expression}_2(x)$, where both expressions are easy to differentiate from known rules.",
+      "example": {
+        "problem": "Differentiate $f(x)=x^4e^x$.",
+        "steps": [
+          {
+            "do": "Use the product rule $(fg)'=f'g+fg'$.",
+            "work": "$$(x^4e^x)'=(x^4)'e^x+x^4(e^x)'=4x^3e^x+x^4e^x$$"
+          },
+          {
+            "do": "Use algebra to simplify.",
+            "work": "$$f'(x)=(4x^3+x^4)e^x$$"
+          }
+        ],
+        "answer": "$(4x^3+x^4)e^x$",
+        "check": {
+          "kind": "expr",
+          "value": "(4*x^3+x^4)*exp(x)",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Differentiate $f(x)=(x^2+3x)e^x$.",
+          "steps": [
+            {
+              "do": "Use the product rule $(fg)'=f'g+fg'$.",
+              "work": "$$\\big((x^2+3x)e^x\\big)'=(2x+3)e^x+(x^2+3x)e^x$$"
+            },
+            {
+              "do": "Use algebra to simplify.",
+              "work": "$$f'(x)=(x^2+5x+3)e^x$$"
+            }
+          ],
+          "answer": "$(x^2+5x+3)e^x$",
+          "check": {
+            "kind": "expr",
+            "value": "(x^2+5*x+3)*exp(x)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Differentiate $f(x)=\\sqrt x\\,(x^2+4)$.",
+          "steps": [
+            {
+              "do": "Use the product rule $(fg)'=f'g+fg'$.",
+              "work": "$$\\big(\\sqrt x\\,(x^2+4)\\big)'=\\frac1{2\\sqrt x}(x^2+4)+\\sqrt x\\cdot2x$$"
+            },
+            {
+              "do": "Use algebra to simplify.",
+              "work": "$$=\\frac{x^2+4+4x^2}{2\\sqrt x}=\\frac{5x^2+4}{2\\sqrt x}$$"
+            }
+          ],
+          "answer": "$\\dfrac{5x^2+4}{2\\sqrt x}$",
+          "check": {
+            "kind": "expr",
+            "value": "(5*x^2+4)/(2*sqrt(x))",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.3.2",
+      "course": "calc1",
+      "section": "3.3",
+      "topic": "The Product and Quotient Rules",
+      "title": "Quotient rule",
+      "type": "Differentiate $f(x)=\\dfrac{\\text{Expression}_1(x)}{\\text{Expression}_2(x)}$, where both expressions are easy to differentiate from known rules.",
+      "example": {
+        "problem": "Differentiate $y=\\dfrac{t^3+t}{t^4-2}$.",
+        "steps": [
+          {
+            "do": "Use the quotient rule $\\Big(\\dfrac fg\\Big)'=\\dfrac{f'g-fg'}{g^2}$.",
+            "work": "$$y'=\\frac{(3t^2+1)(t^4-2)-(t^3+t)(4t^3)}{(t^4-2)^2}$$"
+          },
+          {
+            "do": "Use algebra to simplify. (Sometimes you are told \"do not simplify\"; then you can skip this step.)",
+            "work": "$$=\\frac{(3t^6-6t^2+t^4-2)-(4t^6+4t^4)}{(t^4-2)^2}=\\frac{-t^6-3t^4-6t^2-2}{(t^4-2)^2}$$"
+          }
+        ],
+        "answer": "$\\dfrac{-t^6-3t^4-6t^2-2}{(t^4-2)^2}$",
+        "check": {
+          "kind": "expr",
+          "value": "(-t^6-3*t^4-6*t^2-2)/(t^4-2)^2",
+          "vars": [
+            "t"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Differentiate $y=\\dfrac{2x+1}{x^2+3}$.",
+          "steps": [
+            {
+              "do": "Use the quotient rule $\\Big(\\dfrac fg\\Big)'=\\dfrac{f'g-fg'}{g^2}$.",
+              "work": "$$y'=\\frac{2(x^2+3)-(2x+1)(2x)}{(x^2+3)^2}$$"
+            },
+            {
+              "do": "Use algebra to simplify. (Sometimes you are told \"do not simplify\"; then you can skip this step.)",
+              "work": "$$=\\frac{2x^2+6-4x^2-2x}{(x^2+3)^2}=\\frac{-2x^2-2x+6}{(x^2+3)^2}$$"
+            }
+          ],
+          "answer": "$\\dfrac{-2x^2-2x+6}{(x^2+3)^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "(-2*x^2-2*x+6)/(x^2+3)^2",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Differentiate $y=\\dfrac{e^x}{x^2+1}$.",
+          "steps": [
+            {
+              "do": "Use the quotient rule $\\Big(\\dfrac fg\\Big)'=\\dfrac{f'g-fg'}{g^2}$.",
+              "work": "$$y'=\\frac{e^x(x^2+1)-e^x(2x)}{(x^2+1)^2}$$"
+            },
+            {
+              "do": "Use algebra to simplify. (Sometimes you are told \"do not simplify\"; then you can skip this step.)",
+              "work": "$$=\\frac{e^x(x^2-2x+1)}{(x^2+1)^2}=\\frac{e^x(x-1)^2}{(x^2+1)^2}$$"
+            }
+          ],
+          "answer": "$\\dfrac{e^x(x-1)^2}{(x^2+1)^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "exp(x)*(x-1)^2/(x^2+1)^2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.4.1",
+      "course": "calc1",
+      "section": "3.4",
+      "topic": "Rates of Change",
+      "title": "Particle motion and total distance",
+      "type": "A particle moves according to a law of motion $s=f(t)$, $t>0$. (a) Find the velocity at any time $t$. (b) Find the velocity after $t_1$ seconds. (c) When is the particle at rest? (d) When is it moving in the positive direction? (e) Find the total distance travelled during the first $t_2$ seconds.",
+      "example": {
+        "problem": "A particle moves according to $s=t^4-2t^2+1$, $t>0$ ($t$ in seconds, $s$ in feet). (a) Find the velocity at time $t$. (b) What is the velocity after $3$ seconds? (c) When is the particle at rest? (d) When is it moving in the positive direction? (e) Find the total distance travelled during the first $8$ seconds.",
+        "steps": [
+          {
+            "do": "(a) The velocity is $v(t)=\\dfrac{ds}{dt}$, the derivative of $s(t)$.",
+            "work": "$$v(t)=\\frac{ds}{dt}=4t^3-4t$$"
+          },
+          {
+            "do": "(b) Plug $t=t_1$ into $v(t)$.",
+            "work": "$$v(3)=4\\cdot3^3-4\\cdot3=96$$"
+          },
+          {
+            "do": "(c) Solve $v(t)=0$ (keeping only $t>0$).",
+            "work": "$v(t)=4t(t-1)(t+1)=0$ at $t=-1,0,1$. Only $t\\ge0$ counts, so it is at rest at the start ($t=0$) and after one second ($t=1$)."
+          },
+          {
+            "do": "(d) The particle moves in the positive direction when $v(t)>0$.",
+            "work": "Since $t>0$ and $t+1>0$, $v>0$ exactly when $t>1$. For $0<t<1$, $v<0$: it moves backwards."
+          },
+          {
+            "do": "(e) Warning: the total distance is usually NOT $s(t_2)$. Treat separately the periods moving backwards and forwards, and add up the distances.",
+            "work": "From $t=0$ to $1$: $|s(1)-s(0)|=|0-1|=1$. From $t=1$ to $8$: $s(8)-s(1)=(8^4-2\\cdot8^2+1)-0=3969$. Total $=1+3969=3970$."
+          }
+        ],
+        "answer": "(a) $4t^3-4t$ (b) $96$ ft/s (c) $t=0$ and $t=1$ (d) $t>1$ (e) $3970$ feet",
+        "check": {
+          "kind": "number",
+          "value": "3970"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A particle moves according to $s=t^3-6t^2+9t$, $t>0$ ($t$ in seconds, $s$ in metres). (a) Find the velocity. (b) What is the velocity after $2$ seconds? (c) When is the particle at rest? (d) When is it moving in the positive direction? (e) Enter the total distance travelled during the first $4$ seconds.",
+          "steps": [
+            {
+              "do": "(a) The velocity is $v(t)=\\dfrac{ds}{dt}$, the derivative of $s(t)$.",
+              "work": "$$v(t)=3t^2-12t+9$$"
+            },
+            {
+              "do": "(b) Plug $t=t_1$ into $v(t)$.",
+              "work": "$$v(2)=3\\cdot4-24+9=-3$$"
+            },
+            {
+              "do": "(c) Solve $v(t)=0$ (keeping only $t>0$).",
+              "work": "$v(t)=3(t-1)(t-3)=0$ at $t=1$ and $t=3$ (both positive): the particle is at rest after $1$ second and after $3$ seconds."
+            },
+            {
+              "do": "(d) The particle moves in the positive direction when $v(t)>0$.",
+              "work": "$v>0$ when $0<t<1$ or $t>3$; $v<0$ for $1<t<3$."
+            },
+            {
+              "do": "(e) Warning: the total distance is usually NOT $s(t_2)$. Treat separately the periods moving backwards and forwards, and add up the distances.",
+              "work": "$s(0)=0$, $s(1)=4$, $s(3)=0$, $s(4)=4$. Distances: $|4-0|=4$, $|0-4|=4$, $|4-0|=4$. Total $=12$."
+            }
+          ],
+          "answer": "(a) $3t^2-12t+9$ (b) $-3$ m/s (c) $t=1,3$ (d) $0<t<1$ or $t>3$ (e) $12$ metres",
+          "check": {
+            "kind": "number",
+            "value": "12"
+          }
+        },
+        {
+          "problem": "A particle moves according to $s=t^3-3t^2-9t$, $t>0$ ($t$ in seconds, $s$ in feet). (a) Find the velocity. (b) What is the velocity after $4$ seconds? (c) When is the particle at rest? (d) When is it moving in the positive direction? (e) Enter the total distance travelled during the first $5$ seconds.",
+          "steps": [
+            {
+              "do": "(a) The velocity is $v(t)=\\dfrac{ds}{dt}$, the derivative of $s(t)$.",
+              "work": "$$v(t)=3t^2-6t-9$$"
+            },
+            {
+              "do": "(b) Plug $t=t_1$ into $v(t)$.",
+              "work": "$$v(4)=3\\cdot16-24-9=15$$"
+            },
+            {
+              "do": "(c) Solve $v(t)=0$ (keeping only $t>0$).",
+              "work": "$v(t)=3(t-3)(t+1)=0$ at $t=-1,3$. Only $t=3$ is positive: the particle is at rest after $3$ seconds."
+            },
+            {
+              "do": "(d) The particle moves in the positive direction when $v(t)>0$.",
+              "work": "Since $t+1>0$, $v>0$ exactly when $t>3$; for $0<t<3$ it moves backwards."
+            },
+            {
+              "do": "(e) Warning: the total distance is usually NOT $s(t_2)$. Treat separately the periods moving backwards and forwards, and add up the distances.",
+              "work": "$s(0)=0$, $s(3)=-27$, $s(5)=5$. Distances: $|-27-0|=27$ and $|5-(-27)|=32$. Total $=27+32=59$."
+            }
+          ],
+          "answer": "(a) $3t^2-6t-9$ (b) $15$ ft/s (c) $t=3$ (d) $t>3$ (e) $59$ feet",
+          "check": {
+            "kind": "number",
+            "value": "59"
+          }
+        }
+      ],
+      "scene": "derivative"
+    },
+    {
+      "id": "c1-3.5.1",
+      "course": "calc1",
+      "section": "3.5",
+      "topic": "Higher Derivatives",
+      "title": "First, second and third derivatives",
+      "type": "Find the first, second and third derivatives of the function $f(x)=\\text{Expression}(x)$.",
+      "example": {
+        "problem": "Find the first, second and third derivatives of $f(x)=x^4+3e^x+\\sqrt x$.",
+        "steps": [
+          {
+            "do": "These are really three differentiation problems. First find the derivative (the first derivative).",
+            "work": "$$f'(x)=\\frac{d}{dx}\\big(x^4+3e^x+x^{1/2}\\big)=4x^3+3e^x+\\tfrac12x^{-1/2}$$"
+          },
+          {
+            "do": "Now take the derivative of the answer from the previous step (the second derivative).",
+            "work": "$$f''(x)=12x^2+3e^x+\\tfrac12\\left(-\\tfrac12\\right)x^{-3/2}=12x^2+3e^x-\\tfrac14x^{-3/2}$$"
+          },
+          {
+            "do": "Now take the derivative of that (the third derivative), and so on if asked.",
+            "work": "$$f'''(x)=24x+3e^x-\\tfrac14\\left(-\\tfrac32\\right)x^{-5/2}=24x+3e^x+\\tfrac38x^{-5/2}$$"
+          }
+        ],
+        "answer": "$f'''(x)=24x+3e^x+\\tfrac38x^{-5/2}$",
+        "check": {
+          "kind": "expr",
+          "value": "24*x+3*exp(x)+3/8*x^(-5/2)",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the first, second and third derivatives of $f(x)=x^5+2e^x+\\dfrac1x$. Enter $f'''(x)$.",
+          "steps": [
+            {
+              "do": "These are really three differentiation problems. First find the derivative (the first derivative).",
+              "work": "$$f'(x)=5x^4+2e^x-x^{-2}$$"
+            },
+            {
+              "do": "Now take the derivative of the answer from the previous step (the second derivative).",
+              "work": "$$f''(x)=20x^3+2e^x+2x^{-3}$$"
+            },
+            {
+              "do": "Now take the derivative of that (the third derivative), and so on if asked.",
+              "work": "$$f'''(x)=60x^2+2e^x-6x^{-4}$$"
+            }
+          ],
+          "answer": "$f'''(x)=60x^2+2e^x-\\dfrac6{x^4}$",
+          "check": {
+            "kind": "expr",
+            "value": "60*x^2+2*exp(x)-6*x^(-4)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find the first, second and third derivatives of $f(x)=x^6+4\\sqrt x$. Enter $f'''(x)$.",
+          "steps": [
+            {
+              "do": "These are really three differentiation problems. First find the derivative (the first derivative).",
+              "work": "$$f'(x)=6x^5+4\\cdot\\tfrac12x^{-1/2}=6x^5+2x^{-1/2}$$"
+            },
+            {
+              "do": "Now take the derivative of the answer from the previous step (the second derivative).",
+              "work": "$$f''(x)=30x^4+2\\left(-\\tfrac12\\right)x^{-3/2}=30x^4-x^{-3/2}$$"
+            },
+            {
+              "do": "Now take the derivative of that (the third derivative), and so on if asked.",
+              "work": "$$f'''(x)=120x^3-\\left(-\\tfrac32\\right)x^{-5/2}=120x^3+\\tfrac32x^{-5/2}$$"
+            }
+          ],
+          "answer": "$f'''(x)=120x^3+\\tfrac32x^{-5/2}$",
+          "check": {
+            "kind": "expr",
+            "value": "120*x^3+3/2*x^(-5/2)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "derivative"
+    },
+    {
+      "id": "c1-3.5.2",
+      "course": "calc1",
+      "section": "3.5",
+      "topic": "Higher Derivatives",
+      "title": "Acceleration zero in motion",
+      "type": "An equation of motion $s=f(t)$ is given. Find (a) the times at which the acceleration is $0$, and (b) the displacement and velocity at those times.",
+      "example": {
+        "problem": "An equation of motion is $s=t^4-4t^3+2$ ($s$ in metres, $t$ in seconds). Find (a) the times at which the acceleration is $0$, (b) the displacement and velocity at those times.",
+        "steps": [
+          {
+            "do": "Find the velocity $v=\\dfrac{ds}{dt}$ and the acceleration $a=\\dfrac{dv}{dt}=\\dfrac{d^2s}{dt^2}$.",
+            "work": "$$v=4t^3-12t^2,\\qquad a=12t^2-24t$$"
+          },
+          {
+            "do": "Set the acceleration equal to $0$ and solve for $t$.",
+            "work": "$12t^2-24t=12t(t-2)=0$, so $t=0$ and $t=2$."
+          },
+          {
+            "do": "Plug the value(s) of $t$ from step 2 into $s$ and into the $v$ found in step 1.",
+            "work": "$$\\begin{aligned}t=0:&\\ s(0)=2,\\ v(0)=0\\\\ t=2:&\\ s(2)=16-32+2=-14,\\ v(2)=32-48=-16\\end{aligned}$$"
+          }
+        ],
+        "answer": "$a=0$ at $t=0$ ($s=2$, $v=0$) and $t=2$ ($s=-14$, $v=-16$)"
+      },
+      "practice": [
+        {
+          "problem": "An equation of motion is $s=t^3-9t^2+15t$ ($s$ in metres, $t$ in seconds, $t\\ge0$). Find the time at which the acceleration is $0$, and enter the velocity at that time.",
+          "steps": [
+            {
+              "do": "Find the velocity $v=\\dfrac{ds}{dt}$ and the acceleration $a=\\dfrac{dv}{dt}=\\dfrac{d^2s}{dt^2}$.",
+              "work": "$$v=3t^2-18t+15,\\qquad a=6t-18$$"
+            },
+            {
+              "do": "Set the acceleration equal to $0$ and solve for $t$.",
+              "work": "$6t-18=0$, so $t=3$."
+            },
+            {
+              "do": "Plug the value(s) of $t$ from step 2 into $s$ and into the $v$ found in step 1.",
+              "work": "$$s(3)=27-81+45=-9,\\qquad v(3)=27-54+15=-12$$"
+            }
+          ],
+          "answer": "$a=0$ at $t=3$, where $s=-9$ and $v=-12$",
+          "check": {
+            "kind": "number",
+            "value": "-12"
+          }
+        },
+        {
+          "problem": "An equation of motion is $s=t^4-8t^3+10$ ($s$ in metres, $t$ in seconds). The acceleration is $0$ at two times. Enter the displacement $s$ at the later of the two times.",
+          "steps": [
+            {
+              "do": "Find the velocity $v=\\dfrac{ds}{dt}$ and the acceleration $a=\\dfrac{dv}{dt}=\\dfrac{d^2s}{dt^2}$.",
+              "work": "$$v=4t^3-24t^2,\\qquad a=12t^2-48t$$"
+            },
+            {
+              "do": "Set the acceleration equal to $0$ and solve for $t$.",
+              "work": "$12t^2-48t=12t(t-4)=0$, so $t=0$ and $t=4$."
+            },
+            {
+              "do": "Plug the value(s) of $t$ from step 2 into $s$ and into the $v$ found in step 1.",
+              "work": "$$\\begin{aligned}t=0:&\\ s(0)=10,\\ v(0)=0\\\\ t=4:&\\ s(4)=256-512+10=-246,\\ v(4)=256-384=-128\\end{aligned}$$"
+            }
+          ],
+          "answer": "$a=0$ at $t=0$ ($s=10$, $v=0$) and $t=4$ ($s=-246$, $v=-128$); the requested displacement is $-246$",
+          "check": {
+            "kind": "number",
+            "value": "-246"
+          }
+        }
+      ],
+      "scene": "derivative"
+    },
+    {
+      "id": "c1-3.6.1",
+      "course": "calc1",
+      "section": "3.6",
+      "topic": "Trigonometric Functions",
+      "title": "Trig derivatives with quotient rule",
+      "type": "Differentiate an expression involving products and/or quotients of expressions containing trig functions.",
+      "example": {
+        "problem": "Differentiate $y=\\dfrac{1+\\cos x}{x+\\sin x}$.",
+        "steps": [
+          {
+            "do": "Use the product or quotient rule, remembering $(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$. (For the others, replace $\\csc x$ by $1/\\sin x$, etc.)",
+            "work": "$$y'=\\frac{(-\\sin x)(x+\\sin x)-(1+\\cos x)(1+\\cos x)}{(x+\\sin x)^2}$$"
+          },
+          {
+            "do": "Use algebra, and trig identities (above all $\\sin^2x+\\cos^2x=1$), to simplify.",
+            "work": "$$=\\frac{(-x\\sin x-\\sin^2x)-(1+2\\cos x+\\cos^2x)}{(x+\\sin x)^2}=\\frac{-1-x\\sin x-2\\cos x-(\\sin^2x+\\cos^2x)}{(x+\\sin x)^2}=\\frac{-2-x\\sin x-2\\cos x}{(x+\\sin x)^2}$$"
+          }
+        ],
+        "answer": "$\\dfrac{-2-x\\sin x-2\\cos x}{(x+\\sin x)^2}$",
+        "check": {
+          "kind": "expr",
+          "value": "(-2-x*sin(x)-2*cos(x))/(x+sin(x))^2",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Differentiate $y=\\dfrac{\\sin x}{1+\\cos x}$.",
+          "steps": [
+            {
+              "do": "Use the product or quotient rule, remembering $(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$. (For the others, replace $\\csc x$ by $1/\\sin x$, etc.)",
+              "work": "$$y'=\\frac{\\cos x(1+\\cos x)-\\sin x(-\\sin x)}{(1+\\cos x)^2}$$"
+            },
+            {
+              "do": "Use algebra, and trig identities (above all $\\sin^2x+\\cos^2x=1$), to simplify.",
+              "work": "$$=\\frac{\\cos x+\\cos^2x+\\sin^2x}{(1+\\cos x)^2}=\\frac{\\cos x+1}{(1+\\cos x)^2}=\\frac1{1+\\cos x}$$"
+            }
+          ],
+          "answer": "$\\dfrac1{1+\\cos x}$",
+          "check": {
+            "kind": "expr",
+            "value": "1/(1+cos(x))",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Differentiate $y=\\dfrac{1-\\sin x}{x+\\cos x}$.",
+          "steps": [
+            {
+              "do": "Use the product or quotient rule, remembering $(\\sin x)'=\\cos x$, $(\\cos x)'=-\\sin x$, $(\\tan x)'=\\sec^2x$. (For the others, replace $\\csc x$ by $1/\\sin x$, etc.)",
+              "work": "$$y'=\\frac{(-\\cos x)(x+\\cos x)-(1-\\sin x)(1-\\sin x)}{(x+\\cos x)^2}$$"
+            },
+            {
+              "do": "Use algebra, and trig identities (above all $\\sin^2x+\\cos^2x=1$), to simplify.",
+              "work": "$$=\\frac{-x\\cos x-\\cos^2x-1+2\\sin x-\\sin^2x}{(x+\\cos x)^2}=\\frac{-x\\cos x+2\\sin x-2}{(x+\\cos x)^2}$$"
+            }
+          ],
+          "answer": "$\\dfrac{-x\\cos x+2\\sin x-2}{(x+\\cos x)^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "(-x*cos(x)+2*sin(x)-2)/(x+cos(x))^2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.7.1",
+      "course": "calc1",
+      "section": "3.7",
+      "topic": "The Chain Rule",
+      "title": "Chain rule: inner and outer",
+      "type": "Write the composite function in the form $f(g(x))$, identify the inner function $u=g(x)$ and the outer function $y=f(u)$, then find $dy/dx$.",
+      "example": {
+        "problem": "Write $\\sin(\\tan x)$ in the form $f(g(x))$, identify $u=g(x)$ and $y=f(u)$, then find $dy/dx$.",
+        "steps": [
+          {
+            "do": "Start with the inner function (usually the one inside the parentheses). This is $u=g(x)$.",
+            "work": "$u=g(x)=\\tan x$."
+          },
+          {
+            "do": "Replace the inner function by $u$, so $f(g(x))$ becomes $f(u)$.",
+            "work": "Replacing $\\tan x$ by $u$ in $\\sin(\\tan x)$ gives $f(u)=\\sin u$."
+          },
+          {
+            "do": "Use the chain rule $[f(g(x))]'=f'(g(x))\\cdot g'(x)$.",
+            "work": "$f'(u)=\\cos u$ and $g'(x)=\\sec^2x$, so $[\\sin(\\tan x)]'=\\cos(\\tan x)\\sec^2x$."
+          }
+        ],
+        "answer": "$\\dfrac{dy}{dx}=\\cos(\\tan x)\\sec^2x$",
+        "check": {
+          "kind": "expr",
+          "value": "cos(tan(x))*sec(x)^2",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Write $\\cos(e^x)$ in the form $f(g(x))$, identify $u=g(x)$ and $y=f(u)$, then find $dy/dx$.",
+          "steps": [
+            {
+              "do": "Start with the inner function (usually the one inside the parentheses). This is $u=g(x)$.",
+              "work": "$u=g(x)=e^x$."
+            },
+            {
+              "do": "Replace the inner function by $u$, so $f(g(x))$ becomes $f(u)$.",
+              "work": "Replacing $e^x$ by $u$ in $\\cos(e^x)$ gives $f(u)=\\cos u$."
+            },
+            {
+              "do": "Use the chain rule $[f(g(x))]'=f'(g(x))\\cdot g'(x)$.",
+              "work": "$f'(u)=-\\sin u$ and $g'(x)=e^x$, so $[\\cos(e^x)]'=-\\sin(e^x)\\,e^x$."
+            }
+          ],
+          "answer": "$\\dfrac{dy}{dx}=-e^x\\sin(e^x)$",
+          "check": {
+            "kind": "expr",
+            "value": "-exp(x)*sin(exp(x))",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Write $\\tan(x^3)$ in the form $f(g(x))$, identify $u=g(x)$ and $y=f(u)$, then find $dy/dx$.",
+          "steps": [
+            {
+              "do": "Start with the inner function (usually the one inside the parentheses). This is $u=g(x)$.",
+              "work": "$u=g(x)=x^3$."
+            },
+            {
+              "do": "Replace the inner function by $u$, so $f(g(x))$ becomes $f(u)$.",
+              "work": "Replacing $x^3$ by $u$ in $\\tan(x^3)$ gives $f(u)=\\tan u$."
+            },
+            {
+              "do": "Use the chain rule $[f(g(x))]'=f'(g(x))\\cdot g'(x)$.",
+              "work": "$f'(u)=\\sec^2u$ and $g'(x)=3x^2$, so $[\\tan(x^3)]'=\\sec^2(x^3)\\cdot3x^2$."
+            }
+          ],
+          "answer": "$\\dfrac{dy}{dx}=3x^2\\sec^2(x^3)$",
+          "check": {
+            "kind": "expr",
+            "value": "3*x^2*sec(x^3)^2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.7.2",
+      "course": "calc1",
+      "section": "3.7",
+      "topic": "The Chain Rule",
+      "title": "Chain rule for a power",
+      "type": "Find the derivative of the function $\\big(\\text{Expression}(x)\\big)^n$.",
+      "example": {
+        "problem": "Find the derivative of $(1+\\cos^3x)^5$.",
+        "steps": [
+          {
+            "do": "The chain rule for an outer power is $[\\text{Expression}(x)^n]'=n\\,\\text{Expression}(x)^{n-1}\\cdot\\text{Expression}'(x)$.",
+            "work": "$$[(1+\\cos^3x)^5]'=5(1+\\cos^3x)^4\\,(1+\\cos^3x)'$$"
+          },
+          {
+            "do": "Do the inside differentiation, using any applicable rules (you may need the chain rule again).",
+            "work": "$$(1+\\cos^3x)'=0+3\\cos^2x\\,(\\cos x)'=3\\cos^2x(-\\sin x)$$"
+          },
+          {
+            "do": "Clean up using algebra.",
+            "work": "$$-15\\sin x\\cos^2x\\,(1+\\cos^3x)^4$$"
+          }
+        ],
+        "answer": "$-15\\sin x\\cos^2x\\,(1+\\cos^3x)^4$",
+        "check": {
+          "kind": "expr",
+          "value": "-15*sin(x)*cos(x)^2*(1+cos(x)^3)^4",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the derivative of $(2+\\sin^4x)^3$.",
+          "steps": [
+            {
+              "do": "The chain rule for an outer power is $[\\text{Expression}(x)^n]'=n\\,\\text{Expression}(x)^{n-1}\\cdot\\text{Expression}'(x)$.",
+              "work": "$$[(2+\\sin^4x)^3]'=3(2+\\sin^4x)^2\\,(2+\\sin^4x)'$$"
+            },
+            {
+              "do": "Do the inside differentiation, using any applicable rules (you may need the chain rule again).",
+              "work": "$$(2+\\sin^4x)'=0+4\\sin^3x\\,(\\sin x)'=4\\sin^3x\\cos x$$"
+            },
+            {
+              "do": "Clean up using algebra.",
+              "work": "$$12\\sin^3x\\cos x\\,(2+\\sin^4x)^2$$"
+            }
+          ],
+          "answer": "$12\\sin^3x\\cos x\\,(2+\\sin^4x)^2$",
+          "check": {
+            "kind": "expr",
+            "value": "12*sin(x)^3*cos(x)*(2+sin(x)^4)^2",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find the derivative of $\\big(3x+e^{x^2}\\big)^4$.",
+          "steps": [
+            {
+              "do": "The chain rule for an outer power is $[\\text{Expression}(x)^n]'=n\\,\\text{Expression}(x)^{n-1}\\cdot\\text{Expression}'(x)$.",
+              "work": "$$\\big[(3x+e^{x^2})^4\\big]'=4(3x+e^{x^2})^3\\,(3x+e^{x^2})'$$"
+            },
+            {
+              "do": "Do the inside differentiation, using any applicable rules (you may need the chain rule again).",
+              "work": "$$(3x+e^{x^2})'=3+e^{x^2}\\,(x^2)'=3+2xe^{x^2}$$"
+            },
+            {
+              "do": "Clean up using algebra.",
+              "work": "$$4\\big(3x+e^{x^2}\\big)^3\\big(3+2xe^{x^2}\\big)$$"
+            }
+          ],
+          "answer": "$4\\big(3x+e^{x^2}\\big)^3\\big(3+2xe^{x^2}\\big)$",
+          "check": {
+            "kind": "expr",
+            "value": "4*(3*x+exp(x^2))^3*(3+2*x*exp(x^2))",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.8.1",
+      "course": "calc1",
+      "section": "3.8",
+      "topic": "Implicit Differentiation",
+      "title": "Implicit differentiation for dy/dx",
+      "type": "Find $dy/dx$ by implicit differentiation, where you know that $\\text{Expression}_1(x,y)=\\text{Expression}_2(x,y)$.",
+      "example": {
+        "problem": "Find $dy/dx$ by implicit differentiation if $x^2-2xy+y^3=5x$.",
+        "steps": [
+          {
+            "do": "Make the right side zero by moving everything to the left, getting $F(x,y)=0$.",
+            "work": "$$x^2-2xy+y^3-5x=0$$"
+          },
+          {
+            "do": "Differentiate using all the rules, treating $y$ as an unknown function of $x$ (chain rule): $(y^n)'=ny^{n-1}y'$, $(\\sin y)'=(\\cos y)\\,y'$, $(e^y)'=e^yy'$, etc. Whenever you differentiate an expression in $y$, stick a $y'$ on the end. You usually need the product rule too.",
+            "work": "$$2x-(2y+2xy')+3y^2y'-5=0\\ \\Longrightarrow\\ 2x-2y-2xy'+3y^2y'-5=0$$"
+          },
+          {
+            "do": "Use algebra to solve for $y'$: keep all the terms with $y'$ on the left, move the rest to the right, factor out $y'$, and divide.",
+            "work": "$-2xy'+3y^2y'=2y-2x+5$, so $(3y^2-2x)y'=2y-2x+5$ and $$y'=\\frac{2y-2x+5}{3y^2-2x}$$"
+          }
+        ],
+        "answer": "$y'=\\dfrac{2y-2x+5}{3y^2-2x}$",
+        "check": {
+          "kind": "expr",
+          "value": "(2*y-2*x+5)/(3*y^2-2*x)",
+          "vars": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find $dy/dx$ by implicit differentiation if $x^3+y^3=6xy$.",
+          "steps": [
+            {
+              "do": "Make the right side zero by moving everything to the left, getting $F(x,y)=0$.",
+              "work": "$$x^3+y^3-6xy=0$$"
+            },
+            {
+              "do": "Differentiate using all the rules, treating $y$ as an unknown function of $x$ (chain rule): $(y^n)'=ny^{n-1}y'$, $(\\sin y)'=(\\cos y)\\,y'$, $(e^y)'=e^yy'$, etc. Whenever you differentiate an expression in $y$, stick a $y'$ on the end. You usually need the product rule too.",
+              "work": "$$3x^2+3y^2y'-(6y+6xy')=0\\ \\Longrightarrow\\ 3x^2+3y^2y'-6y-6xy'=0$$"
+            },
+            {
+              "do": "Use algebra to solve for $y'$: keep all the terms with $y'$ on the left, move the rest to the right, factor out $y'$, and divide.",
+              "work": "$3y^2y'-6xy'=6y-3x^2$, so $(3y^2-6x)y'=6y-3x^2$ and $$y'=\\frac{6y-3x^2}{3y^2-6x}=\\frac{2y-x^2}{y^2-2x}$$"
+            }
+          ],
+          "answer": "$y'=\\dfrac{2y-x^2}{y^2-2x}$",
+          "check": {
+            "kind": "expr",
+            "value": "(2*y-x^2)/(y^2-2*x)",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "problem": "Find $dy/dx$ by implicit differentiation if $xy^3+x^2=4y$.",
+          "steps": [
+            {
+              "do": "Make the right side zero by moving everything to the left, getting $F(x,y)=0$.",
+              "work": "$$xy^3+x^2-4y=0$$"
+            },
+            {
+              "do": "Differentiate using all the rules, treating $y$ as an unknown function of $x$ (chain rule): $(y^n)'=ny^{n-1}y'$, $(\\sin y)'=(\\cos y)\\,y'$, $(e^y)'=e^yy'$, etc. Whenever you differentiate an expression in $y$, stick a $y'$ on the end. You usually need the product rule too.",
+              "work": "$$\\big(y^3+3xy^2y'\\big)+2x-4y'=0$$"
+            },
+            {
+              "do": "Use algebra to solve for $y'$: keep all the terms with $y'$ on the left, move the rest to the right, factor out $y'$, and divide.",
+              "work": "$3xy^2y'-4y'=-y^3-2x$, so $(3xy^2-4)y'=-(y^3+2x)$ and $$y'=\\frac{y^3+2x}{4-3xy^2}$$"
+            }
+          ],
+          "answer": "$y'=\\dfrac{y^3+2x}{4-3xy^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "(y^3+2*x)/(4-3*x*y^2)",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.8.2",
+      "course": "calc1",
+      "section": "3.8",
+      "topic": "Implicit Differentiation",
+      "title": "Tangent line to an implicit curve",
+      "type": "Use implicit differentiation to find the equation of the tangent line to the curve $F(x,y)$ at the point $(a,b)$.",
+      "example": {
+        "problem": "Use implicit differentiation to find the equation of the tangent line to the curve $x^2+y^2=(2x^2+2y^2-x)^2$ at the point $(0,\\tfrac12)$.",
+        "steps": [
+          {
+            "do": "(Optionally) check that the given point lies on the curve by plugging it in. Then differentiate implicitly.",
+            "work": "$0^2+(\\tfrac12)^2=(2\\cdot0+2\\cdot\\tfrac14-0)^2$, so the point is on the curve. Differentiating: $$2x+2yy'-2(2x^2+2y^2-x)(4x+4yy'-1)=0$$"
+          },
+          {
+            "do": "Do not solve for $y'$ right away: plug the given point $(a,b)$ in for $(x,y)$, then solve for $y'$ to get a number, the slope $m$ of the tangent.",
+            "work": "At $x=0$, $y=\\tfrac12$: $2\\cdot\\tfrac12y'-2\\cdot\\tfrac12(4\\cdot\\tfrac12y'-1)=0$, so $y'-(2y'-1)=0$, i.e. $-y'+1=0$ and $m=y'=1$."
+          },
+          {
+            "do": "As usual, the tangent line is $y-b=m(x-a)$.",
+            "work": "$y-\\tfrac12=1\\cdot(x-0)$, so $y=x+\\tfrac12$."
+          }
+        ],
+        "answer": "$y=x+\\tfrac12$",
+        "check": {
+          "kind": "expr",
+          "value": "x+1/2",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use implicit differentiation to find the equation of the tangent line to the curve $x^2+xy+y^2=3$ at the point $(1,1)$.",
+          "steps": [
+            {
+              "do": "(Optionally) check that the given point lies on the curve by plugging it in. Then differentiate implicitly.",
+              "work": "$1+1+1=3$, so the point is on the curve. Differentiating: $$2x+(y+xy')+2yy'=0$$"
+            },
+            {
+              "do": "Do not solve for $y'$ right away: plug the given point $(a,b)$ in for $(x,y)$, then solve for $y'$ to get a number, the slope $m$ of the tangent.",
+              "work": "At $(1,1)$: $2+(1+y')+2y'=0$, so $3y'=-3$ and $m=-1$."
+            },
+            {
+              "do": "As usual, the tangent line is $y-b=m(x-a)$.",
+              "work": "$y-1=-1(x-1)$, so $y=-x+2$."
+            }
+          ],
+          "answer": "$y=-x+2$",
+          "check": {
+            "kind": "expr",
+            "value": "-x+2",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Use implicit differentiation to find the equation of the tangent line to the curve $x^2y+xy^2=6$ at the point $(1,2)$.",
+          "steps": [
+            {
+              "do": "(Optionally) check that the given point lies on the curve by plugging it in. Then differentiate implicitly.",
+              "work": "$1\\cdot2+1\\cdot4=6$, so the point is on the curve. Differentiating: $$2xy+x^2y'+y^2+2xyy'=0$$"
+            },
+            {
+              "do": "Do not solve for $y'$ right away: plug the given point $(a,b)$ in for $(x,y)$, then solve for $y'$ to get a number, the slope $m$ of the tangent.",
+              "work": "At $(1,2)$: $4+y'+4+4y'=0$, so $5y'=-8$ and $m=-\\tfrac85$."
+            },
+            {
+              "do": "As usual, the tangent line is $y-b=m(x-a)$.",
+              "work": "$y-2=-\\tfrac85(x-1)$, so $y=-\\tfrac85x+\\tfrac{18}5$."
+            }
+          ],
+          "answer": "$y=-\\tfrac85x+\\tfrac{18}5$",
+          "check": {
+            "kind": "expr",
+            "value": "-8*x/5+18/5",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.9.1",
+      "course": "calc1",
+      "section": "3.9",
+      "topic": "Derivatives of Inverse Functions",
+      "title": "Derivative of an inverse function",
+      "type": "Use the formula $g'(x)=\\dfrac1{f'(g(x))}$ to calculate $g'(x)$, where $g(x)$ is the inverse of the given function $f(x)$.",
+      "example": {
+        "problem": "Use $g'(x)=\\dfrac1{f'(g(x))}$ to calculate $g'(x)$, where $g$ is the inverse of $f(x)=\\sqrt{3-x}$.",
+        "steps": [
+          {
+            "do": "Use algebra to find the inverse function $g(x)$: solve $y=f(x)$ for $x$ in terms of $y$, then replace $y$ by $x$.",
+            "work": "Solve $y=\\sqrt{3-x}$: squaring gives $y^2=3-x$, so $x=3-y^2$. Replacing $y$ by $x$: $g(x)=3-x^2$."
+          },
+          {
+            "do": "Find $f'(x)$ and plug it into $g'(x)=\\dfrac1{f'(g(x))}$.",
+            "work": "$$f'(x)=-\\frac1{2\\sqrt{3-x}}\\ \\Longrightarrow\\ f'(g(x))=-\\frac1{2\\sqrt{3-(3-x^2)}}=-\\frac1{2\\sqrt{x^2}}=-\\frac1{2x},\\qquad g'(x)=\\frac1{f'(g(x))}=-2x$$"
+          }
+        ],
+        "answer": "$g'(x)=-2x$ (for $x\\ge0$)",
+        "check": {
+          "kind": "expr",
+          "value": "-2*x",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use $g'(x)=\\dfrac1{f'(g(x))}$ to calculate $g'(x)$, where $g$ is the inverse of $f(x)=x^3+1$.",
+          "steps": [
+            {
+              "do": "Use algebra to find the inverse function $g(x)$: solve $y=f(x)$ for $x$ in terms of $y$, then replace $y$ by $x$.",
+              "work": "Solve $y=x^3+1$: $x^3=y-1$, so $x=(y-1)^{1/3}$. Replacing $y$ by $x$: $g(x)=(x-1)^{1/3}$."
+            },
+            {
+              "do": "Find $f'(x)$ and plug it into $g'(x)=\\dfrac1{f'(g(x))}$.",
+              "work": "$$f'(x)=3x^2\\ \\Longrightarrow\\ f'(g(x))=3(x-1)^{2/3},\\qquad g'(x)=\\frac1{f'(g(x))}=\\frac1{3(x-1)^{2/3}}$$"
+            }
+          ],
+          "answer": "$g'(x)=\\dfrac1{3(x-1)^{2/3}}$",
+          "check": {
+            "kind": "expr",
+            "value": "1/(3*(x-1)^(2/3))",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Use $g'(x)=\\dfrac1{f'(g(x))}$ to calculate $g'(x)$, where $g$ is the inverse of $f(x)=\\dfrac1{x+1}$.",
+          "steps": [
+            {
+              "do": "Use algebra to find the inverse function $g(x)$: solve $y=f(x)$ for $x$ in terms of $y$, then replace $y$ by $x$.",
+              "work": "Solve $y=\\dfrac1{x+1}$: $x+1=\\dfrac1y$, so $x=\\dfrac1y-1$. Replacing $y$ by $x$: $g(x)=\\dfrac1x-1$."
+            },
+            {
+              "do": "Find $f'(x)$ and plug it into $g'(x)=\\dfrac1{f'(g(x))}$.",
+              "work": "$$f'(x)=-\\frac1{(x+1)^2}\\ \\Longrightarrow\\ f'(g(x))=-\\frac1{(1/x)^2}=-x^2,\\qquad g'(x)=\\frac1{f'(g(x))}=-\\frac1{x^2}$$"
+            }
+          ],
+          "answer": "$g'(x)=-\\dfrac1{x^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "-1/x^2",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.9.2",
+      "course": "calc1",
+      "section": "3.9",
+      "topic": "Derivatives of Inverse Functions",
+      "title": "Inverse trig derivatives",
+      "type": "Find the derivative of an expression involving one of the inverse trig functions $\\sin^{-1}$, $\\cos^{-1}$, $\\tan^{-1}$, etc.",
+      "example": {
+        "problem": "Find the derivative of $y=\\cos^{-1}(3x+1)$.",
+        "steps": [
+          {
+            "do": "Use all applicable differentiation rules, remembering $\\dfrac{d}{dx}\\sin^{-1}x=\\dfrac1{\\sqrt{1-x^2}}$, $\\dfrac{d}{dx}\\cos^{-1}x=-\\dfrac1{\\sqrt{1-x^2}}$, $\\dfrac{d}{dx}\\tan^{-1}x=\\dfrac1{1+x^2}$.",
+            "work": "By the chain rule $$\\frac{d}{dx}\\cos^{-1}(3x+1)=-\\frac1{\\sqrt{1-(3x+1)^2}}\\cdot\\frac{d}{dx}(3x+1)=-\\frac{3}{\\sqrt{1-(3x+1)^2}}$$"
+          },
+          {
+            "do": "Simplify.",
+            "work": "$$-\\frac3{\\sqrt{1-(9x^2+6x+1)}}=-\\frac3{\\sqrt{-9x^2-6x}}=-\\frac3{\\sqrt{-3x(3x+2)}}$$"
+          }
+        ],
+        "answer": "$y'=-\\dfrac3{\\sqrt{-3x(3x+2)}}$ (valid for $-\\tfrac23<x<0$)"
+      },
+      "practice": [
+        {
+          "problem": "Find the derivative of $y=\\sin^{-1}(x/2)$.",
+          "steps": [
+            {
+              "do": "Use all applicable differentiation rules, remembering $\\dfrac{d}{dx}\\sin^{-1}x=\\dfrac1{\\sqrt{1-x^2}}$, $\\dfrac{d}{dx}\\cos^{-1}x=-\\dfrac1{\\sqrt{1-x^2}}$, $\\dfrac{d}{dx}\\tan^{-1}x=\\dfrac1{1+x^2}$.",
+              "work": "By the chain rule $$\\frac{d}{dx}\\sin^{-1}\\!\\Big(\\frac x2\\Big)=\\frac1{\\sqrt{1-(x/2)^2}}\\cdot\\frac12$$"
+            },
+            {
+              "do": "Simplify.",
+              "work": "$$\\frac{1/2}{\\sqrt{(4-x^2)/4}}=\\frac{1/2}{\\sqrt{4-x^2}/2}=\\frac1{\\sqrt{4-x^2}}$$"
+            }
+          ],
+          "answer": "$y'=\\dfrac1{\\sqrt{4-x^2}}$",
+          "check": {
+            "kind": "expr",
+            "value": "1/sqrt(4-x^2)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Find the derivative of $y=\\tan^{-1}(e^x)$.",
+          "steps": [
+            {
+              "do": "Use all applicable differentiation rules, remembering $\\dfrac{d}{dx}\\sin^{-1}x=\\dfrac1{\\sqrt{1-x^2}}$, $\\dfrac{d}{dx}\\cos^{-1}x=-\\dfrac1{\\sqrt{1-x^2}}$, $\\dfrac{d}{dx}\\tan^{-1}x=\\dfrac1{1+x^2}$.",
+              "work": "By the chain rule $$\\frac{d}{dx}\\tan^{-1}(e^x)=\\frac1{1+(e^x)^2}\\cdot e^x$$"
+            },
+            {
+              "do": "Simplify.",
+              "work": "$$\\frac{e^x}{1+(e^x)^2}=\\frac{e^x}{1+e^{2x}}$$"
+            }
+          ],
+          "answer": "$y'=\\dfrac{e^x}{1+e^{2x}}$",
+          "check": {
+            "kind": "expr",
+            "value": "exp(x)/(1+exp(2*x))",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.10.1",
+      "course": "calc1",
+      "section": "3.10",
+      "topic": "Derivatives of General Exponential and Logarithmic Functions",
+      "title": "Derivatives with ln and log",
+      "type": "Differentiate the function $f(x)=\\text{Expression}(x)$, where the expression involves $\\ln x$ or $\\log_ax$.",
+      "example": {
+        "problem": "Differentiate $f(x)=x(\\ln x)^{1/5}$.",
+        "steps": [
+          {
+            "do": "Before differentiating $\\ln(\\text{COMPLICATED})$, use the ln rules to break the function into simple pieces whenever possible.",
+            "work": "The argument of $\\ln$ is just $x$, so there is nothing to simplify."
+          },
+          {
+            "do": "Now all the differentiation rules still apply. Use $(\\ln x)'=\\dfrac1x$ and $(\\log_ax)'=\\dfrac1{x\\ln a}$ (since $\\log_ax=\\dfrac{\\ln x}{\\ln a}$).",
+            "work": "Product rule, then chain rule on the second term: $$f'(x)=1\\cdot(\\ln x)^{1/5}+x\\cdot\\tfrac15(\\ln x)^{-4/5}\\cdot\\frac1x=(\\ln x)^{1/5}+\\frac{(\\ln x)^{-4/5}}{5}$$"
+          }
+        ],
+        "answer": "$f'(x)=(\\ln x)^{1/5}+\\dfrac{(\\ln x)^{-4/5}}5$",
+        "check": {
+          "kind": "expr",
+          "value": "(ln(x))^(1/5)+(ln(x))^(-4/5)/5",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Differentiate $f(x)=x^2\\ln(3x)$.",
+          "steps": [
+            {
+              "do": "Before differentiating $\\ln(\\text{COMPLICATED})$, use the ln rules to break the function into simple pieces whenever possible.",
+              "work": "$\\ln(3x)=\\ln3+\\ln x$."
+            },
+            {
+              "do": "Now all the differentiation rules still apply. Use $(\\ln x)'=\\dfrac1x$ and $(\\log_ax)'=\\dfrac1{x\\ln a}$ (since $\\log_ax=\\dfrac{\\ln x}{\\ln a}$).",
+              "work": "Product rule: $$f'(x)=2x\\ln(3x)+x^2\\cdot\\frac1x=2x\\ln(3x)+x$$"
+            }
+          ],
+          "answer": "$f'(x)=2x\\ln(3x)+x$",
+          "check": {
+            "kind": "expr",
+            "value": "2*x*ln(3*x)+x",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Differentiate $f(x)=\\log_2\\!\\Big(\\dfrac{x^5}{x+1}\\Big)$.",
+          "steps": [
+            {
+              "do": "Before differentiating $\\ln(\\text{COMPLICATED})$, use the ln rules to break the function into simple pieces whenever possible.",
+              "work": "$$\\log_2\\frac{x^5}{x+1}=\\frac{\\ln x^5-\\ln(x+1)}{\\ln2}=\\frac{5\\ln x-\\ln(x+1)}{\\ln2}$$"
+            },
+            {
+              "do": "Now all the differentiation rules still apply. Use $(\\ln x)'=\\dfrac1x$ and $(\\log_ax)'=\\dfrac1{x\\ln a}$ (since $\\log_ax=\\dfrac{\\ln x}{\\ln a}$).",
+              "work": "$$f'(x)=\\frac1{\\ln2}\\Big(\\frac5x-\\frac1{x+1}\\Big)$$"
+            }
+          ],
+          "answer": "$f'(x)=\\dfrac1{\\ln2}\\Big(\\dfrac5x-\\dfrac1{x+1}\\Big)$",
+          "check": {
+            "kind": "expr",
+            "value": "(5/x-1/(x+1))/ln(2)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.10.2",
+      "course": "calc1",
+      "section": "3.10",
+      "topic": "Derivatives of General Exponential and Logarithmic Functions",
+      "title": "Logarithmic differentiation",
+      "type": "Use logarithmic differentiation to find the derivative of a function $f(x)$ that is a product of complicated powers and possibly exponentials.",
+      "example": {
+        "problem": "Use logarithmic differentiation to find the derivative of $f(x)=(2x+1)^6(x^3-4)^{11}$. (For such functions you do not need logarithmic differentiation, but it helps!)",
+        "steps": [
+          {
+            "do": "Using the rules of $\\ln$, simplify $\\ln f(x)$ as much as possible.",
+            "work": "$$\\ln\\big[(2x+1)^6(x^3-4)^{11}\\big]=6\\ln(2x+1)+11\\ln(x^3-4)$$"
+          },
+          {
+            "do": "Differentiate each piece of the result of step 1.",
+            "work": "$$(\\ln f)'=6\\cdot\\frac{(2x+1)'}{2x+1}+11\\cdot\\frac{(x^3-4)'}{x^3-4}=\\frac{12}{2x+1}+\\frac{33x^2}{x^3-4}$$"
+          },
+          {
+            "do": "Multiply the answer from step 2 by $f(x)$ to get $f'(x)$ (using $(\\ln f)'=f'/f$). Do not simplify!",
+            "work": "$$f'(x)=\\Big(\\frac{12}{2x+1}+\\frac{33x^2}{x^3-4}\\Big)(2x+1)^6(x^3-4)^{11}$$"
+          }
+        ],
+        "answer": "$f'(x)=\\Big(\\dfrac{12}{2x+1}+\\dfrac{33x^2}{x^3-4}\\Big)(2x+1)^6(x^3-4)^{11}$",
+        "check": {
+          "kind": "expr",
+          "value": "(12/(2*x+1)+33*x^2/(x^3-4))*(2*x+1)^6*(x^3-4)^11",
+          "vars": [
+            "x"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use logarithmic differentiation to find the derivative of $f(x)=(3x-2)^5(x^2+1)^7$.",
+          "steps": [
+            {
+              "do": "Using the rules of $\\ln$, simplify $\\ln f(x)$ as much as possible.",
+              "work": "$$\\ln f(x)=5\\ln(3x-2)+7\\ln(x^2+1)$$"
+            },
+            {
+              "do": "Differentiate each piece of the result of step 1.",
+              "work": "$$(\\ln f)'=5\\cdot\\frac{3}{3x-2}+7\\cdot\\frac{2x}{x^2+1}=\\frac{15}{3x-2}+\\frac{14x}{x^2+1}$$"
+            },
+            {
+              "do": "Multiply the answer from step 2 by $f(x)$ to get $f'(x)$ (using $(\\ln f)'=f'/f$). Do not simplify!",
+              "work": "$$f'(x)=\\Big(\\frac{15}{3x-2}+\\frac{14x}{x^2+1}\\Big)(3x-2)^5(x^2+1)^7$$"
+            }
+          ],
+          "answer": "$f'(x)=\\Big(\\dfrac{15}{3x-2}+\\dfrac{14x}{x^2+1}\\Big)(3x-2)^5(x^2+1)^7$",
+          "check": {
+            "kind": "expr",
+            "value": "(15/(3*x-2)+14*x/(x^2+1))*(3*x-2)^5*(x^2+1)^7",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Use logarithmic differentiation to find the derivative of $f(x)=x^3e^{2x}(x^2+1)^4$.",
+          "steps": [
+            {
+              "do": "Using the rules of $\\ln$, simplify $\\ln f(x)$ as much as possible.",
+              "work": "$$\\ln f(x)=3\\ln x+2x+4\\ln(x^2+1)$$"
+            },
+            {
+              "do": "Differentiate each piece of the result of step 1.",
+              "work": "$$(\\ln f)'=\\frac3x+2+4\\cdot\\frac{2x}{x^2+1}=\\frac3x+2+\\frac{8x}{x^2+1}$$"
+            },
+            {
+              "do": "Multiply the answer from step 2 by $f(x)$ to get $f'(x)$ (using $(\\ln f)'=f'/f$). Do not simplify!",
+              "work": "$$f'(x)=\\Big(\\frac3x+2+\\frac{8x}{x^2+1}\\Big)x^3e^{2x}(x^2+1)^4$$"
+            }
+          ],
+          "answer": "$f'(x)=\\Big(\\dfrac3x+2+\\dfrac{8x}{x^2+1}\\Big)x^3e^{2x}(x^2+1)^4$",
+          "check": {
+            "kind": "expr",
+            "value": "(3/x+2+8*x/(x^2+1))*x^3*exp(2*x)*(x^2+1)^4",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.11.1",
+      "course": "calc1",
+      "section": "3.11",
+      "topic": "Related Rates",
+      "title": "Related rates from a relation",
+      "type": "If $F(x,y)=c$ and $dy/dt=a$, find $dx/dt$ when $y=b$.",
+      "example": {
+        "problem": "If $x^3+y^3=9$ and $dy/dt=6$, find $dx/dt$ when $y=2$.",
+        "steps": [
+          {
+            "do": "Find the corresponding value of $x$ by solving $F(x,b)=c$.",
+            "work": "When $y=2$: $x^3+2^3=9$, so $x=1$."
+          },
+          {
+            "do": "Differentiate the relation $F(x,y)=c$ with respect to $t$, as in implicit differentiation, treating $x$ and $y$ as unknown functions of $t$.",
+            "work": "$$\\frac{d}{dt}(x^3+y^3)=0\\ \\Longrightarrow\\ 3x^2\\frac{dx}{dt}+3y^2\\frac{dy}{dt}=0$$"
+          },
+          {
+            "do": "In the relationship from step 2, plug in the values of $x$, $y$ and $dy/dt$ and solve for $dx/dt$.",
+            "work": "$$3\\cdot1^2\\frac{dx}{dt}+3\\cdot2^2\\cdot6=0\\ \\Longrightarrow\\ \\frac{dx}{dt}=-24$$"
+          }
+        ],
+        "answer": "$\\dfrac{dx}{dt}=-24$",
+        "check": {
+          "kind": "number",
+          "value": "-24"
+        }
+      },
+      "practice": [
+        {
+          "problem": "If $x^3+2y^3=17$ and $dy/dt=5$, find $dx/dt$ when $y=2$.",
+          "steps": [
+            {
+              "do": "Find the corresponding value of $x$ by solving $F(x,b)=c$.",
+              "work": "When $y=2$: $x^3+2\\cdot8=17$, so $x^3=1$ and $x=1$."
+            },
+            {
+              "do": "Differentiate the relation $F(x,y)=c$ with respect to $t$, as in implicit differentiation, treating $x$ and $y$ as unknown functions of $t$.",
+              "work": "$$\\frac{d}{dt}(x^3+2y^3)=0\\ \\Longrightarrow\\ 3x^2\\frac{dx}{dt}+6y^2\\frac{dy}{dt}=0$$"
+            },
+            {
+              "do": "In the relationship from step 2, plug in the values of $x$, $y$ and $dy/dt$ and solve for $dx/dt$.",
+              "work": "$$3\\cdot1^2\\frac{dx}{dt}+6\\cdot2^2\\cdot5=0\\ \\Longrightarrow\\ 3\\frac{dx}{dt}=-120\\ \\Longrightarrow\\ \\frac{dx}{dt}=-40$$"
+            }
+          ],
+          "answer": "$\\dfrac{dx}{dt}=-40$",
+          "check": {
+            "kind": "number",
+            "value": "-40"
+          }
+        },
+        {
+          "problem": "If $x^5+y^3=33$ and $dy/dt=-2$, find $dx/dt$ when $y=1$.",
+          "steps": [
+            {
+              "do": "Find the corresponding value of $x$ by solving $F(x,b)=c$.",
+              "work": "When $y=1$: $x^5+1=33$, so $x^5=32$ and $x=2$."
+            },
+            {
+              "do": "Differentiate the relation $F(x,y)=c$ with respect to $t$, as in implicit differentiation, treating $x$ and $y$ as unknown functions of $t$.",
+              "work": "$$\\frac{d}{dt}(x^5+y^3)=0\\ \\Longrightarrow\\ 5x^4\\frac{dx}{dt}+3y^2\\frac{dy}{dt}=0$$"
+            },
+            {
+              "do": "In the relationship from step 2, plug in the values of $x$, $y$ and $dy/dt$ and solve for $dx/dt$.",
+              "work": "$$5\\cdot16\\frac{dx}{dt}+3\\cdot1^2\\cdot(-2)=0\\ \\Longrightarrow\\ 80\\frac{dx}{dt}=6\\ \\Longrightarrow\\ \\frac{dx}{dt}=\\frac3{40}$$"
+            }
+          ],
+          "answer": "$\\dfrac{dx}{dt}=\\dfrac3{40}$",
+          "check": {
+            "kind": "number",
+            "value": "3/40"
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.11.2",
+      "course": "calc1",
+      "section": "3.11",
+      "topic": "Related Rates",
+      "title": "Filling a trapezoid trough",
+      "type": "A water trough has length $L$ and a cross-section shaped like an isosceles trapezoid with width $a$ at the bottom, $b$ at the top and height $H$. If the trough is filled at a rate $d$, how fast is the water level rising when the water has depth $x$?",
+      "example": {
+        "problem": "A water trough is $30$ m long and its cross-section is an isosceles trapezoid that is $0.3$ m wide at the bottom, $0.8$ m wide at the top, and $0.5$ m high. If the trough is being filled with water at a rate of $0.2\\ \\text{m}^3/\\text{min}$, how fast is the water level rising when the water is $0.3$ m deep?",
+        "steps": [
+          {
+            "do": "If the water height is $x$, similar triangles show the top side of the water trapezoid is $a+\\dfrac{(b-a)x}{H}$ (it is $a$ at $x=0$ and $b$ at $x=H$). So the cross-section area is $\\dfrac x2\\Big(2a+\\dfrac{(b-a)x}{H}\\Big)$, and multiplying by the length, $V(x)=\\dfrac{Lx}2\\Big(2a+\\dfrac{(b-a)x}{H}\\Big)$.",
+            "work": "With $L=30$, $a=0.3$, $b=0.8$, $H=0.5$: the top of the water is $0.3+\\dfrac{0.5\\,x}{0.5}=0.3+x$ wide. The cross-section area is $\\dfrac x2(0.3+0.3+x)=\\dfrac x2(0.6+x)$, so $$V(x)=30\\cdot\\frac x2(0.6+x)=15x(0.6+x)=9x+15x^2$$"
+          },
+          {
+            "do": "Find $\\dfrac{dV}{dt}$ by implicit differentiation, getting an expression with $x$ and $\\dfrac{dx}{dt}$.",
+            "work": "$$\\frac{dV}{dt}=9\\frac{dx}{dt}+30x\\frac{dx}{dt}$$"
+          },
+          {
+            "do": "Plug in the known values of $x$ and $\\dfrac{dV}{dt}$ and solve for $\\dfrac{dx}{dt}$.",
+            "work": "$$0.2=9\\frac{dx}{dt}+30(0.3)\\frac{dx}{dt}=18\\frac{dx}{dt}\\ \\Longrightarrow\\ \\frac{dx}{dt}=\\frac{0.2}{18}=\\frac1{90}\\approx0.0111\\ \\text{m/min}$$"
+          }
+        ],
+        "answer": "$\\dfrac{dx}{dt}=\\dfrac1{90}\\approx0.0111$ m/min",
+        "check": {
+          "kind": "number",
+          "value": "1/90"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A water trough is $20$ m long and its cross-section is an isosceles trapezoid that is $0.2$ m wide at the bottom, $0.7$ m wide at the top, and $0.5$ m high. Water is poured in at $0.15\\ \\text{m}^3/\\text{min}$. How fast is the water level rising when the water is $0.2$ m deep? (Enter $dx/dt$ in m/min.)",
+          "steps": [
+            {
+              "do": "If the water height is $x$, similar triangles show the top side of the water trapezoid is $a+\\dfrac{(b-a)x}{H}$ (it is $a$ at $x=0$ and $b$ at $x=H$). So the cross-section area is $\\dfrac x2\\Big(2a+\\dfrac{(b-a)x}{H}\\Big)$, and multiplying by the length, $V(x)=\\dfrac{Lx}2\\Big(2a+\\dfrac{(b-a)x}{H}\\Big)$.",
+              "work": "With $L=20$, $a=0.2$, $b=0.7$, $H=0.5$: the top of the water is $0.2+\\dfrac{0.5\\,x}{0.5}=0.2+x$ wide. The cross-section area is $\\dfrac x2(0.4+x)$, so $$V(x)=20\\cdot\\frac x2(0.4+x)=10x(0.4+x)=4x+10x^2$$"
+            },
+            {
+              "do": "Find $\\dfrac{dV}{dt}$ by implicit differentiation, getting an expression with $x$ and $\\dfrac{dx}{dt}$.",
+              "work": "$$\\frac{dV}{dt}=4\\frac{dx}{dt}+20x\\frac{dx}{dt}$$"
+            },
+            {
+              "do": "Plug in the known values of $x$ and $\\dfrac{dV}{dt}$ and solve for $\\dfrac{dx}{dt}$.",
+              "work": "$$0.15=4\\frac{dx}{dt}+20(0.2)\\frac{dx}{dt}=8\\frac{dx}{dt}\\ \\Longrightarrow\\ \\frac{dx}{dt}=\\frac{0.15}{8}=\\frac3{160}=0.01875\\ \\text{m/min}$$"
+            }
+          ],
+          "answer": "$\\dfrac{dx}{dt}=\\dfrac3{160}=0.01875$ m/min",
+          "check": {
+            "kind": "number",
+            "value": "3/160"
+          }
+        },
+        {
+          "problem": "A water trough is $12$ m long and its cross-section is an isosceles trapezoid that is $1$ m wide at the bottom, $2$ m wide at the top, and $2$ m high. Water is poured in at $0.6\\ \\text{m}^3/\\text{min}$. How fast is the water level rising when the water is $1$ m deep? (Enter $dx/dt$ in m/min.)",
+          "steps": [
+            {
+              "do": "If the water height is $x$, similar triangles show the top side of the water trapezoid is $a+\\dfrac{(b-a)x}{H}$ (it is $a$ at $x=0$ and $b$ at $x=H$). So the cross-section area is $\\dfrac x2\\Big(2a+\\dfrac{(b-a)x}{H}\\Big)$, and multiplying by the length, $V(x)=\\dfrac{Lx}2\\Big(2a+\\dfrac{(b-a)x}{H}\\Big)$.",
+              "work": "With $L=12$, $a=1$, $b=2$, $H=2$: the top of the water is $1+\\dfrac{(2-1)x}{2}=1+\\dfrac x2$ wide. The cross-section area is $\\dfrac x2\\Big(2+\\dfrac x2\\Big)=x+\\dfrac{x^2}4$, so $$V(x)=12\\Big(x+\\frac{x^2}4\\Big)=12x+3x^2$$"
+            },
+            {
+              "do": "Find $\\dfrac{dV}{dt}$ by implicit differentiation, getting an expression with $x$ and $\\dfrac{dx}{dt}$.",
+              "work": "$$\\frac{dV}{dt}=12\\frac{dx}{dt}+6x\\frac{dx}{dt}$$"
+            },
+            {
+              "do": "Plug in the known values of $x$ and $\\dfrac{dV}{dt}$ and solve for $\\dfrac{dx}{dt}$.",
+              "work": "$$0.6=12\\frac{dx}{dt}+6(1)\\frac{dx}{dt}=18\\frac{dx}{dt}\\ \\Longrightarrow\\ \\frac{dx}{dt}=\\frac{0.6}{18}=\\frac1{30}\\ \\text{m/min}$$"
+            }
+          ],
+          "answer": "$\\dfrac{dx}{dt}=\\dfrac1{30}$ m/min",
+          "check": {
+            "kind": "number",
+            "value": "1/30"
+          }
+        }
+      ],
+      "scene": "rules"
+    },
+    {
+      "id": "c1-3.11.3",
+      "course": "calc1",
+      "section": "3.11",
+      "topic": "Related Rates",
+      "title": "Resistors in parallel",
+      "type": "Two resistors $R_1$ and $R_2$ connected in parallel have total resistance $R$ with $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$. If $R_1$ and $R_2$ are increasing at rates $a$ and $b$ ohms per second, how fast is $R$ changing when $R_1=A$ and $R_2=B$?",
+      "example": {
+        "problem": "Two resistors $R_1$ and $R_2$ are connected in parallel, so the total resistance satisfies $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$. If $R_1$ and $R_2$ are increasing at $0.6$ and $0.4$ ohms per second, how fast is $R$ changing when $R_1=160$ and $R_2=200$?",
+        "steps": [
+          {
+            "do": "Differentiate $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$ with respect to $t$: $-\\dfrac{R'}{R^2}=-\\dfrac{R_1'}{R_1^2}-\\dfrac{R_2'}{R_2^2}$.",
+            "work": "$$-\\frac{dR/dt}{R^2}=-\\frac{dR_1/dt}{R_1^2}-\\frac{dR_2/dt}{R_2^2}$$"
+          },
+          {
+            "do": "Find the value of $R$ for the given $R_1$ and $R_2$ by solving $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$.",
+            "work": "$\\dfrac1R=\\dfrac1{160}+\\dfrac1{200}=\\dfrac9{800}$, so $R=\\dfrac{800}9$."
+          },
+          {
+            "do": "Plug $R$, $R_1$, $R_2$, $R_1'$, $R_2'$ into the relationship from step 1 and solve for $R'=\\dfrac{dR}{dt}$.",
+            "work": "$$-\\frac{dR}{dt}\\Big/\\Big(\\frac{800}9\\Big)^2=-\\frac{0.6}{160^2}-\\frac{0.4}{200^2}\\ \\Longrightarrow\\ \\frac{dR}{dt}=(0.6)\\Big(\\frac59\\Big)^2+(0.4)\\Big(\\frac49\\Big)^2=\\frac{15+6.4}{81}=\\frac{107}{405}$$"
+          }
+        ],
+        "answer": "$\\dfrac{dR}{dt}=\\dfrac{107}{405}\\approx0.264$ ohm/s",
+        "check": {
+          "kind": "number",
+          "value": "107/405"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Two resistors in parallel satisfy $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$. If $R_1$ and $R_2$ are increasing at $0.3$ and $0.2$ ohms per second, how fast is $R$ changing when $R_1=30$ and $R_2=60$?",
+          "steps": [
+            {
+              "do": "Differentiate $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$ with respect to $t$: $-\\dfrac{R'}{R^2}=-\\dfrac{R_1'}{R_1^2}-\\dfrac{R_2'}{R_2^2}$.",
+              "work": "$$-\\frac{dR/dt}{R^2}=-\\frac{dR_1/dt}{R_1^2}-\\frac{dR_2/dt}{R_2^2}$$"
+            },
+            {
+              "do": "Find the value of $R$ for the given $R_1$ and $R_2$ by solving $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$.",
+              "work": "$\\dfrac1R=\\dfrac1{30}+\\dfrac1{60}=\\dfrac3{60}=\\dfrac1{20}$, so $R=20$."
+            },
+            {
+              "do": "Plug $R$, $R_1$, $R_2$, $R_1'$, $R_2'$ into the relationship from step 1 and solve for $R'=\\dfrac{dR}{dt}$.",
+              "work": "$$\\frac{dR}{dt}=20^2\\Big(\\frac{0.3}{30^2}+\\frac{0.2}{60^2}\\Big)=(0.3)\\Big(\\frac23\\Big)^2+(0.2)\\Big(\\frac13\\Big)^2=\\frac{1.2+0.2}{9}=\\frac7{45}$$"
+            }
+          ],
+          "answer": "$\\dfrac{dR}{dt}=\\dfrac7{45}\\approx0.156$ ohm/s",
+          "check": {
+            "kind": "number",
+            "value": "7/45"
+          }
+        },
+        {
+          "problem": "Two resistors in parallel satisfy $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$. If $R_1$ and $R_2$ are increasing at $0.9$ and $0.6$ ohms per second, how fast is $R$ changing when $R_1=6$ and $R_2=3$?",
+          "steps": [
+            {
+              "do": "Differentiate $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$ with respect to $t$: $-\\dfrac{R'}{R^2}=-\\dfrac{R_1'}{R_1^2}-\\dfrac{R_2'}{R_2^2}$.",
+              "work": "$$-\\frac{dR/dt}{R^2}=-\\frac{dR_1/dt}{R_1^2}-\\frac{dR_2/dt}{R_2^2}$$"
+            },
+            {
+              "do": "Find the value of $R$ for the given $R_1$ and $R_2$ by solving $\\dfrac1R=\\dfrac1{R_1}+\\dfrac1{R_2}$.",
+              "work": "$\\dfrac1R=\\dfrac16+\\dfrac13=\\dfrac12$, so $R=2$."
+            },
+            {
+              "do": "Plug $R$, $R_1$, $R_2$, $R_1'$, $R_2'$ into the relationship from step 1 and solve for $R'=\\dfrac{dR}{dt}$.",
+              "work": "$$\\frac{dR}{dt}=2^2\\Big(\\frac{0.9}{6^2}+\\frac{0.6}{3^2}\\Big)=(0.9)\\Big(\\frac13\\Big)^2+(0.6)\\Big(\\frac23\\Big)^2=0.1+\\frac{2.4}{9}=\\frac{11}{30}$$"
+            }
+          ],
+          "answer": "$\\dfrac{dR}{dt}=\\dfrac{11}{30}\\approx0.367$ ohm/s",
+          "check": {
+            "kind": "number",
+            "value": "11/30"
+          }
+        }
+      ],
+      "scene": "rules"
+    }
+  ]
+}

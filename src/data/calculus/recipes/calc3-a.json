@@ -1,0 +1,2749 @@
+{
+  "recipes": [
+    {
+      "id": "c3-12.1a",
+      "course": "calc3",
+      "section": "12.1",
+      "topic": "Vectors in the Plane",
+      "title": "Velocity relative to the water",
+      "type": "A person walks due west (or east) on the deck of a ship at $a$ mi/h. The ship is moving north (or south) at $b$ mi/h. Find the speed and direction of the person relative to the surface of the water.",
+      "example": {
+        "problem": "A girl walks due east on the deck of a ship at 5 mi/h. The ship is moving south at 12 mi/h. Find the speed and direction of the girl relative to the surface of the water.",
+        "steps": [
+          {
+            "do": "Write the velocity vectors of the person and of the ship, and add them to get the composite velocity. (East is $\\mathbf{i}=\\langle 1,0\\rangle$, west is $-\\mathbf{i}$, north is $\\mathbf{j}=\\langle 0,1\\rangle$, south is $-\\mathbf{j}$.)",
+            "work": "The girl's velocity is $5\\mathbf{i}$ and the ship's is $-12\\mathbf{j}$, so relative to the water the velocity is $5\\mathbf{i}-12\\mathbf{j}=\\langle 5,-12\\rangle$."
+          },
+          {
+            "do": "If the composite velocity is $\\langle a,b\\rangle$, the speed is its magnitude $\\sqrt{a^2+b^2}$, and the direction is the angle $\\theta=\\tan^{-1}(b/a)$ with the positive $x$-axis (East).",
+            "work": "$$\\text{speed}=|5\\mathbf{i}-12\\mathbf{j}|=\\sqrt{5^2+12^2}=13,\\qquad \\theta=\\tan^{-1}\\!\\left(\\tfrac{-12}{5}\\right)=-\\tan^{-1}\\tfrac{12}{5}\\approx -67.4^\\circ .$$"
+          }
+        ],
+        "answer": "The speed is $13$ mi/h, in direction $\\theta=-\\tan^{-1}(12/5)\\approx -67.4^\\circ$ (south of east).",
+        "check": {
+          "kind": "number",
+          "value": "13"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A man walks due west on the deck of a ship at 8 mi/h. The ship is moving north at 15 mi/h. Find the speed and direction of the man relative to the surface of the water. Enter the speed.",
+          "steps": [
+            {
+              "do": "Write the velocity vectors of the person and of the ship, and add them to get the composite velocity. (East is $\\mathbf{i}=\\langle 1,0\\rangle$, west is $-\\mathbf{i}$, north is $\\mathbf{j}=\\langle 0,1\\rangle$, south is $-\\mathbf{j}$.)",
+              "work": "The man's velocity is $-8\\mathbf{i}$ and the ship's is $15\\mathbf{j}$, so the velocity relative to the water is $-8\\mathbf{i}+15\\mathbf{j}=\\langle -8,15\\rangle$."
+            },
+            {
+              "do": "If the composite velocity is $\\langle a,b\\rangle$, the speed is its magnitude $\\sqrt{a^2+b^2}$, and the direction is the angle $\\theta=\\tan^{-1}(b/a)$ with the positive $x$-axis (East).",
+              "work": "$$\\text{speed}=\\sqrt{(-8)^2+15^2}=\\sqrt{289}=17 .$$ Since $a=-8<0$ the vector points into the second quadrant, so $\\theta=\\pi-\\tan^{-1}\\tfrac{15}{8}\\approx 118.1^\\circ$."
+            }
+          ],
+          "answer": "The speed is $17$ mi/h, in direction $\\pi-\\tan^{-1}(15/8)\\approx 118.1^\\circ$ (north of west).",
+          "check": {
+            "kind": "number",
+            "value": "17"
+          }
+        },
+        {
+          "problem": "A woman walks due east on the deck of a ship at 9 mi/h. The ship is moving north at 40 mi/h. Find the speed and direction of the woman relative to the surface of the water. Enter the speed.",
+          "steps": [
+            {
+              "do": "Write the velocity vectors of the person and of the ship, and add them to get the composite velocity. (East is $\\mathbf{i}=\\langle 1,0\\rangle$, west is $-\\mathbf{i}$, north is $\\mathbf{j}=\\langle 0,1\\rangle$, south is $-\\mathbf{j}$.)",
+              "work": "The woman's velocity is $9\\mathbf{i}$ and the ship's is $40\\mathbf{j}$, so the velocity relative to the water is $9\\mathbf{i}+40\\mathbf{j}=\\langle 9,40\\rangle$."
+            },
+            {
+              "do": "If the composite velocity is $\\langle a,b\\rangle$, the speed is its magnitude $\\sqrt{a^2+b^2}$, and the direction is the angle $\\theta=\\tan^{-1}(b/a)$ with the positive $x$-axis (East).",
+              "work": "$$\\text{speed}=\\sqrt{9^2+40^2}=\\sqrt{1681}=41,\\qquad \\theta=\\tan^{-1}\\tfrac{40}{9}\\approx 77.3^\\circ .$$"
+            }
+          ],
+          "answer": "The speed is $41$ mi/h, in direction $\\tan^{-1}(40/9)\\approx 77.3^\\circ$ (north of east).",
+          "check": {
+            "kind": "number",
+            "value": "41"
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.2a",
+      "course": "calc3",
+      "section": "12.2",
+      "topic": "Vectors in Three Dimensions",
+      "title": "Equilateral triangle in space",
+      "type": "Show that the triangle with vertices $P=(p_1,p_2,p_3)$, $Q=(q_1,q_2,q_3)$, $R=(r_1,r_2,r_3)$ is an equilateral triangle.",
+      "example": {
+        "problem": "Show that the triangle with vertices $P=(-4,8,0)$, $Q=(2,4,-2)$, $R=(-2,2,4)$ is an equilateral triangle.",
+        "steps": [
+          {
+            "do": "Use the distance formula $|P_1P_2|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$ to find the three distances $|PQ|$, $|PR|$, $|QR|$.",
+            "work": "$$\\begin{aligned}|PQ|&=\\sqrt{(2-(-4))^2+(4-8)^2+(-2-0)^2}=\\sqrt{36+16+4}=\\sqrt{56},\\\\ |PR|&=\\sqrt{(-2-(-4))^2+(2-8)^2+(4-0)^2}=\\sqrt{4+36+16}=\\sqrt{56},\\\\ |QR|&=\\sqrt{(-2-2)^2+(2-4)^2+(4-(-2))^2}=\\sqrt{16+4+36}=\\sqrt{56}.\\end{aligned}$$"
+          },
+          {
+            "do": "Check whether the three distances are all the same. If they are, the triangle is equilateral; otherwise it is not.",
+            "work": "All three distances equal $\\sqrt{56}$."
+          }
+        ],
+        "answer": "It is an equilateral triangle: all three sides have length $\\sqrt{56}$.",
+        "check": {
+          "kind": "number",
+          "value": "sqrt(56)"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Show that the triangle with vertices $P=(-1,2,0)$, $Q=(2,5,0)$, $R=(-1,5,3)$ is equilateral. Enter the common side length.",
+          "steps": [
+            {
+              "do": "Use the distance formula $|P_1P_2|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$ to find the three distances $|PQ|$, $|PR|$, $|QR|$.",
+              "work": "$$\\begin{aligned}|PQ|&=\\sqrt{3^2+3^2+0^2}=\\sqrt{18},\\\\ |PR|&=\\sqrt{0^2+3^2+3^2}=\\sqrt{18},\\\\ |QR|&=\\sqrt{(-3)^2+0^2+3^2}=\\sqrt{18}.\\end{aligned}$$"
+            },
+            {
+              "do": "Check whether the three distances are all the same. If they are, the triangle is equilateral; otherwise it is not.",
+              "work": "All three distances equal $\\sqrt{18}$."
+            }
+          ],
+          "answer": "It is an equilateral triangle; every side has length $\\sqrt{18}=3\\sqrt2$.",
+          "check": {
+            "kind": "number",
+            "value": "3*sqrt(2)"
+          }
+        },
+        {
+          "problem": "Show that the triangle with vertices $P=(0,-1,3)$, $Q=(2,1,3)$, $R=(0,1,5)$ is equilateral. Enter the common side length.",
+          "steps": [
+            {
+              "do": "Use the distance formula $|P_1P_2|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$ to find the three distances $|PQ|$, $|PR|$, $|QR|$.",
+              "work": "$$\\begin{aligned}|PQ|&=\\sqrt{2^2+2^2+0^2}=\\sqrt8,\\\\ |PR|&=\\sqrt{0^2+2^2+2^2}=\\sqrt8,\\\\ |QR|&=\\sqrt{(-2)^2+0^2+2^2}=\\sqrt8.\\end{aligned}$$"
+            },
+            {
+              "do": "Check whether the three distances are all the same. If they are, the triangle is equilateral; otherwise it is not.",
+              "work": "All three distances equal $\\sqrt8$."
+            }
+          ],
+          "answer": "It is an equilateral triangle; every side has length $\\sqrt8=2\\sqrt2$.",
+          "check": {
+            "kind": "number",
+            "value": "2*sqrt(2)"
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.2b",
+      "course": "calc3",
+      "section": "12.2",
+      "topic": "Vectors in Three Dimensions",
+      "title": "Equation of a sphere",
+      "type": "Find an equation of the sphere with center $C(h,k,l)$ and radius $r$.",
+      "example": {
+        "problem": "Find an equation of the sphere with center $(1,2,-1)$ and radius $2$. Enter only the left-hand side of the expanded equation (the right-hand side is $0$).",
+        "steps": [
+          {
+            "do": "Use the formula $(x-h)^2+(y-k)^2+(z-l)^2=r^2$.",
+            "work": "Here $(h,k,l)=(1,2,-1)$ and $r=2$, so $$(x-1)^2+(y-2)^2+(z-(-1))^2=2^2,\\ \\text{ i.e. }\\ (x-1)^2+(y-2)^2+(z+1)^2=2^2 .$$"
+          },
+          {
+            "do": "Expand everything and move everything to the left, leaving $0$ on the right. Put the quadratic terms before the linear terms.",
+            "work": "$$x^2-2x+1+y^2-4y+4+z^2+2z+1=4,$$ and cleaning up, $$x^2+y^2+z^2-2x-4y+2z+2=0 .$$"
+          }
+        ],
+        "answer": "$x^2+y^2+z^2-2x-4y+2z+2=0$",
+        "check": {
+          "kind": "expr",
+          "value": "x^2+y^2+z^2-2*x-4*y+2*z+2",
+          "vars": [
+            "x",
+            "y",
+            "z"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find an equation of the sphere with center $(-2,3,1)$ and radius $3$. Enter only the left-hand side of the expanded equation (the right-hand side is $0$).",
+          "steps": [
+            {
+              "do": "Use the formula $(x-h)^2+(y-k)^2+(z-l)^2=r^2$.",
+              "work": "Here $(h,k,l)=(-2,3,1)$ and $r=3$, so $$(x+2)^2+(y-3)^2+(z-1)^2=3^2 .$$"
+            },
+            {
+              "do": "Expand everything and move everything to the left, leaving $0$ on the right. Put the quadratic terms before the linear terms.",
+              "work": "$$x^2+4x+4+y^2-6y+9+z^2-2z+1=9,$$ and cleaning up, $$x^2+y^2+z^2+4x-6y-2z+5=0 .$$"
+            }
+          ],
+          "answer": "$x^2+y^2+z^2+4x-6y-2z+5=0$",
+          "check": {
+            "kind": "expr",
+            "value": "x^2+y^2+z^2+4*x-6*y-2*z+5",
+            "vars": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        },
+        {
+          "problem": "Find an equation of the sphere with center $(3,0,-2)$ and radius $4$. Enter only the left-hand side of the expanded equation (the right-hand side is $0$).",
+          "steps": [
+            {
+              "do": "Use the formula $(x-h)^2+(y-k)^2+(z-l)^2=r^2$.",
+              "work": "Here $(h,k,l)=(3,0,-2)$ and $r=4$, so $$(x-3)^2+(y-0)^2+(z+2)^2=4^2 .$$"
+            },
+            {
+              "do": "Expand everything and move everything to the left, leaving $0$ on the right. Put the quadratic terms before the linear terms.",
+              "work": "$$x^2-6x+9+y^2+z^2+4z+4=16,$$ and cleaning up, $$x^2+y^2+z^2-6x+4z-3=0 .$$"
+            }
+          ],
+          "answer": "$x^2+y^2+z^2-6x+4z-3=0$",
+          "check": {
+            "kind": "expr",
+            "value": "x^2+y^2+z^2-6*x+4*z-3",
+            "vars": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.2c",
+      "course": "calc3",
+      "section": "12.2",
+      "topic": "Vectors in Three Dimensions",
+      "title": "Center and radius of a sphere",
+      "type": "Show that the equation $x^2+y^2+z^2+ax+by+cz+d=0$ represents a sphere, and find its center and radius.",
+      "example": {
+        "problem": "Show that $x^2+y^2+z^2-2x-4y+2z+2=0$ represents a sphere, and find its center and radius. Enter them as $h,k,l,r$.",
+        "steps": [
+          {
+            "do": "The coefficients of $x^2,y^2,z^2$ must all be equal (otherwise it is not a sphere); divide the whole equation by that coefficient so they are all $1$. Then group the terms: $x^2$ with the $x$ term, $y^2$ with the $y$ term, $z^2$ with the $z$ term.",
+            "work": "The coefficients of $x^2,y^2,z^2$ are already all $1$. Grouping: $$(x^2-2x)+(y^2-4y)+(z^2+2z)+2=0 .$$"
+          },
+          {
+            "do": "Complete the square in each group, using $X^2+aX=(X+a/2)^2-(a/2)^2$.",
+            "work": "$$x^2-2x=(x-1)^2-1,\\quad y^2-4y=(y-2)^2-4,\\quad z^2+2z=(z+1)^2-1,$$ so $$(x-1)^2-1+(y-2)^2-4+(z+1)^2-1+2=0 .$$"
+          },
+          {
+            "do": "Move all the plain numbers to the right and write that number as $r^2$. Compare with $(x-h)^2+(y-k)^2+(z-l)^2=r^2$ and read off the center $(h,k,l)$ and the radius $r$.",
+            "work": "$$(x-1)^2+(y-2)^2+(z+1)^2=4=2^2 .$$ This is a sphere with center $(1,2,-1)$ and radius $2$."
+          }
+        ],
+        "answer": "A sphere with center $(1,2,-1)$ and radius $2$.",
+        "check": {
+          "kind": "tuple",
+          "values": [
+            "1",
+            "2",
+            "-1",
+            "2"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Show that $x^2+y^2+z^2-6x+2y+8z+1=0$ represents a sphere. Enter its center and radius as $h,k,l,r$.",
+          "steps": [
+            {
+              "do": "The coefficients of $x^2,y^2,z^2$ must all be equal (otherwise it is not a sphere); divide the whole equation by that coefficient so they are all $1$. Then group the terms: $x^2$ with the $x$ term, $y^2$ with the $y$ term, $z^2$ with the $z$ term.",
+              "work": "The coefficients of $x^2,y^2,z^2$ are all $1$. Grouping: $$(x^2-6x)+(y^2+2y)+(z^2+8z)+1=0 .$$"
+            },
+            {
+              "do": "Complete the square in each group, using $X^2+aX=(X+a/2)^2-(a/2)^2$.",
+              "work": "$$(x-3)^2-9+(y+1)^2-1+(z+4)^2-16+1=0 .$$"
+            },
+            {
+              "do": "Move all the plain numbers to the right and write that number as $r^2$. Compare with $(x-h)^2+(y-k)^2+(z-l)^2=r^2$ and read off the center $(h,k,l)$ and the radius $r$.",
+              "work": "$$(x-3)^2+(y+1)^2+(z+4)^2=25=5^2 .$$ Center $(3,-1,-4)$, radius $5$."
+            }
+          ],
+          "answer": "A sphere with center $(3,-1,-4)$ and radius $5$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "3",
+              "-1",
+              "-4",
+              "5"
+            ]
+          }
+        },
+        {
+          "problem": "Show that $2x^2+2y^2+2z^2+4x-8y+12z-4=0$ represents a sphere. Enter its center and radius as $h,k,l,r$.",
+          "steps": [
+            {
+              "do": "The coefficients of $x^2,y^2,z^2$ must all be equal (otherwise it is not a sphere); divide the whole equation by that coefficient so they are all $1$. Then group the terms: $x^2$ with the $x$ term, $y^2$ with the $y$ term, $z^2$ with the $z$ term.",
+              "work": "The coefficients of $x^2,y^2,z^2$ are all $2$, so divide by $2$: $x^2+y^2+z^2+2x-4y+6z-2=0$. Grouping: $$(x^2+2x)+(y^2-4y)+(z^2+6z)-2=0 .$$"
+            },
+            {
+              "do": "Complete the square in each group, using $X^2+aX=(X+a/2)^2-(a/2)^2$.",
+              "work": "$$(x+1)^2-1+(y-2)^2-4+(z+3)^2-9-2=0 .$$"
+            },
+            {
+              "do": "Move all the plain numbers to the right and write that number as $r^2$. Compare with $(x-h)^2+(y-k)^2+(z-l)^2=r^2$ and read off the center $(h,k,l)$ and the radius $r$.",
+              "work": "$$(x+1)^2+(y-2)^2+(z+3)^2=16=4^2 .$$ Center $(-1,2,-3)$, radius $4$."
+            }
+          ],
+          "answer": "A sphere with center $(-1,2,-3)$ and radius $4$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "-1",
+              "2",
+              "-3",
+              "4"
+            ]
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.3a",
+      "course": "calc3",
+      "section": "12.3",
+      "topic": "Dot Product and the Angle Between Two Vectors",
+      "title": "Right triangle test with vectors",
+      "type": "Use vectors to decide whether the triangle with vertices $P(p_1,p_2,p_3)$, $Q(q_1,q_2,q_3)$, $R(r_1,r_2,r_3)$ is right-angled.",
+      "example": {
+        "problem": "Use vectors to decide whether the triangle with vertices $P(2,-6,-4)$, $Q(4,0,-8)$, $R(12,-4,-10)$ is right-angled. Enter the vertex of the right angle, or “none”.",
+        "steps": [
+          {
+            "do": "Form the vectors $\\overrightarrow{PQ}$, $\\overrightarrow{QR}$, $\\overrightarrow{RP}$ by subtraction (head minus tail).",
+            "work": "$$\\begin{aligned}\\overrightarrow{PQ}&=\\langle 4-2,\\,0+6,\\,-8+4\\rangle=\\langle 2,6,-4\\rangle,\\\\ \\overrightarrow{QR}&=\\langle 12-4,\\,-4-0,\\,-10+8\\rangle=\\langle 8,-4,-2\\rangle,\\\\ \\overrightarrow{RP}&=\\langle 2-12,\\,-6+4,\\,-4+10\\rangle=\\langle -10,-2,6\\rangle.\\end{aligned}$$"
+          },
+          {
+            "do": "Take all three dot products and see whether any of them is $0$. If one is, the triangle is right-angled, at the vertex the two vectors share; otherwise it is not.",
+            "work": "$$\\begin{aligned}\\overrightarrow{PQ}\\cdot\\overrightarrow{QR}&=16-24+8=0,\\\\ \\overrightarrow{QR}\\cdot\\overrightarrow{RP}&=-80+8-12=-84,\\\\ \\overrightarrow{PQ}\\cdot\\overrightarrow{RP}&=-20-12-24=-56.\\end{aligned}$$ One dot product is $0$, and the vectors $\\overrightarrow{PQ},\\overrightarrow{QR}$ meet at $Q$."
+          }
+        ],
+        "answer": "Yes, it is right-angled, with the right angle at $Q$ (since $\\overrightarrow{PQ}\\cdot\\overrightarrow{QR}=0$).",
+        "check": {
+          "kind": "choice",
+          "value": "Q",
+          "options": [
+            "P",
+            "Q",
+            "R",
+            "none"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use vectors to decide whether the triangle with vertices $P(3,1,-2)$, $Q(5,4,0)$, $R(6,-1,-2)$ is right-angled. Enter the vertex of the right angle, or “none”.",
+          "steps": [
+            {
+              "do": "Form the vectors $\\overrightarrow{PQ}$, $\\overrightarrow{QR}$, $\\overrightarrow{RP}$ by subtraction (head minus tail).",
+              "work": "$$\\begin{aligned}\\overrightarrow{PQ}&=\\langle 2,3,2\\rangle,\\\\ \\overrightarrow{QR}&=\\langle 1,-5,-2\\rangle,\\\\ \\overrightarrow{RP}&=\\langle -3,2,0\\rangle.\\end{aligned}$$"
+            },
+            {
+              "do": "Take all three dot products and see whether any of them is $0$. If one is, the triangle is right-angled, at the vertex the two vectors share; otherwise it is not.",
+              "work": "$$\\begin{aligned}\\overrightarrow{PQ}\\cdot\\overrightarrow{QR}&=2-15-4=-17,\\\\ \\overrightarrow{QR}\\cdot\\overrightarrow{RP}&=-3-10+0=-13,\\\\ \\overrightarrow{PQ}\\cdot\\overrightarrow{RP}&=-6+6+0=0.\\end{aligned}$$ The vectors $\\overrightarrow{PQ},\\overrightarrow{RP}$ meet at $P$."
+            }
+          ],
+          "answer": "Yes, it is right-angled, with the right angle at $P$.",
+          "check": {
+            "kind": "choice",
+            "value": "P",
+            "options": [
+              "P",
+              "Q",
+              "R",
+              "none"
+            ]
+          }
+        },
+        {
+          "problem": "Use vectors to decide whether the triangle with vertices $P(1,1,1)$, $Q(3,2,4)$, $R(2,5,3)$ is right-angled. Enter the vertex of the right angle, or “none”.",
+          "steps": [
+            {
+              "do": "Form the vectors $\\overrightarrow{PQ}$, $\\overrightarrow{QR}$, $\\overrightarrow{RP}$ by subtraction (head minus tail).",
+              "work": "$$\\begin{aligned}\\overrightarrow{PQ}&=\\langle 2,1,3\\rangle,\\\\ \\overrightarrow{QR}&=\\langle -1,3,-1\\rangle,\\\\ \\overrightarrow{RP}&=\\langle -1,-4,-2\\rangle.\\end{aligned}$$"
+            },
+            {
+              "do": "Take all three dot products and see whether any of them is $0$. If one is, the triangle is right-angled, at the vertex the two vectors share; otherwise it is not.",
+              "work": "$$\\begin{aligned}\\overrightarrow{PQ}\\cdot\\overrightarrow{QR}&=-2+3-3=-2,\\\\ \\overrightarrow{QR}\\cdot\\overrightarrow{RP}&=1-12+2=-9,\\\\ \\overrightarrow{PQ}\\cdot\\overrightarrow{RP}&=-2-4-6=-12.\\end{aligned}$$ None of them is $0$."
+            }
+          ],
+          "answer": "No, it is not a right triangle: none of the three dot products is $0$.",
+          "check": {
+            "kind": "choice",
+            "value": "none",
+            "options": [
+              "P",
+              "Q",
+              "R",
+              "none"
+            ]
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.3b",
+      "course": "calc3",
+      "section": "12.3",
+      "topic": "Dot Product and the Angle Between Two Vectors",
+      "title": "Work done by a constant force",
+      "type": "A constant force $\\mathbf{F}=f_1\\mathbf{i}+f_2\\mathbf{j}+f_3\\mathbf{k}$ moves an object along a straight line from the point $(p_1,p_2,p_3)$ to the point $(q_1,q_2,q_3)$. Find the work done, if distance is measured in meters and force in newtons.",
+      "example": {
+        "problem": "A constant force $\\mathbf{F}=5\\mathbf{i}+9\\mathbf{j}-3\\mathbf{k}$ moves an object along a straight line from $(4,6,0)$ to $(8,18,30)$. Find the work done (meters, newtons).",
+        "steps": [
+          {
+            "do": "Find the displacement vector $\\mathbf{D}=(q_1-p_1)\\mathbf{i}+(q_2-p_2)\\mathbf{j}+(q_3-p_3)\\mathbf{k}$ from the start to the end.",
+            "work": "$$\\mathbf{D}=(8-4)\\mathbf{i}+(18-6)\\mathbf{j}+(30-0)\\mathbf{k}=4\\mathbf{i}+12\\mathbf{j}+30\\mathbf{k}.$$"
+          },
+          {
+            "do": "Take the dot product $\\mathbf{D}\\cdot\\mathbf{F}$. This is the work.",
+            "work": "$$\\mathbf{D}\\cdot\\mathbf{F}=4\\cdot5+12\\cdot9+30\\cdot(-3)=20+108-90=38 .$$"
+          }
+        ],
+        "answer": "The work done is $38$ joules.",
+        "check": {
+          "kind": "number",
+          "value": "38"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A constant force $\\mathbf{F}=2\\mathbf{i}-\\mathbf{j}+4\\mathbf{k}$ moves an object along a straight line from $(1,2,0)$ to $(4,5,5)$. Find the work done (meters, newtons).",
+          "steps": [
+            {
+              "do": "Find the displacement vector $\\mathbf{D}=(q_1-p_1)\\mathbf{i}+(q_2-p_2)\\mathbf{j}+(q_3-p_3)\\mathbf{k}$ from the start to the end.",
+              "work": "$$\\mathbf{D}=(4-1)\\mathbf{i}+(5-2)\\mathbf{j}+(5-0)\\mathbf{k}=3\\mathbf{i}+3\\mathbf{j}+5\\mathbf{k}.$$"
+            },
+            {
+              "do": "Take the dot product $\\mathbf{D}\\cdot\\mathbf{F}$. This is the work.",
+              "work": "$$\\mathbf{D}\\cdot\\mathbf{F}=3\\cdot2+3\\cdot(-1)+5\\cdot4=6-3+20=23 .$$"
+            }
+          ],
+          "answer": "The work done is $23$ joules.",
+          "check": {
+            "kind": "number",
+            "value": "23"
+          }
+        },
+        {
+          "problem": "A constant force $\\mathbf{F}=7\\mathbf{i}+\\mathbf{j}-2\\mathbf{k}$ moves an object along a straight line from $(1,0,2)$ to $(3,5,6)$. Find the work done (meters, newtons).",
+          "steps": [
+            {
+              "do": "Find the displacement vector $\\mathbf{D}=(q_1-p_1)\\mathbf{i}+(q_2-p_2)\\mathbf{j}+(q_3-p_3)\\mathbf{k}$ from the start to the end.",
+              "work": "$$\\mathbf{D}=(3-1)\\mathbf{i}+(5-0)\\mathbf{j}+(6-2)\\mathbf{k}=2\\mathbf{i}+5\\mathbf{j}+4\\mathbf{k}.$$"
+            },
+            {
+              "do": "Take the dot product $\\mathbf{D}\\cdot\\mathbf{F}$. This is the work.",
+              "work": "$$\\mathbf{D}\\cdot\\mathbf{F}=2\\cdot7+5\\cdot1+4\\cdot(-2)=14+5-8=11 .$$"
+            }
+          ],
+          "answer": "The work done is $11$ joules.",
+          "check": {
+            "kind": "number",
+            "value": "11"
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.4a",
+      "course": "calc3",
+      "section": "12.4",
+      "topic": "The Cross Product",
+      "title": "Cross product and orthogonality",
+      "type": "Find the cross product $\\mathbf{a}\\times\\mathbf{b}$ and verify that it is orthogonal to both $\\mathbf{a}$ and $\\mathbf{b}$, where $\\mathbf{a}=\\langle a_1,a_2,a_3\\rangle$, $\\mathbf{b}=\\langle b_1,b_2,b_3\\rangle$.",
+      "example": {
+        "problem": "Find $\\mathbf{a}\\times\\mathbf{b}$ and verify that it is orthogonal to both, for $\\mathbf{a}=\\langle 4,5,-3\\rangle$, $\\mathbf{b}=\\langle 2,1,-3\\rangle$.",
+        "steps": [
+          {
+            "do": "Form the determinant with $\\mathbf{i},\\mathbf{j},\\mathbf{k}$ in the first row, $\\mathbf{a}$ in the second row and $\\mathbf{b}$ in the third row.",
+            "work": "$$\\mathbf{a}\\times\\mathbf{b}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\4&5&-3\\\\2&1&-3\\end{vmatrix}.$$"
+          },
+          {
+            "do": "Expand the determinant along the first row: $\\mathbf{i}(a_2b_3-b_2a_3)-\\mathbf{j}(a_1b_3-b_1a_3)+\\mathbf{k}(a_1b_2-b_1a_2)$.",
+            "work": "$$\\begin{aligned}&=\\mathbf{i}\\,(5\\cdot(-3)-1\\cdot(-3))-\\mathbf{j}\\,(4\\cdot(-3)-2\\cdot(-3))+\\mathbf{k}\\,(4\\cdot1-2\\cdot5)\\\\&=-12\\mathbf{i}+6\\mathbf{j}-6\\mathbf{k}=\\langle -12,6,-6\\rangle.\\end{aligned}$$"
+          },
+          {
+            "do": "Take the dot product of the result with $\\mathbf{a}$ and with $\\mathbf{b}$ and verify that both are $0$. (If not, something went wrong.)",
+            "work": "$$\\langle -12,6,-6\\rangle\\cdot\\langle 4,5,-3\\rangle=-48+30+18=0,\\qquad \\langle -12,6,-6\\rangle\\cdot\\langle 2,1,-3\\rangle=-24+6+18=0 .$$"
+          }
+        ],
+        "answer": "$\\mathbf{a}\\times\\mathbf{b}=\\langle -12,6,-6\\rangle$, and both dot products are $0$ as expected.",
+        "check": {
+          "kind": "tuple",
+          "values": [
+            "-12",
+            "6",
+            "-6"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find $\\mathbf{a}\\times\\mathbf{b}$ and verify that it is orthogonal to both, for $\\mathbf{a}=\\langle 2,-1,3\\rangle$, $\\mathbf{b}=\\langle 1,4,-2\\rangle$. Enter the cross product.",
+          "steps": [
+            {
+              "do": "Form the determinant with $\\mathbf{i},\\mathbf{j},\\mathbf{k}$ in the first row, $\\mathbf{a}$ in the second row and $\\mathbf{b}$ in the third row.",
+              "work": "$$\\mathbf{a}\\times\\mathbf{b}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&-1&3\\\\1&4&-2\\end{vmatrix}.$$"
+            },
+            {
+              "do": "Expand the determinant along the first row: $\\mathbf{i}(a_2b_3-b_2a_3)-\\mathbf{j}(a_1b_3-b_1a_3)+\\mathbf{k}(a_1b_2-b_1a_2)$.",
+              "work": "$$\\begin{aligned}&=\\mathbf{i}\\,((-1)(-2)-4\\cdot3)-\\mathbf{j}\\,(2\\cdot(-2)-1\\cdot3)+\\mathbf{k}\\,(2\\cdot4-1\\cdot(-1))\\\\&=-10\\mathbf{i}+7\\mathbf{j}+9\\mathbf{k}=\\langle -10,7,9\\rangle.\\end{aligned}$$"
+            },
+            {
+              "do": "Take the dot product of the result with $\\mathbf{a}$ and with $\\mathbf{b}$ and verify that both are $0$. (If not, something went wrong.)",
+              "work": "$$\\langle -10,7,9\\rangle\\cdot\\langle 2,-1,3\\rangle=-20-7+27=0,\\qquad \\langle -10,7,9\\rangle\\cdot\\langle 1,4,-2\\rangle=-10+28-18=0 .$$"
+            }
+          ],
+          "answer": "$\\mathbf{a}\\times\\mathbf{b}=\\langle -10,7,9\\rangle$, and both dot products are $0$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "-10",
+              "7",
+              "9"
+            ]
+          }
+        },
+        {
+          "problem": "Find $\\mathbf{a}\\times\\mathbf{b}$ and verify that it is orthogonal to both, for $\\mathbf{a}=\\langle 3,0,-2\\rangle$, $\\mathbf{b}=\\langle 1,5,4\\rangle$. Enter the cross product.",
+          "steps": [
+            {
+              "do": "Form the determinant with $\\mathbf{i},\\mathbf{j},\\mathbf{k}$ in the first row, $\\mathbf{a}$ in the second row and $\\mathbf{b}$ in the third row.",
+              "work": "$$\\mathbf{a}\\times\\mathbf{b}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\3&0&-2\\\\1&5&4\\end{vmatrix}.$$"
+            },
+            {
+              "do": "Expand the determinant along the first row: $\\mathbf{i}(a_2b_3-b_2a_3)-\\mathbf{j}(a_1b_3-b_1a_3)+\\mathbf{k}(a_1b_2-b_1a_2)$.",
+              "work": "$$\\begin{aligned}&=\\mathbf{i}\\,(0\\cdot4-5\\cdot(-2))-\\mathbf{j}\\,(3\\cdot4-1\\cdot(-2))+\\mathbf{k}\\,(3\\cdot5-1\\cdot0)\\\\&=10\\mathbf{i}-14\\mathbf{j}+15\\mathbf{k}=\\langle 10,-14,15\\rangle.\\end{aligned}$$"
+            },
+            {
+              "do": "Take the dot product of the result with $\\mathbf{a}$ and with $\\mathbf{b}$ and verify that both are $0$. (If not, something went wrong.)",
+              "work": "$$\\langle 10,-14,15\\rangle\\cdot\\langle 3,0,-2\\rangle=30-30=0,\\qquad \\langle 10,-14,15\\rangle\\cdot\\langle 1,5,4\\rangle=10-70+60=0 .$$"
+            }
+          ],
+          "answer": "$\\mathbf{a}\\times\\mathbf{b}=\\langle 10,-14,15\\rangle$, and both dot products are $0$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "10",
+              "-14",
+              "15"
+            ]
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.4b",
+      "course": "calc3",
+      "section": "12.4",
+      "topic": "The Cross Product",
+      "title": "Normal vector and triangle area",
+      "type": "(a) Find a vector orthogonal to the plane through the points $P$, $Q$, $R$. (b) Find the area of triangle $PQR$.",
+      "example": {
+        "problem": "(a) Find a vector orthogonal to the plane through $P=(2,1,5)$, $Q=(-1,3,4)$, $R=(3,0,6)$. (b) Find the area of triangle $PQR$.",
+        "steps": [
+          {
+            "do": "Compute $\\overrightarrow{PQ}=Q-P$ and $\\overrightarrow{PR}=R-P$.",
+            "work": "$$\\overrightarrow{PQ}=\\langle -3,2,-1\\rangle,\\qquad \\overrightarrow{PR}=\\langle 1,-1,1\\rangle.$$"
+          },
+          {
+            "do": "Take the cross product $\\overrightarrow{PQ}\\times\\overrightarrow{PR}$. It is orthogonal to the plane.",
+            "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\-3&2&-1\\\\1&-1&1\\end{vmatrix}=\\mathbf{i}+2\\mathbf{j}+\\mathbf{k}=\\langle 1,2,1\\rangle.$$"
+          },
+          {
+            "do": "Its magnitude is the area of the parallelogram spanned by $\\overrightarrow{PQ}$ and $\\overrightarrow{PR}$; the area of the triangle is half of that.",
+            "work": "$$|\\langle 1,2,1\\rangle|=\\sqrt{1+4+1}=\\sqrt6$$ is the parallelogram's area, so the triangle's area is $\\sqrt6/2$."
+          }
+        ],
+        "answer": "(a) $\\langle 1,2,1\\rangle$ is orthogonal to the plane. (b) The area is $\\sqrt6/2$.",
+        "check": {
+          "kind": "number",
+          "value": "sqrt(6)/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "(a) Find a vector orthogonal to the plane through $P=(1,0,2)$, $Q=(2,3,1)$, $R=(0,1,4)$. (b) Find the area of triangle $PQR$. Enter the area.",
+          "steps": [
+            {
+              "do": "Compute $\\overrightarrow{PQ}=Q-P$ and $\\overrightarrow{PR}=R-P$.",
+              "work": "$$\\overrightarrow{PQ}=\\langle 1,3,-1\\rangle,\\qquad \\overrightarrow{PR}=\\langle -1,1,2\\rangle.$$"
+            },
+            {
+              "do": "Take the cross product $\\overrightarrow{PQ}\\times\\overrightarrow{PR}$. It is orthogonal to the plane.",
+              "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\1&3&-1\\\\-1&1&2\\end{vmatrix}=7\\mathbf{i}-\\mathbf{j}+4\\mathbf{k}=\\langle 7,-1,4\\rangle.$$"
+            },
+            {
+              "do": "Its magnitude is the area of the parallelogram spanned by $\\overrightarrow{PQ}$ and $\\overrightarrow{PR}$; the area of the triangle is half of that.",
+              "work": "$$|\\langle 7,-1,4\\rangle|=\\sqrt{49+1+16}=\\sqrt{66}$$ is the parallelogram's area, so the triangle's area is $\\sqrt{66}/2$."
+            }
+          ],
+          "answer": "(a) $\\langle 7,-1,4\\rangle$. (b) The area is $\\sqrt{66}/2$.",
+          "check": {
+            "kind": "number",
+            "value": "sqrt(66)/2"
+          }
+        },
+        {
+          "problem": "(a) Find a vector orthogonal to the plane through $P=(3,1,-1)$, $Q=(4,3,0)$, $R=(1,2,1)$. (b) Find the area of triangle $PQR$. Enter the area.",
+          "steps": [
+            {
+              "do": "Compute $\\overrightarrow{PQ}=Q-P$ and $\\overrightarrow{PR}=R-P$.",
+              "work": "$$\\overrightarrow{PQ}=\\langle 1,2,1\\rangle,\\qquad \\overrightarrow{PR}=\\langle -2,1,2\\rangle.$$"
+            },
+            {
+              "do": "Take the cross product $\\overrightarrow{PQ}\\times\\overrightarrow{PR}$. It is orthogonal to the plane.",
+              "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\1&2&1\\\\-2&1&2\\end{vmatrix}=3\\mathbf{i}-4\\mathbf{j}+5\\mathbf{k}=\\langle 3,-4,5\\rangle.$$"
+            },
+            {
+              "do": "Its magnitude is the area of the parallelogram spanned by $\\overrightarrow{PQ}$ and $\\overrightarrow{PR}$; the area of the triangle is half of that.",
+              "work": "$$|\\langle 3,-4,5\\rangle|=\\sqrt{9+16+25}=\\sqrt{50}=5\\sqrt2$$ is the parallelogram's area, so the triangle's area is $5\\sqrt2/2$."
+            }
+          ],
+          "answer": "(a) $\\langle 3,-4,5\\rangle$. (b) The area is $5\\sqrt2/2$.",
+          "check": {
+            "kind": "number",
+            "value": "5*sqrt(2)/2"
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.4c",
+      "course": "calc3",
+      "section": "12.4",
+      "topic": "The Cross Product",
+      "title": "Volume of a parallelepiped",
+      "type": "Find the volume of the parallelepiped with adjacent edges $PQ$, $PR$, $PS$, where $P,Q,R,S$ are given points.",
+      "example": {
+        "problem": "Find the volume of the parallelepiped with adjacent edges $PQ$, $PR$, $PS$, where $P(0,1,2)$, $Q(2,4,5)$, $R(-1,0,1)$, $S(6,-1,4)$.",
+        "steps": [
+          {
+            "do": "Compute the vectors $\\overrightarrow{PQ}$, $\\overrightarrow{PR}$, $\\overrightarrow{PS}$ by subtraction.",
+            "work": "$$\\overrightarrow{PQ}=\\langle 2,3,3\\rangle,\\quad \\overrightarrow{PR}=\\langle -1,-1,-1\\rangle,\\quad \\overrightarrow{PS}=\\langle 6,-2,2\\rangle.$$"
+          },
+          {
+            "do": "Compute the cross product $\\overrightarrow{PQ}\\times\\overrightarrow{PR}$.",
+            "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&3&3\\\\-1&-1&-1\\end{vmatrix}=0\\mathbf{i}-\\mathbf{j}+\\mathbf{k}=\\langle 0,-1,1\\rangle.$$"
+          },
+          {
+            "do": "Dot the result with $\\overrightarrow{PS}$. The volume is the absolute value of $(\\overrightarrow{PQ}\\times\\overrightarrow{PR})\\cdot\\overrightarrow{PS}$.",
+            "work": "$$\\langle 0,-1,1\\rangle\\cdot\\langle 6,-2,2\\rangle=0+2+2=4 .$$"
+          }
+        ],
+        "answer": "The volume is $4$.",
+        "check": {
+          "kind": "number",
+          "value": "4"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the parallelepiped with adjacent edges $PQ$, $PR$, $PS$, where $P(1,0,1)$, $Q(3,1,2)$, $R(2,3,1)$, $S(1,2,4)$.",
+          "steps": [
+            {
+              "do": "Compute the vectors $\\overrightarrow{PQ}$, $\\overrightarrow{PR}$, $\\overrightarrow{PS}$ by subtraction.",
+              "work": "$$\\overrightarrow{PQ}=\\langle 2,1,1\\rangle,\\quad \\overrightarrow{PR}=\\langle 1,3,0\\rangle,\\quad \\overrightarrow{PS}=\\langle 0,2,3\\rangle.$$"
+            },
+            {
+              "do": "Compute the cross product $\\overrightarrow{PQ}\\times\\overrightarrow{PR}$.",
+              "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&1&1\\\\1&3&0\\end{vmatrix}=-3\\mathbf{i}+\\mathbf{j}+5\\mathbf{k}=\\langle -3,1,5\\rangle.$$"
+            },
+            {
+              "do": "Dot the result with $\\overrightarrow{PS}$. The volume is the absolute value of $(\\overrightarrow{PQ}\\times\\overrightarrow{PR})\\cdot\\overrightarrow{PS}$.",
+              "work": "$$\\langle -3,1,5\\rangle\\cdot\\langle 0,2,3\\rangle=0+2+15=17 .$$"
+            }
+          ],
+          "answer": "The volume is $17$.",
+          "check": {
+            "kind": "number",
+            "value": "17"
+          }
+        },
+        {
+          "problem": "Find the volume of the parallelepiped with adjacent edges $PQ$, $PR$, $PS$, where $P(0,0,1)$, $Q(2,1,1)$, $R(1,3,0)$, $S(1,1,4)$.",
+          "steps": [
+            {
+              "do": "Compute the vectors $\\overrightarrow{PQ}$, $\\overrightarrow{PR}$, $\\overrightarrow{PS}$ by subtraction.",
+              "work": "$$\\overrightarrow{PQ}=\\langle 2,1,0\\rangle,\\quad \\overrightarrow{PR}=\\langle 1,3,-1\\rangle,\\quad \\overrightarrow{PS}=\\langle 1,1,3\\rangle.$$"
+            },
+            {
+              "do": "Compute the cross product $\\overrightarrow{PQ}\\times\\overrightarrow{PR}$.",
+              "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&1&0\\\\1&3&-1\\end{vmatrix}=-\\mathbf{i}+2\\mathbf{j}+5\\mathbf{k}=\\langle -1,2,5\\rangle.$$"
+            },
+            {
+              "do": "Dot the result with $\\overrightarrow{PS}$. The volume is the absolute value of $(\\overrightarrow{PQ}\\times\\overrightarrow{PR})\\cdot\\overrightarrow{PS}$.",
+              "work": "$$\\langle -1,2,5\\rangle\\cdot\\langle 1,1,3\\rangle=-1+2+15=16 .$$"
+            }
+          ],
+          "answer": "The volume is $16$.",
+          "check": {
+            "kind": "number",
+            "value": "16"
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.5a",
+      "course": "calc3",
+      "section": "12.5",
+      "topic": "Planes in Three Space",
+      "title": "Plane through three points",
+      "type": "Find an equation of the plane that passes through three given points.",
+      "example": {
+        "problem": "Find an equation of the plane that passes through $P=(1,1,1)$, $Q=(2,0,1)$, $R=(2,1,0)$. Use $\\mathbf{n}=\\overrightarrow{PQ}\\times\\overrightarrow{PR}$ as the normal and enter the plane as $ax+by+cz=d$ by giving $a,b,c,d$.",
+        "steps": [
+          {
+            "do": "Call the points $P,Q,R$ and find $\\overrightarrow{PQ}=Q-P$ and $\\overrightarrow{PR}=R-P$.",
+            "work": "$$P=(1,1,1),\\ Q=(2,0,1),\\ R=(2,1,0):\\quad \\overrightarrow{PQ}=\\langle 1,-1,0\\rangle,\\ \\overrightarrow{PR}=\\langle 1,0,-1\\rangle.$$"
+          },
+          {
+            "do": "A normal vector is $\\mathbf{n}=\\langle a,b,c\\rangle=\\overrightarrow{PQ}\\times\\overrightarrow{PR}$.",
+            "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\1&-1&0\\\\1&0&-1\\end{vmatrix}=\\mathbf{i}+\\mathbf{j}+\\mathbf{k}=\\langle 1,1,1\\rangle .$$"
+          },
+          {
+            "do": "Use any of the three points as $(x_0,y_0,z_0)$ in $a(x-x_0)+b(y-y_0)+c(z-z_0)=0$, and expand.",
+            "work": "Using $P=(1,1,1)$: $$1(x-1)+1(y-1)+1(z-1)=0\\ \\Longrightarrow\\ x+y+z=3 .$$ (Check: all three points satisfy this.)"
+          }
+        ],
+        "answer": "$x+y+z=3$",
+        "check": {
+          "kind": "tuple",
+          "values": [
+            "1",
+            "1",
+            "1",
+            "3"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find an equation of the plane through $P=(2,1,0)$, $Q=(3,3,1)$, $R=(1,2,3)$. Use $\\mathbf{n}=\\overrightarrow{PQ}\\times\\overrightarrow{PR}$ as the normal and enter the plane as $ax+by+cz=d$ by giving $a,b,c,d$.",
+          "steps": [
+            {
+              "do": "Call the points $P,Q,R$ and find $\\overrightarrow{PQ}=Q-P$ and $\\overrightarrow{PR}=R-P$.",
+              "work": "$$\\overrightarrow{PQ}=\\langle 1,2,1\\rangle,\\qquad \\overrightarrow{PR}=\\langle -1,1,3\\rangle.$$"
+            },
+            {
+              "do": "A normal vector is $\\mathbf{n}=\\langle a,b,c\\rangle=\\overrightarrow{PQ}\\times\\overrightarrow{PR}$.",
+              "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\1&2&1\\\\-1&1&3\\end{vmatrix}=5\\mathbf{i}-4\\mathbf{j}+3\\mathbf{k}=\\langle 5,-4,3\\rangle .$$"
+            },
+            {
+              "do": "Use any of the three points as $(x_0,y_0,z_0)$ in $a(x-x_0)+b(y-y_0)+c(z-z_0)=0$, and expand.",
+              "work": "Using $P=(2,1,0)$: $$5(x-2)-4(y-1)+3(z-0)=0\\ \\Longrightarrow\\ 5x-4y+3z=6 .$$ (Check: $Q$ gives $15-12+3=6$, $R$ gives $5-8+9=6$.)"
+            }
+          ],
+          "answer": "$5x-4y+3z=6$",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "5",
+              "-4",
+              "3",
+              "6"
+            ]
+          }
+        },
+        {
+          "problem": "Find an equation of the plane through $P=(1,2,-1)$, $Q=(3,1,0)$, $R=(2,4,1)$. Use $\\mathbf{n}=\\overrightarrow{PQ}\\times\\overrightarrow{PR}$ as the normal and enter the plane as $ax+by+cz=d$ by giving $a,b,c,d$.",
+          "steps": [
+            {
+              "do": "Call the points $P,Q,R$ and find $\\overrightarrow{PQ}=Q-P$ and $\\overrightarrow{PR}=R-P$.",
+              "work": "$$\\overrightarrow{PQ}=\\langle 2,-1,1\\rangle,\\qquad \\overrightarrow{PR}=\\langle 1,2,2\\rangle.$$"
+            },
+            {
+              "do": "A normal vector is $\\mathbf{n}=\\langle a,b,c\\rangle=\\overrightarrow{PQ}\\times\\overrightarrow{PR}$.",
+              "work": "$$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&-1&1\\\\1&2&2\\end{vmatrix}=-4\\mathbf{i}-3\\mathbf{j}+5\\mathbf{k}=\\langle -4,-3,5\\rangle .$$"
+            },
+            {
+              "do": "Use any of the three points as $(x_0,y_0,z_0)$ in $a(x-x_0)+b(y-y_0)+c(z-z_0)=0$, and expand.",
+              "work": "Using $P=(1,2,-1)$: $$-4(x-1)-3(y-2)+5(z+1)=0\\ \\Longrightarrow\\ -4x-3y+5z=-15 .$$ (Check: $Q$ gives $-12-3+0=-15$, $R$ gives $-8-12+5=-15$.)"
+            }
+          ],
+          "answer": "$-4x-3y+5z=-15$",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "-4",
+              "-3",
+              "5",
+              "-15"
+            ]
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-12.5b",
+      "course": "calc3",
+      "section": "12.5",
+      "topic": "Planes in Three Space",
+      "title": "Direction of intersection line",
+      "type": "Find direction numbers for the line of intersection of the planes $a_1x+b_1y+c_1z=d_1$ and $a_2x+b_2y+c_2z=d_2$.",
+      "example": {
+        "problem": "Find direction numbers for the line of intersection of the planes $2x+3y+4z=2$ and $-3x+2y+3z=1$.",
+        "steps": [
+          {
+            "do": "Read the normal vectors off the coefficients: $\\mathbf{n}_1=\\langle a_1,b_1,c_1\\rangle$, $\\mathbf{n}_2=\\langle a_2,b_2,c_2\\rangle$. (The right-hand sides $d_1,d_2$ are not needed.)",
+            "work": "$\\mathbf{n}_1=\\langle 2,3,4\\rangle$ and $\\mathbf{n}_2=\\langle -3,2,3\\rangle$."
+          },
+          {
+            "do": "Take the cross product $\\mathbf{n}_1\\times\\mathbf{n}_2$. Its components are direction numbers of the line.",
+            "work": "$$\\mathbf{n}_1\\times\\mathbf{n}_2=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&3&4\\\\-3&2&3\\end{vmatrix}=(9-8)\\mathbf{i}-(6+12)\\mathbf{j}+(4+9)\\mathbf{k}=\\langle 1,-18,13\\rangle .$$"
+          }
+        ],
+        "answer": "Direction numbers: $\\langle 1,-18,13\\rangle$.",
+        "check": {
+          "kind": "tuple",
+          "values": [
+            "1",
+            "-18",
+            "13"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find direction numbers for the line of intersection of the planes $x+2y-z=3$ and $3x-y+2z=1$. Enter $\\mathbf{n}_1\\times\\mathbf{n}_2$.",
+          "steps": [
+            {
+              "do": "Read the normal vectors off the coefficients: $\\mathbf{n}_1=\\langle a_1,b_1,c_1\\rangle$, $\\mathbf{n}_2=\\langle a_2,b_2,c_2\\rangle$. (The right-hand sides $d_1,d_2$ are not needed.)",
+              "work": "$\\mathbf{n}_1=\\langle 1,2,-1\\rangle$ and $\\mathbf{n}_2=\\langle 3,-1,2\\rangle$."
+            },
+            {
+              "do": "Take the cross product $\\mathbf{n}_1\\times\\mathbf{n}_2$. Its components are direction numbers of the line.",
+              "work": "$$\\mathbf{n}_1\\times\\mathbf{n}_2=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\1&2&-1\\\\3&-1&2\\end{vmatrix}=(4-1)\\mathbf{i}-(2+3)\\mathbf{j}+(-1-6)\\mathbf{k}=\\langle 3,-5,-7\\rangle .$$"
+            }
+          ],
+          "answer": "Direction numbers: $\\langle 3,-5,-7\\rangle$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "3",
+              "-5",
+              "-7"
+            ]
+          }
+        },
+        {
+          "problem": "Find direction numbers for the line of intersection of the planes $2x-y+3z=1$ and $x+4y-z=7$. Enter $\\mathbf{n}_1\\times\\mathbf{n}_2$.",
+          "steps": [
+            {
+              "do": "Read the normal vectors off the coefficients: $\\mathbf{n}_1=\\langle a_1,b_1,c_1\\rangle$, $\\mathbf{n}_2=\\langle a_2,b_2,c_2\\rangle$. (The right-hand sides $d_1,d_2$ are not needed.)",
+              "work": "$\\mathbf{n}_1=\\langle 2,-1,3\\rangle$ and $\\mathbf{n}_2=\\langle 1,4,-1\\rangle$."
+            },
+            {
+              "do": "Take the cross product $\\mathbf{n}_1\\times\\mathbf{n}_2$. Its components are direction numbers of the line.",
+              "work": "$$\\mathbf{n}_1\\times\\mathbf{n}_2=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&-1&3\\\\1&4&-1\\end{vmatrix}=(1-12)\\mathbf{i}-(-2-3)\\mathbf{j}+(8+1)\\mathbf{k}=\\langle -11,5,9\\rangle .$$"
+            }
+          ],
+          "answer": "Direction numbers: $\\langle -11,5,9\\rangle$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "-11",
+              "5",
+              "9"
+            ]
+          }
+        }
+      ],
+      "scene": "vectors"
+    },
+    {
+      "id": "c3-13.1a",
+      "course": "calc3",
+      "section": "13.1",
+      "topic": "Vector-Valued Functions",
+      "title": "Line segment between two points",
+      "type": "Find a vector equation and parametric equations for the line segment joining $P(p_1,p_2,p_3)$ and $Q(q_1,q_2,q_3)$.",
+      "example": {
+        "problem": "Find a vector equation and parametric equations for the line segment joining $P(1,0,1)$ and $Q(2,3,1)$. Enter $x(t)$.",
+        "steps": [
+          {
+            "do": "The vector equation of the segment is $(1-t)P+tQ$ for $0\\le t\\le 1$, i.e. $(1-t)\\langle p_1,p_2,p_3\\rangle+t\\langle q_1,q_2,q_3\\rangle$.",
+            "work": "$$(1-t)\\langle 1,0,1\\rangle+t\\langle 2,3,1\\rangle=\\langle 1-t,0,1-t\\rangle+\\langle 2t,3t,t\\rangle=\\langle 1+t,\\,3t,\\,1\\rangle,\\quad 0\\le t\\le1 .$$"
+          },
+          {
+            "do": "Simplify, and read off the three components $x,y,z$.",
+            "work": "$$x=1+t,\\qquad y=3t,\\qquad z=1,\\qquad 0\\le t\\le1 .$$"
+          }
+        ],
+        "answer": "$\\mathbf{r}(t)=\\langle 1+t,3t,1\\rangle$, i.e. $x=1+t,\\ y=3t,\\ z=1$ $(0\\le t\\le1)$.",
+        "check": {
+          "kind": "expr",
+          "value": "1+t",
+          "vars": [
+            "t"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find a vector equation and parametric equations for the line segment joining $P(2,-1,3)$ and $Q(5,2,-1)$. Enter $z(t)$.",
+          "steps": [
+            {
+              "do": "The vector equation of the segment is $(1-t)P+tQ$ for $0\\le t\\le 1$, i.e. $(1-t)\\langle p_1,p_2,p_3\\rangle+t\\langle q_1,q_2,q_3\\rangle$.",
+              "work": "$$(1-t)\\langle 2,-1,3\\rangle+t\\langle 5,2,-1\\rangle=\\langle 2-2t,\\,-1+t,\\,3-3t\\rangle+\\langle 5t,2t,-t\\rangle=\\langle 2+3t,\\,-1+3t,\\,3-4t\\rangle,\\quad 0\\le t\\le1 .$$"
+            },
+            {
+              "do": "Simplify, and read off the three components $x,y,z$.",
+              "work": "$$x=2+3t,\\qquad y=-1+3t,\\qquad z=3-4t,\\qquad 0\\le t\\le1 .$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(t)=\\langle 2+3t,-1+3t,3-4t\\rangle$, i.e. $x=2+3t,\\ y=-1+3t,\\ z=3-4t$ $(0\\le t\\le1)$.",
+          "check": {
+            "kind": "expr",
+            "value": "3-4*t",
+            "vars": [
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "Find a vector equation and parametric equations for the line segment joining $P(-1,4,0)$ and $Q(3,0,2)$. Enter $y(t)$.",
+          "steps": [
+            {
+              "do": "The vector equation of the segment is $(1-t)P+tQ$ for $0\\le t\\le 1$, i.e. $(1-t)\\langle p_1,p_2,p_3\\rangle+t\\langle q_1,q_2,q_3\\rangle$.",
+              "work": "$$(1-t)\\langle -1,4,0\\rangle+t\\langle 3,0,2\\rangle=\\langle -1+t,\\,4-4t,\\,0\\rangle+\\langle 3t,0,2t\\rangle=\\langle -1+4t,\\,4-4t,\\,2t\\rangle,\\quad 0\\le t\\le1 .$$"
+            },
+            {
+              "do": "Simplify, and read off the three components $x,y,z$.",
+              "work": "$$x=-1+4t,\\qquad y=4-4t,\\qquad z=2t,\\qquad 0\\le t\\le1 .$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(t)=\\langle -1+4t,4-4t,2t\\rangle$, i.e. $x=-1+4t,\\ y=4-4t,\\ z=2t$ $(0\\le t\\le1)$.",
+          "check": {
+            "kind": "expr",
+            "value": "4-4*t",
+            "vars": [
+              "t"
+            ]
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-13.2a",
+      "course": "calc3",
+      "section": "13.2",
+      "topic": "Calculus of Vector-Valued Functions",
+      "title": "Tangent line to a space curve",
+      "type": "Find parametric equations for the tangent line to the curve $x=f_1(t)$, $y=f_2(t)$, $z=f_3(t)$ at the point $P(p_1,p_2,p_3)$.",
+      "example": {
+        "problem": "Find parametric equations for the tangent line to $x=t^2-1,\\ y=t^2+1,\\ z=t+1$ at the point $(-1,1,1)$. Enter the direction vector $\\mathbf{r}'(t_0)$.",
+        "steps": [
+          {
+            "do": "Find the $t_0$ that gives the point: solve $f_1(t_0)=p_1$, $f_2(t_0)=p_2$, $f_3(t_0)=p_3$. (If there is no common solution, the point is not on the curve.)",
+            "work": "$-1=t_0^2-1$, $1=t_0^2+1$, $1=t_0+1$ all hold exactly when $t_0=0$."
+          },
+          {
+            "do": "Put $\\mathbf{r}(t)=\\langle x(t),y(t),z(t)\\rangle$ and differentiate component by component: $\\mathbf{r}'(t)=\\langle x'(t),y'(t),z'(t)\\rangle$.",
+            "work": "$$\\mathbf{r}(t)=\\langle t^2-1,\\,t^2+1,\\,t+1\\rangle,\\qquad \\mathbf{r}'(t)=\\langle 2t,\\,2t,\\,1\\rangle .$$"
+          },
+          {
+            "do": "Plug in $t=t_0$ to get the direction vector $\\mathbf{D}=\\mathbf{r}'(t_0)$. The tangent line is $\\langle x,y,z\\rangle=P+t\\mathbf{D}$; spell out $x,y,z$.",
+            "work": "$\\mathbf{D}=\\mathbf{r}'(0)=\\langle 0,0,1\\rangle$, and the point is $\\langle -1,1,1\\rangle$, so $$\\langle -1,1,1\\rangle+t\\langle 0,0,1\\rangle=\\langle -1,1,1+t\\rangle .$$"
+          }
+        ],
+        "answer": "$x=-1,\\ y=1,\\ z=1+t$ (direction $\\langle 0,0,1\\rangle$).",
+        "check": {
+          "kind": "tuple",
+          "values": [
+            "0",
+            "0",
+            "1"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find parametric equations for the tangent line to $x=t^2+t,\\ y=3t-1,\\ z=t^3$ at the point $(6,5,8)$. Enter the direction vector $\\mathbf{r}'(t_0)$.",
+          "steps": [
+            {
+              "do": "Find the $t_0$ that gives the point: solve $f_1(t_0)=p_1$, $f_2(t_0)=p_2$, $f_3(t_0)=p_3$. (If there is no common solution, the point is not on the curve.)",
+              "work": "$t_0^2+t_0=6$, $3t_0-1=5$, $t_0^3=8$ all hold exactly when $t_0=2$."
+            },
+            {
+              "do": "Put $\\mathbf{r}(t)=\\langle x(t),y(t),z(t)\\rangle$ and differentiate component by component: $\\mathbf{r}'(t)=\\langle x'(t),y'(t),z'(t)\\rangle$.",
+              "work": "$$\\mathbf{r}(t)=\\langle t^2+t,\\,3t-1,\\,t^3\\rangle,\\qquad \\mathbf{r}'(t)=\\langle 2t+1,\\,3,\\,3t^2\\rangle .$$"
+            },
+            {
+              "do": "Plug in $t=t_0$ to get the direction vector $\\mathbf{D}=\\mathbf{r}'(t_0)$. The tangent line is $\\langle x,y,z\\rangle=P+t\\mathbf{D}$; spell out $x,y,z$.",
+              "work": "$\\mathbf{D}=\\mathbf{r}'(2)=\\langle 5,3,12\\rangle$, so $$\\langle 6,5,8\\rangle+t\\langle 5,3,12\\rangle=\\langle 6+5t,\\,5+3t,\\,8+12t\\rangle .$$"
+            }
+          ],
+          "answer": "$x=6+5t,\\ y=5+3t,\\ z=8+12t$ (direction $\\langle 5,3,12\\rangle$).",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "5",
+              "3",
+              "12"
+            ]
+          }
+        },
+        {
+          "problem": "Find parametric equations for the tangent line to $x=t^2,\\ y=\\ln t,\\ z=t^3$ at the point $(1,0,1)$. Enter the direction vector $\\mathbf{r}'(t_0)$.",
+          "steps": [
+            {
+              "do": "Find the $t_0$ that gives the point: solve $f_1(t_0)=p_1$, $f_2(t_0)=p_2$, $f_3(t_0)=p_3$. (If there is no common solution, the point is not on the curve.)",
+              "work": "$t_0^2=1$, $\\ln t_0=0$, $t_0^3=1$ all hold exactly when $t_0=1$ (the root $t_0=-1$ fails because $\\ln t$ needs $t>0$)."
+            },
+            {
+              "do": "Put $\\mathbf{r}(t)=\\langle x(t),y(t),z(t)\\rangle$ and differentiate component by component: $\\mathbf{r}'(t)=\\langle x'(t),y'(t),z'(t)\\rangle$.",
+              "work": "$$\\mathbf{r}(t)=\\langle t^2,\\,\\ln t,\\,t^3\\rangle,\\qquad \\mathbf{r}'(t)=\\langle 2t,\\,1/t,\\,3t^2\\rangle .$$"
+            },
+            {
+              "do": "Plug in $t=t_0$ to get the direction vector $\\mathbf{D}=\\mathbf{r}'(t_0)$. The tangent line is $\\langle x,y,z\\rangle=P+t\\mathbf{D}$; spell out $x,y,z$.",
+              "work": "$\\mathbf{D}=\\mathbf{r}'(1)=\\langle 2,1,3\\rangle$, so $$\\langle 1,0,1\\rangle+t\\langle 2,1,3\\rangle=\\langle 1+2t,\\,t,\\,1+3t\\rangle .$$"
+            }
+          ],
+          "answer": "$x=1+2t,\\ y=t,\\ z=1+3t$ (direction $\\langle 2,1,3\\rangle$).",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "2",
+              "1",
+              "3"
+            ]
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-13.2b",
+      "course": "calc3",
+      "section": "13.2",
+      "topic": "Calculus of Vector-Valued Functions",
+      "title": "Recover r(t) from r'(t)",
+      "type": "Find $\\mathbf{r}(t)$ if $\\mathbf{r}'(t)=f_1(t)\\mathbf{i}+f_2(t)\\mathbf{j}+f_3(t)\\mathbf{k}$ and $\\mathbf{r}(t_0)=a\\mathbf{i}+b\\mathbf{j}+c\\mathbf{k}$.",
+      "example": {
+        "problem": "Find $\\mathbf{r}(t)$ if $\\mathbf{r}'(t)=2t\\,\\mathbf{i}+3t^2\\mathbf{j}+4t^3\\mathbf{k}$ and $\\mathbf{r}(1)=\\mathbf{i}+4\\mathbf{j}+5\\mathbf{k}$. Enter the $\\mathbf{j}$-component of $\\mathbf{r}(t)$.",
+        "steps": [
+          {
+            "do": "Integrate every component, remembering to add an arbitrary constant, which is now a constant vector $\\mathbf{C}$.",
+            "work": "$$\\mathbf{r}(t)=\\int(2t\\,\\mathbf{i}+3t^2\\mathbf{j}+4t^3\\mathbf{k})\\,dt=t^2\\mathbf{i}+t^3\\mathbf{j}+t^4\\mathbf{k}+\\mathbf{C}.$$"
+          },
+          {
+            "do": "Plug in $t=t_0$ and solve for $\\mathbf{C}$.",
+            "work": "$$\\mathbf{r}(1)=\\mathbf{i}+\\mathbf{j}+\\mathbf{k}+\\mathbf{C}=\\mathbf{i}+4\\mathbf{j}+5\\mathbf{k}\\ \\Longrightarrow\\ \\mathbf{C}=3\\mathbf{j}+4\\mathbf{k}.$$"
+          },
+          {
+            "do": "Go back to step 1 and put in the specific $\\mathbf{C}$ you found.",
+            "work": "$$\\mathbf{r}(t)=t^2\\mathbf{i}+(t^3+3)\\mathbf{j}+(t^4+4)\\mathbf{k}.$$"
+          }
+        ],
+        "answer": "$\\mathbf{r}(t)=t^2\\mathbf{i}+(t^3+3)\\mathbf{j}+(t^4+4)\\mathbf{k}$",
+        "check": {
+          "kind": "expr",
+          "value": "t^3+3",
+          "vars": [
+            "t"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find $\\mathbf{r}(t)$ if $\\mathbf{r}'(t)=\\cos t\\,\\mathbf{i}+2t\\,\\mathbf{j}+3t^2\\mathbf{k}$ and $\\mathbf{r}(0)=2\\mathbf{i}+\\mathbf{j}-\\mathbf{k}$. Enter the $\\mathbf{j}$-component of $\\mathbf{r}(t)$.",
+          "steps": [
+            {
+              "do": "Integrate every component, remembering to add an arbitrary constant, which is now a constant vector $\\mathbf{C}$.",
+              "work": "$$\\mathbf{r}(t)=\\int(\\cos t\\,\\mathbf{i}+2t\\,\\mathbf{j}+3t^2\\mathbf{k})\\,dt=\\sin t\\,\\mathbf{i}+t^2\\mathbf{j}+t^3\\mathbf{k}+\\mathbf{C}.$$"
+            },
+            {
+              "do": "Plug in $t=t_0$ and solve for $\\mathbf{C}$.",
+              "work": "$$\\mathbf{r}(0)=\\mathbf{0}+\\mathbf{C}=2\\mathbf{i}+\\mathbf{j}-\\mathbf{k}\\ \\Longrightarrow\\ \\mathbf{C}=2\\mathbf{i}+\\mathbf{j}-\\mathbf{k}.$$"
+            },
+            {
+              "do": "Go back to step 1 and put in the specific $\\mathbf{C}$ you found.",
+              "work": "$$\\mathbf{r}(t)=(\\sin t+2)\\mathbf{i}+(t^2+1)\\mathbf{j}+(t^3-1)\\mathbf{k}.$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(t)=(\\sin t+2)\\mathbf{i}+(t^2+1)\\mathbf{j}+(t^3-1)\\mathbf{k}$",
+          "check": {
+            "kind": "expr",
+            "value": "t^2+1",
+            "vars": [
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "Find $\\mathbf{r}(t)$ if $\\mathbf{r}'(t)=e^t\\mathbf{i}+2t\\,\\mathbf{j}+6t^2\\mathbf{k}$ and $\\mathbf{r}(0)=3\\mathbf{i}-\\mathbf{j}+2\\mathbf{k}$. Enter the $\\mathbf{k}$-component of $\\mathbf{r}(t)$.",
+          "steps": [
+            {
+              "do": "Integrate every component, remembering to add an arbitrary constant, which is now a constant vector $\\mathbf{C}$.",
+              "work": "$$\\mathbf{r}(t)=\\int(e^t\\mathbf{i}+2t\\,\\mathbf{j}+6t^2\\mathbf{k})\\,dt=e^t\\mathbf{i}+t^2\\mathbf{j}+2t^3\\mathbf{k}+\\mathbf{C}.$$"
+            },
+            {
+              "do": "Plug in $t=t_0$ and solve for $\\mathbf{C}$.",
+              "work": "$$\\mathbf{r}(0)=\\mathbf{i}+\\mathbf{C}=3\\mathbf{i}-\\mathbf{j}+2\\mathbf{k}\\ \\Longrightarrow\\ \\mathbf{C}=2\\mathbf{i}-\\mathbf{j}+2\\mathbf{k}.$$"
+            },
+            {
+              "do": "Go back to step 1 and put in the specific $\\mathbf{C}$ you found.",
+              "work": "$$\\mathbf{r}(t)=(e^t+2)\\mathbf{i}+(t^2-1)\\mathbf{j}+(2t^3+2)\\mathbf{k}.$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(t)=(e^t+2)\\mathbf{i}+(t^2-1)\\mathbf{j}+(2t^3+2)\\mathbf{k}$",
+          "check": {
+            "kind": "expr",
+            "value": "2*t^3+2",
+            "vars": [
+              "t"
+            ]
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-13.3a",
+      "course": "calc3",
+      "section": "13.3",
+      "topic": "Arc Length and Speed",
+      "title": "Length of a space curve",
+      "type": "Find the length of the curve $\\mathbf{r}(t)=x(t)\\mathbf{i}+y(t)\\mathbf{j}+z(t)\\mathbf{k}$, $t_0\\le t\\le t_1$.",
+      "example": {
+        "problem": "Find the length of the curve $\\mathbf{r}(t)=t^2\\mathbf{i}+2t\\,\\mathbf{j}+\\ln t\\,\\mathbf{k}$, $1\\le t\\le e$.",
+        "steps": [
+          {
+            "do": "Compute $\\mathbf{r}'(t)=x'(t)\\mathbf{i}+y'(t)\\mathbf{j}+z'(t)\\mathbf{k}$.",
+            "work": "$$\\mathbf{r}'(t)=2t\\,\\mathbf{i}+2\\,\\mathbf{j}+\\tfrac1t\\,\\mathbf{k}.$$"
+          },
+          {
+            "do": "Find $|\\mathbf{r}'(t)|=\\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}$ and simplify as much as you can with algebra (the expression under the root is usually a perfect square).",
+            "work": "$$|\\mathbf{r}'(t)|=\\sqrt{4t^2+4+\\tfrac1{t^2}}=\\sqrt{\\left(2t+\\tfrac1t\\right)^2}=2t+\\tfrac1t .$$"
+          },
+          {
+            "do": "Integrate it: $L=\\int_{t_0}^{t_1}|\\mathbf{r}'(t)|\\,dt$.",
+            "work": "$$L=\\int_1^e\\left(2t+\\tfrac1t\\right)dt=\\Big[t^2+\\ln t\\Big]_1^e=(e^2+1)-(1+0)=e^2 .$$"
+          }
+        ],
+        "answer": "The length is $e^2$.",
+        "check": {
+          "kind": "number",
+          "value": "e^2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the length of the curve $\\mathbf{r}(t)=2t\\,\\mathbf{i}+t^2\\mathbf{j}+\\ln t\\,\\mathbf{k}$, $1\\le t\\le 2$.",
+          "steps": [
+            {
+              "do": "Compute $\\mathbf{r}'(t)=x'(t)\\mathbf{i}+y'(t)\\mathbf{j}+z'(t)\\mathbf{k}$.",
+              "work": "$$\\mathbf{r}'(t)=2\\,\\mathbf{i}+2t\\,\\mathbf{j}+\\tfrac1t\\,\\mathbf{k}.$$"
+            },
+            {
+              "do": "Find $|\\mathbf{r}'(t)|=\\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}$ and simplify as much as you can with algebra (the expression under the root is usually a perfect square).",
+              "work": "$$|\\mathbf{r}'(t)|=\\sqrt{4+4t^2+\\tfrac1{t^2}}=\\sqrt{\\left(2t+\\tfrac1t\\right)^2}=2t+\\tfrac1t .$$"
+            },
+            {
+              "do": "Integrate it: $L=\\int_{t_0}^{t_1}|\\mathbf{r}'(t)|\\,dt$.",
+              "work": "$$L=\\int_1^2\\left(2t+\\tfrac1t\\right)dt=\\Big[t^2+\\ln t\\Big]_1^2=(4+\\ln2)-(1+0)=3+\\ln 2 .$$"
+            }
+          ],
+          "answer": "The length is $3+\\ln2$.",
+          "check": {
+            "kind": "number",
+            "value": "3+ln(2)"
+          }
+        },
+        {
+          "problem": "Find the length of the curve $\\mathbf{r}(t)=3t\\,\\mathbf{i}+3t^2\\mathbf{j}+2t^3\\mathbf{k}$, $0\\le t\\le 1$.",
+          "steps": [
+            {
+              "do": "Compute $\\mathbf{r}'(t)=x'(t)\\mathbf{i}+y'(t)\\mathbf{j}+z'(t)\\mathbf{k}$.",
+              "work": "$$\\mathbf{r}'(t)=3\\,\\mathbf{i}+6t\\,\\mathbf{j}+6t^2\\mathbf{k}.$$"
+            },
+            {
+              "do": "Find $|\\mathbf{r}'(t)|=\\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}$ and simplify as much as you can with algebra (the expression under the root is usually a perfect square).",
+              "work": "$$|\\mathbf{r}'(t)|=\\sqrt{9+36t^2+36t^4}=3\\sqrt{(1+2t^2)^2}=3+6t^2 .$$"
+            },
+            {
+              "do": "Integrate it: $L=\\int_{t_0}^{t_1}|\\mathbf{r}'(t)|\\,dt$.",
+              "work": "$$L=\\int_0^1(3+6t^2)\\,dt=\\Big[3t+2t^3\\Big]_0^1=5 .$$"
+            }
+          ],
+          "answer": "The length is $5$.",
+          "check": {
+            "kind": "number",
+            "value": "5"
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-13.3b",
+      "course": "calc3",
+      "section": "13.3",
+      "topic": "Arc Length and Speed",
+      "title": "Reparametrize by arc length",
+      "type": "Reparametrize the curve $\\mathbf{r}(t)=x(t)\\mathbf{i}+y(t)\\mathbf{j}+z(t)\\mathbf{k}$ with respect to arc length measured from the point where $t=t_0$, in the direction of increasing $t$.",
+      "example": {
+        "problem": "Reparametrize $\\mathbf{r}(t)=5\\sin t\\,\\mathbf{i}+3\\,\\mathbf{j}+5\\cos t\\,\\mathbf{k}$ with respect to arc length measured from $t=0$. Enter the $\\mathbf{i}$-component as a function of $s$.",
+        "steps": [
+          {
+            "do": "Compute $\\mathbf{r}'(t)$ and then its magnitude $|\\mathbf{r}'(t)|$.",
+            "work": "$$\\mathbf{r}'(t)=5\\cos t\\,\\mathbf{i}-5\\sin t\\,\\mathbf{k},\\qquad |\\mathbf{r}'(t)|=\\sqrt{25\\cos^2t+25\\sin^2t}=5 .$$"
+          },
+          {
+            "do": "Integrate it from $t_0$ to $t_1$, giving an expression in $t_1$; call it $s$. Rename $t_1$ to $t$, and solve for $t$ in terms of $s$.",
+            "work": "$$s=\\int_0^{t}5\\,du=5t\\ \\Longrightarrow\\ t=s/5 .$$"
+          },
+          {
+            "do": "Go back to the original $\\mathbf{r}(t)$ and replace $t$ by the expression in $s$.",
+            "work": "$$\\mathbf{r}(s)=5\\sin(s/5)\\,\\mathbf{i}+3\\,\\mathbf{j}+5\\cos(s/5)\\,\\mathbf{k}.$$"
+          }
+        ],
+        "answer": "$\\mathbf{r}(s)=5\\sin(s/5)\\,\\mathbf{i}+3\\,\\mathbf{j}+5\\cos(s/5)\\,\\mathbf{k}$",
+        "check": {
+          "kind": "expr",
+          "value": "5*sin(s/5)",
+          "vars": [
+            "s"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Reparametrize $\\mathbf{r}(t)=3\\cos t\\,\\mathbf{i}+3\\sin t\\,\\mathbf{j}+4t\\,\\mathbf{k}$ with respect to arc length measured from $t=0$. Enter the $\\mathbf{i}$-component as a function of $s$.",
+          "steps": [
+            {
+              "do": "Compute $\\mathbf{r}'(t)$ and then its magnitude $|\\mathbf{r}'(t)|$.",
+              "work": "$$\\mathbf{r}'(t)=-3\\sin t\\,\\mathbf{i}+3\\cos t\\,\\mathbf{j}+4\\,\\mathbf{k},\\qquad |\\mathbf{r}'(t)|=\\sqrt{9\\sin^2t+9\\cos^2t+16}=5 .$$"
+            },
+            {
+              "do": "Integrate it from $t_0$ to $t_1$, giving an expression in $t_1$; call it $s$. Rename $t_1$ to $t$, and solve for $t$ in terms of $s$.",
+              "work": "$$s=\\int_0^{t}5\\,du=5t\\ \\Longrightarrow\\ t=s/5 .$$"
+            },
+            {
+              "do": "Go back to the original $\\mathbf{r}(t)$ and replace $t$ by the expression in $s$.",
+              "work": "$$\\mathbf{r}(s)=3\\cos(s/5)\\,\\mathbf{i}+3\\sin(s/5)\\,\\mathbf{j}+\\tfrac45 s\\,\\mathbf{k}.$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(s)=3\\cos(s/5)\\,\\mathbf{i}+3\\sin(s/5)\\,\\mathbf{j}+\\tfrac45 s\\,\\mathbf{k}$",
+          "check": {
+            "kind": "expr",
+            "value": "3*cos(s/5)",
+            "vars": [
+              "s"
+            ]
+          }
+        },
+        {
+          "problem": "Reparametrize $\\mathbf{r}(t)=12\\sin t\\,\\mathbf{i}+5t\\,\\mathbf{j}+12\\cos t\\,\\mathbf{k}$ with respect to arc length measured from $t=0$. Enter the $\\mathbf{k}$-component as a function of $s$.",
+          "steps": [
+            {
+              "do": "Compute $\\mathbf{r}'(t)$ and then its magnitude $|\\mathbf{r}'(t)|$.",
+              "work": "$$\\mathbf{r}'(t)=12\\cos t\\,\\mathbf{i}+5\\,\\mathbf{j}-12\\sin t\\,\\mathbf{k},\\qquad |\\mathbf{r}'(t)|=\\sqrt{144\\cos^2t+25+144\\sin^2t}=13 .$$"
+            },
+            {
+              "do": "Integrate it from $t_0$ to $t_1$, giving an expression in $t_1$; call it $s$. Rename $t_1$ to $t$, and solve for $t$ in terms of $s$.",
+              "work": "$$s=\\int_0^{t}13\\,du=13t\\ \\Longrightarrow\\ t=s/13 .$$"
+            },
+            {
+              "do": "Go back to the original $\\mathbf{r}(t)$ and replace $t$ by the expression in $s$.",
+              "work": "$$\\mathbf{r}(s)=12\\sin(s/13)\\,\\mathbf{i}+\\tfrac5{13}s\\,\\mathbf{j}+12\\cos(s/13)\\,\\mathbf{k}.$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(s)=12\\sin(s/13)\\,\\mathbf{i}+\\tfrac5{13}s\\,\\mathbf{j}+12\\cos(s/13)\\,\\mathbf{k}$",
+          "check": {
+            "kind": "expr",
+            "value": "12*cos(s/13)",
+            "vars": [
+              "s"
+            ]
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-13.4a",
+      "course": "calc3",
+      "section": "13.4",
+      "topic": "Curvature",
+      "title": "Curvature of a space curve",
+      "type": "Find the curvature $\\kappa$ of $\\mathbf{r}(t)=x(t)\\mathbf{i}+y(t)\\mathbf{j}+z(t)\\mathbf{k}$.",
+      "example": {
+        "problem": "Find the curvature of $\\mathbf{r}(t)=t\\,\\mathbf{i}+2t\\,\\mathbf{j}+t^2\\mathbf{k}$. Enter $\\kappa(t)$.",
+        "steps": [
+          {
+            "do": "Compute $\\mathbf{r}'(t)$ and $\\mathbf{r}''(t)$.",
+            "work": "$$\\mathbf{r}'(t)=\\mathbf{i}+2\\,\\mathbf{j}+2t\\,\\mathbf{k},\\qquad \\mathbf{r}''(t)=2\\,\\mathbf{k}.$$"
+          },
+          {
+            "do": "Compute the cross product $\\mathbf{r}'(t)\\times\\mathbf{r}''(t)$.",
+            "work": "$$\\mathbf{r}'\\times\\mathbf{r}''=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\1&2&2t\\\\0&0&2\\end{vmatrix}=4\\mathbf{i}-2\\mathbf{j}.$$"
+          },
+          {
+            "do": "Find $|\\mathbf{r}'(t)\\times\\mathbf{r}''(t)|$ and $|\\mathbf{r}'(t)|$, and use $\\kappa(t)=\\dfrac{|\\mathbf{r}'(t)\\times\\mathbf{r}''(t)|}{|\\mathbf{r}'(t)|^3}$.",
+            "work": "$$|\\mathbf{r}'\\times\\mathbf{r}''|=\\sqrt{16+4}=\\sqrt{20},\\qquad |\\mathbf{r}'|=\\sqrt{1+4+4t^2}=\\sqrt{5+4t^2},$$ so $$\\kappa(t)=\\frac{\\sqrt{20}}{(5+4t^2)^{3/2}} .$$"
+          }
+        ],
+        "answer": "$\\kappa(t)=\\dfrac{\\sqrt{20}}{(5+4t^2)^{3/2}}$",
+        "check": {
+          "kind": "expr",
+          "value": "sqrt(20)/(5+4*t^2)^(3/2)",
+          "vars": [
+            "t"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the curvature of $\\mathbf{r}(t)=2t\\,\\mathbf{i}+t^2\\mathbf{j}+\\tfrac13t^3\\mathbf{k}$. Enter $\\kappa(t)$.",
+          "steps": [
+            {
+              "do": "Compute $\\mathbf{r}'(t)$ and $\\mathbf{r}''(t)$.",
+              "work": "$$\\mathbf{r}'(t)=2\\,\\mathbf{i}+2t\\,\\mathbf{j}+t^2\\mathbf{k},\\qquad \\mathbf{r}''(t)=2\\,\\mathbf{j}+2t\\,\\mathbf{k}.$$"
+            },
+            {
+              "do": "Compute the cross product $\\mathbf{r}'(t)\\times\\mathbf{r}''(t)$.",
+              "work": "$$\\mathbf{r}'\\times\\mathbf{r}''=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\2&2t&t^2\\\\0&2&2t\\end{vmatrix}=2t^2\\mathbf{i}-4t\\,\\mathbf{j}+4\\,\\mathbf{k}.$$"
+            },
+            {
+              "do": "Find $|\\mathbf{r}'(t)\\times\\mathbf{r}''(t)|$ and $|\\mathbf{r}'(t)|$, and use $\\kappa(t)=\\dfrac{|\\mathbf{r}'(t)\\times\\mathbf{r}''(t)|}{|\\mathbf{r}'(t)|^3}$.",
+              "work": "$$|\\mathbf{r}'\\times\\mathbf{r}''|=\\sqrt{4t^4+16t^2+16}=2(t^2+2),\\qquad |\\mathbf{r}'|=\\sqrt{4+4t^2+t^4}=t^2+2,$$ so $$\\kappa(t)=\\frac{2(t^2+2)}{(t^2+2)^3}=\\frac{2}{(t^2+2)^2} .$$"
+            }
+          ],
+          "answer": "$\\kappa(t)=\\dfrac{2}{(t^2+2)^2}$",
+          "check": {
+            "kind": "expr",
+            "value": "2/(t^2+2)^2",
+            "vars": [
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "Find the curvature of the helix $\\mathbf{r}(t)=2\\cos t\\,\\mathbf{i}+2\\sin t\\,\\mathbf{j}+3t\\,\\mathbf{k}$. Enter $\\kappa$ (it turns out not to depend on $t$).",
+          "steps": [
+            {
+              "do": "Compute $\\mathbf{r}'(t)$ and $\\mathbf{r}''(t)$.",
+              "work": "$$\\mathbf{r}'(t)=-2\\sin t\\,\\mathbf{i}+2\\cos t\\,\\mathbf{j}+3\\,\\mathbf{k},\\qquad \\mathbf{r}''(t)=-2\\cos t\\,\\mathbf{i}-2\\sin t\\,\\mathbf{j}.$$"
+            },
+            {
+              "do": "Compute the cross product $\\mathbf{r}'(t)\\times\\mathbf{r}''(t)$.",
+              "work": "$$\\mathbf{r}'\\times\\mathbf{r}''=\\begin{vmatrix}\\mathbf{i}&\\mathbf{j}&\\mathbf{k}\\\\-2\\sin t&2\\cos t&3\\\\-2\\cos t&-2\\sin t&0\\end{vmatrix}=6\\sin t\\,\\mathbf{i}-6\\cos t\\,\\mathbf{j}+4\\,\\mathbf{k}.$$"
+            },
+            {
+              "do": "Find $|\\mathbf{r}'(t)\\times\\mathbf{r}''(t)|$ and $|\\mathbf{r}'(t)|$, and use $\\kappa(t)=\\dfrac{|\\mathbf{r}'(t)\\times\\mathbf{r}''(t)|}{|\\mathbf{r}'(t)|^3}$.",
+              "work": "$$|\\mathbf{r}'\\times\\mathbf{r}''|=\\sqrt{36+16}=\\sqrt{52}=2\\sqrt{13},\\qquad |\\mathbf{r}'|=\\sqrt{4+9}=\\sqrt{13},$$ so $$\\kappa=\\frac{2\\sqrt{13}}{13\\sqrt{13}}=\\frac{2}{13} .$$"
+            }
+          ],
+          "answer": "$\\kappa=\\dfrac{2}{13}$ (constant)",
+          "check": {
+            "kind": "number",
+            "value": "2/13"
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-13.5a",
+      "course": "calc3",
+      "section": "13.5",
+      "topic": "Motion in Three-Space",
+      "title": "Velocity, acceleration and speed",
+      "type": "Find the velocity, acceleration, and speed of a particle with position function $\\mathbf{r}(t)=x(t)\\mathbf{i}+y(t)\\mathbf{j}+z(t)\\mathbf{k}$.",
+      "example": {
+        "problem": "Find the velocity, acceleration, and speed of the particle with $\\mathbf{r}(t)=t^2\\mathbf{i}+\\ln t\\,\\mathbf{j}+t\\,\\mathbf{k}$. Enter the speed.",
+        "steps": [
+          {
+            "do": "The velocity is $\\mathbf{v}(t)=\\mathbf{r}'(t)$ and the acceleration is $\\mathbf{a}(t)=\\mathbf{r}''(t)$.",
+            "work": "$$\\mathbf{v}(t)=2t\\,\\mathbf{i}+\\tfrac1t\\,\\mathbf{j}+\\mathbf{k},\\qquad \\mathbf{a}(t)=2\\,\\mathbf{i}-\\tfrac1{t^2}\\,\\mathbf{j}.$$"
+          },
+          {
+            "do": "The speed is the magnitude of the velocity, $|\\mathbf{v}(t)|$.",
+            "work": "$$|\\mathbf{v}(t)|=\\sqrt{(2t)^2+\\left(\\tfrac1t\\right)^2+1^2}=\\sqrt{4t^2+\\tfrac1{t^2}+1}.$$"
+          }
+        ],
+        "answer": "$\\mathbf{v}=2t\\,\\mathbf{i}+\\tfrac1t\\mathbf{j}+\\mathbf{k}$, $\\mathbf{a}=2\\,\\mathbf{i}-\\tfrac1{t^2}\\mathbf{j}$, speed $=\\sqrt{4t^2+1/t^2+1}$.",
+        "check": {
+          "kind": "expr",
+          "value": "sqrt(4*t^2+1/t^2+1)",
+          "vars": [
+            "t"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the velocity, acceleration, and speed of the particle with $\\mathbf{r}(t)=e^t\\mathbf{i}+e^{-t}\\mathbf{j}+\\sqrt2\\,t\\,\\mathbf{k}$. Enter the speed.",
+          "steps": [
+            {
+              "do": "The velocity is $\\mathbf{v}(t)=\\mathbf{r}'(t)$ and the acceleration is $\\mathbf{a}(t)=\\mathbf{r}''(t)$.",
+              "work": "$$\\mathbf{v}(t)=e^t\\mathbf{i}-e^{-t}\\mathbf{j}+\\sqrt2\\,\\mathbf{k},\\qquad \\mathbf{a}(t)=e^t\\mathbf{i}+e^{-t}\\mathbf{j}.$$"
+            },
+            {
+              "do": "The speed is the magnitude of the velocity, $|\\mathbf{v}(t)|$.",
+              "work": "$$|\\mathbf{v}(t)|=\\sqrt{e^{2t}+e^{-2t}+2}=\\sqrt{(e^t+e^{-t})^2}=e^t+e^{-t}.$$"
+            }
+          ],
+          "answer": "$\\mathbf{v}=e^t\\mathbf{i}-e^{-t}\\mathbf{j}+\\sqrt2\\,\\mathbf{k}$, $\\mathbf{a}=e^t\\mathbf{i}+e^{-t}\\mathbf{j}$, speed $=e^t+e^{-t}$.",
+          "check": {
+            "kind": "expr",
+            "value": "exp(t)+exp(-t)",
+            "vars": [
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "Find the velocity, acceleration, and speed of the particle with $\\mathbf{r}(t)=t\\,\\mathbf{i}+t^2\\mathbf{j}+\\tfrac23t^3\\mathbf{k}$. Enter the speed.",
+          "steps": [
+            {
+              "do": "The velocity is $\\mathbf{v}(t)=\\mathbf{r}'(t)$ and the acceleration is $\\mathbf{a}(t)=\\mathbf{r}''(t)$.",
+              "work": "$$\\mathbf{v}(t)=\\mathbf{i}+2t\\,\\mathbf{j}+2t^2\\mathbf{k},\\qquad \\mathbf{a}(t)=2\\,\\mathbf{j}+4t\\,\\mathbf{k}.$$"
+            },
+            {
+              "do": "The speed is the magnitude of the velocity, $|\\mathbf{v}(t)|$.",
+              "work": "$$|\\mathbf{v}(t)|=\\sqrt{1+4t^2+4t^4}=\\sqrt{(1+2t^2)^2}=1+2t^2.$$"
+            }
+          ],
+          "answer": "$\\mathbf{v}=\\mathbf{i}+2t\\,\\mathbf{j}+2t^2\\mathbf{k}$, $\\mathbf{a}=2\\,\\mathbf{j}+4t\\,\\mathbf{k}$, speed $=1+2t^2$.",
+          "check": {
+            "kind": "expr",
+            "value": "1+2*t^2",
+            "vars": [
+              "t"
+            ]
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-13.5b",
+      "course": "calc3",
+      "section": "13.5",
+      "topic": "Motion in Three-Space",
+      "title": "Position under a constant force",
+      "type": "A force of magnitude $F$ newtons acts on a body of mass $m$ in the direction $\\langle d_1,d_2,d_3\\rangle$. The object starts at $(x_0,y_0,z_0)$ with initial velocity $\\mathbf{v}(0)=\\langle v_1,v_2,v_3\\rangle$. Find its position function and its speed at time $t$.",
+      "example": {
+        "problem": "A force of magnitude $300$ N acts on a body of mass $100$ kg in the direction $\\langle 1,2,2\\rangle$. The object starts at $(1,2,3)$ with initial velocity $\\mathbf{v}(0)=\\langle 0,1,-1\\rangle$. Find its position function and its speed at time $t$. Enter the speed.",
+        "steps": [
+          {
+            "do": "Divide $\\langle d_1,d_2,d_3\\rangle$ by its length to get the unit direction, then multiply by $F$ to get the force vector.",
+            "work": "$|\\langle 1,2,2\\rangle|=\\sqrt{1+4+4}=3$, so the unit direction is $\\tfrac13\\langle 1,2,2\\rangle$ and $$\\mathbf{F}=300\\cdot\\tfrac13\\langle 1,2,2\\rangle=\\langle 100,200,200\\rangle .$$"
+          },
+          {
+            "do": "Set up Newton's Second Law $\\mathbf{F}=m\\mathbf{r}''(t)$ and solve for $\\mathbf{r}''(t)$.",
+            "work": "$$\\langle 100,200,200\\rangle=100\\,\\mathbf{r}''(t)\\ \\Longrightarrow\\ \\mathbf{r}''(t)=\\langle 1,2,2\\rangle .$$"
+          },
+          {
+            "do": "Integrate to get $\\mathbf{v}(t)=\\mathbf{r}'(t)$, adding a constant vector, and use $\\mathbf{v}(0)$ to find it.",
+            "work": "$$\\mathbf{v}(t)=\\int\\langle 1,2,2\\rangle\\,dt=\\langle t,2t,2t\\rangle+\\mathbf{C},$$ and $\\mathbf{v}(0)=\\langle 0,1,-1\\rangle$ gives $\\mathbf{C}=\\langle 0,1,-1\\rangle$, so $\\mathbf{v}(t)=\\langle t,\\,2t+1,\\,2t-1\\rangle$."
+          },
+          {
+            "do": "Integrate $\\mathbf{v}(t)$ to get $\\mathbf{r}(t)$, again with a constant vector, found from $\\mathbf{r}(0)$.",
+            "work": "$$\\mathbf{r}(t)=\\int\\langle t,2t+1,2t-1\\rangle\\,dt=\\langle \\tfrac{t^2}{2},\\,t^2+t,\\,t^2-t\\rangle+\\mathbf{C},$$ and $\\mathbf{r}(0)=\\langle 1,2,3\\rangle$ gives $\\mathbf{C}=\\langle 1,2,3\\rangle$, so $$\\mathbf{r}(t)=\\left\\langle \\tfrac{t^2}{2}+1,\\ t^2+t+2,\\ t^2-t+3\\right\\rangle .$$"
+          },
+          {
+            "do": "The speed is $|\\mathbf{v}(t)|$.",
+            "work": "$$|\\mathbf{v}(t)|=\\sqrt{t^2+(2t+1)^2+(2t-1)^2}=\\sqrt{9t^2+2}.$$"
+          }
+        ],
+        "answer": "$\\mathbf{r}(t)=\\left\\langle \\tfrac{t^2}{2}+1,\\,t^2+t+2,\\,t^2-t+3\\right\\rangle$, speed $=\\sqrt{9t^2+2}$.",
+        "check": {
+          "kind": "expr",
+          "value": "sqrt(9*t^2+2)",
+          "vars": [
+            "t"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "A force of magnitude $70$ N acts on a body of mass $10$ kg in the direction $\\langle 2,3,6\\rangle$. The object starts at $(0,1,-1)$ with initial velocity $\\mathbf{v}(0)=\\langle 1,-2,0\\rangle$. Find its position function and its speed at time $t$. Enter the speed.",
+          "steps": [
+            {
+              "do": "Divide $\\langle d_1,d_2,d_3\\rangle$ by its length to get the unit direction, then multiply by $F$ to get the force vector.",
+              "work": "$|\\langle 2,3,6\\rangle|=\\sqrt{4+9+36}=7$, so $$\\mathbf{F}=70\\cdot\\tfrac17\\langle 2,3,6\\rangle=\\langle 20,30,60\\rangle .$$"
+            },
+            {
+              "do": "Set up Newton's Second Law $\\mathbf{F}=m\\mathbf{r}''(t)$ and solve for $\\mathbf{r}''(t)$.",
+              "work": "$$\\langle 20,30,60\\rangle=10\\,\\mathbf{r}''(t)\\ \\Longrightarrow\\ \\mathbf{r}''(t)=\\langle 2,3,6\\rangle .$$"
+            },
+            {
+              "do": "Integrate to get $\\mathbf{v}(t)=\\mathbf{r}'(t)$, adding a constant vector, and use $\\mathbf{v}(0)$ to find it.",
+              "work": "$$\\mathbf{v}(t)=\\langle 2t,3t,6t\\rangle+\\mathbf{C},\\quad \\mathbf{v}(0)=\\langle 1,-2,0\\rangle\\ \\Longrightarrow\\ \\mathbf{v}(t)=\\langle 2t+1,\\,3t-2,\\,6t\\rangle .$$"
+            },
+            {
+              "do": "Integrate $\\mathbf{v}(t)$ to get $\\mathbf{r}(t)$, again with a constant vector, found from $\\mathbf{r}(0)$.",
+              "work": "$$\\mathbf{r}(t)=\\langle t^2+t,\\ \\tfrac32t^2-2t,\\ 3t^2\\rangle+\\mathbf{C},\\quad \\mathbf{r}(0)=\\langle 0,1,-1\\rangle\\ \\Longrightarrow\\ \\mathbf{r}(t)=\\left\\langle t^2+t,\\ \\tfrac32t^2-2t+1,\\ 3t^2-1\\right\\rangle .$$"
+            },
+            {
+              "do": "The speed is $|\\mathbf{v}(t)|$.",
+              "work": "$$|\\mathbf{v}(t)|=\\sqrt{(2t+1)^2+(3t-2)^2+(6t)^2}=\\sqrt{49t^2-8t+5}.$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(t)=\\left\\langle t^2+t,\\,\\tfrac32t^2-2t+1,\\,3t^2-1\\right\\rangle$, speed $=\\sqrt{49t^2-8t+5}$.",
+          "check": {
+            "kind": "expr",
+            "value": "sqrt(49*t^2-8*t+5)",
+            "vars": [
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "A force of magnitude $60$ N acts on a body of mass $20$ kg in the direction $\\langle 2,-1,2\\rangle$. The object starts at $(2,0,1)$ with initial velocity $\\mathbf{v}(0)=\\langle 0,3,1\\rangle$. Find its position function and its speed at time $t$. Enter the speed.",
+          "steps": [
+            {
+              "do": "Divide $\\langle d_1,d_2,d_3\\rangle$ by its length to get the unit direction, then multiply by $F$ to get the force vector.",
+              "work": "$|\\langle 2,-1,2\\rangle|=\\sqrt{4+1+4}=3$, so $$\\mathbf{F}=60\\cdot\\tfrac13\\langle 2,-1,2\\rangle=\\langle 40,-20,40\\rangle .$$"
+            },
+            {
+              "do": "Set up Newton's Second Law $\\mathbf{F}=m\\mathbf{r}''(t)$ and solve for $\\mathbf{r}''(t)$.",
+              "work": "$$\\langle 40,-20,40\\rangle=20\\,\\mathbf{r}''(t)\\ \\Longrightarrow\\ \\mathbf{r}''(t)=\\langle 2,-1,2\\rangle .$$"
+            },
+            {
+              "do": "Integrate to get $\\mathbf{v}(t)=\\mathbf{r}'(t)$, adding a constant vector, and use $\\mathbf{v}(0)$ to find it.",
+              "work": "$$\\mathbf{v}(t)=\\langle 2t,-t,2t\\rangle+\\mathbf{C},\\quad \\mathbf{v}(0)=\\langle 0,3,1\\rangle\\ \\Longrightarrow\\ \\mathbf{v}(t)=\\langle 2t,\\,3-t,\\,2t+1\\rangle .$$"
+            },
+            {
+              "do": "Integrate $\\mathbf{v}(t)$ to get $\\mathbf{r}(t)$, again with a constant vector, found from $\\mathbf{r}(0)$.",
+              "work": "$$\\mathbf{r}(t)=\\langle t^2,\\ 3t-\\tfrac{t^2}2,\\ t^2+t\\rangle+\\mathbf{C},\\quad \\mathbf{r}(0)=\\langle 2,0,1\\rangle\\ \\Longrightarrow\\ \\mathbf{r}(t)=\\left\\langle t^2+2,\\ 3t-\\tfrac{t^2}{2},\\ t^2+t+1\\right\\rangle .$$"
+            },
+            {
+              "do": "The speed is $|\\mathbf{v}(t)|$.",
+              "work": "$$|\\mathbf{v}(t)|=\\sqrt{(2t)^2+(3-t)^2+(2t+1)^2}=\\sqrt{9t^2-2t+10}.$$"
+            }
+          ],
+          "answer": "$\\mathbf{r}(t)=\\left\\langle t^2+2,\\,3t-\\tfrac{t^2}{2},\\,t^2+t+1\\right\\rangle$, speed $=\\sqrt{9t^2-2t+10}$.",
+          "check": {
+            "kind": "expr",
+            "value": "sqrt(9*t^2-2*t+10)",
+            "vars": [
+              "t"
+            ]
+          }
+        }
+      ],
+      "scene": "curves"
+    },
+    {
+      "id": "c3-14.2a",
+      "course": "calc3",
+      "section": "14.2",
+      "topic": "Limits and Continuity in Several Variables",
+      "title": "Limit fails along lines",
+      "type": "Find $\\displaystyle\\lim_{(x,y)\\to(a,b)}f(x,y)$ if it exists, or show that it does not exist.",
+      "example": {
+        "problem": "Find $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{2x^2}{3x^2+4y^2}$ or show that it does not exist. Does the limit exist?",
+        "steps": [
+          {
+            "do": "If $f$ is continuous at the point (top and bottom are nice functions and the bottom does not vanish there), just plug in. If the bottom vanishes but the top does not, the limit does not exist. Usually both vanish, so go on.",
+            "work": "Top and bottom both vanish at $(0,0)$, so go on."
+          },
+          {
+            "do": "Compute the limit along the straight lines $y-b=c(x-a)$. If the answer depends on the slope $c$, different lines give different limits, so the limit does not exist.",
+            "work": "Along $y=cx$: $$\\lim_{x\\to0}\\frac{2x^2}{3x^2+4c^2x^2}=\\lim_{x\\to0}\\frac{2}{3+4c^2}=\\frac{2}{3+4c^2}.$$ This depends on $c$ (it is $\\tfrac23$ for $c=0$ and $\\tfrac27$ for $c=1$)."
+          }
+        ],
+        "answer": "The limit does not exist: different lines through $(0,0)$ give different limits.",
+        "check": {
+          "kind": "choice",
+          "value": "does not exist",
+          "options": [
+            "exists",
+            "does not exist"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{5xy}{x^2+3y^2}$ or show that it does not exist. Does the limit exist?",
+          "steps": [
+            {
+              "do": "If $f$ is continuous at the point (top and bottom are nice functions and the bottom does not vanish there), just plug in. If the bottom vanishes but the top does not, the limit does not exist. Usually both vanish, so go on.",
+              "work": "Top and bottom both vanish at $(0,0)$, so go on."
+            },
+            {
+              "do": "Compute the limit along the straight lines $y-b=c(x-a)$. If the answer depends on the slope $c$, different lines give different limits, so the limit does not exist.",
+              "work": "Along $y=cx$: $$\\lim_{x\\to0}\\frac{5cx^2}{x^2+3c^2x^2}=\\frac{5c}{1+3c^2}.$$ This depends on $c$ (it is $0$ for $c=0$ and $\\tfrac54$ for $c=1$)."
+            }
+          ],
+          "answer": "The limit does not exist: different lines give different limits.",
+          "check": {
+            "kind": "choice",
+            "value": "does not exist",
+            "options": [
+              "exists",
+              "does not exist"
+            ]
+          }
+        },
+        {
+          "problem": "Find $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{x^2-y^2}{x^2+y^2}$ or show that it does not exist. Does the limit exist?",
+          "steps": [
+            {
+              "do": "If $f$ is continuous at the point (top and bottom are nice functions and the bottom does not vanish there), just plug in. If the bottom vanishes but the top does not, the limit does not exist. Usually both vanish, so go on.",
+              "work": "Top and bottom both vanish at $(0,0)$, so go on."
+            },
+            {
+              "do": "Compute the limit along the straight lines $y-b=c(x-a)$. If the answer depends on the slope $c$, different lines give different limits, so the limit does not exist.",
+              "work": "Along $y=cx$: $$\\lim_{x\\to0}\\frac{x^2-c^2x^2}{x^2+c^2x^2}=\\frac{1-c^2}{1+c^2}.$$ This depends on $c$ (it is $1$ along the $x$-axis and $0$ along $y=x$)."
+            }
+          ],
+          "answer": "The limit does not exist: different lines give different limits.",
+          "check": {
+            "kind": "choice",
+            "value": "does not exist",
+            "options": [
+              "exists",
+              "does not exist"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.2b",
+      "course": "calc3",
+      "section": "14.2",
+      "topic": "Limits and Continuity in Several Variables",
+      "title": "Limit via polar coordinates",
+      "type": "Find $\\displaystyle\\lim_{(x,y)\\to(a,b)}f(x,y)$ if it exists, or show that it does not exist.",
+      "example": {
+        "problem": "Find $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{2x^2}{\\sqrt{x^2+y^2}}$ or show that it does not exist. Enter the limit.",
+        "steps": [
+          {
+            "do": "If $f$ is continuous at the point (top and bottom are nice functions and the bottom does not vanish there), just plug in. If the bottom vanishes but the top does not, the limit does not exist. Usually both vanish, so go on.",
+            "work": "Top and bottom both vanish at $(0,0)$, so go on."
+          },
+          {
+            "do": "Try lines $y-b=c(x-a)$. If the result depends on $c$, the limit does not exist. If it does not depend on $c$, you get a candidate limit, but this is not yet a proof.",
+            "work": "Along $y=cx$: $$\\lim_{x\\to0}\\frac{2x^2}{\\sqrt{1+c^2}\\,|x|}=\\lim_{x\\to0}\\frac{2|x|}{\\sqrt{1+c^2}}=0.$$ This does not depend on $c$, so $0$ is a candidate (but not yet a proof)."
+          },
+          {
+            "do": "To confirm the candidate, convert to polar coordinates $x=r\\cos\\theta$, $y=r\\sin\\theta$ and let $r\\to0$. (The origin is $r=0$ with $\\theta$ arbitrary, so do not set $\\theta=0$.) If the result is the candidate whatever $\\theta$ is, the limit exists.",
+            "work": "With $r^2=x^2+y^2$: $$\\frac{2(r\\cos\\theta)^2}{r}=2r\\cos^2\\theta\\ \\xrightarrow[r\\to0]{}\\ 2\\cdot0\\cdot\\cos^2\\theta=0,$$ whatever $\\theta$ is."
+          }
+        ],
+        "answer": "The limit exists and equals $0$.",
+        "check": {
+          "kind": "number",
+          "value": "0"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{3x^2y}{x^2+y^2}$ or show that it does not exist. Enter the limit.",
+          "steps": [
+            {
+              "do": "If $f$ is continuous at the point (top and bottom are nice functions and the bottom does not vanish there), just plug in. If the bottom vanishes but the top does not, the limit does not exist. Usually both vanish, so go on.",
+              "work": "Top and bottom both vanish at $(0,0)$, so go on."
+            },
+            {
+              "do": "Try lines $y-b=c(x-a)$. If the result depends on $c$, the limit does not exist. If it does not depend on $c$, you get a candidate limit, but this is not yet a proof.",
+              "work": "Along $y=cx$: $$\\lim_{x\\to0}\\frac{3c\\,x^3}{(1+c^2)x^2}=\\lim_{x\\to0}\\frac{3c\\,x}{1+c^2}=0.$$ This does not depend on $c$, so $0$ is a candidate."
+            },
+            {
+              "do": "To confirm the candidate, convert to polar coordinates $x=r\\cos\\theta$, $y=r\\sin\\theta$ and let $r\\to0$. (The origin is $r=0$ with $\\theta$ arbitrary, so do not set $\\theta=0$.) If the result is the candidate whatever $\\theta$ is, the limit exists.",
+              "work": "$$\\frac{3r^2\\cos^2\\theta\\cdot r\\sin\\theta}{r^2}=3r\\cos^2\\theta\\sin\\theta\\ \\xrightarrow[r\\to0]{}\\ 0,$$ whatever $\\theta$ is."
+            }
+          ],
+          "answer": "The limit exists and equals $0$.",
+          "check": {
+            "kind": "number",
+            "value": "0"
+          }
+        },
+        {
+          "problem": "Find $\\displaystyle\\lim_{(x,y)\\to(0,0)}\\frac{\\sin(x^2+y^2)}{x^2+y^2}$ or show that it does not exist. Enter the limit.",
+          "steps": [
+            {
+              "do": "If $f$ is continuous at the point (top and bottom are nice functions and the bottom does not vanish there), just plug in. If the bottom vanishes but the top does not, the limit does not exist. Usually both vanish, so go on.",
+              "work": "Top and bottom both vanish at $(0,0)$, so go on."
+            },
+            {
+              "do": "Try lines $y-b=c(x-a)$. If the result depends on $c$, the limit does not exist. If it does not depend on $c$, you get a candidate limit, but this is not yet a proof.",
+              "work": "Along $y=cx$, with $u=(1+c^2)x^2\\to0$: $$\\lim_{x\\to0}\\frac{\\sin u}{u}=1.$$ This does not depend on $c$, so $1$ is a candidate."
+            },
+            {
+              "do": "To confirm the candidate, convert to polar coordinates $x=r\\cos\\theta$, $y=r\\sin\\theta$ and let $r\\to0$. (The origin is $r=0$ with $\\theta$ arbitrary, so do not set $\\theta=0$.) If the result is the candidate whatever $\\theta$ is, the limit exists.",
+              "work": "$$\\frac{\\sin(r^2)}{r^2}\\ \\xrightarrow[r\\to0]{}\\ 1$$ (the basic limit $\\sin u/u\\to1$ with $u=r^2$), and $\\theta$ has disappeared, so the limit is $1$ whatever the direction."
+            }
+          ],
+          "answer": "The limit exists and equals $1$.",
+          "check": {
+            "kind": "number",
+            "value": "1"
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.2c",
+      "course": "calc3",
+      "section": "14.2",
+      "topic": "Limits and Continuity in Several Variables",
+      "title": "Where is a function continuous?",
+      "type": "Determine the set of points at which the given function $f(x,y)$ is continuous.",
+      "example": {
+        "problem": "Determine the set of points at which each function is continuous: (a) $f(x,y)=\\dfrac{1}{x+y+2}$, (b) $f(x,y)=\\sqrt{x+y-3}$, (c) $f(x,y)=\\dfrac{\\ln(x+y)}{y-3}$.",
+        "steps": [
+          {
+            "do": "A function is continuous wherever it makes sense and does not blow up: a denominator must not be $0$, $\\sqrt{w}$ needs $w\\ge0$, and $\\ln w$ needs $w>0$. Write down each condition.",
+            "work": "(a) The bottom must not vanish: $x+y+2\\ne0$. (b) The root needs $x+y-3\\ge0$. (c) The log needs $x+y>0$ and the bottom needs $y\\ne3$."
+          },
+          {
+            "do": "Put the conditions together to describe the set of points.",
+            "work": "(a) Everywhere except the line $x+y+2=0$. (b) The half-plane $x+y\\ge3$. (c) The half-plane $x+y>0$ without the line $y=3$."
+          }
+        ],
+        "answer": "(a) All points off the line $x+y=-2$; (b) the half-plane $x+y\\ge3$; (c) the half-plane $x+y>0$ with the line $y=3$ removed."
+      },
+      "practice": [
+        {
+          "problem": "The function $f(x,y)=\\dfrac{\\ln(x-y)}{x+y-4}$ is continuous exactly where it makes sense. Is $f$ continuous at the point $(3,1)$?",
+          "steps": [
+            {
+              "do": "A function is continuous wherever it makes sense and does not blow up: a denominator must not be $0$, $\\sqrt{w}$ needs $w\\ge0$, and $\\ln w$ needs $w>0$. Write down each condition.",
+              "work": "The log needs $x-y>0$, and the bottom needs $x+y-4\\ne0$."
+            },
+            {
+              "do": "Put the conditions together to describe the set of points.",
+              "work": "At $(3,1)$: $x-y=2>0$ is fine, but $x+y-4=0$, so $f$ is not even defined there. The set of continuity is the half-plane $x>y$ without the line $x+y=4$."
+            }
+          ],
+          "answer": "No: $(3,1)$ lies on the excluded line $x+y=4$.",
+          "check": {
+            "kind": "choice",
+            "value": "no",
+            "options": [
+              "yes",
+              "no"
+            ]
+          }
+        },
+        {
+          "problem": "The function $f(x,y)=\\dfrac{\\sqrt{x+2y-1}}{y-2}$ is continuous exactly where it makes sense. Is $f$ continuous at the point $(1,1)$?",
+          "steps": [
+            {
+              "do": "A function is continuous wherever it makes sense and does not blow up: a denominator must not be $0$, $\\sqrt{w}$ needs $w\\ge0$, and $\\ln w$ needs $w>0$. Write down each condition.",
+              "work": "The root needs $x+2y-1\\ge0$, and the bottom needs $y\\ne2$."
+            },
+            {
+              "do": "Put the conditions together to describe the set of points.",
+              "work": "At $(1,1)$: $x+2y-1=2\\ge0$ is fine and $y-2=-1\\ne0$ is fine. The set of continuity is the half-plane $x+2y\\ge1$ without the line $y=2$."
+            }
+          ],
+          "answer": "Yes: $(1,1)$ satisfies both conditions.",
+          "check": {
+            "kind": "choice",
+            "value": "yes",
+            "options": [
+              "yes",
+              "no"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.3a",
+      "course": "calc3",
+      "section": "14.3",
+      "topic": "Partial Derivatives",
+      "title": "First partial derivatives",
+      "type": "Find the first partial derivatives of the function $f(x,y)$.",
+      "example": {
+        "problem": "Find the first partial derivatives of $f(x,y)=x^3y+\\ln(x+y)$. Enter $f_x$.",
+        "steps": [
+          {
+            "do": "For $\\partial f/\\partial x$, $x$ is the boss and $y$ is treated as a constant: differentiate with respect to $x$ only.",
+            "work": "$$\\frac{\\partial f}{\\partial x}=3x^2y+\\frac1{x+y}.$$"
+          },
+          {
+            "do": "For $\\partial f/\\partial y$, $y$ is the boss and $x$ is treated as a constant.",
+            "work": "$$\\frac{\\partial f}{\\partial y}=x^3+\\frac1{x+y}.$$"
+          }
+        ],
+        "answer": "$f_x=3x^2y+\\dfrac1{x+y}$, $\\quad f_y=x^3+\\dfrac1{x+y}$",
+        "check": {
+          "kind": "expr",
+          "value": "3*x^2*y+1/(x+y)",
+          "vars": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the first partial derivatives of $f(x,y)=x^2y^3+e^{xy}$. Enter $f_x$.",
+          "steps": [
+            {
+              "do": "For $\\partial f/\\partial x$, $x$ is the boss and $y$ is treated as a constant: differentiate with respect to $x$ only.",
+              "work": "$$\\frac{\\partial f}{\\partial x}=2xy^3+y\\,e^{xy}.$$"
+            },
+            {
+              "do": "For $\\partial f/\\partial y$, $y$ is the boss and $x$ is treated as a constant.",
+              "work": "$$\\frac{\\partial f}{\\partial y}=3x^2y^2+x\\,e^{xy}.$$"
+            }
+          ],
+          "answer": "$f_x=2xy^3+y\\,e^{xy}$, $\\quad f_y=3x^2y^2+x\\,e^{xy}$",
+          "check": {
+            "kind": "expr",
+            "value": "2*x*y^3+y*exp(x*y)",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "problem": "Find the first partial derivatives of $f(x,y)=xy^2+\\ln(x^2+y)$. Enter $f_y$.",
+          "steps": [
+            {
+              "do": "For $\\partial f/\\partial x$, $x$ is the boss and $y$ is treated as a constant: differentiate with respect to $x$ only.",
+              "work": "$$\\frac{\\partial f}{\\partial x}=y^2+\\frac{2x}{x^2+y}.$$"
+            },
+            {
+              "do": "For $\\partial f/\\partial y$, $y$ is the boss and $x$ is treated as a constant.",
+              "work": "$$\\frac{\\partial f}{\\partial y}=2xy+\\frac1{x^2+y}.$$"
+            }
+          ],
+          "answer": "$f_x=y^2+\\dfrac{2x}{x^2+y}$, $\\quad f_y=2xy+\\dfrac1{x^2+y}$",
+          "check": {
+            "kind": "expr",
+            "value": "2*x*y+1/(x^2+y)",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.3b",
+      "course": "calc3",
+      "section": "14.3",
+      "topic": "Partial Derivatives",
+      "title": "Implicit partial derivatives",
+      "type": "Use implicit differentiation to find $\\partial z/\\partial x$ and $\\partial z/\\partial y$, given a relation $\\text{LeftSide}(x,y,z)=\\text{RightSide}(x,y,z)$.",
+      "example": {
+        "problem": "Use implicit differentiation to find $\\partial z/\\partial x$ and $\\partial z/\\partial y$ if $x^2+y^3+z^2=4xy^2z$. Enter $\\partial z/\\partial x$.",
+        "steps": [
+          {
+            "do": "Differentiate both sides with respect to $x$, treating $y$ as a constant and $z$ as a function of $x$ (so $z^2$ gives $2z\\,z_x$, and use the product rule where needed). Then solve algebraically for $z_x=\\partial z/\\partial x$.",
+            "work": "$$2x+2z\\,z_x=4y^2(z+x\\,z_x)\\ \\Longrightarrow\\ (2z-4xy^2)\\,z_x=4y^2z-2x\\ \\Longrightarrow\\ z_x=\\frac{2y^2z-x}{z-2xy^2}.$$"
+          },
+          {
+            "do": "Do the same with respect to $y$: now $x$ is a constant and $z$ is a function of $y$. Solve for $z_y=\\partial z/\\partial y$.",
+            "work": "$$3y^2+2z\\,z_y=4x(2yz+y^2z_y)\\ \\Longrightarrow\\ (2z-4xy^2)\\,z_y=8xyz-3y^2\\ \\Longrightarrow\\ z_y=\\frac{8xyz-3y^2}{2z-4xy^2}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{\\partial z}{\\partial x}=\\dfrac{2y^2z-x}{z-2xy^2}$, $\\quad \\dfrac{\\partial z}{\\partial y}=\\dfrac{8xyz-3y^2}{2z-4xy^2}$",
+        "check": {
+          "kind": "expr",
+          "value": "(2*y^2*z-x)/(z-2*x*y^2)",
+          "vars": [
+            "x",
+            "y",
+            "z"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use implicit differentiation to find $\\partial z/\\partial x$ and $\\partial z/\\partial y$ if $x^3+y^2+z^3=3xyz$. Enter $\\partial z/\\partial x$.",
+          "steps": [
+            {
+              "do": "Differentiate both sides with respect to $x$, treating $y$ as a constant and $z$ as a function of $x$ (so $z^2$ gives $2z\\,z_x$, and use the product rule where needed). Then solve algebraically for $z_x=\\partial z/\\partial x$.",
+              "work": "$$3x^2+3z^2z_x=3yz+3xy\\,z_x\\ \\Longrightarrow\\ (3z^2-3xy)\\,z_x=3yz-3x^2\\ \\Longrightarrow\\ z_x=\\frac{yz-x^2}{z^2-xy}.$$"
+            },
+            {
+              "do": "Do the same with respect to $y$: now $x$ is a constant and $z$ is a function of $y$. Solve for $z_y=\\partial z/\\partial y$.",
+              "work": "$$2y+3z^2z_y=3xz+3xy\\,z_y\\ \\Longrightarrow\\ (3z^2-3xy)\\,z_y=3xz-2y\\ \\Longrightarrow\\ z_y=\\frac{3xz-2y}{3(z^2-xy)}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\partial z}{\\partial x}=\\dfrac{yz-x^2}{z^2-xy}$, $\\quad \\dfrac{\\partial z}{\\partial y}=\\dfrac{3xz-2y}{3(z^2-xy)}$",
+          "check": {
+            "kind": "expr",
+            "value": "(y*z-x^2)/(z^2-x*y)",
+            "vars": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        },
+        {
+          "problem": "Use implicit differentiation to find $\\partial z/\\partial x$ and $\\partial z/\\partial y$ if $x^2z+yz^2=3xy$. Enter $\\partial z/\\partial y$.",
+          "steps": [
+            {
+              "do": "Differentiate both sides with respect to $x$, treating $y$ as a constant and $z$ as a function of $x$ (so $z^2$ gives $2z\\,z_x$, and use the product rule where needed). Then solve algebraically for $z_x=\\partial z/\\partial x$.",
+              "work": "$$2xz+x^2z_x+2yz\\,z_x=3y\\ \\Longrightarrow\\ (x^2+2yz)\\,z_x=3y-2xz\\ \\Longrightarrow\\ z_x=\\frac{3y-2xz}{x^2+2yz}.$$"
+            },
+            {
+              "do": "Do the same with respect to $y$: now $x$ is a constant and $z$ is a function of $y$. Solve for $z_y=\\partial z/\\partial y$.",
+              "work": "$$x^2z_y+z^2+2yz\\,z_y=3x\\ \\Longrightarrow\\ (x^2+2yz)\\,z_y=3x-z^2\\ \\Longrightarrow\\ z_y=\\frac{3x-z^2}{x^2+2yz}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\partial z}{\\partial x}=\\dfrac{3y-2xz}{x^2+2yz}$, $\\quad \\dfrac{\\partial z}{\\partial y}=\\dfrac{3x-z^2}{x^2+2yz}$",
+          "check": {
+            "kind": "expr",
+            "value": "(3*x-z^2)/(x^2+2*y*z)",
+            "vars": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.4a",
+      "course": "calc3",
+      "section": "14.4",
+      "topic": "Differentiability, Linear Approximations, and Tangent Planes",
+      "title": "Tangent plane to a surface",
+      "type": "Find an equation of the tangent plane to the surface $z=f(x,y)$ at the point $(x_0,y_0,z_0)$.",
+      "example": {
+        "problem": "Find an equation of the tangent plane to $z=9x^2+y^2+6x-3y+5$ at $(1,2,18)$. Enter $z$ as a function of $x$ and $y$.",
+        "steps": [
+          {
+            "do": "First make sure $z_0=f(x_0,y_0)$ (the point is on the surface). Then compute $f_x$ and $f_y$.",
+            "work": "$f(1,2)=9+4+6-6+5=18$, so the point is on the surface. $$f_x=18x+6,\\qquad f_y=2y-3.$$"
+          },
+          {
+            "do": "Plug $x=x_0$, $y=y_0$ into $f_x$ and $f_y$.",
+            "work": "$$f_x(1,2)=24,\\qquad f_y(1,2)=1.$$"
+          },
+          {
+            "do": "The tangent plane is $z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$; plug in and simplify.",
+            "work": "$$z-18=24(x-1)+(y-2)\\ \\Longrightarrow\\ z=24x+y-8 .$$"
+          }
+        ],
+        "answer": "$z=24x+y-8$",
+        "check": {
+          "kind": "expr",
+          "value": "24*x+y-8",
+          "vars": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find an equation of the tangent plane to $z=x^2+3xy-y^2$ at $(1,2,3)$. Enter $z$ as a function of $x$ and $y$.",
+          "steps": [
+            {
+              "do": "First make sure $z_0=f(x_0,y_0)$ (the point is on the surface). Then compute $f_x$ and $f_y$.",
+              "work": "$f(1,2)=1+6-4=3$, so the point is on the surface. $$f_x=2x+3y,\\qquad f_y=3x-2y.$$"
+            },
+            {
+              "do": "Plug $x=x_0$, $y=y_0$ into $f_x$ and $f_y$.",
+              "work": "$$f_x(1,2)=8,\\qquad f_y(1,2)=-1.$$"
+            },
+            {
+              "do": "The tangent plane is $z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$; plug in and simplify.",
+              "work": "$$z-3=8(x-1)-(y-2)\\ \\Longrightarrow\\ z=8x-y-3 .$$"
+            }
+          ],
+          "answer": "$z=8x-y-3$",
+          "check": {
+            "kind": "expr",
+            "value": "8*x-y-3",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "problem": "Find an equation of the tangent plane to $z=x\\,e^{y}+y^2$ at $(2,0,2)$. Enter $z$ as a function of $x$ and $y$.",
+          "steps": [
+            {
+              "do": "First make sure $z_0=f(x_0,y_0)$ (the point is on the surface). Then compute $f_x$ and $f_y$.",
+              "work": "$f(2,0)=2e^0+0=2$, so the point is on the surface. $$f_x=e^{y},\\qquad f_y=x\\,e^{y}+2y.$$"
+            },
+            {
+              "do": "Plug $x=x_0$, $y=y_0$ into $f_x$ and $f_y$.",
+              "work": "$$f_x(2,0)=1,\\qquad f_y(2,0)=2.$$"
+            },
+            {
+              "do": "The tangent plane is $z-z_0=f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$; plug in and simplify.",
+              "work": "$$z-2=1\\cdot(x-2)+2(y-0)\\ \\Longrightarrow\\ z=x+2y .$$"
+            }
+          ],
+          "answer": "$z=x+2y$",
+          "check": {
+            "kind": "expr",
+            "value": "x+2*y",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.4b",
+      "course": "calc3",
+      "section": "14.4",
+      "topic": "Differentiability, Linear Approximations, and Tangent Planes",
+      "title": "Linearization of a function",
+      "type": "Explain why $z=f(x,y)$ is differentiable at the point $(a,b)$, then find the linearization of $f$ there.",
+      "example": {
+        "problem": "Explain why $f(x,y)=e^x\\sin(xy)$ is differentiable at $(0,\\pi/2)$, then find its linearization there. Enter $L(x,y)$.",
+        "steps": [
+          {
+            "do": "Find the first partial derivatives $f_x$ and $f_y$.",
+            "work": "$$f_x=e^x\\sin(xy)+y\\,e^x\\cos(xy),\\qquad f_y=x\\,e^x\\cos(xy).$$"
+          },
+          {
+            "do": "If $f_x$ and $f_y$ are both continuous at $(a,b)$ (defined and not blowing up), then $f$ is differentiable there, and the linearization is $L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.",
+            "work": "Both are continuous everywhere, in particular at $(0,\\pi/2)$, so $f$ is differentiable there. $$f(0,\\tfrac\\pi2)=0,\\quad f_x(0,\\tfrac\\pi2)=\\tfrac\\pi2,\\quad f_y(0,\\tfrac\\pi2)=0,$$ so $$L(x,y)=0+\\tfrac\\pi2(x-0)+0\\cdot(y-\\tfrac\\pi2)=\\tfrac\\pi2\\,x .$$"
+          }
+        ],
+        "answer": "$L(x,y)=\\dfrac{\\pi}{2}\\,x$",
+        "check": {
+          "kind": "expr",
+          "value": "pi*x/2",
+          "vars": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Explain why $f(x,y)=x\\,e^{xy}$ is differentiable at $(1,0)$, then find its linearization there. Enter $L(x,y)$.",
+          "steps": [
+            {
+              "do": "Find the first partial derivatives $f_x$ and $f_y$.",
+              "work": "$$f_x=e^{xy}+xy\\,e^{xy},\\qquad f_y=x^2e^{xy}.$$"
+            },
+            {
+              "do": "If $f_x$ and $f_y$ are both continuous at $(a,b)$ (defined and not blowing up), then $f$ is differentiable there, and the linearization is $L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.",
+              "work": "Both are continuous everywhere, so $f$ is differentiable at $(1,0)$. $$f(1,0)=1,\\quad f_x(1,0)=1,\\quad f_y(1,0)=1,$$ so $$L(x,y)=1+1\\cdot(x-1)+1\\cdot(y-0)=x+y .$$"
+            }
+          ],
+          "answer": "$L(x,y)=x+y$",
+          "check": {
+            "kind": "expr",
+            "value": "x+y",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "problem": "Explain why $f(x,y)=x\\sin(xy)$ is differentiable at $(1,\\pi)$, then find its linearization there. Enter $L(x,y)$.",
+          "steps": [
+            {
+              "do": "Find the first partial derivatives $f_x$ and $f_y$.",
+              "work": "$$f_x=\\sin(xy)+xy\\cos(xy),\\qquad f_y=x^2\\cos(xy).$$"
+            },
+            {
+              "do": "If $f_x$ and $f_y$ are both continuous at $(a,b)$ (defined and not blowing up), then $f$ is differentiable there, and the linearization is $L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.",
+              "work": "Both are continuous everywhere, so $f$ is differentiable at $(1,\\pi)$. $$f(1,\\pi)=0,\\quad f_x(1,\\pi)=0+\\pi\\cos\\pi=-\\pi,\\quad f_y(1,\\pi)=\\cos\\pi=-1,$$ so $$L(x,y)=0-\\pi(x-1)-(y-\\pi)=-\\pi x-y+2\\pi .$$"
+            }
+          ],
+          "answer": "$L(x,y)=-\\pi x-y+2\\pi$",
+          "check": {
+            "kind": "expr",
+            "value": "-pi*x-y+2*pi",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.4c",
+      "course": "calc3",
+      "section": "14.4",
+      "topic": "Differentiability, Linear Approximations, and Tangent Planes",
+      "title": "Estimate with linear approximation",
+      "type": "Use the linear approximation of $f(x,y)$ at $(a,b)$ to approximate $f(a_1,b_1)$, where $(a_1,b_1)$ is near $(a,b)$.",
+      "example": {
+        "problem": "Use the linear approximation of $f(x,y)=\\sqrt{20-x^2-2y^2}$ at $(3,1)$ to approximate $f(3.05,0.97)$.",
+        "steps": [
+          {
+            "do": "Find the first partial derivatives $f_x$ and $f_y$.",
+            "work": "$$f_x=\\frac{-x}{\\sqrt{20-x^2-2y^2}},\\qquad f_y=\\frac{-2y}{\\sqrt{20-x^2-2y^2}}.$$"
+          },
+          {
+            "do": "Check they are continuous at $(a,b)$ and write the linearization $L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.",
+            "work": "Both are continuous at $(3,1)$ (the root's argument is $9>0$). $f(3,1)=3$, $f_x(3,1)=-1$, $f_y(3,1)=-\\tfrac23$, so $$L(x,y)=3-(x-3)-\\tfrac23(y-1).$$"
+          },
+          {
+            "do": "Plug $(a_1,b_1)$ into $L$.",
+            "work": "$$f(3.05,0.97)\\approx3-0.05-\\tfrac23(-0.03)=3-0.05+0.02=2.97 .$$"
+          }
+        ],
+        "answer": "$f(3.05,0.97)\\approx2.97$",
+        "check": {
+          "kind": "number",
+          "value": "2.97"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the linear approximation of $f(x,y)=\\sqrt{x^2+y^2}$ at $(3,4)$ to approximate $f(3.06,3.95)$.",
+          "steps": [
+            {
+              "do": "Find the first partial derivatives $f_x$ and $f_y$.",
+              "work": "$$f_x=\\frac{x}{\\sqrt{x^2+y^2}},\\qquad f_y=\\frac{y}{\\sqrt{x^2+y^2}}.$$"
+            },
+            {
+              "do": "Check they are continuous at $(a,b)$ and write the linearization $L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.",
+              "work": "Both are continuous at $(3,4)$. $f(3,4)=5$, $f_x(3,4)=\\tfrac35$, $f_y(3,4)=\\tfrac45$, so $$L(x,y)=5+\\tfrac35(x-3)+\\tfrac45(y-4).$$"
+            },
+            {
+              "do": "Plug $(a_1,b_1)$ into $L$.",
+              "work": "$$f(3.06,3.95)\\approx5+\\tfrac35(0.06)+\\tfrac45(-0.05)=5+0.036-0.04=4.996 .$$"
+            }
+          ],
+          "answer": "$f(3.06,3.95)\\approx4.996$",
+          "check": {
+            "kind": "number",
+            "value": "4.996"
+          }
+        },
+        {
+          "problem": "Use the linear approximation of $f(x,y)=x/y$ at $(6,2)$ to approximate $f(6.1,1.9)$.",
+          "steps": [
+            {
+              "do": "Find the first partial derivatives $f_x$ and $f_y$.",
+              "work": "$$f_x=\\frac1y,\\qquad f_y=-\\frac{x}{y^2}.$$"
+            },
+            {
+              "do": "Check they are continuous at $(a,b)$ and write the linearization $L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-b)$.",
+              "work": "Both are continuous at $(6,2)$. $f(6,2)=3$, $f_x(6,2)=\\tfrac12$, $f_y(6,2)=-\\tfrac32$, so $$L(x,y)=3+\\tfrac12(x-6)-\\tfrac32(y-2).$$"
+            },
+            {
+              "do": "Plug $(a_1,b_1)$ into $L$.",
+              "work": "$$f(6.1,1.9)\\approx3+\\tfrac12(0.1)-\\tfrac32(-0.1)=3+0.05+0.15=3.2 .$$"
+            }
+          ],
+          "answer": "$f(6.1,1.9)\\approx3.2$",
+          "check": {
+            "kind": "number",
+            "value": "3.2"
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.5a",
+      "course": "calc3",
+      "section": "14.5",
+      "topic": "The Gradient and Directional Derivatives",
+      "title": "Directional derivative",
+      "type": "Find the directional derivative of $f(x,y,z)$ at the point $(x_0,y_0,z_0)$ in the direction $\\langle v_1,v_2,v_3\\rangle$.",
+      "example": {
+        "problem": "Find the directional derivative of $f(x,y,z)=\\ln(x^2+y^2+z^2)$ at $(2,1,3)$ in the direction $\\langle1,2,2\\rangle$.",
+        "steps": [
+          {
+            "do": "Find the gradient $\\nabla f=\\langle f_x,f_y,f_z\\rangle$, and the unit vector $\\mathbf{u}=\\mathbf{v}/|\\mathbf{v}|$ in the given direction.",
+            "work": "$$\\nabla f=\\left\\langle \\frac{2x}{x^2+y^2+z^2},\\frac{2y}{x^2+y^2+z^2},\\frac{2z}{x^2+y^2+z^2}\\right\\rangle,$$ and $|\\langle1,2,2\\rangle|=3$, so $\\mathbf{u}=\\langle\\tfrac13,\\tfrac23,\\tfrac23\\rangle$."
+          },
+          {
+            "do": "Plug $(x_0,y_0,z_0)$ into $\\nabla f$.",
+            "work": "$$\\nabla f(2,1,3)=\\left\\langle\\tfrac4{14},\\tfrac2{14},\\tfrac6{14}\\right\\rangle=\\langle\\tfrac27,\\tfrac17,\\tfrac37\\rangle .$$"
+          },
+          {
+            "do": "Take the dot product $D_{\\mathbf{u}}f=\\nabla f\\cdot\\mathbf{u}$.",
+            "work": "$$\\nabla f\\cdot\\mathbf{u}=\\tfrac27\\cdot\\tfrac13+\\tfrac17\\cdot\\tfrac23+\\tfrac37\\cdot\\tfrac23=\\tfrac{10}{21}.$$"
+          }
+        ],
+        "answer": "$D_{\\mathbf{u}}f(2,1,3)=\\dfrac{10}{21}$",
+        "check": {
+          "kind": "number",
+          "value": "10/21"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the directional derivative of $f(x,y,z)=xy^2+z^3$ at $(2,1,-1)$ in the direction $\\langle1,-2,2\\rangle$.",
+          "steps": [
+            {
+              "do": "Find the gradient $\\nabla f=\\langle f_x,f_y,f_z\\rangle$, and the unit vector $\\mathbf{u}=\\mathbf{v}/|\\mathbf{v}|$ in the given direction.",
+              "work": "$$\\nabla f=\\langle y^2,\\,2xy,\\,3z^2\\rangle,$$ and $|\\langle1,-2,2\\rangle|=3$, so $\\mathbf{u}=\\langle\\tfrac13,-\\tfrac23,\\tfrac23\\rangle$."
+            },
+            {
+              "do": "Plug $(x_0,y_0,z_0)$ into $\\nabla f$.",
+              "work": "$$\\nabla f(2,1,-1)=\\langle 1,4,3\\rangle .$$"
+            },
+            {
+              "do": "Take the dot product $D_{\\mathbf{u}}f=\\nabla f\\cdot\\mathbf{u}$.",
+              "work": "$$\\nabla f\\cdot\\mathbf{u}=\\tfrac13-\\tfrac83+\\tfrac63=-\\tfrac13 .$$"
+            }
+          ],
+          "answer": "$D_{\\mathbf{u}}f(2,1,-1)=-\\dfrac13$",
+          "check": {
+            "kind": "number",
+            "value": "-1/3"
+          }
+        },
+        {
+          "problem": "Find the directional derivative of $f(x,y,z)=\\sqrt{x^2+y^2+z^2}$ at $(1,2,2)$ in the direction $\\langle2,3,6\\rangle$.",
+          "steps": [
+            {
+              "do": "Find the gradient $\\nabla f=\\langle f_x,f_y,f_z\\rangle$, and the unit vector $\\mathbf{u}=\\mathbf{v}/|\\mathbf{v}|$ in the given direction.",
+              "work": "$$\\nabla f=\\left\\langle\\frac{x}{\\sqrt{x^2+y^2+z^2}},\\frac{y}{\\sqrt{x^2+y^2+z^2}},\\frac{z}{\\sqrt{x^2+y^2+z^2}}\\right\\rangle,$$ and $|\\langle2,3,6\\rangle|=7$, so $\\mathbf{u}=\\langle\\tfrac27,\\tfrac37,\\tfrac67\\rangle$."
+            },
+            {
+              "do": "Plug $(x_0,y_0,z_0)$ into $\\nabla f$.",
+              "work": "$$\\nabla f(1,2,2)=\\langle\\tfrac13,\\tfrac23,\\tfrac23\\rangle .$$"
+            },
+            {
+              "do": "Take the dot product $D_{\\mathbf{u}}f=\\nabla f\\cdot\\mathbf{u}$.",
+              "work": "$$\\nabla f\\cdot\\mathbf{u}=\\tfrac2{21}+\\tfrac6{21}+\\tfrac{12}{21}=\\tfrac{20}{21}.$$"
+            }
+          ],
+          "answer": "$D_{\\mathbf{u}}f(1,2,2)=\\dfrac{20}{21}$",
+          "check": {
+            "kind": "number",
+            "value": "20/21"
+          }
+        }
+      ],
+      "scene": "gradient"
+    },
+    {
+      "id": "c3-14.5b",
+      "course": "calc3",
+      "section": "14.5",
+      "topic": "The Gradient and Directional Derivatives",
+      "title": "Maximum rate of change",
+      "type": "Find the maximum rate of change of $f(x,y)=\\text{Expression}(x,y)$ at the point $(x_0,y_0)$ and the direction in which it occurs.",
+      "example": {
+        "problem": "Find the maximum rate of change of $f(x,y)=\\sin(xy)$ at $(1,0)$ and the direction in which it occurs. Enter the maximum rate of change.",
+        "steps": [
+          {
+            "do": "Find the gradient $\\nabla f=\\langle f_x,f_y\\rangle$.",
+            "work": "$$\\nabla f=\\langle y\\cos(xy),\\ x\\cos(xy)\\rangle .$$"
+          },
+          {
+            "do": "Plug in $(x_0,y_0)$.",
+            "work": "$$\\nabla f(1,0)=\\langle 0\\cdot\\cos0,\\ 1\\cdot\\cos0\\rangle=\\langle 0,1\\rangle .$$"
+          },
+          {
+            "do": "The maximum rate of change is the length $|\\nabla f|$ at that point, and it occurs in the direction of $\\nabla f$. Divide by the length to get the unit direction.",
+            "work": "$|\\langle0,1\\rangle|=1$, and $\\langle0,1\\rangle$ is already a unit vector."
+          }
+        ],
+        "answer": "The maximum rate of change is $1$, in the direction $\\langle0,1\\rangle$ (that is, $\\mathbf{j}$).",
+        "check": {
+          "kind": "number",
+          "value": "1"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the maximum rate of change of $f(x,y)=x^2e^{y}$ at $(1,0)$ and the direction in which it occurs. Enter the maximum rate of change.",
+          "steps": [
+            {
+              "do": "Find the gradient $\\nabla f=\\langle f_x,f_y\\rangle$.",
+              "work": "$$\\nabla f=\\langle 2x\\,e^{y},\\ x^2e^{y}\\rangle .$$"
+            },
+            {
+              "do": "Plug in $(x_0,y_0)$.",
+              "work": "$$\\nabla f(1,0)=\\langle 2,1\\rangle .$$"
+            },
+            {
+              "do": "The maximum rate of change is the length $|\\nabla f|$ at that point, and it occurs in the direction of $\\nabla f$. Divide by the length to get the unit direction.",
+              "work": "$|\\langle2,1\\rangle|=\\sqrt5$, so the direction is $\\tfrac1{\\sqrt5}\\langle2,1\\rangle$."
+            }
+          ],
+          "answer": "The maximum rate of change is $\\sqrt5$, in the direction $\\tfrac1{\\sqrt5}\\langle2,1\\rangle$.",
+          "check": {
+            "kind": "number",
+            "value": "sqrt(5)"
+          }
+        },
+        {
+          "problem": "Find the maximum rate of change of $f(x,y)=\\ln(x^2+y^2)$ at $(3,4)$ and the direction in which it occurs. Enter the maximum rate of change.",
+          "steps": [
+            {
+              "do": "Find the gradient $\\nabla f=\\langle f_x,f_y\\rangle$.",
+              "work": "$$\\nabla f=\\left\\langle\\frac{2x}{x^2+y^2},\\ \\frac{2y}{x^2+y^2}\\right\\rangle .$$"
+            },
+            {
+              "do": "Plug in $(x_0,y_0)$.",
+              "work": "$$\\nabla f(3,4)=\\left\\langle\\tfrac6{25},\\tfrac8{25}\\right\\rangle .$$"
+            },
+            {
+              "do": "The maximum rate of change is the length $|\\nabla f|$ at that point, and it occurs in the direction of $\\nabla f$. Divide by the length to get the unit direction.",
+              "work": "$|\\nabla f|=\\tfrac{10}{25}=\\tfrac25$, and the unit direction is $\\langle\\tfrac35,\\tfrac45\\rangle$."
+            }
+          ],
+          "answer": "The maximum rate of change is $\\tfrac25$, in the direction $\\langle\\tfrac35,\\tfrac45\\rangle$.",
+          "check": {
+            "kind": "number",
+            "value": "2/5"
+          }
+        }
+      ],
+      "scene": "gradient"
+    },
+    {
+      "id": "c3-14.6a",
+      "course": "calc3",
+      "section": "14.6",
+      "topic": "The Chain Rule",
+      "title": "Chain rule with two parameters",
+      "type": "Use the chain rule to find $\\partial z/\\partial s$ and $\\partial z/\\partial t$, where $z=f(x,y)$, $x=h_1(s,t)$, $y=h_2(s,t)$.",
+      "example": {
+        "problem": "Use the chain rule to find $\\partial z/\\partial s$ and $\\partial z/\\partial t$ for $z=x^3+2xy+y^2$, $x=s+2t$, $y=s^2t$. Enter $\\partial z/\\partial s$ in terms of $s$ and $t$.",
+        "steps": [
+          {
+            "do": "Set up the chain rule: $$\\frac{\\partial z}{\\partial s}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s},\\qquad \\frac{\\partial z}{\\partial t}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}.$$",
+            "work": "Set up as above."
+          },
+          {
+            "do": "Compute all six pieces: $z_x,\\ z_y,\\ x_s,\\ y_s,\\ x_t,\\ y_t$.",
+            "work": "$$z_x=3x^2+2y,\\quad z_y=2x+2y,\\quad x_s=1,\\quad y_s=2st,\\quad x_t=2,\\quad y_t=s^2 .$$"
+          },
+          {
+            "do": "Put them into the formulas of step 1. ($x$ and $y$ may stay in the answer; if the answer must be in $s,t$ only, substitute $x(s,t)$ and $y(s,t)$.)",
+            "work": "$$\\begin{aligned}\\frac{\\partial z}{\\partial s}&=(3x^2+2y)\\cdot1+(2x+2y)(2st)=3x^2+2y+4xst+4yst,\\\\ \\frac{\\partial z}{\\partial t}&=(3x^2+2y)\\cdot2+(2x+2y)s^2=6x^2+4y+2xs^2+2ys^2.\\end{aligned}$$ In terms of $s,t$ only: $$\\frac{\\partial z}{\\partial s}=3(s+2t)^2+2s^2t+4(s+2t)st+4s^3t^2 .$$"
+          }
+        ],
+        "answer": "$\\dfrac{\\partial z}{\\partial s}=3x^2+2y+4xst+4yst$, $\\ \\dfrac{\\partial z}{\\partial t}=6x^2+4y+2xs^2+2ys^2$.",
+        "check": {
+          "kind": "expr",
+          "value": "3*(s+2*t)^2+2*s^2*t+4*(s+2*t)*s*t+4*s^2*t*s*t",
+          "vars": [
+            "s",
+            "t"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the chain rule to find $\\partial z/\\partial s$ and $\\partial z/\\partial t$ for $z=x^2+xy+y^3$, $x=s^2-t$, $y=st$. Enter $\\partial z/\\partial s$ in terms of $s$ and $t$.",
+          "steps": [
+            {
+              "do": "Set up the chain rule: $$\\frac{\\partial z}{\\partial s}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s},\\qquad \\frac{\\partial z}{\\partial t}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}.$$",
+              "work": "Set up as above."
+            },
+            {
+              "do": "Compute all six pieces: $z_x,\\ z_y,\\ x_s,\\ y_s,\\ x_t,\\ y_t$.",
+              "work": "$$z_x=2x+y,\\quad z_y=x+3y^2,\\quad x_s=2s,\\quad y_s=t,\\quad x_t=-1,\\quad y_t=s .$$"
+            },
+            {
+              "do": "Put them into the formulas of step 1. ($x$ and $y$ may stay in the answer; if the answer must be in $s,t$ only, substitute $x(s,t)$ and $y(s,t)$.)",
+              "work": "$$\\begin{aligned}\\frac{\\partial z}{\\partial s}&=(2x+y)(2s)+(x+3y^2)\\,t,\\\\ \\frac{\\partial z}{\\partial t}&=-(2x+y)+(x+3y^2)\\,s.\\end{aligned}$$ In terms of $s,t$ only: $$\\frac{\\partial z}{\\partial s}=\\bigl(2(s^2-t)+st\\bigr)2s+\\bigl(s^2-t+3s^2t^2\\bigr)t .$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\partial z}{\\partial s}=(2x+y)(2s)+(x+3y^2)t$, $\\ \\dfrac{\\partial z}{\\partial t}=-(2x+y)+(x+3y^2)s$.",
+          "check": {
+            "kind": "expr",
+            "value": "(2*(s^2-t)+s*t)*2*s+((s^2-t)+3*(s*t)^2)*t",
+            "vars": [
+              "s",
+              "t"
+            ]
+          }
+        },
+        {
+          "problem": "Use the chain rule to find $\\partial z/\\partial s$ and $\\partial z/\\partial t$ for $z=e^{xy}+x$, $x=s+t^2$, $y=s-t$. Enter $\\partial z/\\partial t$ in terms of $s$ and $t$.",
+          "steps": [
+            {
+              "do": "Set up the chain rule: $$\\frac{\\partial z}{\\partial s}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial s}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial s},\\qquad \\frac{\\partial z}{\\partial t}=\\frac{\\partial z}{\\partial x}\\frac{\\partial x}{\\partial t}+\\frac{\\partial z}{\\partial y}\\frac{\\partial y}{\\partial t}.$$",
+              "work": "Set up as above."
+            },
+            {
+              "do": "Compute all six pieces: $z_x,\\ z_y,\\ x_s,\\ y_s,\\ x_t,\\ y_t$.",
+              "work": "$$z_x=y\\,e^{xy}+1,\\quad z_y=x\\,e^{xy},\\quad x_s=1,\\quad y_s=1,\\quad x_t=2t,\\quad y_t=-1 .$$"
+            },
+            {
+              "do": "Put them into the formulas of step 1. ($x$ and $y$ may stay in the answer; if the answer must be in $s,t$ only, substitute $x(s,t)$ and $y(s,t)$.)",
+              "work": "$$\\begin{aligned}\\frac{\\partial z}{\\partial s}&=(y\\,e^{xy}+1)+x\\,e^{xy},\\\\ \\frac{\\partial z}{\\partial t}&=(y\\,e^{xy}+1)(2t)-x\\,e^{xy}.\\end{aligned}$$ In terms of $s,t$ only: $$\\frac{\\partial z}{\\partial t}=\\bigl((s-t)e^{(s+t^2)(s-t)}+1\\bigr)2t-(s+t^2)e^{(s+t^2)(s-t)} .$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\partial z}{\\partial s}=(y\\,e^{xy}+1)+x\\,e^{xy}$, $\\ \\dfrac{\\partial z}{\\partial t}=(y\\,e^{xy}+1)(2t)-x\\,e^{xy}$.",
+          "check": {
+            "kind": "expr",
+            "value": "((s-t)*exp((s+t^2)*(s-t))+1)*2*t-(s+t^2)*exp((s+t^2)*(s-t))",
+            "vars": [
+              "s",
+              "t"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-14.7a",
+      "course": "calc3",
+      "section": "14.7",
+      "topic": "Optimization in Several Variables",
+      "title": "Classify critical points",
+      "type": "Find the local maximum and minimum values and saddle point(s) of the function $f(x,y)$.",
+      "example": {
+        "problem": "Find the local maximum and minimum values and saddle point(s) of $f(x,y)=x^3y+12x^2-8y$. Enter the discriminant $D$ at the critical point.",
+        "steps": [
+          {
+            "do": "Find $f_x$ and $f_y$, and for later also $f_{xx}$, $f_{xy}$, $f_{yy}$.",
+            "work": "$$f_x=3x^2y+24x,\\quad f_y=x^3-8,\\quad f_{xx}=6xy+24,\\quad f_{xy}=3x^2,\\quad f_{yy}=0 .$$"
+          },
+          {
+            "do": "Set $f_x=0$ and $f_y=0$ and solve the system of two equations in two unknowns. The solutions are the critical points.",
+            "work": "$f_y=0$ gives $x=2$; then $f_x=2(6y+24)=0$ gives $y=-4$. The only critical point is $(2,-4)$."
+          },
+          {
+            "do": "At each critical point compute the discriminant $D=f_{xx}f_{yy}-f_{xy}^2$. If $D>0$ and $f_{xx}>0$: local minimum. If $D>0$ and $f_{xx}<0$: local maximum. If $D<0$: saddle point. If $D=0$: the test is inconclusive.",
+            "work": "$$f_{xx}(2,-4)=-24,\\quad f_{xy}(2,-4)=12,\\quad f_{yy}=0,\\qquad D=(-24)(0)-12^2=-144<0 .$$"
+          }
+        ],
+        "answer": "$D=-144<0$, so $(2,-4)$ is a saddle point. There are no local maxima or minima.",
+        "check": {
+          "kind": "number",
+          "value": "-144"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the local maximum and minimum values and saddle point(s) of $f(x,y)=x^3-3x+y^2-2y$. Enter the local minimum value.",
+          "steps": [
+            {
+              "do": "Find $f_x$ and $f_y$, and for later also $f_{xx}$, $f_{xy}$, $f_{yy}$.",
+              "work": "$$f_x=3x^2-3,\\quad f_y=2y-2,\\quad f_{xx}=6x,\\quad f_{xy}=0,\\quad f_{yy}=2 .$$"
+            },
+            {
+              "do": "Set $f_x=0$ and $f_y=0$ and solve the system of two equations in two unknowns. The solutions are the critical points.",
+              "work": "$3x^2-3=0$ gives $x=\\pm1$ and $2y-2=0$ gives $y=1$. Critical points: $(1,1)$ and $(-1,1)$."
+            },
+            {
+              "do": "At each critical point compute the discriminant $D=f_{xx}f_{yy}-f_{xy}^2$. If $D>0$ and $f_{xx}>0$: local minimum. If $D>0$ and $f_{xx}<0$: local maximum. If $D<0$: saddle point. If $D=0$: the test is inconclusive.",
+              "work": "$D=6x\\cdot2-0=12x$. At $(1,1)$: $D=12>0$ and $f_{xx}=6>0$, a local minimum with value $f(1,1)=1-3+1-2=-3$. At $(-1,1)$: $D=-12<0$, a saddle point."
+            }
+          ],
+          "answer": "Local minimum value $-3$ at $(1,1)$; saddle point at $(-1,1)$; no local maximum.",
+          "check": {
+            "kind": "number",
+            "value": "-3"
+          }
+        },
+        {
+          "problem": "Find the local maximum and minimum values and saddle point(s) of $f(x,y)=3xy-x^3-y^3$. Enter the local maximum value.",
+          "steps": [
+            {
+              "do": "Find $f_x$ and $f_y$, and for later also $f_{xx}$, $f_{xy}$, $f_{yy}$.",
+              "work": "$$f_x=3y-3x^2,\\quad f_y=3x-3y^2,\\quad f_{xx}=-6x,\\quad f_{xy}=3,\\quad f_{yy}=-6y .$$"
+            },
+            {
+              "do": "Set $f_x=0$ and $f_y=0$ and solve the system of two equations in two unknowns. The solutions are the critical points.",
+              "work": "$y=x^2$ and $x=y^2$ give $x=x^4$, so $x=0$ or $x=1$. Critical points: $(0,0)$ and $(1,1)$."
+            },
+            {
+              "do": "At each critical point compute the discriminant $D=f_{xx}f_{yy}-f_{xy}^2$. If $D>0$ and $f_{xx}>0$: local minimum. If $D>0$ and $f_{xx}<0$: local maximum. If $D<0$: saddle point. If $D=0$: the test is inconclusive.",
+              "work": "$D=36xy-9$. At $(0,0)$: $D=-9<0$, a saddle point. At $(1,1)$: $D=27>0$ and $f_{xx}=-6<0$, a local maximum with value $f(1,1)=3-1-1=1$."
+            }
+          ],
+          "answer": "Local maximum value $1$ at $(1,1)$; saddle point at $(0,0)$; no local minimum.",
+          "check": {
+            "kind": "number",
+            "value": "1"
+          }
+        }
+      ],
+      "scene": "gradient"
+    },
+    {
+      "id": "c3-14.7b",
+      "course": "calc3",
+      "section": "14.7",
+      "topic": "Optimization in Several Variables",
+      "title": "Absolute extremes on a rectangle",
+      "type": "Find the absolute maximum and minimum values of $f(x,y)$ on the rectangle $S=\\{(x,y)\\mid a_1\\le x\\le a_2,\\ b_1\\le y\\le b_2\\}$.",
+      "example": {
+        "problem": "Find the absolute maximum and minimum values of $f(x,y)=4x+6y-x^2-y^2$ on $S=\\{0\\le x\\le4,\\ 0\\le y\\le5\\}$. Enter them (in any order).",
+        "steps": [
+          {
+            "do": "Find the critical points ($f_x=f_y=0$), keep those inside $S$, and compute $f$ at them.",
+            "work": "$f_x=4-2x=0$, $f_y=6-2y=0$ gives $(2,3)\\in S$, with $f(2,3)=8+18-4-9=13$."
+          },
+          {
+            "do": "On each of the four sides, $f$ becomes a function of one variable. Find its absolute maximum and minimum on that side, as in Calculus I (critical points and endpoints).",
+            "work": "$$\\begin{aligned}x=0:&\\ f=6y-y^2\\ \\text{ on }[0,5]:\\ \\text{values }0,\\,9\\ (y=3),\\,5\\ \\Rightarrow\\ \\min0,\\ \\max9,\\\\ x=4:&\\ f=6y-y^2:\\ \\text{same: }\\min0,\\ \\max9,\\\\ y=0:&\\ f=4x-x^2\\ \\text{ on }[0,4]:\\ \\text{values }0,\\,4\\ (x=2),\\,0\\ \\Rightarrow\\ \\min0,\\ \\max4,\\\\ y=5:&\\ f=4x-x^2+5:\\ \\text{values }5,\\,9\\ (x=2),\\,5\\ \\Rightarrow\\ \\min5,\\ \\max9.\\end{aligned}$$"
+          },
+          {
+            "do": "Collect all the candidates (interior critical points and the side champions). The largest is the absolute maximum and the smallest the absolute minimum.",
+            "work": "Maximum candidates: $9,9,4,9,13$. Minimum candidates: $0,0,0,5$ (and $13$ from the interior). The largest is $13$ and the smallest is $0$."
+          }
+        ],
+        "answer": "Absolute maximum $13$ (at $(2,3)$); absolute minimum $0$.",
+        "check": {
+          "kind": "set",
+          "values": [
+            "13",
+            "0"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the absolute maximum and minimum values of $f(x,y)=x^2+y^2-2x-4y$ on $S=\\{0\\le x\\le3,\\ 0\\le y\\le3\\}$. Enter them (in any order).",
+          "steps": [
+            {
+              "do": "Find the critical points ($f_x=f_y=0$), keep those inside $S$, and compute $f$ at them.",
+              "work": "$f_x=2x-2=0$, $f_y=2y-4=0$ gives $(1,2)\\in S$, with $f(1,2)=1+4-2-8=-5$."
+            },
+            {
+              "do": "On each of the four sides, $f$ becomes a function of one variable. Find its absolute maximum and minimum on that side, as in Calculus I (critical points and endpoints).",
+              "work": "$$\\begin{aligned}x=0:&\\ f=y^2-4y\\ \\text{ on }[0,3]:\\ \\text{values }0,\\,-4\\ (y=2),\\,-3\\ \\Rightarrow\\ \\min-4,\\ \\max0,\\\\ x=3:&\\ f=y^2-4y+3:\\ \\text{values }3,\\,-1\\ (y=2),\\,0\\ \\Rightarrow\\ \\min-1,\\ \\max3,\\\\ y=0:&\\ f=x^2-2x\\ \\text{ on }[0,3]:\\ \\text{values }0,\\,-1\\ (x=1),\\,3\\ \\Rightarrow\\ \\min-1,\\ \\max3,\\\\ y=3:&\\ f=x^2-2x-3:\\ \\text{values }-3,\\,-4\\ (x=1),\\,0\\ \\Rightarrow\\ \\min-4,\\ \\max0.\\end{aligned}$$"
+            },
+            {
+              "do": "Collect all the candidates (interior critical points and the side champions). The largest is the absolute maximum and the smallest the absolute minimum.",
+              "work": "Maximum candidates: $0,3,3,0$ (interior: $-5$). Minimum candidates: $-4,-1,-1,-4$ and the interior $-5$. The largest is $3$ and the smallest is $-5$."
+            }
+          ],
+          "answer": "Absolute maximum $3$ (at $(3,0)$); absolute minimum $-5$ (at $(1,2)$).",
+          "check": {
+            "kind": "set",
+            "values": [
+              "3",
+              "-5"
+            ]
+          }
+        },
+        {
+          "problem": "Find the absolute maximum and minimum values of $f(x,y)=3+xy-x-2y$ on $S=\\{0\\le x\\le3,\\ 0\\le y\\le2\\}$. Enter them (in any order).",
+          "steps": [
+            {
+              "do": "Find the critical points ($f_x=f_y=0$), keep those inside $S$, and compute $f$ at them.",
+              "work": "$f_x=y-1=0$, $f_y=x-2=0$ gives $(2,1)\\in S$, with $f(2,1)=3+2-2-2=1$."
+            },
+            {
+              "do": "On each of the four sides, $f$ becomes a function of one variable. Find its absolute maximum and minimum on that side, as in Calculus I (critical points and endpoints).",
+              "work": "$$\\begin{aligned}x=0:&\\ f=3-2y\\ \\text{ on }[0,2]:\\ \\text{(no critical point) endpoints }3,\\,-1\\ \\Rightarrow\\ \\min-1,\\ \\max3,\\\\ x=3:&\\ f=y:\\ \\text{endpoints }0,\\,2\\ \\Rightarrow\\ \\min0,\\ \\max2,\\\\ y=0:&\\ f=3-x\\ \\text{ on }[0,3]:\\ \\text{endpoints }3,\\,0\\ \\Rightarrow\\ \\min0,\\ \\max3,\\\\ y=2:&\\ f=x-1:\\ \\text{endpoints }-1,\\,2\\ \\Rightarrow\\ \\min-1,\\ \\max2.\\end{aligned}$$"
+            },
+            {
+              "do": "Collect all the candidates (interior critical points and the side champions). The largest is the absolute maximum and the smallest the absolute minimum.",
+              "work": "Maximum candidates: $3,2,3,2$ (interior: $1$). Minimum candidates: $-1,0,0,-1$ (interior: $1$). The largest is $3$ and the smallest is $-1$."
+            }
+          ],
+          "answer": "Absolute maximum $3$ (at $(0,0)$); absolute minimum $-1$ (at $(0,2)$).",
+          "check": {
+            "kind": "set",
+            "values": [
+              "3",
+              "-1"
+            ]
+          }
+        }
+      ],
+      "scene": "gradient"
+    },
+    {
+      "id": "c3-14.7c",
+      "course": "calc3",
+      "section": "14.7",
+      "topic": "Optimization in Several Variables",
+      "title": "Closest point on a surface",
+      "type": "Find the point on the surface $F(x,y,z)=k$ that is closest to the origin.",
+      "example": {
+        "problem": "Find the point on the surface $x^2y^2z=1$ that is closest to the origin. Enter the $z$-coordinate of the closest point(s).",
+        "steps": [
+          {
+            "do": "Work with the distance squared $x^2+y^2+z^2$. Solve the constraint for one variable (say $z$) and substitute to get a function $f(x,y)$ of two variables.",
+            "work": "$z=\\dfrac1{x^2y^2}$, so $z^2=x^{-4}y^{-4}$ and $$f(x,y)=x^2+y^2+x^{-4}y^{-4}.$$"
+          },
+          {
+            "do": "Set $f_x=0$ and $f_y=0$ and solve for $x$ and $y$.",
+            "work": "$$f_x=2x-4x^{-5}y^{-4}=0,\\quad f_y=2y-4x^{-4}y^{-5}=0\\ \\Longleftrightarrow\\ x^6y^4=2,\\quad x^4y^6=2 .$$ Dividing, $x^2=y^2$, so $x^{10}=2$ and $x^2=y^2=2^{1/5}$: $x=\\pm2^{1/10}$, $y=\\pm2^{1/10}$."
+          },
+          {
+            "do": "Find the $z$-coordinate of each solution from the constraint.",
+            "work": "$$z=\\frac1{x^2y^2}=\\frac1{2^{2/5}}=2^{-2/5}\\quad\\text{for all four sign choices.}$$"
+          }
+        ],
+        "answer": "The closest points are $(\\pm2^{1/10},\\ \\pm2^{1/10},\\ 2^{-2/5})$ (all four sign choices).",
+        "check": {
+          "kind": "number",
+          "value": "2^(-2/5)"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the point on the surface $xyz=8$ that is closest to the origin. Enter the distance from the origin to the surface.",
+          "steps": [
+            {
+              "do": "Work with the distance squared $x^2+y^2+z^2$. Solve the constraint for one variable (say $z$) and substitute to get a function $f(x,y)$ of two variables.",
+              "work": "$z=\\dfrac8{xy}$, so $$f(x,y)=x^2+y^2+\\frac{64}{x^2y^2}.$$"
+            },
+            {
+              "do": "Set $f_x=0$ and $f_y=0$ and solve for $x$ and $y$.",
+              "work": "$$f_x=2x-\\frac{128}{x^3y^2}=0,\\quad f_y=2y-\\frac{128}{x^2y^3}=0\\ \\Longleftrightarrow\\ x^4y^2=64,\\quad x^2y^4=64 .$$ Dividing, $x^2=y^2$, so $x^6=64$ and $x^2=y^2=4$: $x=\\pm2$, $y=\\pm2$."
+            },
+            {
+              "do": "Find the $z$-coordinate of each solution from the constraint.",
+              "work": "$$z=\\frac8{xy}=\\pm2\\ \\text{(the sign of }xy).$$ The points are $(2,2,2)$, $(2,-2,-2)$, $(-2,2,-2)$, $(-2,-2,2)$, each at distance $\\sqrt{4+4+4}=2\\sqrt3$."
+            }
+          ],
+          "answer": "The closest points are $(2,2,2)$, $(2,-2,-2)$, $(-2,2,-2)$, $(-2,-2,2)$, at distance $2\\sqrt3$.",
+          "check": {
+            "kind": "number",
+            "value": "2*sqrt(3)"
+          }
+        },
+        {
+          "problem": "Find the points on the surface $x^2yz=2$ that are closest to the origin. Enter the distance from the origin to the surface.",
+          "steps": [
+            {
+              "do": "Work with the distance squared $x^2+y^2+z^2$. Solve the constraint for one variable (say $z$) and substitute to get a function $f(x,y)$ of two variables.",
+              "work": "$z=\\dfrac2{x^2y}$, so $$f(x,y)=x^2+y^2+\\frac4{x^4y^2}.$$"
+            },
+            {
+              "do": "Set $f_x=0$ and $f_y=0$ and solve for $x$ and $y$.",
+              "work": "$$f_x=2x-\\frac{16}{x^5y^2}=0,\\quad f_y=2y-\\frac8{x^4y^3}=0\\ \\Longleftrightarrow\\ x^6y^2=8,\\quad x^4y^4=4 .$$ Dividing, $x^2=2y^2$; then $x^4y^4=4y^8=4$, so $y=\\pm1$ and $x=\\pm\\sqrt2$."
+            },
+            {
+              "do": "Find the $z$-coordinate of each solution from the constraint.",
+              "work": "$$z=\\frac2{x^2y}=\\frac1y=\\pm1\\ \\text{(the sign of }y).$$ The points are $(\\pm\\sqrt2,1,1)$ and $(\\pm\\sqrt2,-1,-1)$, each at distance $\\sqrt{2+1+1}=2$."
+            }
+          ],
+          "answer": "The closest points are $(\\pm\\sqrt2,1,1)$ and $(\\pm\\sqrt2,-1,-1)$, at distance $2$.",
+          "check": {
+            "kind": "number",
+            "value": "2"
+          }
+        }
+      ],
+      "scene": "gradient"
+    },
+    {
+      "id": "c3-14.8a",
+      "course": "calc3",
+      "section": "14.8",
+      "topic": "Lagrange Multipliers: Optimizing with a Constraint",
+      "title": "Lagrange multipliers",
+      "type": "Use Lagrange multipliers to find the maximum and minimum values of $f(x,y,z)$ subject to the condition $g(x,y,z)=k$.",
+      "example": {
+        "problem": "Use Lagrange multipliers to find the maximum and minimum values of $f(x,y,z)=xyz$ subject to $3x^2+2y^2+z^2=6$. Enter them (in any order).",
+        "steps": [
+          {
+            "do": "Find the gradients $\\nabla f$ and $\\nabla g$.",
+            "work": "$$\\nabla f=\\langle yz,\\ xz,\\ xy\\rangle,\\qquad \\nabla g=\\langle 6x,\\ 4y,\\ 2z\\rangle .$$"
+          },
+          {
+            "do": "Introduce $\\lambda$ and write the equations of $\\nabla f=\\lambda\\nabla g$, together with the constraint $g=k$.",
+            "work": "$$yz=6\\lambda x,\\qquad xz=4\\lambda y,\\qquad xy=2\\lambda z,\\qquad 3x^2+2y^2+z^2=6 .$$"
+          },
+          {
+            "do": "Solve the system of four equations in four unknowns $x,y,z,\\lambda$.",
+            "work": "Multiply the first three equations by $x$, $y$, $z$: $xyz=6\\lambda x^2=4\\lambda y^2=2\\lambda z^2$. If $\\lambda=0$ then $f=0$, which is neither the max nor the min, so take $\\lambda\\ne0$: $$x^2=\\frac{xyz}{6\\lambda},\\quad y^2=\\frac{xyz}{4\\lambda},\\quad z^2=\\frac{xyz}{2\\lambda}.$$ Into the constraint: $\\frac{xyz}{\\lambda}\\left(\\frac12+\\frac12+\\frac12\\right)=6$, so $xyz=4\\lambda$. Hence $$x^2=\\tfrac23,\\quad y^2=1,\\quad z^2=2 .$$ Any choice of signs works (then $\\lambda=xyz/4$); that is eight points $\\left(\\pm\\sqrt{2/3},\\pm1,\\pm\\sqrt2\\right)$."
+          },
+          {
+            "do": "Forget $\\lambda$: plug the solutions into $f$. The largest value is the maximum and the smallest the minimum.",
+            "work": "$$f=xyz=\\pm\\sqrt{\\tfrac23}\\cdot1\\cdot\\sqrt2=\\pm\\frac{2}{\\sqrt3}$$ (plus when an even number of the signs are negative)."
+          }
+        ],
+        "answer": "The maximum value is $\\dfrac{2}{\\sqrt3}$ and the minimum value is $-\\dfrac2{\\sqrt3}$.",
+        "check": {
+          "kind": "set",
+          "values": [
+            "2/sqrt(3)",
+            "-2/sqrt(3)"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Lagrange multipliers to find the maximum and minimum values of $f(x,y,z)=x+2y+2z$ subject to $x^2+y^2+z^2=9$. Enter them (in any order).",
+          "steps": [
+            {
+              "do": "Find the gradients $\\nabla f$ and $\\nabla g$.",
+              "work": "$$\\nabla f=\\langle 1,2,2\\rangle,\\qquad \\nabla g=\\langle 2x,2y,2z\\rangle .$$"
+            },
+            {
+              "do": "Introduce $\\lambda$ and write the equations of $\\nabla f=\\lambda\\nabla g$, together with the constraint $g=k$.",
+              "work": "$$1=2\\lambda x,\\qquad 2=2\\lambda y,\\qquad 2=2\\lambda z,\\qquad x^2+y^2+z^2=9 .$$"
+            },
+            {
+              "do": "Solve the system of four equations in four unknowns $x,y,z,\\lambda$.",
+              "work": "So $x=\\frac1{2\\lambda}$, $y=z=\\frac1\\lambda$. The constraint gives $\\frac1{4\\lambda^2}+\\frac1{\\lambda^2}+\\frac1{\\lambda^2}=\\frac9{4\\lambda^2}=9$, so $\\lambda=\\pm\\frac12$. The points are $(1,2,2)$ for $\\lambda=\\tfrac12$ and $(-1,-2,-2)$ for $\\lambda=-\\tfrac12$."
+            },
+            {
+              "do": "Forget $\\lambda$: plug the solutions into $f$. The largest value is the maximum and the smallest the minimum.",
+              "work": "$$f(1,2,2)=1+4+4=9,\\qquad f(-1,-2,-2)=-9 .$$"
+            }
+          ],
+          "answer": "The maximum value is $9$ and the minimum value is $-9$.",
+          "check": {
+            "kind": "set",
+            "values": [
+              "9",
+              "-9"
+            ]
+          }
+        },
+        {
+          "problem": "Use Lagrange multipliers to find the maximum and minimum values of $f(x,y,z)=xyz$ subject to $x^2+2y^2+3z^2=9$. Enter them (in any order).",
+          "steps": [
+            {
+              "do": "Find the gradients $\\nabla f$ and $\\nabla g$.",
+              "work": "$$\\nabla f=\\langle yz,\\ xz,\\ xy\\rangle,\\qquad \\nabla g=\\langle 2x,\\ 4y,\\ 6z\\rangle .$$"
+            },
+            {
+              "do": "Introduce $\\lambda$ and write the equations of $\\nabla f=\\lambda\\nabla g$, together with the constraint $g=k$.",
+              "work": "$$yz=2\\lambda x,\\qquad xz=4\\lambda y,\\qquad xy=6\\lambda z,\\qquad x^2+2y^2+3z^2=9 .$$"
+            },
+            {
+              "do": "Solve the system of four equations in four unknowns $x,y,z,\\lambda$.",
+              "work": "Multiply the first three equations by $x$, $y$, $z$: $xyz=2\\lambda x^2=4\\lambda y^2=6\\lambda z^2$. If $\\lambda=0$ then $f=0$ (not an extreme value), so take $\\lambda\\ne0$: $$x^2=\\frac{xyz}{2\\lambda},\\quad y^2=\\frac{xyz}{4\\lambda},\\quad z^2=\\frac{xyz}{6\\lambda}.$$ Into the constraint: $\\frac{xyz}{\\lambda}\\left(\\frac12+\\frac12+\\frac12\\right)=9$, so $xyz=6\\lambda$. Hence $$x^2=3,\\quad y^2=\\tfrac32,\\quad z^2=1,$$ with any choice of signs."
+            },
+            {
+              "do": "Forget $\\lambda$: plug the solutions into $f$. The largest value is the maximum and the smallest the minimum.",
+              "work": "$$f=xyz=\\pm\\sqrt3\\cdot\\sqrt{\\tfrac32}\\cdot1=\\pm\\frac{3}{\\sqrt2}.$$"
+            }
+          ],
+          "answer": "The maximum value is $\\dfrac3{\\sqrt2}$ and the minimum value is $-\\dfrac3{\\sqrt2}$.",
+          "check": {
+            "kind": "set",
+            "values": [
+              "3/sqrt(2)",
+              "-3/sqrt(2)"
+            ]
+          }
+        }
+      ],
+      "scene": "gradient"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+---
+// Mutually exclusive buttons bound by scene.segmented(name).
+const { name, label, options, value } = Astro.props as { name: string; label: string; options: [string, string][]; value?: string };
+const current = value ?? options[0][0];
+---
+<div class="ctl ctl-seg" role="group" aria-label={label} data-seg={name}>
+  {options.map(([v, text]) => <button type="button" data-value={v} aria-pressed={v === current ? "true" : "false"}>{text}</button>)}
+</div>

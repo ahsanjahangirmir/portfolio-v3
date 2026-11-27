@@ -1,0 +1,42 @@
+---
+// Shell for one interactive scene: narration beats on one side, a sticky figure on the other.
+// Slots: default = narration (wrap each paragraph group in <div class="beat" data-beat>), "controls",
+// "takeaway" (the one formula to remember), "overlay" (HTML laid over the canvas, e.g. a legend).
+import { recipesForScene } from '../../data/calculus/library';
+import { sceneMeta } from '../../data/calculus/scenes';
+const { id, label, figure = 'wide' } = Astro.props as {
+  id: string;
+  /** Plain-language description of the figure for screen readers. */
+  label: string;
+  /** Figure shape: wide (default), square, or tall. */
+  figure?: 'wide' | 'square' | 'tall';
+};
+const { n, act, title } = sceneMeta(id);
+const count = recipesForScene(id).length;
+const num = String(n).padStart(2, '0');
+---
+<section class="scene" id={id} data-scene={id} data-n={num} data-act={act} aria-labelledby={`${id}-title`}>
+  <header class="scene-head">
+    <span class="meta scene-kicker"><span class="scene-num">{num}</span><span>{act === 'Coda' ? 'CODA' : `ACT ${act}`}</span></span>
+    <h3 id={`${id}-title`}>{title}</h3>
+  </header>
+  <div class="scene-body">
+    <div class="scene-copy">
+      <slot/>
+      <div class="scene-takeaway">
+        <span class="meta">THE IDEA</span>
+        <slot name="takeaway"/>
+      </div>
+      {count > 0 && <a class="round-link practice-link" href="#library" data-practice={id}><span>Practice {count} {count === 1 ? 'recipe' : 'recipes'}</span><span class="round-arrow" aria-hidden="true">↓</span></a>}
+    </div>
+    <figure class:list={['scene-figure', `is-${figure}`]}>
+      <div class="scene-viewport">
+        <div class="scene-stage" role="img" aria-label={label}></div>
+        <slot name="overlay"/>
+        <nav class="beat-dots" aria-label={`${title}: story steps`}></nav>
+        <span class="scene-loading meta" aria-hidden="true">Drawing…</span>
+      </div>
+      <div class="scene-controls"><slot name="controls"/></div>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+---
+<Scene id="curves" figure="square" label="A curve in 3D traced by a moving point. Depending on the view, the point carries its velocity and acceleration arrows, or three perpendicular unit arrows T, N and B, or the osculating circle whose radius is one over the curvature. The part of the curve from t equals 0 to the point can be highlighted to show arc length.">
+  <div class="beat" data-beat="A moving point">
+    <p>A space curve is a point that moves. At each time <Tex t="t"/> it sits at <Tex t="\cA{r(t)} = \langle x(t), y(t), z(t)\rangle"/>: three ordinary functions, one per coordinate, run at once.</p>
+    <p>Here <Tex t="x = 1.4\cos t"/> and <Tex t="y = 1.4\sin t"/> go around a circle while <Tex t="z = 0.3t"/> climbs steadily. Together they make a helix.</p>
+    <p class="aside">Drag the figure to turn it. The <Tex t="t"/> slider moves the point.</p>
+  </div>
+  <div class="beat" data-beat="Velocity and acceleration">
+    <p>Differentiate each coordinate and you get the <span class="k-c2">velocity</span> <Tex t="\cB{v} = \cA{r}'(t)"/>, an arrow tangent to the curve whose length is the speed. Differentiate again for the <span class="k-c5">acceleration</span> <Tex t="\cE{a} = \cA{r}''(t)"/>.</p>
+    <p>On the helix the speed never changes, yet the acceleration is not zero. It points straight at the axis, because the velocity keeps changing <em>direction</em>. Press Play and watch both arrows ride along.</p>
+    <p class="aside">For example, <Tex t="r = \langle t^2, \ln t, t\rangle"/> gives <Tex t="v = \langle 2t, 1/t, 1\rangle"/>, <Tex t="a = \langle 2, -1/t^2, 0\rangle"/>, and speed <Tex t="\sqrt{4t^2 + 1/t^2 + 1}"/>.</p>
+  </div>
+  <div class="beat" data-beat="Arc length">
+    <p>How far has the point travelled? In a short time <Tex t="dt"/> it moves about <Tex t="|\cB{r'(t)}|\,dt"/>, speed times time. Add up those pieces:</p>
+    <Tex display t="\cA{s(t)} = \int_0^t |\cB{r'(u)}|\,du"/>
+    <p>This curve is <Tex t="r(t) = \langle t, t^2, \tfrac23 t^3\rangle"/>. Its speed is <Tex t="\sqrt{1 + 4t^2 + 4t^4} = 1 + 2t^2"/>, a perfect square, so the length from <Tex t="0"/> to <Tex t="t"/> is exactly <Tex t="t + \tfrac23 t^3"/>. At <Tex t="t = 1"/> that is <Tex t="5/3"/>. Compare the readout.</p>
+    <p class="aside">The same trick works for <Tex t="r = \langle t^2, 2t, \ln t\rangle"/>, where <Tex t="|r'| = 2t + 1/t"/> and the length from <Tex t="1"/> to <Tex t="e"/> is <Tex t="e^2"/>.</p>
+  </div>
+  <div class="beat" data-beat="Curvature">
+    <p>How sharply does the curve bend? Find the circle that hugs it best at the point: it shares the position, the direction and the bending. This <span class="k-c5">osculating circle</span> has radius <Tex t="1/\kappa"/>, where <Tex t="\kappa"/> is the curvature:</p>
+    <Tex display t="\kappa = \frac{|\cB{r'}\times\cE{r''}|}{|\cB{r'}|^3}"/>
+    <p>Near <Tex t="t = 0"/> the curve turns hard and the circle is small. As <Tex t="t"/> grows the curve straightens out and the circle swells. At <Tex t="(1, 1, \tfrac23)"/>, the curvature is <Tex t="\kappa = 2/9"/>, a circle of radius <Tex t="4.5"/>.</p>
+    <p class="aside">There <Tex t="r' = \langle 1, 2, 2\rangle"/>, <Tex t="r'' = \langle 0, 2, 4\rangle"/>, <Tex t="r'\times r'' = \langle 4, -4, 2\rangle"/>, so <Tex t="\kappa = 6/3^3 = 2/9"/>.</p>
+  </div>
+  <div class="beat" data-beat="A frame that rides along">
+    <p>Every point of a smooth, bending curve carries its own set of axes. <Tex t="\cB{T} = r'/|r'|"/> points forward. <Tex t="\cD{N} = T'/|T'|"/> points toward the center of the bend. <Tex t="\cC{B} = \cB{T}\times\cD{N}"/> is perpendicular to both.</p>
+    <p>On a knot the frame twists as it goes. <Tex t="\cB{T}"/> and <Tex t="\cD{N}"/> span the plane the curve is bending in at that instant, and <Tex t="\cC{B}"/> tilts whenever the curve leaves that plane.</p>
+  </div>
+  <Tex slot="takeaway" display t="s = \int |\cB{r'(t)}|\,dt \qquad \kappa = \frac{|\cB{r'}\times\cE{r''}|}{|\cB{r'}|^3}"/>
+  <div slot="overlay" class="scene-overlay curve-overlay"><span data-curve-eq></span></div>
+  <Fragment slot="controls">
+    <Segmented name="curve" label="Curve" options={[['helix', 'Helix'], ['knot', 'Knot'], ['cubic', 'Cubic']]}/>
+    <Segmented name="show" label="Show" options={[['motion', 'v, a'], ['frame', 'T, N, B'], ['circle', 'Circle']]}/>
+    <Action name="play" label="Play" icon="play"/>
+    <Slider name="t" label="t" min={0} max={12.566} step={0.01} value={2.2} color="c1"/>
+    <Readout name="speed" label="Speed |r′|" color="c2"/>
+    <Readout name="s" label="Arc length s" color="c1"/>
+    <Readout name="k" label="κ" color="c5"/>
+  </Fragment>
+</Scene>
+<style is:global>
+  #curves .curve-overlay{top:auto;bottom:14px;right:18px}
+  #curves [data-curve-eq]{font-family:'Courier New',monospace;font-size:13px;color:var(--muted);background:color-mix(in srgb,var(--calc-figure) 82%,transparent);padding:4px 8px;margin-left:-8px;align-self:flex-start}
+</style>

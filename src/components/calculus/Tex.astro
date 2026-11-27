@@ -1,0 +1,11 @@
+---
+import { tex, prose } from '../../calculus/tex';
+// <Tex t="\frac{a}{b}"/> renders one formula; <Tex display t="..."/> sets it on its own line; <Tex prose="text with $x$"/> renders mixed prose.
+// Astro reads quoted attributes like JS strings, so \f \n \t \b \r \v arrive as control characters.
+// They are restored here, so \frac, \nabla, \text, \theta, \beta and \rho all work as written.
+// \u and \x still cannot appear in a quoted attribute (\underbrace, \xi): use t={String.raw`...`} for those.
+const { t, display = false, prose: text } = Astro.props as { t?: string; display?: boolean; prose?: string };
+const repair = (s: string) => s.replace(/\f/g, '\\f').replace(/\t/g, '\\t').replace(/\x08/g, '\\b').replace(/\r/g, '\\r').replace(/\v/g, '\\v').replace(/\n(?=[a-zA-Z])/g, '\\n');
+const html = text !== undefined ? prose(repair(text)) : tex(repair(t ?? ''), display);
+---
+{display ? <div class="tex-display" set:html={html}/> : <span class="tex" set:html={html}/>}

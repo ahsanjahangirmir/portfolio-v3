@@ -1,0 +1,2508 @@
+{
+  "recipes": [
+    {
+      "id": "c3-15.1a",
+      "course": "calc3",
+      "section": "15.1",
+      "topic": "Integration in Several Variables",
+      "title": "Iterated integral",
+      "type": "Calculate the iterated integral $\\displaystyle\\int_a^b\\int_c^d f(x,y)\\,dx\\,dy$ (the inner integral is in $x$ from $c$ to $d$, the outer in $y$ from $a$ to $b$).",
+      "example": {
+        "problem": "Calculate the iterated integral $\\displaystyle\\int_1^4\\int_0^2 (x+\\sqrt{y})\\,dx\\,dy$.",
+        "steps": [
+          {
+            "do": "First evaluate the inner integral. Since it is an $x$-integral, integrate with respect to $x$ and treat $y$ as a constant. The answer is an expression in $y$ (once in a while just a number).",
+            "work": "$$\\int_0^2 (x+\\sqrt y)\\,dx=\\Big[\\tfrac{x^2}{2}+x\\sqrt y\\Big]_{x=0}^{x=2}=2+2\\sqrt y.$$"
+          },
+          {
+            "do": "Do the outer integral: integrate the expression from step 1 with respect to $y$.",
+            "work": "$$\\int_1^4 \\bigl(2+2y^{1/2}\\bigr)\\,dy=\\Big[2y+\\tfrac43 y^{3/2}\\Big]_1^4=2(4-1)+\\tfrac43(8-1)=6+\\tfrac{28}{3}=\\tfrac{46}{3}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{46}{3}$",
+        "check": {
+          "kind": "number",
+          "value": "46/3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Calculate the iterated integral $\\displaystyle\\int_0^2\\int_1^3 (x^2+3y)\\,dx\\,dy$.",
+          "steps": [
+            {
+              "do": "First evaluate the inner integral. Since it is an $x$-integral, integrate with respect to $x$ and treat $y$ as a constant. The answer is an expression in $y$ (once in a while just a number).",
+              "work": "$$\\int_1^3 (x^2+3y)\\,dx=\\Big[\\tfrac{x^3}{3}+3xy\\Big]_{x=1}^{x=3}=\\left(9-\\tfrac13\\right)+3y(3-1)=\\tfrac{26}{3}+6y.$$"
+            },
+            {
+              "do": "Do the outer integral: integrate the expression from step 1 with respect to $y$.",
+              "work": "$$\\int_0^2 \\left(\\tfrac{26}{3}+6y\\right)dy=\\Big[\\tfrac{26}{3}y+3y^2\\Big]_0^2=\\tfrac{52}{3}+12=\\tfrac{88}{3}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{88}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "88/3"
+          }
+        },
+        {
+          "problem": "Calculate the iterated integral $\\displaystyle\\int_1^2\\int_0^{\\pi} \\left(\\sin x+\\frac1y\\right)dx\\,dy$.",
+          "steps": [
+            {
+              "do": "First evaluate the inner integral. Since it is an $x$-integral, integrate with respect to $x$ and treat $y$ as a constant. The answer is an expression in $y$ (once in a while just a number).",
+              "work": "$$\\int_0^{\\pi} \\left(\\sin x+\\tfrac1y\\right)dx=\\Big[-\\cos x+\\tfrac{x}{y}\\Big]_{x=0}^{x=\\pi}=(1+\\tfrac{\\pi}{y})-(-1)=2+\\tfrac{\\pi}{y}.$$"
+            },
+            {
+              "do": "Do the outer integral: integrate the expression from step 1 with respect to $y$.",
+              "work": "$$\\int_1^2 \\left(2+\\tfrac{\\pi}{y}\\right)dy=\\Big[2y+\\pi\\ln y\\Big]_1^2=2+\\pi\\ln 2.$$"
+            }
+          ],
+          "answer": "$2+\\pi\\ln 2$",
+          "check": {
+            "kind": "number",
+            "value": "2+pi*ln(2)"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.1b",
+      "course": "calc3",
+      "section": "15.1",
+      "topic": "Integration in Several Variables",
+      "title": "Double integral over a rectangle",
+      "type": "Calculate the double integral $\\displaystyle\\iint_R f(x,y)\\,dA$, where $R=\\{(x,y)\\mid a\\le x\\le b,\\ c\\le y\\le d\\}$.",
+      "example": {
+        "problem": "Calculate the double integral $\\displaystyle\\iint_R \\frac{xy^2}{x^2+1}\\,dA$, where $R=\\{(x,y)\\mid 0\\le x\\le 1,\\ -3\\le y\\le 3\\}$.",
+        "steps": [
+          {
+            "do": "Convert the double integral to an iterated integral: $\\displaystyle\\iint_R f\\,dA=\\int_a^b\\int_c^d f(x,y)\\,dy\\,dx$, or, if you wish, with $dx\\,dy$ in the other order. Both are correct.",
+            "work": "$$\\iint_R \\frac{xy^2}{x^2+1}\\,dA=\\int_0^1\\int_{-3}^{3}\\frac{xy^2}{x^2+1}\\,dy\\,dx.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral as before: inner integral first, then the outer one.",
+            "work": "$$\\int_{-3}^{3}\\frac{xy^2}{x^2+1}\\,dy=\\frac{x}{x^2+1}\\Big[\\tfrac{y^3}{3}\\Big]_{-3}^{3}=\\frac{18x}{x^2+1},$$ $$\\int_0^1\\frac{18x}{x^2+1}\\,dx=9\\ln(x^2+1)\\Big|_0^1=9\\ln 2.$$"
+          }
+        ],
+        "answer": "$9\\ln 2$",
+        "check": {
+          "kind": "number",
+          "value": "9*ln(2)"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Calculate $\\displaystyle\\iint_R \\frac{xy^2}{x^2+4}\\,dA$, where $R=\\{(x,y)\\mid 0\\le x\\le 2,\\ 0\\le y\\le 3\\}$.",
+          "steps": [
+            {
+              "do": "Convert the double integral to an iterated integral: $\\displaystyle\\iint_R f\\,dA=\\int_a^b\\int_c^d f(x,y)\\,dy\\,dx$, or, if you wish, with $dx\\,dy$ in the other order. Both are correct.",
+              "work": "$$\\iint_R \\frac{xy^2}{x^2+4}\\,dA=\\int_0^2\\int_{0}^{3}\\frac{xy^2}{x^2+4}\\,dy\\,dx.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral as before: inner integral first, then the outer one.",
+              "work": "$$\\int_{0}^{3}\\frac{xy^2}{x^2+4}\\,dy=\\frac{x}{x^2+4}\\Big[\\tfrac{y^3}{3}\\Big]_{0}^{3}=\\frac{9x}{x^2+4},$$ $$\\int_0^2\\frac{9x}{x^2+4}\\,dx=\\tfrac92\\ln(x^2+4)\\Big|_0^2=\\tfrac92(\\ln 8-\\ln 4)=\\tfrac92\\ln 2.$$"
+            }
+          ],
+          "answer": "$\\dfrac{9}{2}\\ln 2$",
+          "check": {
+            "kind": "number",
+            "value": "9*ln(2)/2"
+          }
+        },
+        {
+          "problem": "Calculate $\\displaystyle\\iint_R \\frac{2y\\,e^{x}}{y^2+1}\\,dA$, where $R=\\{(x,y)\\mid 0\\le x\\le \\ln 3,\\ 0\\le y\\le 2\\}$.",
+          "steps": [
+            {
+              "do": "Convert the double integral to an iterated integral: $\\displaystyle\\iint_R f\\,dA=\\int_a^b\\int_c^d f(x,y)\\,dy\\,dx$, or, if you wish, with $dx\\,dy$ in the other order. Both are correct.",
+              "work": "$$\\iint_R \\frac{2ye^{x}}{y^2+1}\\,dA=\\int_0^2\\int_{0}^{\\ln 3}\\frac{2ye^{x}}{y^2+1}\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral as before: inner integral first, then the outer one.",
+              "work": "$$\\int_{0}^{\\ln 3}\\frac{2ye^{x}}{y^2+1}\\,dx=\\frac{2y}{y^2+1}\\Big[e^{x}\\Big]_{0}^{\\ln 3}=\\frac{2y}{y^2+1}(3-1)=\\frac{4y}{y^2+1},$$ $$\\int_0^2\\frac{4y}{y^2+1}\\,dy=2\\ln(y^2+1)\\Big|_0^2=2\\ln 5.$$"
+            }
+          ],
+          "answer": "$2\\ln 5$",
+          "check": {
+            "kind": "number",
+            "value": "2*ln(5)"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.1c",
+      "course": "calc3",
+      "section": "15.1",
+      "topic": "Integration in Several Variables",
+      "title": "Volume under a plane over a rectangle",
+      "type": "Find the volume of the solid that lies under the plane $ax+by+cz=d$ and above the rectangle $R=\\{(x,y)\\mid A_1\\le x\\le A_2,\\ B_1\\le y\\le B_2\\}$.",
+      "example": {
+        "problem": "Find the volume of the solid that lies under the plane $2x+3y+z=10$ and above the rectangle $R=\\{(x,y)\\mid 0\\le x\\le 2,\\ 0\\le y\\le 1\\}$.",
+        "steps": [
+          {
+            "do": "Solve the plane for $z$ to get $z=f(x,y)$ (you can trust that it is positive over $R$). The volume is $\\displaystyle\\iint_R f(x,y)\\,dA$.",
+            "work": "$z=10-2x-3y$, so $f(x,y)=10-2x-3y$ and $V=\\displaystyle\\iint_R (10-2x-3y)\\,dA$."
+          },
+          {
+            "do": "Convert the area integral to an iterated integral (either order works).",
+            "work": "$$V=\\int_0^1\\int_0^2 (10-2x-3y)\\,dx\\,dy.$$"
+          },
+          {
+            "do": "Compute the iterated integral: inner integral first, then the outer one.",
+            "work": "$$\\int_0^2(10-2x-3y)\\,dx=\\Big[10x-x^2-3xy\\Big]_0^2=16-6y,$$ $$\\int_0^1(16-6y)\\,dy=\\Big[16y-3y^2\\Big]_0^1=13.$$"
+          }
+        ],
+        "answer": "The volume is $13$.",
+        "check": {
+          "kind": "number",
+          "value": "13"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the solid that lies under the plane $x+2y+z=12$ and above the rectangle $R=\\{(x,y)\\mid 0\\le x\\le 3,\\ 0\\le y\\le 2\\}$.",
+          "steps": [
+            {
+              "do": "Solve the plane for $z$ to get $z=f(x,y)$ (you can trust that it is positive over $R$). The volume is $\\displaystyle\\iint_R f(x,y)\\,dA$.",
+              "work": "$z=12-x-2y$, so $V=\\displaystyle\\iint_R (12-x-2y)\\,dA$."
+            },
+            {
+              "do": "Convert the area integral to an iterated integral (either order works).",
+              "work": "$$V=\\int_0^2\\int_0^3 (12-x-2y)\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Compute the iterated integral: inner integral first, then the outer one.",
+              "work": "$$\\int_0^3(12-x-2y)\\,dx=\\Big[12x-\\tfrac{x^2}{2}-2xy\\Big]_0^3=\\tfrac{63}{2}-6y,$$ $$\\int_0^2\\left(\\tfrac{63}{2}-6y\\right)dy=\\Big[\\tfrac{63}{2}y-3y^2\\Big]_0^2=63-12=51.$$"
+            }
+          ],
+          "answer": "The volume is $51$.",
+          "check": {
+            "kind": "number",
+            "value": "51"
+          }
+        },
+        {
+          "problem": "Find the volume of the solid that lies under the plane $3x+y+z=9$ and above the rectangle $R=\\{(x,y)\\mid 0\\le x\\le 1,\\ 0\\le y\\le 3\\}$.",
+          "steps": [
+            {
+              "do": "Solve the plane for $z$ to get $z=f(x,y)$ (you can trust that it is positive over $R$). The volume is $\\displaystyle\\iint_R f(x,y)\\,dA$.",
+              "work": "$z=9-3x-y$, so $V=\\displaystyle\\iint_R (9-3x-y)\\,dA$."
+            },
+            {
+              "do": "Convert the area integral to an iterated integral (either order works).",
+              "work": "$$V=\\int_0^3\\int_0^1 (9-3x-y)\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Compute the iterated integral: inner integral first, then the outer one.",
+              "work": "$$\\int_0^1(9-3x-y)\\,dx=\\Big[9x-\\tfrac{3x^2}{2}-xy\\Big]_0^1=\\tfrac{15}{2}-y,$$ $$\\int_0^3\\left(\\tfrac{15}{2}-y\\right)dy=\\Big[\\tfrac{15}{2}y-\\tfrac{y^2}{2}\\Big]_0^3=\\tfrac{45}{2}-\\tfrac92=18.$$"
+            }
+          ],
+          "answer": "The volume is $18$.",
+          "check": {
+            "kind": "number",
+            "value": "18"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.1d",
+      "course": "calc3",
+      "section": "15.1",
+      "topic": "Integration in Several Variables",
+      "title": "Volume in the first octant",
+      "type": "Find the volume of the solid in the first octant bounded by the cylinder $z=r^2-x^2$ and the plane $y=a$.",
+      "example": {
+        "problem": "Find the volume of the solid in the first octant bounded by the cylinder $z=16-x^2$ and the plane $y=3$.",
+        "steps": [
+          {
+            "do": "Find the 'floor plan' $R$. For the surface $z=r^2-x^2$, set $z=0$ to get $x=\\pm r$; in the first octant $x\\ge 0$, $y\\ge 0$, so $R=\\{0\\le x\\le r,\\ 0\\le y\\le a\\}$.",
+            "work": "$z=0$ gives $16-x^2=0$, so $x=\\pm4$; with $x\\ge0$ the boundary of $R$ is $x=0,\\ x=4,\\ y=0,\\ y=3$: $R=\\{0\\le x\\le 4,\\ 0\\le y\\le 3\\}$."
+          },
+          {
+            "do": "Set up $\\displaystyle\\iint_R f(x,y)\\,dA$ and convert it to an iterated integral.",
+            "work": "$$V=\\iint_R(16-x^2)\\,dA=\\int_0^3\\int_0^4 (16-x^2)\\,dx\\,dy.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral.",
+            "work": "$$\\int_0^4(16-x^2)\\,dx=\\Big[16x-\\tfrac{x^3}{3}\\Big]_0^4=\\tfrac{128}{3},\\qquad \\int_0^3\\tfrac{128}{3}\\,dy=128.$$"
+          }
+        ],
+        "answer": "The volume is $128$.",
+        "check": {
+          "kind": "number",
+          "value": "128"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the solid in the first octant bounded by the cylinder $z=9-x^2$ and the plane $y=4$.",
+          "steps": [
+            {
+              "do": "Find the 'floor plan' $R$. For the surface $z=r^2-x^2$, set $z=0$ to get $x=\\pm r$; in the first octant $x\\ge 0$, $y\\ge 0$, so $R=\\{0\\le x\\le r,\\ 0\\le y\\le a\\}$.",
+              "work": "$z=0$ gives $x=\\pm3$; with $x\\ge 0$: $R=\\{0\\le x\\le 3,\\ 0\\le y\\le 4\\}$."
+            },
+            {
+              "do": "Set up $\\displaystyle\\iint_R f(x,y)\\,dA$ and convert it to an iterated integral.",
+              "work": "$$V=\\int_0^4\\int_0^3 (9-x^2)\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "$$\\int_0^3(9-x^2)\\,dx=\\Big[9x-\\tfrac{x^3}{3}\\Big]_0^3=27-9=18,\\qquad \\int_0^4 18\\,dy=72.$$"
+            }
+          ],
+          "answer": "The volume is $72$.",
+          "check": {
+            "kind": "number",
+            "value": "72"
+          }
+        },
+        {
+          "problem": "Find the volume of the solid in the first octant bounded by the cylinder $z=4-x^2$ and the plane $y=5$.",
+          "steps": [
+            {
+              "do": "Find the 'floor plan' $R$. For the surface $z=r^2-x^2$, set $z=0$ to get $x=\\pm r$; in the first octant $x\\ge 0$, $y\\ge 0$, so $R=\\{0\\le x\\le r,\\ 0\\le y\\le a\\}$.",
+              "work": "$z=0$ gives $x=\\pm2$; with $x\\ge 0$: $R=\\{0\\le x\\le 2,\\ 0\\le y\\le 5\\}$."
+            },
+            {
+              "do": "Set up $\\displaystyle\\iint_R f(x,y)\\,dA$ and convert it to an iterated integral.",
+              "work": "$$V=\\int_0^5\\int_0^2 (4-x^2)\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "$$\\int_0^2(4-x^2)\\,dx=\\Big[4x-\\tfrac{x^3}{3}\\Big]_0^2=8-\\tfrac83=\\tfrac{16}{3},\\qquad \\int_0^5 \\tfrac{16}{3}\\,dy=\\tfrac{80}{3}.$$"
+            }
+          ],
+          "answer": "The volume is $\\dfrac{80}{3}$.",
+          "check": {
+            "kind": "number",
+            "value": "80/3"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.2a",
+      "course": "calc3",
+      "section": "15.2",
+      "topic": "Double Integrals over General Regions",
+      "title": "Double integral over a general region",
+      "type": "Evaluate the double integral $\\displaystyle\\iint_D F(x,y)\\,dA$ where $D=\\{(x,y)\\mid a\\le x\\le b,\\ f(x)\\le y\\le g(x)\\}$ (type I), or $D=\\{(x,y)\\mid a\\le y\\le b,\\ f(y)\\le x\\le g(y)\\}$ (type II).",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iint_D e^{y^2}\\,dA$, where $D=\\{(x,y)\\mid 0\\le y\\le 1,\\ 0\\le x\\le y\\}$.",
+        "steps": [
+          {
+            "do": "Set up the iterated integral, with the 'boss' variable on the outside. Type I region ($a\\le x\\le b,\\ f(x)\\le y\\le g(x)$): $\\int_a^b\\int_{f(x)}^{g(x)}F\\,dy\\,dx$. Type II region ($a\\le y\\le b,\\ f(y)\\le x\\le g(y)$): $\\int_a^b\\int_{f(y)}^{g(y)}F\\,dx\\,dy$.",
+            "work": "This is a type II region: $$\\iint_D e^{y^2}\\,dA=\\int_0^1\\int_0^y e^{y^2}\\,dx\\,dy.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral: inner integral first (getting an expression in the outer variable), then the outer integral.",
+            "work": "Inner: $\\displaystyle\\int_0^y e^{y^2}\\,dx=e^{y^2}\\,[x]_0^y=y\\,e^{y^2}$. Outer: $$\\int_0^1 y\\,e^{y^2}\\,dy=\\tfrac12 e^{y^2}\\Big|_0^1=\\tfrac{e-1}{2}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{e-1}{2}$",
+        "check": {
+          "kind": "number",
+          "value": "(e-1)/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_D 3\\sin(y^2)\\,dA$, where $D=\\{(x,y)\\mid 0\\le y\\le \\sqrt{\\pi},\\ 0\\le x\\le y\\}$.",
+          "steps": [
+            {
+              "do": "Set up the iterated integral, with the 'boss' variable on the outside. Type I region ($a\\le x\\le b,\\ f(x)\\le y\\le g(x)$): $\\int_a^b\\int_{f(x)}^{g(x)}F\\,dy\\,dx$. Type II region ($a\\le y\\le b,\\ f(y)\\le x\\le g(y)$): $\\int_a^b\\int_{f(y)}^{g(y)}F\\,dx\\,dy$.",
+              "work": "Type II region: $$\\iint_D 3\\sin(y^2)\\,dA=\\int_0^{\\sqrt\\pi}\\int_0^y 3\\sin(y^2)\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral: inner integral first (getting an expression in the outer variable), then the outer integral.",
+              "work": "Inner: $\\displaystyle\\int_0^y 3\\sin(y^2)\\,dx=3y\\sin(y^2)$. Outer: $$\\int_0^{\\sqrt\\pi}3y\\sin(y^2)\\,dy=-\\tfrac32\\cos(y^2)\\Big|_0^{\\sqrt\\pi}=-\\tfrac32(\\cos\\pi-\\cos 0)=3.$$"
+            }
+          ],
+          "answer": "$3$",
+          "check": {
+            "kind": "number",
+            "value": "3"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_D e^{x^3}\\,dA$, where $D=\\{(x,y)\\mid 0\\le x\\le 1,\\ 0\\le y\\le x^2\\}$.",
+          "steps": [
+            {
+              "do": "Set up the iterated integral, with the 'boss' variable on the outside. Type I region ($a\\le x\\le b,\\ f(x)\\le y\\le g(x)$): $\\int_a^b\\int_{f(x)}^{g(x)}F\\,dy\\,dx$. Type II region ($a\\le y\\le b,\\ f(y)\\le x\\le g(y)$): $\\int_a^b\\int_{f(y)}^{g(y)}F\\,dx\\,dy$.",
+              "work": "Type I region: $$\\iint_D e^{x^3}\\,dA=\\int_0^1\\int_0^{x^2} e^{x^3}\\,dy\\,dx.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral: inner integral first (getting an expression in the outer variable), then the outer integral.",
+              "work": "Inner: $\\displaystyle\\int_0^{x^2} e^{x^3}\\,dy=x^2e^{x^3}$. Outer: $$\\int_0^1 x^2e^{x^3}\\,dx=\\tfrac13 e^{x^3}\\Big|_0^1=\\tfrac{e-1}{3}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{e-1}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "(e-1)/3"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.2b",
+      "course": "calc3",
+      "section": "15.2",
+      "topic": "Double Integrals over General Regions",
+      "title": "Volume between two curves",
+      "type": "Find the volume of the solid that lies under the surface $z=F(x,y)$ and above the region bounded by $y=f(x)$ and $y=g(x)$.",
+      "example": {
+        "problem": "Find the volume of the solid that lies under the plane $x+2y-z=0$ and above the region bounded by $y=x$ and $y=x^2$.",
+        "steps": [
+          {
+            "do": "Find the region: solve $f(x)=g(x)$ to get the limits $a$ and $b$, then decide which curve is on top (sketch it, or plug in a test value of $x$). Write $D$ as a type I (or type II) region.",
+            "work": "Setting $x=x^2$ gives $x(1-x)=0$, so $x=0$ and $x=1$. At $x=\\tfrac12$ we have $x^2=\\tfrac14<\\tfrac12$, so $y=x$ is on top: $$D=\\{(x,y)\\mid 0\\le x\\le 1,\\ x^2\\le y\\le x\\}.$$"
+          },
+          {
+            "do": "Solve the plane for $z$ to get the integrand $F(x,y)$, then compute $\\iint_D F\\,dA$ as an iterated integral: inner integral first, then outer. (A volume is never negative; if you get a negative number, something went wrong.)",
+            "work": "The plane is $z=x+2y$, so $$V=\\int_0^1\\int_{x^2}^{x}(x+2y)\\,dy\\,dx.$$ Inner: $\\bigl[xy+y^2\\bigr]_{x^2}^{x}=2x^2-x^3-x^4$. Outer: $$\\int_0^1(2x^2-x^3-x^4)\\,dx=\\tfrac23-\\tfrac14-\\tfrac15=\\tfrac{13}{60}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{13}{60}$",
+        "check": {
+          "kind": "number",
+          "value": "13/60"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the solid that lies under the plane $x+y-z=0$ and above the region bounded by $y=2x$ and $y=x^2$.",
+          "steps": [
+            {
+              "do": "Find the region: solve $f(x)=g(x)$ to get the limits $a$ and $b$, then decide which curve is on top (sketch it, or plug in a test value of $x$). Write $D$ as a type I (or type II) region.",
+              "work": "Setting $x^2=2x$ gives $x(x-2)=0$, so $x=0$ and $x=2$. At $x=1$: $x^2=1<2=2x$, so $y=2x$ is on top: $$D=\\{(x,y)\\mid 0\\le x\\le 2,\\ x^2\\le y\\le 2x\\}.$$"
+            },
+            {
+              "do": "Solve the plane for $z$ to get the integrand $F(x,y)$, then compute $\\iint_D F\\,dA$ as an iterated integral: inner integral first, then outer. (A volume is never negative; if you get a negative number, something went wrong.)",
+              "work": "The plane is $z=x+y$, so $$V=\\int_0^2\\int_{x^2}^{2x}(x+y)\\,dy\\,dx.$$ Inner: $\\bigl[xy+\\tfrac{y^2}{2}\\bigr]_{x^2}^{2x}=4x^2-x^3-\\tfrac{x^4}{2}$. Outer: $$\\int_0^2\\left(4x^2-x^3-\\tfrac{x^4}{2}\\right)dx=\\tfrac{32}{3}-4-\\tfrac{16}{5}=\\tfrac{52}{15}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{52}{15}$",
+          "check": {
+            "kind": "number",
+            "value": "52/15"
+          }
+        },
+        {
+          "problem": "Find the volume of the solid that lies under the plane $2x+3y-z=0$ and above the region bounded by $y=x^2$ and $y=\\sqrt{x}$.",
+          "steps": [
+            {
+              "do": "Find the region: solve $f(x)=g(x)$ to get the limits $a$ and $b$, then decide which curve is on top (sketch it, or plug in a test value of $x$). Write $D$ as a type I (or type II) region.",
+              "work": "Setting $x^2=\\sqrt x$ gives $x^4=x$, so $x=0$ and $x=1$. At $x=\\tfrac14$: $x^2=\\tfrac1{16}<\\tfrac12=\\sqrt x$, so $y=\\sqrt x$ is on top: $$D=\\{(x,y)\\mid 0\\le x\\le 1,\\ x^2\\le y\\le \\sqrt x\\}.$$"
+            },
+            {
+              "do": "Solve the plane for $z$ to get the integrand $F(x,y)$, then compute $\\iint_D F\\,dA$ as an iterated integral: inner integral first, then outer. (A volume is never negative; if you get a negative number, something went wrong.)",
+              "work": "The plane is $z=2x+3y$, so $$V=\\int_0^1\\int_{x^2}^{\\sqrt x}(2x+3y)\\,dy\\,dx.$$ Inner: $\\bigl[2xy+\\tfrac32y^2\\bigr]_{x^2}^{\\sqrt x}=2x^{3/2}+\\tfrac32x-2x^3-\\tfrac32x^4$. Outer: $$\\int_0^1\\!\\left(2x^{3/2}+\\tfrac32x-2x^3-\\tfrac32x^4\\right)dx=\\tfrac45+\\tfrac34-\\tfrac12-\\tfrac3{10}=\\tfrac34.$$"
+            }
+          ],
+          "answer": "$\\dfrac{3}{4}$",
+          "check": {
+            "kind": "number",
+            "value": "3/4"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.2c",
+      "course": "calc3",
+      "section": "15.2",
+      "topic": "Double Integrals over General Regions",
+      "title": "Changing the order of integration",
+      "type": "Sketch the region of integration and change the order of integration in $\\displaystyle\\int_a^b\\int_{f_1(x)}^{f_2(x)}F(x,y)\\,dy\\,dx$, where $F(x,y)$ is left as an abstract function.",
+      "example": {
+        "problem": "Sketch the region of integration and change the order of integration in $\\displaystyle\\int_0^1\\int_{4x}^{4}F(x,y)\\,dy\\,dx$. (Enter the upper limit of the new inner integral, as a function of $y$.)",
+        "steps": [
+          {
+            "do": "Sketch the type I region $D=\\{a\\le x\\le b,\\ f_1(x)\\le y\\le f_2(x)\\}$ and describe it as a type II region $D=\\{c\\le y\\le d,\\ g_1(y)\\le x\\le g_2(y)\\}$: look at it from the $y$-axis (the 'main road' is $c\\le y\\le d$, the 'side streets' are horizontal segments).",
+            "work": "$D=\\{0\\le x\\le 1,\\ 4x\\le y\\le 4\\}$ is the triangle with vertices $(0,0)$, $(0,4)$ and $(1,4)$. From the $y$-axis the main road is $0\\le y\\le 4$, and each side street runs from $x=0$ to the line $y=4x$, i.e. $x=y/4$: $$D=\\{0\\le y\\le 4,\\ 0\\le x\\le y/4\\}.$$"
+          },
+          {
+            "do": "Set up the iterated integral with $dx\\,dy$ and the new limits. (You can't evaluate it, since $F$ was not given.)",
+            "work": "$$\\int_0^4\\int_0^{y/4}F(x,y)\\,dx\\,dy.$$"
+          }
+        ],
+        "answer": "$\\displaystyle\\int_0^4\\int_0^{y/4}F(x,y)\\,dx\\,dy$",
+        "check": {
+          "kind": "expr",
+          "value": "y/4",
+          "vars": [
+            "y"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Sketch the region of integration and change the order of integration in $\\displaystyle\\int_0^2\\int_{x^2}^{4}F(x,y)\\,dy\\,dx$. (Enter the upper limit of the new inner integral, as a function of $y$.)",
+          "steps": [
+            {
+              "do": "Sketch the type I region $D=\\{a\\le x\\le b,\\ f_1(x)\\le y\\le f_2(x)\\}$ and describe it as a type II region $D=\\{c\\le y\\le d,\\ g_1(y)\\le x\\le g_2(y)\\}$: look at it from the $y$-axis (the 'main road' is $c\\le y\\le d$, the 'side streets' are horizontal segments).",
+              "work": "$D=\\{0\\le x\\le 2,\\ x^2\\le y\\le 4\\}$ lies between the parabola $y=x^2$ and the line $y=4$. From the $y$-axis the main road is $0\\le y\\le 4$, and each side street runs from $x=0$ to the parabola, $x=\\sqrt y$: $$D=\\{0\\le y\\le 4,\\ 0\\le x\\le \\sqrt y\\}.$$"
+            },
+            {
+              "do": "Set up the iterated integral with $dx\\,dy$ and the new limits. (You can't evaluate it, since $F$ was not given.)",
+              "work": "$$\\int_0^4\\int_0^{\\sqrt y}F(x,y)\\,dx\\,dy.$$"
+            }
+          ],
+          "answer": "$\\displaystyle\\int_0^4\\int_0^{\\sqrt y}F(x,y)\\,dx\\,dy$",
+          "check": {
+            "kind": "expr",
+            "value": "sqrt(y)",
+            "vars": [
+              "y"
+            ]
+          }
+        },
+        {
+          "problem": "Sketch the region of integration and change the order of integration in $\\displaystyle\\int_0^1\\int_{e^x}^{e}F(x,y)\\,dy\\,dx$. (Enter the upper limit of the new inner integral, as a function of $y$.)",
+          "steps": [
+            {
+              "do": "Sketch the type I region $D=\\{a\\le x\\le b,\\ f_1(x)\\le y\\le f_2(x)\\}$ and describe it as a type II region $D=\\{c\\le y\\le d,\\ g_1(y)\\le x\\le g_2(y)\\}$: look at it from the $y$-axis (the 'main road' is $c\\le y\\le d$, the 'side streets' are horizontal segments).",
+              "work": "$D=\\{0\\le x\\le 1,\\ e^x\\le y\\le e\\}$ lies between the curve $y=e^x$ and the line $y=e$. The curve runs from $(0,1)$ to $(1,e)$, so the main road is $1\\le y\\le e$, and each side street runs from $x=0$ to the curve, where $x=\\ln y$: $$D=\\{1\\le y\\le e,\\ 0\\le x\\le \\ln y\\}.$$"
+            },
+            {
+              "do": "Set up the iterated integral with $dx\\,dy$ and the new limits. (You can't evaluate it, since $F$ was not given.)",
+              "work": "$$\\int_1^{e}\\int_0^{\\ln y}F(x,y)\\,dx\\,dy.$$"
+            }
+          ],
+          "answer": "$\\displaystyle\\int_1^{e}\\int_0^{\\ln y}F(x,y)\\,dx\\,dy$",
+          "check": {
+            "kind": "expr",
+            "value": "ln(y)",
+            "vars": [
+              "y"
+            ]
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.3a",
+      "course": "calc3",
+      "section": "15.3",
+      "topic": "Triple Integrals",
+      "title": "Iterated triple integral",
+      "type": "Evaluate the iterated integral $\\displaystyle\\int_a^b\\int_{f_1(x)}^{f_2(x)}\\int_{g_1(x,y)}^{g_2(x,y)}F(x,y,z)\\,dz\\,dy\\,dx$.",
+      "example": {
+        "problem": "Evaluate the iterated integral $\\displaystyle\\int_0^1\\int_x^{2x}\\int_0^{y}2xyz\\,dz\\,dy\\,dx$.",
+        "steps": [
+          {
+            "do": "Work from the inside out. First compute the inner integral (here a $z$-integral, since $dz$ comes first). The answer should not contain $z$; in general it depends on $x$ and $y$.",
+            "work": "$$\\int_0^{y}2xyz\\,dz=xyz^2\\Big|_0^{y}=xy^3.$$"
+          },
+          {
+            "do": "Compute the middle integral, using the result of step 1. The answer should be an expression in $x$ alone.",
+            "work": "$$\\int_x^{2x}xy^3\\,dy=\\frac{xy^4}{4}\\Big|_x^{2x}=\\frac{x(2x)^4}{4}-\\frac{x\\cdot x^4}{4}=\\frac{15}{4}x^5.$$"
+          },
+          {
+            "do": "Do the outside integral, using the result of step 2. The final answer is a pure number.",
+            "work": "$$\\int_0^1\\tfrac{15}{4}x^5\\,dx=\\tfrac{15}{4}\\cdot\\tfrac{x^6}{6}\\Big|_0^1=\\tfrac58.$$"
+          }
+        ],
+        "answer": "$\\dfrac{5}{8}$",
+        "check": {
+          "kind": "number",
+          "value": "5/8"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate the iterated integral $\\displaystyle\\int_0^1\\int_0^{x}\\int_0^{x+y}6y\\,dz\\,dy\\,dx$.",
+          "steps": [
+            {
+              "do": "Work from the inside out. First compute the inner integral (here a $z$-integral, since $dz$ comes first). The answer should not contain $z$; in general it depends on $x$ and $y$.",
+              "work": "$$\\int_0^{x+y}6y\\,dz=6y\\,z\\Big|_0^{x+y}=6y(x+y)=6xy+6y^2.$$"
+            },
+            {
+              "do": "Compute the middle integral, using the result of step 1. The answer should be an expression in $x$ alone.",
+              "work": "$$\\int_0^{x}(6xy+6y^2)\\,dy=\\Big[3xy^2+2y^3\\Big]_0^{x}=3x^3+2x^3=5x^3.$$"
+            },
+            {
+              "do": "Do the outside integral, using the result of step 2. The final answer is a pure number.",
+              "work": "$$\\int_0^1 5x^3\\,dx=\\tfrac54.$$"
+            }
+          ],
+          "answer": "$\\dfrac{5}{4}$",
+          "check": {
+            "kind": "number",
+            "value": "5/4"
+          }
+        },
+        {
+          "problem": "Evaluate the iterated integral $\\displaystyle\\int_0^1\\int_0^{x^2}\\int_y^{2y}xz\\,dz\\,dy\\,dx$.",
+          "steps": [
+            {
+              "do": "Work from the inside out. First compute the inner integral (here a $z$-integral, since $dz$ comes first). The answer should not contain $z$; in general it depends on $x$ and $y$.",
+              "work": "$$\\int_y^{2y}xz\\,dz=x\\,\\frac{z^2}{2}\\Big|_y^{2y}=\\frac{x(4y^2-y^2)}{2}=\\tfrac32xy^2.$$"
+            },
+            {
+              "do": "Compute the middle integral, using the result of step 1. The answer should be an expression in $x$ alone.",
+              "work": "$$\\int_0^{x^2}\\tfrac32xy^2\\,dy=\\tfrac32x\\cdot\\frac{y^3}{3}\\Big|_0^{x^2}=\\tfrac12x\\cdot x^6=\\tfrac12x^7.$$"
+            },
+            {
+              "do": "Do the outside integral, using the result of step 2. The final answer is a pure number.",
+              "work": "$$\\int_0^1\\tfrac12x^7\\,dx=\\tfrac12\\cdot\\tfrac18=\\tfrac1{16}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{1}{16}$",
+          "check": {
+            "kind": "number",
+            "value": "1/16"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.3b",
+      "course": "calc3",
+      "section": "15.3",
+      "topic": "Triple Integrals",
+      "title": "Triple integral over a described solid",
+      "type": "Evaluate the triple integral $\\displaystyle\\iiint_E F(x,y,z)\\,dV$, where $E=\\{(x,y,z)\\mid a\\le x\\le b,\\ f_1(x)\\le y\\le f_2(x),\\ g_1(x,y)\\le z\\le g_2(x,y)\\}$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iiint_E yz\\cos(x^5)\\,dV$, where $E=\\{(x,y,z)\\mid 0\\le x\\le 1,\\ 0\\le y\\le x,\\ x\\le z\\le 2x\\}$.",
+        "steps": [
+          {
+            "do": "Convert the volume integral to a triple iterated integral by transcribing the limits of $E$ from left to right: $\\int_a^b\\int_{f_1(x)}^{f_2(x)}\\int_{g_1(x,y)}^{g_2(x,y)}F\\,dz\\,dy\\,dx$.",
+            "work": "$$\\int_0^1\\int_0^x\\int_x^{2x}yz\\cos(x^5)\\,dz\\,dy\\,dx.$$"
+          },
+          {
+            "do": "Compute the inner integral (in $z$), treating the other variables as constants.",
+            "work": "$$\\int_x^{2x}yz\\cos(x^5)\\,dz=y\\cos(x^5)\\,\\frac{z^2}{2}\\Big|_x^{2x}=\\tfrac32\\,yx^2\\cos(x^5).$$"
+          },
+          {
+            "do": "Compute the middle integral (in $y$), using the result of the previous step.",
+            "work": "$$\\int_0^{x}\\tfrac32yx^2\\cos(x^5)\\,dy=\\tfrac32x^2\\cos(x^5)\\,\\frac{y^2}{2}\\Big|_0^{x}=\\tfrac34x^4\\cos(x^5).$$"
+          },
+          {
+            "do": "Compute the outside integral (in $x$), using the result of the previous step.",
+            "work": "$$\\int_0^1\\tfrac34x^4\\cos(x^5)\\,dx\\overset{u=x^5}{=}\\tfrac34\\cdot\\tfrac15\\sin(x^5)\\Big|_0^1=\\tfrac{3\\sin 1}{20}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{3\\sin 1}{20}$",
+        "check": {
+          "kind": "number",
+          "value": "3*sin(1)/20"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E yz\\,e^{x^5}\\,dV$, where $E=\\{(x,y,z)\\mid 0\\le x\\le 1,\\ 0\\le y\\le x,\\ 0\\le z\\le x\\}$.",
+          "steps": [
+            {
+              "do": "Convert the volume integral to a triple iterated integral by transcribing the limits of $E$ from left to right: $\\int_a^b\\int_{f_1(x)}^{f_2(x)}\\int_{g_1(x,y)}^{g_2(x,y)}F\\,dz\\,dy\\,dx$.",
+              "work": "$$\\int_0^1\\int_0^x\\int_0^x yz\\,e^{x^5}\\,dz\\,dy\\,dx.$$"
+            },
+            {
+              "do": "Compute the inner integral (in $z$), treating the other variables as constants.",
+              "work": "$$\\int_0^x yz\\,e^{x^5}\\,dz=y\\,e^{x^5}\\,\\frac{z^2}{2}\\Big|_0^{x}=\\tfrac12\\,x^2y\\,e^{x^5}.$$"
+            },
+            {
+              "do": "Compute the middle integral (in $y$), using the result of the previous step.",
+              "work": "$$\\int_0^{x}\\tfrac12x^2y\\,e^{x^5}\\,dy=\\tfrac12x^2e^{x^5}\\,\\frac{y^2}{2}\\Big|_0^{x}=\\tfrac14x^4e^{x^5}.$$"
+            },
+            {
+              "do": "Compute the outside integral (in $x$), using the result of the previous step.",
+              "work": "$$\\int_0^1\\tfrac14x^4e^{x^5}\\,dx\\overset{u=x^5}{=}\\tfrac14\\cdot\\tfrac15e^{x^5}\\Big|_0^1=\\tfrac{e-1}{20}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{e-1}{20}$",
+          "check": {
+            "kind": "number",
+            "value": "(e-1)/20"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E \\frac{8yz}{1+x^5}\\,dV$, where $E=\\{(x,y,z)\\mid 0\\le x\\le 1,\\ 0\\le y\\le x,\\ x\\le z\\le 2x\\}$.",
+          "steps": [
+            {
+              "do": "Convert the volume integral to a triple iterated integral by transcribing the limits of $E$ from left to right: $\\int_a^b\\int_{f_1(x)}^{f_2(x)}\\int_{g_1(x,y)}^{g_2(x,y)}F\\,dz\\,dy\\,dx$.",
+              "work": "$$\\int_0^1\\int_0^x\\int_x^{2x}\\frac{8yz}{1+x^5}\\,dz\\,dy\\,dx.$$"
+            },
+            {
+              "do": "Compute the inner integral (in $z$), treating the other variables as constants.",
+              "work": "$$\\int_x^{2x}\\frac{8yz}{1+x^5}\\,dz=\\frac{8y}{1+x^5}\\cdot\\frac{z^2}{2}\\Big|_x^{2x}=\\frac{8y}{1+x^5}\\cdot\\frac{3x^2}{2}=\\frac{12x^2y}{1+x^5}.$$"
+            },
+            {
+              "do": "Compute the middle integral (in $y$), using the result of the previous step.",
+              "work": "$$\\int_0^{x}\\frac{12x^2y}{1+x^5}\\,dy=\\frac{12x^2}{1+x^5}\\cdot\\frac{x^2}{2}=\\frac{6x^4}{1+x^5}.$$"
+            },
+            {
+              "do": "Compute the outside integral (in $x$), using the result of the previous step.",
+              "work": "$$\\int_0^1\\frac{6x^4}{1+x^5}\\,dx=\\tfrac65\\ln(1+x^5)\\Big|_0^1=\\tfrac65\\ln 2.$$"
+            }
+          ],
+          "answer": "$\\dfrac{6}{5}\\ln 2$",
+          "check": {
+            "kind": "number",
+            "value": "6*ln(2)/5"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.3c",
+      "course": "calc3",
+      "section": "15.3",
+      "topic": "Triple Integrals",
+      "title": "Triple integral over a bounded solid",
+      "type": "Evaluate the triple integral $\\displaystyle\\iiint_E F(x,y,z)\\,dV$, where $E$ is bounded by the surfaces $z=g_1(x,y)$, $z=g_2(x,y)$ and possibly some planes of the form $x=a$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iiint_E x^2y^2\\,dV$, where $E$ is bounded by the parabolic cylinder $z=1-y^2$ and the planes $z=0$, $x=1$ and $x=-1$.",
+        "steps": [
+          {
+            "do": "Express $E$ as $\\{(x,y)\\in D,\\ u_1(x,y)\\le z\\le u_2(x,y)\\}$, where $D$ is the projection of $E$ on the $xy$-plane. To find $D$, set the two surfaces equal and add the other restrictions on $x$ and $y$. Then describe $D$ by limits $a\\le x\\le b$, $g_1(x)\\le y\\le g_2(x)$.",
+            "work": "$1-y^2=0$ gives $y=\\pm1$; together with $x=\\pm1$ the projection is $D=\\{-1\\le x\\le 1,\\ -1\\le y\\le 1\\}$. So $$E=\\{-1\\le x\\le 1,\\ -1\\le y\\le 1,\\ 0\\le z\\le 1-y^2\\}.$$"
+          },
+          {
+            "do": "Convert the triple integral to an iterated integral $\\int_a^b\\int_{g_1(x)}^{g_2(x)}\\int_{u_1(x,y)}^{u_2(x,y)}F\\,dz\\,dy\\,dx$ and evaluate it from the inside out.",
+            "work": "$$\\int_{-1}^{1}\\!\\int_{-1}^{1}\\!\\int_0^{1-y^2}x^2y^2\\,dz\\,dy\\,dx.$$ Inner: $x^2y^2(1-y^2)=x^2(y^2-y^4)$. Middle: $x^2\\bigl[\\tfrac{y^3}{3}-\\tfrac{y^5}{5}\\bigr]_{-1}^{1}=\\tfrac4{15}x^2$. Outer: $$\\int_{-1}^{1}\\tfrac{4}{15}x^2\\,dx=\\tfrac4{15}\\cdot\\tfrac23=\\tfrac{8}{45}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{8}{45}$",
+        "check": {
+          "kind": "number",
+          "value": "8/45"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E y^2\\,dV$, where $E$ is bounded by the parabolic cylinder $z=4-x^2$ and the planes $z=0$, $y=0$ and $y=3$.",
+          "steps": [
+            {
+              "do": "Express $E$ as $\\{(x,y)\\in D,\\ u_1(x,y)\\le z\\le u_2(x,y)\\}$, where $D$ is the projection of $E$ on the $xy$-plane. To find $D$, set the two surfaces equal and add the other restrictions on $x$ and $y$. Then describe $D$ by limits $a\\le x\\le b$, $g_1(x)\\le y\\le g_2(x)$.",
+              "work": "$4-x^2=0$ gives $x=\\pm2$; together with $y=0,\\ y=3$ the projection is $D=\\{-2\\le x\\le 2,\\ 0\\le y\\le 3\\}$. So $$E=\\{-2\\le x\\le 2,\\ 0\\le y\\le 3,\\ 0\\le z\\le 4-x^2\\}.$$"
+            },
+            {
+              "do": "Convert the triple integral to an iterated integral $\\int_a^b\\int_{g_1(x)}^{g_2(x)}\\int_{u_1(x,y)}^{u_2(x,y)}F\\,dz\\,dy\\,dx$ and evaluate it from the inside out.",
+              "work": "$$\\int_{-2}^{2}\\!\\int_{0}^{3}\\!\\int_0^{4-x^2}y^2\\,dz\\,dy\\,dx.$$ Inner: $y^2(4-x^2)$. Middle: $(4-x^2)\\Bigl[\\tfrac{y^3}{3}\\Bigr]_0^3=9(4-x^2)$. Outer: $$\\int_{-2}^{2}9(4-x^2)\\,dx=9\\Big[4x-\\tfrac{x^3}{3}\\Big]_{-2}^{2}=9\\cdot\\tfrac{32}{3}=96.$$"
+            }
+          ],
+          "answer": "$96$",
+          "check": {
+            "kind": "number",
+            "value": "96"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E y\\,dV$, where $E$ is bounded by the parabolic cylinder $z=x^2$ and the planes $z=4$, $y=0$ and $y=3$.",
+          "steps": [
+            {
+              "do": "Express $E$ as $\\{(x,y)\\in D,\\ u_1(x,y)\\le z\\le u_2(x,y)\\}$, where $D$ is the projection of $E$ on the $xy$-plane. To find $D$, set the two surfaces equal and add the other restrictions on $x$ and $y$. Then describe $D$ by limits $a\\le x\\le b$, $g_1(x)\\le y\\le g_2(x)$.",
+              "work": "$x^2=4$ gives $x=\\pm2$; together with $y=0,\\ y=3$ the projection is $D=\\{-2\\le x\\le 2,\\ 0\\le y\\le 3\\}$. So $$E=\\{-2\\le x\\le 2,\\ 0\\le y\\le 3,\\ x^2\\le z\\le 4\\}.$$"
+            },
+            {
+              "do": "Convert the triple integral to an iterated integral $\\int_a^b\\int_{g_1(x)}^{g_2(x)}\\int_{u_1(x,y)}^{u_2(x,y)}F\\,dz\\,dy\\,dx$ and evaluate it from the inside out.",
+              "work": "$$\\int_{-2}^{2}\\!\\int_{0}^{3}\\!\\int_{x^2}^{4}y\\,dz\\,dy\\,dx.$$ Inner: $y(4-x^2)$. Middle: $(4-x^2)\\Bigl[\\tfrac{y^2}{2}\\Bigr]_0^3=\\tfrac92(4-x^2)$. Outer: $$\\int_{-2}^{2}\\tfrac92(4-x^2)\\,dx=\\tfrac92\\cdot\\tfrac{32}{3}=48.$$"
+            }
+          ],
+          "answer": "$48$",
+          "check": {
+            "kind": "number",
+            "value": "48"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.4aa",
+      "course": "calc3",
+      "section": "15.4a",
+      "topic": "Double Integrals in Polar Coordinates",
+      "title": "Double integral in polar coordinates",
+      "type": "Evaluate $\\displaystyle\\iint_D F(x,y)\\,dA$, where $D$ is a region best described in polar coordinates, $D=\\{(r,\\theta)\\mid \\alpha\\le\\theta\\le\\beta,\\ h_1(\\theta)\\le r\\le h_2(\\theta)\\}$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iint_D e^{-x^2-y^2}\\,dA$, where $D$ is the region bounded by the semicircle $x=\\sqrt{25-y^2}$ and the $y$-axis.",
+        "steps": [
+          {
+            "do": "Draw the region and describe it in polar coordinates: $D=\\{\\alpha\\le\\theta\\le\\beta,\\ h_1(\\theta)\\le r\\le h_2(\\theta)\\}$ (often $h_1,h_2$ are plain numbers).",
+            "work": "This is the right half of the disk of radius 5. So $\\theta$ runs from $-\\pi/2$ (straight down) to $\\pi/2$ (straight up), and for each ray $r$ runs from $0$ to $5$: $$D=\\{-\\tfrac\\pi2\\le\\theta\\le\\tfrac\\pi2,\\ 0\\le r\\le 5\\}.$$"
+          },
+          {
+            "do": "Rewrite the integral in polar coordinates with $x=r\\cos\\theta$, $y=r\\sin\\theta$, $dA=r\\,dr\\,d\\theta$ (shortcut: $x^2+y^2=r^2$). The $\\theta$-integral goes outside, the $r$-integral inside.",
+            "work": "$$\\iint_D e^{-x^2-y^2}\\,dA=\\int_{-\\pi/2}^{\\pi/2}\\int_0^5 e^{-r^2}\\,r\\,dr\\,d\\theta.$$"
+          },
+          {
+            "do": "Evaluate: first the inner ($r$) integral, then the outer ($\\theta$) integral.",
+            "work": "Inner ($u=-r^2$): $\\displaystyle\\int_0^5e^{-r^2}r\\,dr=-\\tfrac12e^{-r^2}\\Big|_0^5=\\tfrac{1-e^{-25}}{2}$. Outer: $$\\int_{-\\pi/2}^{\\pi/2}\\tfrac{1-e^{-25}}{2}\\,d\\theta=\\tfrac{1-e^{-25}}{2}\\cdot\\pi=\\tfrac{\\pi(1-e^{-25})}{2}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{\\pi\\,(1-e^{-25})}{2}$",
+        "check": {
+          "kind": "number",
+          "value": "pi*(1-exp(-25))/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_D \\frac{1}{1+x^2+y^2}\\,dA$, where $D$ is the region bounded by the semicircle $y=\\sqrt{9-x^2}$ and the $x$-axis.",
+          "steps": [
+            {
+              "do": "Draw the region and describe it in polar coordinates: $D=\\{\\alpha\\le\\theta\\le\\beta,\\ h_1(\\theta)\\le r\\le h_2(\\theta)\\}$ (often $h_1,h_2$ are plain numbers).",
+              "work": "This is the upper half of the disk of radius 3: $$D=\\{0\\le\\theta\\le\\pi,\\ 0\\le r\\le 3\\}.$$"
+            },
+            {
+              "do": "Rewrite the integral in polar coordinates with $x=r\\cos\\theta$, $y=r\\sin\\theta$, $dA=r\\,dr\\,d\\theta$ (shortcut: $x^2+y^2=r^2$). The $\\theta$-integral goes outside, the $r$-integral inside.",
+              "work": "$$\\iint_D \\frac{dA}{1+x^2+y^2}=\\int_0^{\\pi}\\int_0^3 \\frac{r}{1+r^2}\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate: first the inner ($r$) integral, then the outer ($\\theta$) integral.",
+              "work": "Inner: $\\displaystyle\\int_0^3\\frac{r}{1+r^2}\\,dr=\\tfrac12\\ln(1+r^2)\\Big|_0^3=\\tfrac12\\ln 10$. Outer: $$\\int_0^\\pi\\tfrac12\\ln 10\\,d\\theta=\\tfrac{\\pi}{2}\\ln 10.$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\pi}{2}\\ln 10$",
+          "check": {
+            "kind": "number",
+            "value": "pi*ln(10)/2"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_D \\sin(x^2+y^2)\\,dA$, where $D=\\{(x,y)\\mid x^2+y^2\\le \\pi,\\ x\\ge 0,\\ y\\ge 0\\}$.",
+          "steps": [
+            {
+              "do": "Draw the region and describe it in polar coordinates: $D=\\{\\alpha\\le\\theta\\le\\beta,\\ h_1(\\theta)\\le r\\le h_2(\\theta)\\}$ (often $h_1,h_2$ are plain numbers).",
+              "work": "This is the quarter of the disk of radius $\\sqrt\\pi$ in the first quadrant: $$D=\\{0\\le\\theta\\le\\tfrac\\pi2,\\ 0\\le r\\le \\sqrt\\pi\\}.$$"
+            },
+            {
+              "do": "Rewrite the integral in polar coordinates with $x=r\\cos\\theta$, $y=r\\sin\\theta$, $dA=r\\,dr\\,d\\theta$ (shortcut: $x^2+y^2=r^2$). The $\\theta$-integral goes outside, the $r$-integral inside.",
+              "work": "$$\\iint_D\\sin(x^2+y^2)\\,dA=\\int_0^{\\pi/2}\\int_0^{\\sqrt\\pi}\\sin(r^2)\\,r\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate: first the inner ($r$) integral, then the outer ($\\theta$) integral.",
+              "work": "Inner: $\\displaystyle\\int_0^{\\sqrt\\pi}\\sin(r^2)\\,r\\,dr=-\\tfrac12\\cos(r^2)\\Big|_0^{\\sqrt\\pi}=-\\tfrac12(\\cos\\pi-1)=1$. Outer: $$\\int_0^{\\pi/2}1\\,d\\theta=\\tfrac\\pi2.$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\pi}{2}$",
+          "check": {
+            "kind": "number",
+            "value": "pi/2"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.4ab",
+      "course": "calc3",
+      "section": "15.4a",
+      "topic": "Double Integrals in Polar Coordinates",
+      "title": "Volume between two surfaces",
+      "type": "Find the volume of the solid above the surface $z=f(x,y)$ and below the surface $z=g(x,y)$.",
+      "example": {
+        "problem": "Find the volume of the solid above the cone $z=\\sqrt{x^2+y^2}$ and below the sphere $x^2+y^2+z^2=2$.",
+        "steps": [
+          {
+            "do": "Find the 'floor' $D$ by setting $f(x,y)=g(x,y)$ (or convert to polar coordinates first, if convenient). Remember $r\\ge 0$.",
+            "work": "In polar coordinates the surfaces are $z=r$ and $z=\\sqrt{2-r^2}$. Setting them equal and squaring: $r^2=2-r^2$, so $r^2=1$ and $r=1$. The floor is the disk $r\\le1$: $$D=\\{0\\le\\theta\\le2\\pi,\\ 0\\le r\\le1\\}.$$"
+          },
+          {
+            "do": "The volume is the area integral of TOP $-$ BOTTOM over $D$. Set it up and convert to polar coordinates.",
+            "work": "Bottom: $z=r$. Top: $z=\\sqrt{2-r^2}$. $$V=\\int_0^{2\\pi}\\int_0^1\\bigl[\\sqrt{2-r^2}-r\\bigr]\\,r\\,dr\\,d\\theta.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral: inner ($r$) integral first, then outer ($\\theta$).",
+            "work": "Inner: $$\\int_0^1\\bigl(r\\sqrt{2-r^2}-r^2\\bigr)dr=\\Big[-\\tfrac13(2-r^2)^{3/2}-\\tfrac{r^3}{3}\\Big]_0^1=\\tfrac{2\\sqrt2-1}{3}-\\tfrac13=\\tfrac{2\\sqrt2-2}{3}.$$ Outer: $$V=2\\pi\\cdot\\tfrac{2\\sqrt2-2}{3}=\\tfrac{4\\pi(\\sqrt2-1)}{3}.$$"
+          }
+        ],
+        "answer": "The volume is $\\dfrac{2\\pi(2\\sqrt2-2)}{3}=\\dfrac{4\\pi(\\sqrt2-1)}{3}$.",
+        "check": {
+          "kind": "number",
+          "value": "2*pi*(2*sqrt(2)-2)/3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the solid above the paraboloid $z=x^2+y^2$ and below the plane $z=4$.",
+          "steps": [
+            {
+              "do": "Find the 'floor' $D$ by setting $f(x,y)=g(x,y)$ (or convert to polar coordinates first, if convenient). Remember $r\\ge 0$.",
+              "work": "In polar coordinates the surfaces are $z=r^2$ and $z=4$. Setting them equal gives $r^2=4$, so $r=2$: $$D=\\{0\\le\\theta\\le2\\pi,\\ 0\\le r\\le2\\}.$$"
+            },
+            {
+              "do": "The volume is the area integral of TOP $-$ BOTTOM over $D$. Set it up and convert to polar coordinates.",
+              "work": "Bottom: $z=r^2$. Top: $z=4$. $$V=\\int_0^{2\\pi}\\int_0^2(4-r^2)\\,r\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral: inner ($r$) integral first, then outer ($\\theta$).",
+              "work": "Inner: $\\displaystyle\\int_0^2(4r-r^3)\\,dr=\\Big[2r^2-\\tfrac{r^4}{4}\\Big]_0^2=8-4=4$. Outer: $V=2\\pi\\cdot4=8\\pi$."
+            }
+          ],
+          "answer": "The volume is $8\\pi$.",
+          "check": {
+            "kind": "number",
+            "value": "8*pi"
+          }
+        },
+        {
+          "problem": "Find the volume of the solid above the paraboloid $z=x^2+y^2$ and below the sphere $x^2+y^2+z^2=2$.",
+          "steps": [
+            {
+              "do": "Find the 'floor' $D$ by setting $f(x,y)=g(x,y)$ (or convert to polar coordinates first, if convenient). Remember $r\\ge 0$.",
+              "work": "In polar coordinates the surfaces are $z=r^2$ and $z=\\sqrt{2-r^2}$. Setting them equal and squaring: $r^4=2-r^2$, so $r^4+r^2-2=(r^2+2)(r^2-1)=0$, hence $r=1$: $$D=\\{0\\le\\theta\\le2\\pi,\\ 0\\le r\\le1\\}.$$"
+            },
+            {
+              "do": "The volume is the area integral of TOP $-$ BOTTOM over $D$. Set it up and convert to polar coordinates.",
+              "work": "Bottom: $z=r^2$. Top: $z=\\sqrt{2-r^2}$. $$V=\\int_0^{2\\pi}\\int_0^1\\bigl[\\sqrt{2-r^2}-r^2\\bigr]\\,r\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral: inner ($r$) integral first, then outer ($\\theta$).",
+              "work": "Inner: $$\\int_0^1\\bigl(r\\sqrt{2-r^2}-r^3\\bigr)dr=\\Big[-\\tfrac13(2-r^2)^{3/2}-\\tfrac{r^4}{4}\\Big]_0^1=\\tfrac{2\\sqrt2-1}{3}-\\tfrac14=\\tfrac{8\\sqrt2-7}{12}.$$ Outer: $$V=2\\pi\\cdot\\tfrac{8\\sqrt2-7}{12}=\\tfrac{\\pi(8\\sqrt2-7)}{6}.$$"
+            }
+          ],
+          "answer": "The volume is $\\dfrac{\\pi\\,(8\\sqrt2-7)}{6}$.",
+          "check": {
+            "kind": "number",
+            "value": "pi*(8*sqrt(2)-7)/6"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.4ac",
+      "course": "calc3",
+      "section": "15.4a",
+      "topic": "Double Integrals in Polar Coordinates",
+      "title": "Converting an iterated integral to polar",
+      "type": "Evaluate the iterated integral by converting to polar coordinates: $\\displaystyle\\int_a^b\\int_{f_1(y)}^{f_2(y)}F(x,y)\\,dx\\,dy$.",
+      "example": {
+        "problem": "Evaluate the iterated integral by converting to polar coordinates: $\\displaystyle\\int_0^3\\int_{-\\sqrt{9-y^2}}^{\\sqrt{9-y^2}}x^2y\\,dx\\,dy$.",
+        "steps": [
+          {
+            "do": "From the limits of the outer and inner integrals, figure out the region $D=\\{a\\le y\\le b,\\ f_1(y)\\le x\\le f_2(y)\\}$. Draw it and express it in polar coordinates, $D=\\{\\alpha\\le\\theta\\le\\beta,\\ g_1(\\theta)\\le r\\le g_2(\\theta)\\}$.",
+            "work": "$D=\\{0\\le y\\le3,\\ -\\sqrt{9-y^2}\\le x\\le\\sqrt{9-y^2}\\}$ is the upper half of the disk of radius 3: $$D=\\{0\\le\\theta\\le\\pi,\\ 0\\le r\\le 3\\}.$$"
+          },
+          {
+            "do": "Write the iterated integral as an area integral and convert it using the 'dictionary' $x=r\\cos\\theta$, $y=r\\sin\\theta$, $dx\\,dy=r\\,dr\\,d\\theta$.",
+            "work": "$$\\int_0^\\pi\\int_0^3(r\\cos\\theta)^2(r\\sin\\theta)\\,r\\,dr\\,d\\theta=\\int_0^\\pi\\int_0^3 r^4\\sin\\theta\\cos^2\\theta\\,dr\\,d\\theta.$$"
+          },
+          {
+            "do": "Evaluate the new iterated integral: inner first, then outer.",
+            "work": "Inner: $\\displaystyle\\int_0^3r^4\\,dr\\;\\sin\\theta\\cos^2\\theta=\\tfrac{243}{5}\\sin\\theta\\cos^2\\theta$. Outer: $$\\tfrac{243}{5}\\int_0^\\pi\\cos^2\\theta\\sin\\theta\\,d\\theta=\\tfrac{243}{5}\\Big[-\\tfrac{\\cos^3\\theta}{3}\\Big]_0^\\pi=\\tfrac{243}{5}\\cdot\\tfrac23=\\tfrac{162}{5}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{162}{5}$",
+        "check": {
+          "kind": "number",
+          "value": "162/5"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate the iterated integral by converting to polar coordinates: $\\displaystyle\\int_{-2}^{2}\\int_{0}^{\\sqrt{4-x^2}}y\\sqrt{x^2+y^2}\\,dy\\,dx$.",
+          "steps": [
+            {
+              "do": "From the limits of the outer and inner integrals, figure out the region $D=\\{a\\le y\\le b,\\ f_1(y)\\le x\\le f_2(y)\\}$. Draw it and express it in polar coordinates, $D=\\{\\alpha\\le\\theta\\le\\beta,\\ g_1(\\theta)\\le r\\le g_2(\\theta)\\}$.",
+              "work": "$D=\\{-2\\le x\\le2,\\ 0\\le y\\le\\sqrt{4-x^2}\\}$ is the upper half of the disk of radius 2: $$D=\\{0\\le\\theta\\le\\pi,\\ 0\\le r\\le 2\\}.$$"
+            },
+            {
+              "do": "Write the iterated integral as an area integral and convert it using the 'dictionary' $x=r\\cos\\theta$, $y=r\\sin\\theta$, $dx\\,dy=r\\,dr\\,d\\theta$.",
+              "work": "$$\\int_0^\\pi\\int_0^2(r\\sin\\theta)\\,r\\,\\cdot r\\,dr\\,d\\theta=\\int_0^\\pi\\int_0^2 r^3\\sin\\theta\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate the new iterated integral: inner first, then outer.",
+              "work": "Inner: $\\displaystyle\\int_0^2r^3\\,dr\\;\\sin\\theta=4\\sin\\theta$. Outer: $$4\\int_0^\\pi\\sin\\theta\\,d\\theta=4\\cdot2=8.$$"
+            }
+          ],
+          "answer": "$8$",
+          "check": {
+            "kind": "number",
+            "value": "8"
+          }
+        },
+        {
+          "problem": "Evaluate the iterated integral by converting to polar coordinates: $\\displaystyle\\int_{-2}^{2}\\int_{0}^{\\sqrt{4-y^2}}x\\,dx\\,dy$.",
+          "steps": [
+            {
+              "do": "From the limits of the outer and inner integrals, figure out the region $D=\\{a\\le y\\le b,\\ f_1(y)\\le x\\le f_2(y)\\}$. Draw it and express it in polar coordinates, $D=\\{\\alpha\\le\\theta\\le\\beta,\\ g_1(\\theta)\\le r\\le g_2(\\theta)\\}$.",
+              "work": "$D=\\{-2\\le y\\le2,\\ 0\\le x\\le\\sqrt{4-y^2}\\}$ is the right half of the disk of radius 2: $$D=\\{-\\tfrac\\pi2\\le\\theta\\le\\tfrac\\pi2,\\ 0\\le r\\le 2\\}.$$"
+            },
+            {
+              "do": "Write the iterated integral as an area integral and convert it using the 'dictionary' $x=r\\cos\\theta$, $y=r\\sin\\theta$, $dx\\,dy=r\\,dr\\,d\\theta$.",
+              "work": "$$\\int_{-\\pi/2}^{\\pi/2}\\int_0^2(r\\cos\\theta)\\,r\\,dr\\,d\\theta=\\int_{-\\pi/2}^{\\pi/2}\\int_0^2 r^2\\cos\\theta\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate the new iterated integral: inner first, then outer.",
+              "work": "Inner: $\\displaystyle\\int_0^2r^2\\,dr\\;\\cos\\theta=\\tfrac83\\cos\\theta$. Outer: $$\\tfrac83\\int_{-\\pi/2}^{\\pi/2}\\cos\\theta\\,d\\theta=\\tfrac83\\cdot2=\\tfrac{16}{3}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{16}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "16/3"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.4ba",
+      "course": "calc3",
+      "section": "15.4b",
+      "topic": "Integration in Cylindrical and Spherical Coordinates",
+      "title": "Triple integral in cylindrical coordinates",
+      "type": "Evaluate $\\displaystyle\\iiint_E F(x,y,z)\\,dV$, where $E$ is a solid region described in terms of cylinders and other surfaces.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iiint_E x^2\\,dV$, where $E$ is the solid that lies within the cylinder $x^2+y^2=1$, above the plane $z=0$, and below the cone $z^2=4x^2+4y^2$.",
+        "steps": [
+          {
+            "do": "Chances are you should use cylindrical coordinates ($x^2+y^2=r^2$). Express $E$ as $\\{\\alpha\\le\\theta\\le\\beta,\\ h_1(\\theta)\\le r\\le h_2(\\theta),\\ u_1(r,\\theta)\\le z\\le u_2(r,\\theta)\\}$.",
+            "work": "The cone is $z^2=4r^2$ and the cylinder is $r=1$ (the 'base'). Since $E$ is above $z=0$, $z$ runs from $0$ to $2r$: $$E=\\{0\\le\\theta\\le2\\pi,\\ 0\\le r\\le1,\\ 0\\le z\\le 2r\\}.$$"
+          },
+          {
+            "do": "Express the integrand with $x=r\\cos\\theta$, $y=r\\sin\\theta$, $x^2+y^2=r^2$, and use $dV=r\\,dz\\,dr\\,d\\theta$. Set up the iterated integral $\\int_\\alpha^\\beta\\int_{h_1}^{h_2}\\int_{u_1}^{u_2}F\\,r\\,dz\\,dr\\,d\\theta$.",
+            "work": "$$\\int_0^{2\\pi}\\int_0^1\\int_0^{2r}(r\\cos\\theta)^2\\,r\\,dz\\,dr\\,d\\theta.$$"
+          },
+          {
+            "do": "Evaluate from the inside out.",
+            "work": "Inner: $\\displaystyle\\int_0^{2r}r^3\\cos^2\\theta\\,dz=2r^4\\cos^2\\theta$. Middle: $\\displaystyle\\int_0^12r^4\\cos^2\\theta\\,dr=\\tfrac25\\cos^2\\theta$. Outer: $$\\int_0^{2\\pi}\\tfrac25\\cos^2\\theta\\,d\\theta=\\tfrac25\\int_0^{2\\pi}\\tfrac{1+\\cos2\\theta}{2}\\,d\\theta=\\tfrac25\\Big[\\tfrac\\theta2+\\tfrac{\\sin2\\theta}{4}\\Big]_0^{2\\pi}=\\tfrac{2\\pi}{5}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{2\\pi}{5}$",
+        "check": {
+          "kind": "number",
+          "value": "2*pi/5"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E (x^2+y^2)\\,dV$, where $E$ is the solid that lies within the cylinder $x^2+y^2=4$, above the plane $z=0$, and below the cone $z^2=x^2+y^2$.",
+          "steps": [
+            {
+              "do": "Chances are you should use cylindrical coordinates ($x^2+y^2=r^2$). Express $E$ as $\\{\\alpha\\le\\theta\\le\\beta,\\ h_1(\\theta)\\le r\\le h_2(\\theta),\\ u_1(r,\\theta)\\le z\\le u_2(r,\\theta)\\}$.",
+              "work": "The cone is $z=r$ (for $z\\ge0$) and the cylinder is $r=2$: $$E=\\{0\\le\\theta\\le2\\pi,\\ 0\\le r\\le2,\\ 0\\le z\\le r\\}.$$"
+            },
+            {
+              "do": "Express the integrand with $x=r\\cos\\theta$, $y=r\\sin\\theta$, $x^2+y^2=r^2$, and use $dV=r\\,dz\\,dr\\,d\\theta$. Set up the iterated integral $\\int_\\alpha^\\beta\\int_{h_1}^{h_2}\\int_{u_1}^{u_2}F\\,r\\,dz\\,dr\\,d\\theta$.",
+              "work": "$$\\int_0^{2\\pi}\\int_0^2\\int_0^{r}r^2\\cdot r\\,dz\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate from the inside out.",
+              "work": "Inner: $\\displaystyle\\int_0^{r}r^3\\,dz=r^4$. Middle: $\\displaystyle\\int_0^2r^4\\,dr=\\tfrac{32}{5}$. Outer: $$\\int_0^{2\\pi}\\tfrac{32}{5}\\,d\\theta=\\tfrac{64\\pi}{5}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{64\\pi}{5}$",
+          "check": {
+            "kind": "number",
+            "value": "64*pi/5"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E z\\,dV$, where $E$ is the solid bounded below by the paraboloid $z=x^2+y^2$ and above by the plane $z=4$.",
+          "steps": [
+            {
+              "do": "Chances are you should use cylindrical coordinates ($x^2+y^2=r^2$). Express $E$ as $\\{\\alpha\\le\\theta\\le\\beta,\\ h_1(\\theta)\\le r\\le h_2(\\theta),\\ u_1(r,\\theta)\\le z\\le u_2(r,\\theta)\\}$.",
+              "work": "The paraboloid is $z=r^2$ and meets the plane $z=4$ where $r=2$, so the base is the disk $r\\le2$: $$E=\\{0\\le\\theta\\le2\\pi,\\ 0\\le r\\le2,\\ r^2\\le z\\le 4\\}.$$"
+            },
+            {
+              "do": "Express the integrand with $x=r\\cos\\theta$, $y=r\\sin\\theta$, $x^2+y^2=r^2$, and use $dV=r\\,dz\\,dr\\,d\\theta$. Set up the iterated integral $\\int_\\alpha^\\beta\\int_{h_1}^{h_2}\\int_{u_1}^{u_2}F\\,r\\,dz\\,dr\\,d\\theta$.",
+              "work": "$$\\int_0^{2\\pi}\\int_0^2\\int_{r^2}^{4}z\\,r\\,dz\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate from the inside out.",
+              "work": "Inner: $\\displaystyle\\int_{r^2}^4 zr\\,dz=r\\,\\tfrac{16-r^4}{2}=8r-\\tfrac{r^5}{2}$. Middle: $\\displaystyle\\int_0^2\\bigl(8r-\\tfrac{r^5}{2}\\bigr)dr=16-\\tfrac{16}{3}=\\tfrac{32}{3}$. Outer: $$\\int_0^{2\\pi}\\tfrac{32}{3}\\,d\\theta=\\tfrac{64\\pi}{3}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{64\\pi}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "64*pi/3"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.4bb",
+      "course": "calc3",
+      "section": "15.4b",
+      "topic": "Integration in Cylindrical and Spherical Coordinates",
+      "title": "Triple integral in spherical coordinates",
+      "type": "Evaluate $\\displaystyle\\iiint_E F(x,y,z)\\,dV$, where $E$ is bounded by the $xz$-plane and the hemispheres $y=\\sqrt{r_1^2-x^2-z^2}$ and $y=\\sqrt{r_2^2-x^2-z^2}$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iiint_E x^2\\,dV$, where $E$ is bounded by the $xz$-plane and the hemispheres $y=\\sqrt{1-x^2-z^2}$ and $y=\\sqrt{4-x^2-z^2}$.",
+        "steps": [
+          {
+            "do": "Use spherical coordinates. The hemisphere $y=\\sqrt{R^2-x^2-z^2}$ is half of the sphere $\\rho=R$. Since $y\\ge0$, $0\\le\\theta\\le\\pi$; $\\varphi$ has its full range $0\\le\\varphi\\le\\pi$. So $E=\\{r_1\\le\\rho\\le r_2,\\ 0\\le\\theta\\le\\pi,\\ 0\\le\\varphi\\le\\pi\\}$.",
+            "work": "The radii are 1 and 2: $$E=\\{1\\le\\rho\\le2,\\ 0\\le\\theta\\le\\pi,\\ 0\\le\\varphi\\le\\pi\\}.$$"
+          },
+          {
+            "do": "Use the dictionary $x=\\rho\\sin\\varphi\\cos\\theta$, $y=\\rho\\sin\\varphi\\sin\\theta$, $z=\\rho\\cos\\varphi$, $dV=\\rho^2\\sin\\varphi\\,d\\rho\\,d\\theta\\,d\\varphi$. Convert to an iterated spherical integral.",
+            "work": "$$\\int_0^\\pi\\int_0^\\pi\\int_1^2(\\rho\\sin\\varphi\\cos\\theta)^2\\rho^2\\sin\\varphi\\,d\\rho\\,d\\theta\\,d\\varphi=\\int_0^\\pi\\int_0^\\pi\\int_1^2\\rho^4\\sin^3\\varphi\\cos^2\\theta\\,d\\rho\\,d\\theta\\,d\\varphi.$$"
+          },
+          {
+            "do": "If all limits are numbers and the integrand is a product of functions of single variables, the integral is a product of three single integrals. Evaluate each and multiply.",
+            "work": "$$\\int_0^\\pi\\sin^3\\varphi\\,d\\varphi\\int_0^\\pi\\cos^2\\theta\\,d\\theta\\int_1^2\\rho^4\\,d\\rho.$$ First ($u=\\cos\\varphi$): $\\displaystyle\\int_0^\\pi(1-\\cos^2\\varphi)\\sin\\varphi\\,d\\varphi=\\int_{-1}^{1}(1-u^2)\\,du=\\tfrac43$. Second: $\\displaystyle\\int_0^\\pi\\tfrac{1+\\cos2\\theta}{2}\\,d\\theta=\\tfrac\\pi2$. Third: $\\displaystyle\\tfrac{2^5-1}{5}=\\tfrac{31}{5}$. Product: $$\\tfrac43\\cdot\\tfrac\\pi2\\cdot\\tfrac{31}{5}=\\tfrac{62\\pi}{15}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{62\\pi}{15}$",
+        "check": {
+          "kind": "number",
+          "value": "62*pi/15"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E z^2\\,dV$, where $E$ is bounded by the $xz$-plane and the hemispheres $y=\\sqrt{1-x^2-z^2}$ and $y=\\sqrt{9-x^2-z^2}$.",
+          "steps": [
+            {
+              "do": "Use spherical coordinates. The hemisphere $y=\\sqrt{R^2-x^2-z^2}$ is half of the sphere $\\rho=R$. Since $y\\ge0$, $0\\le\\theta\\le\\pi$; $\\varphi$ has its full range $0\\le\\varphi\\le\\pi$. So $E=\\{r_1\\le\\rho\\le r_2,\\ 0\\le\\theta\\le\\pi,\\ 0\\le\\varphi\\le\\pi\\}$.",
+              "work": "The radii are 1 and 3: $$E=\\{1\\le\\rho\\le3,\\ 0\\le\\theta\\le\\pi,\\ 0\\le\\varphi\\le\\pi\\}.$$"
+            },
+            {
+              "do": "Use the dictionary $x=\\rho\\sin\\varphi\\cos\\theta$, $y=\\rho\\sin\\varphi\\sin\\theta$, $z=\\rho\\cos\\varphi$, $dV=\\rho^2\\sin\\varphi\\,d\\rho\\,d\\theta\\,d\\varphi$. Convert to an iterated spherical integral.",
+              "work": "$$\\int_0^\\pi\\int_0^\\pi\\int_1^3(\\rho\\cos\\varphi)^2\\rho^2\\sin\\varphi\\,d\\rho\\,d\\theta\\,d\\varphi=\\int_0^\\pi\\int_0^\\pi\\int_1^3\\rho^4\\cos^2\\varphi\\sin\\varphi\\,d\\rho\\,d\\theta\\,d\\varphi.$$"
+            },
+            {
+              "do": "If all limits are numbers and the integrand is a product of functions of single variables, the integral is a product of three single integrals. Evaluate each and multiply.",
+              "work": "$$\\int_0^\\pi\\cos^2\\varphi\\sin\\varphi\\,d\\varphi\\int_0^\\pi d\\theta\\int_1^3\\rho^4\\,d\\rho.$$ First ($u=\\cos\\varphi$): $\\displaystyle\\int_{-1}^{1}u^2\\,du=\\tfrac23$. Second: $\\pi$. Third: $\\displaystyle\\tfrac{3^5-1}{5}=\\tfrac{242}{5}$. Product: $$\\tfrac23\\cdot\\pi\\cdot\\tfrac{242}{5}=\\tfrac{484\\pi}{15}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{484\\pi}{15}$",
+          "check": {
+            "kind": "number",
+            "value": "484*pi/15"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iiint_E y\\,dV$, where $E$ is bounded by the $xz$-plane and the hemispheres $y=\\sqrt{1-x^2-z^2}$ and $y=\\sqrt{4-x^2-z^2}$.",
+          "steps": [
+            {
+              "do": "Use spherical coordinates. The hemisphere $y=\\sqrt{R^2-x^2-z^2}$ is half of the sphere $\\rho=R$. Since $y\\ge0$, $0\\le\\theta\\le\\pi$; $\\varphi$ has its full range $0\\le\\varphi\\le\\pi$. So $E=\\{r_1\\le\\rho\\le r_2,\\ 0\\le\\theta\\le\\pi,\\ 0\\le\\varphi\\le\\pi\\}$.",
+              "work": "The radii are 1 and 2: $$E=\\{1\\le\\rho\\le2,\\ 0\\le\\theta\\le\\pi,\\ 0\\le\\varphi\\le\\pi\\}.$$"
+            },
+            {
+              "do": "Use the dictionary $x=\\rho\\sin\\varphi\\cos\\theta$, $y=\\rho\\sin\\varphi\\sin\\theta$, $z=\\rho\\cos\\varphi$, $dV=\\rho^2\\sin\\varphi\\,d\\rho\\,d\\theta\\,d\\varphi$. Convert to an iterated spherical integral.",
+              "work": "$$\\int_0^\\pi\\int_0^\\pi\\int_1^2(\\rho\\sin\\varphi\\sin\\theta)\\rho^2\\sin\\varphi\\,d\\rho\\,d\\theta\\,d\\varphi=\\int_0^\\pi\\int_0^\\pi\\int_1^2\\rho^3\\sin^2\\varphi\\sin\\theta\\,d\\rho\\,d\\theta\\,d\\varphi.$$"
+            },
+            {
+              "do": "If all limits are numbers and the integrand is a product of functions of single variables, the integral is a product of three single integrals. Evaluate each and multiply.",
+              "work": "$$\\int_0^\\pi\\sin^2\\varphi\\,d\\varphi\\int_0^\\pi\\sin\\theta\\,d\\theta\\int_1^2\\rho^3\\,d\\rho.$$ First: $\\displaystyle\\int_0^\\pi\\tfrac{1-\\cos2\\varphi}{2}\\,d\\varphi=\\tfrac\\pi2$. Second: $2$. Third: $\\displaystyle\\tfrac{2^4-1}{4}=\\tfrac{15}{4}$. Product: $$\\tfrac\\pi2\\cdot2\\cdot\\tfrac{15}{4}=\\tfrac{15\\pi}{4}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{15\\pi}{4}$",
+          "check": {
+            "kind": "number",
+            "value": "15*pi/4"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.5a",
+      "course": "calc3",
+      "section": "15.5",
+      "topic": "Change of Variables in Multiple Integrals",
+      "title": "Jacobian of a transformation",
+      "type": "Find the Jacobian of the transformation $x=g(u,v,w)$, $y=h(u,v,w)$, $z=k(u,v,w)$.",
+      "example": {
+        "problem": "Find the Jacobian of the transformation $x=u^2v$, $y=v^2w$, $z=w^2u$.",
+        "steps": [
+          {
+            "do": "Compute all nine entries of the Jacobian matrix $\\begin{vmatrix}\\partial x/\\partial u&\\partial x/\\partial v&\\partial x/\\partial w\\\\ \\partial y/\\partial u&\\partial y/\\partial v&\\partial y/\\partial w\\\\ \\partial z/\\partial u&\\partial z/\\partial v&\\partial z/\\partial w\\end{vmatrix}$.",
+            "work": "$$\\begin{vmatrix}2uv&u^2&0\\\\0&2vw&v^2\\\\w^2&0&2uw\\end{vmatrix}$$"
+          },
+          {
+            "do": "Evaluate the determinant (expand along the first row).",
+            "work": "$$\\begin{aligned}&2uv\\bigl[(2vw)(2uw)-0\\bigr]-u^2\\bigl[0-(v^2)(w^2)\\bigr]+0\\\\&=8u^2v^2w^2+u^2v^2w^2=9u^2v^2w^2.\\end{aligned}$$"
+          }
+        ],
+        "answer": "$9u^2v^2w^2$",
+        "check": {
+          "kind": "expr",
+          "value": "9*u^2*v^2*w^2",
+          "vars": [
+            "u",
+            "v",
+            "w"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the Jacobian of the transformation $x=uv$, $y=vw$, $z=uw$.",
+          "steps": [
+            {
+              "do": "Compute all nine entries of the Jacobian matrix $\\begin{vmatrix}\\partial x/\\partial u&\\partial x/\\partial v&\\partial x/\\partial w\\\\ \\partial y/\\partial u&\\partial y/\\partial v&\\partial y/\\partial w\\\\ \\partial z/\\partial u&\\partial z/\\partial v&\\partial z/\\partial w\\end{vmatrix}$.",
+              "work": "$$\\begin{vmatrix}v&u&0\\\\0&w&v\\\\w&0&u\\end{vmatrix}$$"
+            },
+            {
+              "do": "Evaluate the determinant (expand along the first row).",
+              "work": "$$v\\,(wu-0)-u\\,(0\\cdot u-vw)+0=uvw+uvw=2uvw.$$"
+            }
+          ],
+          "answer": "$2uvw$",
+          "check": {
+            "kind": "expr",
+            "value": "2*u*v*w",
+            "vars": [
+              "u",
+              "v",
+              "w"
+            ]
+          }
+        },
+        {
+          "problem": "Find the Jacobian of the transformation $x=u+v^2$, $y=v+w^2$, $z=w+u^2$.",
+          "steps": [
+            {
+              "do": "Compute all nine entries of the Jacobian matrix $\\begin{vmatrix}\\partial x/\\partial u&\\partial x/\\partial v&\\partial x/\\partial w\\\\ \\partial y/\\partial u&\\partial y/\\partial v&\\partial y/\\partial w\\\\ \\partial z/\\partial u&\\partial z/\\partial v&\\partial z/\\partial w\\end{vmatrix}$.",
+              "work": "$$\\begin{vmatrix}1&2v&0\\\\0&1&2w\\\\2u&0&1\\end{vmatrix}$$"
+            },
+            {
+              "do": "Evaluate the determinant (expand along the first row).",
+              "work": "$$1\\,(1\\cdot1-0)-2v\\,(0\\cdot1-2w\\cdot2u)+0=1+8uvw.$$"
+            }
+          ],
+          "answer": "$1+8uvw$",
+          "check": {
+            "kind": "expr",
+            "value": "1+8*u*v*w",
+            "vars": [
+              "u",
+              "v",
+              "w"
+            ]
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-15.5b",
+      "course": "calc3",
+      "section": "15.5",
+      "topic": "Change of Variables in Multiple Integrals",
+      "title": "Double integral by linear change of variables",
+      "type": "Use the given transformation $x=au+bv$, $y=cu+dv$ to evaluate $\\displaystyle\\iint_RF(x,y)\\,dA$, where $R$ is the triangular region with vertices $(p_1,p_2)$, $(q_1,q_2)$, $(r_1,r_2)$.",
+      "example": {
+        "problem": "Use the transformation $x=2u+v$, $y=u+2v$ to evaluate $\\displaystyle\\iint_R(x+y)\\,dA$, where $R$ is the triangular region with vertices $(0,0)$, $(2,1)$, $(1,2)$.",
+        "steps": [
+          {
+            "do": "Find the region $R'$ in the $uv$-plane that gets transformed onto $R$. A triangle goes to a triangle, so solve for $(u,v)$ in terms of $(x,y)$ at each of the three vertices.",
+            "work": "$(0,0)\\mapsto(0,0)$. For $(1,2)$: $2u+v=1,\\ u+2v=2$ gives $(u,v)=(0,1)$. Similarly $(2,1)$ goes to $(1,0)$. So $R'$ is the triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$."
+          },
+          {
+            "do": "Find the Jacobian. For a linear map $x=au+bv$, $y=cu+dv$ it is $ad-bc$. Rewrite $F(x,y)$ in terms of $u,v$: $\\iint_RF\\,dA=\\iint_{R'}F(au+bv,cu+dv)\\,|ad-bc|\\,dA$ (take the absolute value!).",
+            "work": "$J=(2)(2)-(1)(1)=3$, and $x+y=3u+3v$, so $$\\iint_R(x+y)\\,dA=\\iint_{R'}3(u+v)\\cdot|3|\\,dA=9\\iint_{R'}(u+v)\\,dA.$$"
+          },
+          {
+            "do": "Describe $R'$ as a type I (or II) region and set up and evaluate the iterated integral.",
+            "work": "$R'=\\{0\\le u\\le1,\\ 0\\le v\\le1-u\\}$. Inner: $\\displaystyle\\int_0^{1-u}(u+v)\\,dv=u(1-u)+\\tfrac{(1-u)^2}{2}=\\tfrac{1-u^2}{2}$. Outer: $$9\\int_0^1\\tfrac{1-u^2}{2}\\,du=\\tfrac92\\Big[u-\\tfrac{u^3}{3}\\Big]_0^1=\\tfrac92\\cdot\\tfrac23=3.$$"
+          }
+        ],
+        "answer": "$3$",
+        "check": {
+          "kind": "number",
+          "value": "3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the transformation $x=3u+v$, $y=u+2v$ to evaluate $\\displaystyle\\iint_R(x+y)\\,dA$, where $R$ is the triangular region with vertices $(0,0)$, $(3,1)$, $(1,2)$.",
+          "steps": [
+            {
+              "do": "Find the region $R'$ in the $uv$-plane that gets transformed onto $R$. A triangle goes to a triangle, so solve for $(u,v)$ in terms of $(x,y)$ at each of the three vertices.",
+              "work": "$(0,0)\\mapsto(0,0)$. For $(3,1)$: $3u+v=3,\\ u+2v=1$ gives $(u,v)=(1,0)$. For $(1,2)$: $3u+v=1,\\ u+2v=2$ gives $(u,v)=(0,1)$. So $R'$ is the triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$."
+            },
+            {
+              "do": "Find the Jacobian. For a linear map $x=au+bv$, $y=cu+dv$ it is $ad-bc$. Rewrite $F(x,y)$ in terms of $u,v$: $\\iint_RF\\,dA=\\iint_{R'}F(au+bv,cu+dv)\\,|ad-bc|\\,dA$ (take the absolute value!).",
+              "work": "$J=(3)(2)-(1)(1)=5$, and $x+y=4u+3v$, so $$\\iint_R(x+y)\\,dA=5\\iint_{R'}(4u+3v)\\,dA.$$"
+            },
+            {
+              "do": "Describe $R'$ as a type I (or II) region and set up and evaluate the iterated integral.",
+              "work": "$R'=\\{0\\le u\\le1,\\ 0\\le v\\le1-u\\}$. Inner: $\\displaystyle\\int_0^{1-u}(4u+3v)\\,dv=4u(1-u)+\\tfrac32(1-u)^2=\\tfrac32+u-\\tfrac52u^2$. Outer: $$5\\int_0^1\\left(\\tfrac32+u-\\tfrac52u^2\\right)du=5\\left(\\tfrac32+\\tfrac12-\\tfrac56\\right)=\\tfrac{35}{6}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{35}{6}$",
+          "check": {
+            "kind": "number",
+            "value": "35/6"
+          }
+        },
+        {
+          "problem": "Use the transformation $x=u+v$, $y=u-v$ to evaluate $\\displaystyle\\iint_R(x^2+y^2)\\,dA$, where $R$ is the triangular region with vertices $(0,0)$, $(2,0)$, $(1,1)$.",
+          "steps": [
+            {
+              "do": "Find the region $R'$ in the $uv$-plane that gets transformed onto $R$. A triangle goes to a triangle, so solve for $(u,v)$ in terms of $(x,y)$ at each of the three vertices.",
+              "work": "$(0,0)\\mapsto(0,0)$. For $(2,0)$: $u+v=2,\\ u-v=0$ gives $(u,v)=(1,1)$. For $(1,1)$: $u+v=1,\\ u-v=1$ gives $(u,v)=(1,0)$. So $R'$ is the triangle with vertices $(0,0)$, $(1,1)$, $(1,0)$."
+            },
+            {
+              "do": "Find the Jacobian. For a linear map $x=au+bv$, $y=cu+dv$ it is $ad-bc$. Rewrite $F(x,y)$ in terms of $u,v$: $\\iint_RF\\,dA=\\iint_{R'}F(au+bv,cu+dv)\\,|ad-bc|\\,dA$ (take the absolute value!).",
+              "work": "$J=(1)(-1)-(1)(1)=-2$, so $|J|=2$. Also $x^2+y^2=(u+v)^2+(u-v)^2=2u^2+2v^2$, so $$\\iint_R(x^2+y^2)\\,dA=\\iint_{R'}(2u^2+2v^2)\\cdot2\\,dA=4\\iint_{R'}(u^2+v^2)\\,dA.$$"
+            },
+            {
+              "do": "Describe $R'$ as a type I (or II) region and set up and evaluate the iterated integral.",
+              "work": "$R'=\\{0\\le u\\le1,\\ 0\\le v\\le u\\}$. Inner: $\\displaystyle\\int_0^{u}(u^2+v^2)\\,dv=u^3+\\tfrac{u^3}{3}=\\tfrac43u^3$. Outer: $$4\\int_0^1\\tfrac43u^3\\,du=4\\cdot\\tfrac13=\\tfrac43.$$"
+            }
+          ],
+          "answer": "$\\dfrac{4}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "4/3"
+          }
+        }
+      ],
+      "scene": "multiple"
+    },
+    {
+      "id": "c3-16.2a",
+      "course": "calc3",
+      "section": "16.2",
+      "topic": "Line Integrals",
+      "title": "Line integral with respect to arc length",
+      "type": "Evaluate the line integral $\\displaystyle\\int_Cf(x,y)\\,ds$, where $C$ is a curve given in parametric form or one you must parametrize yourself (typically circles, line segments, semicircles).",
+      "example": {
+        "problem": "Evaluate the line integral $\\displaystyle\\int_Cx^2y\\,ds$, where $C$ is the top half of the circle $x^2+y^2=9$.",
+        "steps": [
+          {
+            "do": "Find a parametrization $(x(t),y(t))$, $a\\le t\\le b$, of the curve (unless it is given).",
+            "work": "A circle $x^2+y^2=r^2$ is $x=r\\cos t$, $y=r\\sin t$. Here $r=3$: $x=3\\cos t$, $y=3\\sin t$. For the top half, $0\\le t\\le\\pi$."
+          },
+          {
+            "do": "Compute the speed factor $\\sqrt{x'(t)^2+y'(t)^2}$, so that $ds=\\sqrt{x'(t)^2+y'(t)^2}\\,dt$.",
+            "work": "$x'=-3\\sin t$, $y'=3\\cos t$, so $\\sqrt{9\\sin^2t+9\\cos^2t}=3$."
+          },
+          {
+            "do": "The line integral is $\\displaystyle\\int_a^bf(x(t),y(t))\\sqrt{x'(t)^2+y'(t)^2}\\,dt$. Convert everything to $t$ and integrate from $t=a$ to $t=b$.",
+            "work": "$$\\int_Cx^2y\\,ds=\\int_0^\\pi(3\\cos t)^2(3\\sin t)\\cdot3\\,dt=81\\int_0^\\pi\\cos^2t\\sin t\\,dt=81\\Big[-\\tfrac{\\cos^3t}{3}\\Big]_0^\\pi=81\\cdot\\tfrac23=54.$$"
+          }
+        ],
+        "answer": "$54$",
+        "check": {
+          "kind": "number",
+          "value": "54"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate the line integral $\\displaystyle\\int_Cy^2\\,ds$, where $C$ is the right half of the circle $x^2+y^2=4$.",
+          "steps": [
+            {
+              "do": "Find a parametrization $(x(t),y(t))$, $a\\le t\\le b$, of the curve (unless it is given).",
+              "work": "$r=2$: $x=2\\cos t$, $y=2\\sin t$. For the right half, $-\\tfrac\\pi2\\le t\\le\\tfrac\\pi2$."
+            },
+            {
+              "do": "Compute the speed factor $\\sqrt{x'(t)^2+y'(t)^2}$, so that $ds=\\sqrt{x'(t)^2+y'(t)^2}\\,dt$.",
+              "work": "$x'=-2\\sin t$, $y'=2\\cos t$, so $\\sqrt{4\\sin^2t+4\\cos^2t}=2$."
+            },
+            {
+              "do": "The line integral is $\\displaystyle\\int_a^bf(x(t),y(t))\\sqrt{x'(t)^2+y'(t)^2}\\,dt$. Convert everything to $t$ and integrate from $t=a$ to $t=b$.",
+              "work": "$$\\int_Cy^2\\,ds=\\int_{-\\pi/2}^{\\pi/2}(2\\sin t)^2\\cdot2\\,dt=8\\int_{-\\pi/2}^{\\pi/2}\\sin^2t\\,dt=8\\cdot\\tfrac\\pi2=4\\pi.$$"
+            }
+          ],
+          "answer": "$4\\pi$",
+          "check": {
+            "kind": "number",
+            "value": "4*pi"
+          }
+        },
+        {
+          "problem": "Evaluate the line integral $\\displaystyle\\int_C(x+y)\\,ds$, where $C$ is the line segment from $(1,0)$ to $(4,4)$.",
+          "steps": [
+            {
+              "do": "Find a parametrization $(x(t),y(t))$, $a\\le t\\le b$, of the curve (unless it is given).",
+              "work": "$x=1+3t$, $y=4t$, $0\\le t\\le1$."
+            },
+            {
+              "do": "Compute the speed factor $\\sqrt{x'(t)^2+y'(t)^2}$, so that $ds=\\sqrt{x'(t)^2+y'(t)^2}\\,dt$.",
+              "work": "$x'=3$, $y'=4$, so $\\sqrt{9+16}=5$."
+            },
+            {
+              "do": "The line integral is $\\displaystyle\\int_a^bf(x(t),y(t))\\sqrt{x'(t)^2+y'(t)^2}\\,dt$. Convert everything to $t$ and integrate from $t=a$ to $t=b$.",
+              "work": "$$\\int_C(x+y)\\,ds=\\int_0^1(1+7t)\\cdot5\\,dt=5\\Big[t+\\tfrac{7t^2}{2}\\Big]_0^1=5\\cdot\\tfrac92=\\tfrac{45}{2}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{45}{2}$",
+          "check": {
+            "kind": "number",
+            "value": "45/2"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-16.2b",
+      "course": "calc3",
+      "section": "16.2",
+      "topic": "Line Integrals",
+      "title": "Line integral in dx, dy, dz form",
+      "type": "Evaluate the line integral $\\displaystyle\\int_CP(x,y,z)\\,dx+Q(x,y,z)\\,dy+R(x,y,z)\\,dz$, where $C:\\ x=x(t),\\ y=y(t),\\ z=z(t),\\ a\\le t\\le b$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int_Cy\\,dx+x\\,dy+x^2y\\sqrt z\\,dz$, where $C:\\ x=t^3,\\ y=t,\\ z=t^2,\\ 0\\le t\\le1$.",
+        "steps": [
+          {
+            "do": "Get a single-variable integral in $t$: replace $x,y,z$ by $x(t),y(t),z(t)$ and $dx,dy,dz$ by $x'(t)\\,dt$, $y'(t)\\,dt$, $z'(t)\\,dt$. That is, $\\int_C P\\,dx+Q\\,dy+R\\,dz=\\int_a^b\\bigl[Px'+Qy'+Rz'\\bigr]dt$.",
+            "work": "$dx=3t^2dt$, $dy=dt$, $dz=2t\\,dt$, and $\\sqrt z=t$: $$\\int_0^1\\bigl[t(3t^2)+t^3+(t^3)^2\\,t\\cdot t\\cdot2t\\bigr]dt=\\int_0^1\\bigl[4t^3+2t^9\\bigr]dt.$$"
+          },
+          {
+            "do": "Evaluate the $t$-integral.",
+            "work": "$$\\Big[t^4+\\tfrac{t^{10}}{5}\\Big]_0^1=1+\\tfrac15=\\tfrac65.$$"
+          }
+        ],
+        "answer": "$\\dfrac{6}{5}$",
+        "check": {
+          "kind": "number",
+          "value": "6/5"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int_Cz\\,dx+x\\,dy+y\\,dz$, where $C:\\ x=t,\\ y=t^2,\\ z=t^3,\\ 0\\le t\\le1$.",
+          "steps": [
+            {
+              "do": "Get a single-variable integral in $t$: replace $x,y,z$ by $x(t),y(t),z(t)$ and $dx,dy,dz$ by $x'(t)\\,dt$, $y'(t)\\,dt$, $z'(t)\\,dt$. That is, $\\int_C P\\,dx+Q\\,dy+R\\,dz=\\int_a^b\\bigl[Px'+Qy'+Rz'\\bigr]dt$.",
+              "work": "$dx=dt$, $dy=2t\\,dt$, $dz=3t^2\\,dt$: $$\\int_0^1\\bigl[t^3\\cdot1+t\\cdot2t+t^2\\cdot3t^2\\bigr]dt=\\int_0^1\\bigl[t^3+2t^2+3t^4\\bigr]dt.$$"
+            },
+            {
+              "do": "Evaluate the $t$-integral.",
+              "work": "$$\\Big[\\tfrac{t^4}{4}+\\tfrac{2t^3}{3}+\\tfrac{3t^5}{5}\\Big]_0^1=\\tfrac14+\\tfrac23+\\tfrac35=\\tfrac{91}{60}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{91}{60}$",
+          "check": {
+            "kind": "number",
+            "value": "91/60"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int_Cy\\,dx+x\\sqrt z\\,dy+z\\,dz$, where $C:\\ x=t^2,\\ y=t,\\ z=t^4,\\ 0\\le t\\le1$.",
+          "steps": [
+            {
+              "do": "Get a single-variable integral in $t$: replace $x,y,z$ by $x(t),y(t),z(t)$ and $dx,dy,dz$ by $x'(t)\\,dt$, $y'(t)\\,dt$, $z'(t)\\,dt$. That is, $\\int_C P\\,dx+Q\\,dy+R\\,dz=\\int_a^b\\bigl[Px'+Qy'+Rz'\\bigr]dt$.",
+              "work": "$dx=2t\\,dt$, $dy=dt$, $dz=4t^3\\,dt$, and $\\sqrt z=t^2$: $$\\int_0^1\\bigl[t\\cdot2t+t^2\\cdot t^2\\cdot1+t^4\\cdot4t^3\\bigr]dt=\\int_0^1\\bigl[2t^2+t^4+4t^7\\bigr]dt.$$"
+            },
+            {
+              "do": "Evaluate the $t$-integral.",
+              "work": "$$\\Big[\\tfrac{2t^3}{3}+\\tfrac{t^5}{5}+\\tfrac{t^8}{2}\\Big]_0^1=\\tfrac23+\\tfrac15+\\tfrac12=\\tfrac{41}{30}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{41}{30}$",
+          "check": {
+            "kind": "number",
+            "value": "41/30"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-16.2c",
+      "course": "calc3",
+      "section": "16.2",
+      "topic": "Line Integrals",
+      "title": "Line integral of a vector field",
+      "type": "Evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $C$ is given by $\\mathbf r(t)=x(t)\\mathbf i+y(t)\\mathbf j+z(t)\\mathbf k$, $a\\le t\\le b$, and $\\mathbf F=P\\,\\mathbf i+Q\\,\\mathbf j+R\\,\\mathbf k$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F(x,y,z)=yz\\,\\mathbf i+xz\\,\\mathbf j+xy\\,\\mathbf k$ and $C$ is given by $\\mathbf r(t)=t\\,\\mathbf i+t^2\\,\\mathbf j+t^3\\,\\mathbf k$, $0\\le t\\le2$.",
+        "steps": [
+          {
+            "do": "The line integral equals $\\displaystyle\\int_CP\\,dx+Q\\,dy+R\\,dz$. Set it up, with $x=x(t)$, $y=y(t)$, $z=z(t)$.",
+            "work": "$$\\int_Cyz\\,dx+xz\\,dy+xy\\,dz,\\qquad x=t,\\ y=t^2,\\ z=t^3,\\ 0\\le t\\le 2.$$"
+          },
+          {
+            "do": "Evaluate this line integral by parametrizing the curve, as in the previous recipe.",
+            "work": "$$\\int_0^2\\bigl[t^2t^3+t\\,t^3\\,(2t)+t\\,t^2\\,(3t^2)\\bigr]dt=\\int_0^2(t^5+2t^5+3t^5)\\,dt=\\int_0^26t^5\\,dt=t^6\\Big|_0^2=64.$$"
+          }
+        ],
+        "answer": "$64$",
+        "check": {
+          "kind": "number",
+          "value": "64"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F(x,y,z)=z\\,\\mathbf i+x\\,\\mathbf j+y\\,\\mathbf k$ and $C$ is given by $\\mathbf r(t)=\\cos t\\,\\mathbf i+\\sin t\\,\\mathbf j+t\\,\\mathbf k$, $0\\le t\\le\\tfrac\\pi2$.",
+          "steps": [
+            {
+              "do": "The line integral equals $\\displaystyle\\int_CP\\,dx+Q\\,dy+R\\,dz$. Set it up, with $x=x(t)$, $y=y(t)$, $z=z(t)$.",
+              "work": "$$\\int_Cz\\,dx+x\\,dy+y\\,dz,\\qquad x=\\cos t,\\ y=\\sin t,\\ z=t,\\ 0\\le t\\le \\tfrac\\pi2.$$"
+            },
+            {
+              "do": "Evaluate this line integral by parametrizing the curve, as in the previous recipe.",
+              "work": "$$\\int_0^{\\pi/2}\\bigl[t(-\\sin t)+\\cos t\\cos t+\\sin t\\cdot1\\bigr]dt=\\Big[t\\cos t-\\sin t\\Big]_0^{\\pi/2}+\\tfrac\\pi4+1=-1+\\tfrac\\pi4+1=\\tfrac\\pi4.$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\pi}{4}$",
+          "check": {
+            "kind": "number",
+            "value": "pi/4"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F(x,y,z)=xy\\,\\mathbf i+yz\\,\\mathbf j+zx\\,\\mathbf k$ and $C$ is given by $\\mathbf r(t)=t^2\\,\\mathbf i+t\\,\\mathbf j+t^3\\,\\mathbf k$, $0\\le t\\le1$.",
+          "steps": [
+            {
+              "do": "The line integral equals $\\displaystyle\\int_CP\\,dx+Q\\,dy+R\\,dz$. Set it up, with $x=x(t)$, $y=y(t)$, $z=z(t)$.",
+              "work": "$$\\int_Cxy\\,dx+yz\\,dy+zx\\,dz,\\qquad x=t^2,\\ y=t,\\ z=t^3,\\ 0\\le t\\le 1.$$"
+            },
+            {
+              "do": "Evaluate this line integral by parametrizing the curve, as in the previous recipe.",
+              "work": "$$\\int_0^1\\bigl[t^2t\\,(2t)+t\\,t^3\\,(1)+t^3t^2\\,(3t^2)\\bigr]dt=\\int_0^1(3t^4+3t^7)\\,dt=\\tfrac35+\\tfrac38=\\tfrac{39}{40}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{39}{40}$",
+          "check": {
+            "kind": "number",
+            "value": "39/40"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-16.3a",
+      "course": "calc3",
+      "section": "16.3",
+      "topic": "Conservative Vector Fields",
+      "title": "Test and find a 2-D potential",
+      "type": "Determine whether $\\mathbf F=P(x,y)\\,\\mathbf i+Q(x,y)\\,\\mathbf j$ is a conservative vector field. If it is, find a function $f$ such that $\\mathbf F=\\nabla f$.",
+      "example": {
+        "problem": "Determine whether $\\mathbf F=(e^y+y\\cos x)\\,\\mathbf i+(xe^y+\\sin x+2y)\\,\\mathbf j$ is conservative. If it is, find $f$ with $\\mathbf F=\\nabla f$. (Enter $f$.)",
+        "steps": [
+          {
+            "do": "Compute $\\partial P/\\partial y$ and $\\partial Q/\\partial x$. If they differ, $\\mathbf F$ is not conservative: end of story. If they agree, it is conservative; go on.",
+            "work": "$P_y=e^y+\\cos x$ and $Q_x=e^y+\\cos x$. They agree, so $\\mathbf F$ is conservative."
+          },
+          {
+            "do": "Look for $f(x,y)$ with $f_x=P$, $f_y=Q$. Integrate $P$ with respect to $x$: $f=\\int P\\,dx+g(y)$. Plug this into $f_y=Q$ and solve for $g'(y)$.",
+            "work": "$f=\\int(e^y+y\\cos x)\\,dx=xe^y+y\\sin x+g(y)$. Then $f_y=xe^y+\\sin x+g'(y)$ must equal $xe^y+\\sin x+2y$, so $g'(y)=2y$."
+          },
+          {
+            "do": "Integrate $g'(y)$ to get $g(y)$ (no constant needed) and put it into $f$.",
+            "work": "$g(y)=y^2$, so $f=xe^y+y\\sin x+y^2$."
+          }
+        ],
+        "answer": "$\\mathbf F$ is conservative, with $f=xe^y+y\\sin x+y^2$.",
+        "check": {
+          "kind": "expr",
+          "value": "x*exp(y)+y*sin(x)+y^2",
+          "vars": [
+            "x",
+            "y"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\mathbf F=(2xy+\\sin y)\\,\\mathbf i+(x^2+x\\cos y+3y^2)\\,\\mathbf j$ is conservative. If it is, find $f$ with $\\mathbf F=\\nabla f$. (Enter $f$.)",
+          "steps": [
+            {
+              "do": "Compute $\\partial P/\\partial y$ and $\\partial Q/\\partial x$. If they differ, $\\mathbf F$ is not conservative: end of story. If they agree, it is conservative; go on.",
+              "work": "$P_y=2x+\\cos y$ and $Q_x=2x+\\cos y$. They agree, so $\\mathbf F$ is conservative."
+            },
+            {
+              "do": "Look for $f(x,y)$ with $f_x=P$, $f_y=Q$. Integrate $P$ with respect to $x$: $f=\\int P\\,dx+g(y)$. Plug this into $f_y=Q$ and solve for $g'(y)$.",
+              "work": "$f=\\int(2xy+\\sin y)\\,dx=x^2y+x\\sin y+g(y)$. Then $f_y=x^2+x\\cos y+g'(y)$ must equal $x^2+x\\cos y+3y^2$, so $g'(y)=3y^2$."
+            },
+            {
+              "do": "Integrate $g'(y)$ to get $g(y)$ (no constant needed) and put it into $f$.",
+              "work": "$g(y)=y^3$, so $f=x^2y+x\\sin y+y^3$."
+            }
+          ],
+          "answer": "$\\mathbf F$ is conservative, with $f=x^2y+x\\sin y+y^3$.",
+          "check": {
+            "kind": "expr",
+            "value": "x^2*y+x*sin(y)+y^3",
+            "vars": [
+              "x",
+              "y"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Determine whether $\\mathbf F=(ye^{xy}+2x)\\,\\mathbf i+(xe^{xy}+\\cos y)\\,\\mathbf j$ is conservative. If it is, find $f$ with $\\mathbf F=\\nabla f$. (Enter $f$.)",
+          "steps": [
+            {
+              "do": "Compute $\\partial P/\\partial y$ and $\\partial Q/\\partial x$. If they differ, $\\mathbf F$ is not conservative: end of story. If they agree, it is conservative; go on.",
+              "work": "$P_y=e^{xy}+xy\\,e^{xy}$ and $Q_x=e^{xy}+xy\\,e^{xy}$. They agree, so $\\mathbf F$ is conservative."
+            },
+            {
+              "do": "Look for $f(x,y)$ with $f_x=P$, $f_y=Q$. Integrate $P$ with respect to $x$: $f=\\int P\\,dx+g(y)$. Plug this into $f_y=Q$ and solve for $g'(y)$.",
+              "work": "$f=\\int(ye^{xy}+2x)\\,dx=e^{xy}+x^2+g(y)$. Then $f_y=xe^{xy}+g'(y)$ must equal $xe^{xy}+\\cos y$, so $g'(y)=\\cos y$."
+            },
+            {
+              "do": "Integrate $g'(y)$ to get $g(y)$ (no constant needed) and put it into $f$.",
+              "work": "$g(y)=\\sin y$, so $f=e^{xy}+x^2+\\sin y$."
+            }
+          ],
+          "answer": "$\\mathbf F$ is conservative, with $f=e^{xy}+x^2+\\sin y$.",
+          "check": {
+            "kind": "expr",
+            "value": "exp(x*y)+x^2+sin(y)",
+            "vars": [
+              "x",
+              "y"
+            ],
+            "upToConstant": true
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-16.3b",
+      "course": "calc3",
+      "section": "16.3",
+      "topic": "Conservative Vector Fields",
+      "title": "3-D potential and line integral",
+      "type": "(a) Find a function $f$ with $\\mathbf F=\\nabla f$, where $\\mathbf F=P\\,\\mathbf i+Q\\,\\mathbf j+R\\,\\mathbf k$, and (b) use part (a) to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$ along $C:\\ x=x(t),\\ y=y(t),\\ z=z(t),\\ a\\le t\\le b$.",
+      "example": {
+        "problem": "(a) Find $f$ with $\\mathbf F=\\nabla f$ and (b) use it to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=(2xz+y^2)\\,\\mathbf i+2xy\\,\\mathbf j+(x^2+3z^2)\\,\\mathbf k$ and $C:\\ x=t^2,\\ y=t+1,\\ z=2t-1,\\ 0\\le t\\le1$. (Enter the value of the line integral.)",
+        "steps": [
+          {
+            "do": "Find $f$ with $f_x=P$, $f_y=Q$, $f_z=R$. Integrate $P$ with respect to $x$: $f=A(x,y,z)+g(y,z)$. Use $f_y=Q$ to find $g_y$, integrate to get $g=B(y,z)+h(z)$. Finally use $f_z=R$ to find $h'(z)$, then $h$.",
+            "work": "$f_x=2xz+y^2$ gives $f=x^2z+xy^2+g(y,z)$. Then $f_y=2xy+g_y=2xy$, so $g_y=0$ and $g=h(z)$. Then $f_z=x^2+h'(z)=x^2+3z^2$, so $h=z^3$: $$f=x^2z+xy^2+z^3.$$"
+          },
+          {
+            "do": "Plug the endpoints $t=a$, $t=b$ into $\\mathbf r(t)$ and compute $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r=f(\\mathbf r(b))-f(\\mathbf r(a))$.",
+            "work": "$\\mathbf r(0)=\\langle0,1,-1\\rangle$, $\\mathbf r(1)=\\langle1,2,1\\rangle$, so $$f(1,2,1)-f(0,1,-1)=(1+4+1)-(0+0-1)=7.$$"
+          }
+        ],
+        "answer": "$f=x^2z+xy^2+z^3$, and the line integral is $7$.",
+        "check": {
+          "kind": "number",
+          "value": "7"
+        }
+      },
+      "practice": [
+        {
+          "problem": "(a) Find $f$ with $\\mathbf F=\\nabla f$ and (b) use it to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=(2xy+z^2)\\,\\mathbf i+(x^2+2yz)\\,\\mathbf j+(2xz+y^2)\\,\\mathbf k$ and $C:\\ x=1+t,\\ y=2t,\\ z=t^2,\\ 0\\le t\\le1$. (Enter the value of the line integral.)",
+          "steps": [
+            {
+              "do": "Find $f$ with $f_x=P$, $f_y=Q$, $f_z=R$. Integrate $P$ with respect to $x$: $f=A(x,y,z)+g(y,z)$. Use $f_y=Q$ to find $g_y$, integrate to get $g=B(y,z)+h(z)$. Finally use $f_z=R$ to find $h'(z)$, then $h$.",
+              "work": "$f_x=2xy+z^2$ gives $f=x^2y+xz^2+g(y,z)$. Then $f_y=x^2+g_y=x^2+2yz$, so $g_y=2yz$ and $g=y^2z+h(z)$. Then $f_z=2xz+y^2+h'(z)=2xz+y^2$, so $h'=0$: $$f=x^2y+xz^2+y^2z.$$"
+            },
+            {
+              "do": "Plug the endpoints $t=a$, $t=b$ into $\\mathbf r(t)$ and compute $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r=f(\\mathbf r(b))-f(\\mathbf r(a))$.",
+              "work": "$\\mathbf r(0)=\\langle1,0,0\\rangle$, $\\mathbf r(1)=\\langle2,2,1\\rangle$, so $$f(2,2,1)-f(1,0,0)=(8+2+4)-0=14.$$"
+            }
+          ],
+          "answer": "$f=x^2y+xz^2+y^2z$, and the line integral is $14$.",
+          "check": {
+            "kind": "number",
+            "value": "14"
+          }
+        },
+        {
+          "problem": "(a) Find $f$ with $\\mathbf F=\\nabla f$ and (b) use it to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=e^y\\,\\mathbf i+(xe^y+z)\\,\\mathbf j+(y+2z)\\,\\mathbf k$ and $C:\\ x=t,\\ y=\\ln(1+t),\\ z=t^2,\\ 0\\le t\\le1$. (Enter the value of the line integral.)",
+          "steps": [
+            {
+              "do": "Find $f$ with $f_x=P$, $f_y=Q$, $f_z=R$. Integrate $P$ with respect to $x$: $f=A(x,y,z)+g(y,z)$. Use $f_y=Q$ to find $g_y$, integrate to get $g=B(y,z)+h(z)$. Finally use $f_z=R$ to find $h'(z)$, then $h$.",
+              "work": "$f_x=e^y$ gives $f=xe^y+g(y,z)$. Then $f_y=xe^y+g_y=xe^y+z$, so $g_y=z$ and $g=yz+h(z)$. Then $f_z=y+h'(z)=y+2z$, so $h=z^2$: $$f=xe^y+yz+z^2.$$"
+            },
+            {
+              "do": "Plug the endpoints $t=a$, $t=b$ into $\\mathbf r(t)$ and compute $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r=f(\\mathbf r(b))-f(\\mathbf r(a))$.",
+              "work": "$\\mathbf r(0)=\\langle0,0,0\\rangle$, $\\mathbf r(1)=\\langle1,\\ln2,1\\rangle$, and $e^{\\ln2}=2$, so $$f(1,\\ln2,1)-f(0,0,0)=(2+\\ln2+1)-0=3+\\ln2.$$"
+            }
+          ],
+          "answer": "$f=xe^y+yz+z^2$, and the line integral is $3+\\ln 2$.",
+          "check": {
+            "kind": "number",
+            "value": "3+ln(2)"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-16.4a",
+      "course": "calc3",
+      "section": "16.4",
+      "topic": "Parametrized Surfaces",
+      "title": "Tangent plane to a parametric surface",
+      "type": "Find an equation of the tangent plane to the parametric surface $x=x(u,v),\\ y=y(u,v),\\ z=z(u,v)$ at the specified values of $u$ and $v$.",
+      "example": {
+        "problem": "Find an equation of the tangent plane to the parametric surface $x=u^2,\\ y=v^2,\\ z=uv$ at $u=1,\\ v=1$. (Enter the plane solved for $z$.)",
+        "steps": [
+          {
+            "do": "Set up $\\mathbf r=x\\,\\mathbf i+y\\,\\mathbf j+z\\,\\mathbf k$ and compute $\\mathbf r_u$ and $\\mathbf r_v$. Then plug in the given values of $u$ and $v$ to get numerical vectors.",
+            "work": "$\\mathbf r=u^2\\,\\mathbf i+v^2\\,\\mathbf j+uv\\,\\mathbf k$, so $\\mathbf r_u=\\langle2u,0,v\\rangle$, $\\mathbf r_v=\\langle0,2v,u\\rangle$. At $u=v=1$: $\\mathbf r_u=\\langle2,0,1\\rangle$, $\\mathbf r_v=\\langle0,2,1\\rangle$."
+          },
+          {
+            "do": "Compute the cross product $\\mathbf N=\\mathbf r_u\\times\\mathbf r_v$; it is normal to the tangent plane.",
+            "work": "$$\\mathbf r_u\\times\\mathbf r_v=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\2&0&1\\\\0&2&1\\end{vmatrix}=\\langle-2,-2,4\\rangle.$$"
+          },
+          {
+            "do": "Find the point $(x_0,y_0,z_0)$ by plugging $u,v$ into $x,y,z$. The tangent plane is $a(x-x_0)+b(y-y_0)+c(z-z_0)=0$, where $\\mathbf N=\\langle a,b,c\\rangle$.",
+            "work": "The point is $(1,1,1)$, so $-2(x-1)-2(y-1)+4(z-1)=0$, i.e. $-2x-2y+4z=0$. Dividing by $-2$: $x+y-2z=0$, i.e. $z=\\tfrac{x+y}{2}$."
+          }
+        ],
+        "answer": "$x+y-2z=0$, i.e. $z=\\dfrac{x+y}{2}$.",
+        "check": {
+          "kind": "expr",
+          "value": "(x+y)/2",
+          "vars": [
+            "x",
+            "y"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find an equation of the tangent plane to the parametric surface $x=uv,\\ y=u+v,\\ z=u^2-v^2$ at $u=2,\\ v=1$. (Enter the plane solved for $z$.)",
+          "steps": [
+            {
+              "do": "Set up $\\mathbf r=x\\,\\mathbf i+y\\,\\mathbf j+z\\,\\mathbf k$ and compute $\\mathbf r_u$ and $\\mathbf r_v$. Then plug in the given values of $u$ and $v$ to get numerical vectors.",
+              "work": "$\\mathbf r_u=\\langle v,1,2u\\rangle$, $\\mathbf r_v=\\langle u,1,-2v\\rangle$. At $u=2,\\ v=1$: $\\mathbf r_u=\\langle1,1,4\\rangle$, $\\mathbf r_v=\\langle2,1,-2\\rangle$."
+            },
+            {
+              "do": "Compute the cross product $\\mathbf N=\\mathbf r_u\\times\\mathbf r_v$; it is normal to the tangent plane.",
+              "work": "$$\\mathbf r_u\\times\\mathbf r_v=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\1&1&4\\\\2&1&-2\\end{vmatrix}=\\langle-6,\\,10,\\,-1\\rangle.$$"
+            },
+            {
+              "do": "Find the point $(x_0,y_0,z_0)$ by plugging $u,v$ into $x,y,z$. The tangent plane is $a(x-x_0)+b(y-y_0)+c(z-z_0)=0$, where $\\mathbf N=\\langle a,b,c\\rangle$.",
+              "work": "The point is $(2,\\,3,\\,3)$, so $-6(x-2)+10(y-3)-(z-3)=0$, i.e. $z=-6x+10y-15$."
+            }
+          ],
+          "answer": "$z=-6x+10y-15$",
+          "check": {
+            "kind": "expr",
+            "value": "-6*x+10*y-15",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        },
+        {
+          "problem": "Find an equation of the tangent plane to the parametric surface $x=u^2,\\ y=u+v,\\ z=v^3$ at $u=1,\\ v=2$. (Enter the plane solved for $z$.)",
+          "steps": [
+            {
+              "do": "Set up $\\mathbf r=x\\,\\mathbf i+y\\,\\mathbf j+z\\,\\mathbf k$ and compute $\\mathbf r_u$ and $\\mathbf r_v$. Then plug in the given values of $u$ and $v$ to get numerical vectors.",
+              "work": "$\\mathbf r_u=\\langle2u,1,0\\rangle$, $\\mathbf r_v=\\langle0,1,3v^2\\rangle$. At $u=1,\\ v=2$: $\\mathbf r_u=\\langle2,1,0\\rangle$, $\\mathbf r_v=\\langle0,1,12\\rangle$."
+            },
+            {
+              "do": "Compute the cross product $\\mathbf N=\\mathbf r_u\\times\\mathbf r_v$; it is normal to the tangent plane.",
+              "work": "$$\\mathbf r_u\\times\\mathbf r_v=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\2&1&0\\\\0&1&12\\end{vmatrix}=\\langle12,\\,-24,\\,2\\rangle.$$"
+            },
+            {
+              "do": "Find the point $(x_0,y_0,z_0)$ by plugging $u,v$ into $x,y,z$. The tangent plane is $a(x-x_0)+b(y-y_0)+c(z-z_0)=0$, where $\\mathbf N=\\langle a,b,c\\rangle$.",
+              "work": "The point is $(1,\\,3,\\,8)$, so $12(x-1)-24(y-3)+2(z-8)=0$, i.e. $6x-12y+z=-22$, so $z=-6x+12y-22$."
+            }
+          ],
+          "answer": "$z=-6x+12y-22$",
+          "check": {
+            "kind": "expr",
+            "value": "-6*x+12*y-22",
+            "vars": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      ],
+      "scene": "surface"
+    },
+    {
+      "id": "c3-16.5a",
+      "course": "calc3",
+      "section": "16.5",
+      "topic": "Surface Integrals of Functions and Surface Integrals of Vector Fields",
+      "title": "Surface integral of a function",
+      "type": "Evaluate the surface integral $\\displaystyle\\iint_SF(x,y,z)\\,dS$, where $S$ is given parametrically in terms of $u,v$, or can be made so, or can be written as $z=f(x,y)$ over a set $D$ in the $xy$-plane.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iint_S2x^2z^2\\,dS$, where $S$ is the part of the cone $z^2=x^2+y^2$ that lies between the planes $z=1$ and $z=3$.",
+        "steps": [
+          {
+            "do": "If $S$ is parametrized, $\\{(x(u,v),y(u,v),z(u,v))\\mid (u,v)\\in D\\}$, compute $\\mathbf r_u$, $\\mathbf r_v$, $\\mathbf r_u\\times\\mathbf r_v$ and its length, and put $dS=|\\mathbf r_u\\times\\mathbf r_v|\\,du\\,dv$. If $S$ is a graph $z=f(x,y)$, use its floor $D$ and $dS=\\sqrt{1+z_x^2+z_y^2}\\,dA$.",
+            "work": "In cylindrical coordinates the cone is $z=r$: $\\mathbf r(r,\\theta)=r\\cos\\theta\\,\\mathbf i+r\\sin\\theta\\,\\mathbf j+r\\,\\mathbf k$ with $1\\le r\\le3$, $0\\le\\theta\\le2\\pi$. Then $\\mathbf r_r=\\langle\\cos\\theta,\\sin\\theta,1\\rangle$, $\\mathbf r_\\theta=\\langle-r\\sin\\theta,r\\cos\\theta,0\\rangle$, $\\mathbf r_r\\times\\mathbf r_\\theta=\\langle-r\\cos\\theta,-r\\sin\\theta,r\\rangle$, and $|\\mathbf r_r\\times\\mathbf r_\\theta|=\\sqrt{2}\\,r$. So $dS=\\sqrt2\\,r\\,dr\\,d\\theta$."
+          },
+          {
+            "do": "Set up $\\iint_SF\\,dS$ with $x,y,z$ and $dS$ replaced by their expressions in the parameters, and convert to an iterated integral.",
+            "work": "$$\\iint_S2x^2z^2\\,dS=\\int_0^{2\\pi}\\!\\!\\int_1^3 2(r\\cos\\theta)^2r^2\\,\\sqrt2\\,r\\,dr\\,d\\theta=2\\sqrt2\\int_0^{2\\pi}\\!\\!\\int_1^3r^5\\cos^2\\theta\\,dr\\,d\\theta.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral.",
+            "work": "$$2\\sqrt2\\int_1^3r^5\\,dr\\int_0^{2\\pi}\\cos^2\\theta\\,d\\theta=2\\sqrt2\\cdot\\tfrac{3^6-1}{6}\\cdot\\pi=2\\sqrt2\\cdot\\tfrac{728}{6}\\cdot\\pi=\\tfrac{728\\sqrt2\\,\\pi}{3}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{728\\sqrt2\\,\\pi}{3}$",
+        "check": {
+          "kind": "number",
+          "value": "728*sqrt(2)*pi/3"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_S(x^2+y^2)\\,dS$, where $S$ is the part of the cone $z^2=x^2+y^2$ that lies between the planes $z=1$ and $z=2$.",
+          "steps": [
+            {
+              "do": "If $S$ is parametrized, $\\{(x(u,v),y(u,v),z(u,v))\\mid (u,v)\\in D\\}$, compute $\\mathbf r_u$, $\\mathbf r_v$, $\\mathbf r_u\\times\\mathbf r_v$ and its length, and put $dS=|\\mathbf r_u\\times\\mathbf r_v|\\,du\\,dv$. If $S$ is a graph $z=f(x,y)$, use its floor $D$ and $dS=\\sqrt{1+z_x^2+z_y^2}\\,dA$.",
+              "work": "The cone is $z=r$: $\\mathbf r(r,\\theta)=\\langle r\\cos\\theta,r\\sin\\theta,r\\rangle$, $1\\le r\\le2$, $0\\le\\theta\\le2\\pi$. As above, $|\\mathbf r_r\\times\\mathbf r_\\theta|=\\sqrt2\\,r$, so $dS=\\sqrt2\\,r\\,dr\\,d\\theta$."
+            },
+            {
+              "do": "Set up $\\iint_SF\\,dS$ with $x,y,z$ and $dS$ replaced by their expressions in the parameters, and convert to an iterated integral.",
+              "work": "$$\\iint_S(x^2+y^2)\\,dS=\\int_0^{2\\pi}\\!\\!\\int_1^2r^2\\,\\sqrt2\\,r\\,dr\\,d\\theta=\\sqrt2\\int_0^{2\\pi}\\!\\!\\int_1^2r^3\\,dr\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "$$\\sqrt2\\cdot\\tfrac{2^4-1}{4}\\cdot2\\pi=\\sqrt2\\cdot\\tfrac{15}{4}\\cdot2\\pi=\\tfrac{15\\sqrt2\\,\\pi}{2}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{15\\sqrt2\\,\\pi}{2}$",
+          "check": {
+            "kind": "number",
+            "value": "15*sqrt(2)*pi/2"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_Sz\\,dS$, where $S$ is the upper hemisphere $x^2+y^2+z^2=4$, $z\\ge0$.",
+          "steps": [
+            {
+              "do": "If $S$ is parametrized, $\\{(x(u,v),y(u,v),z(u,v))\\mid (u,v)\\in D\\}$, compute $\\mathbf r_u$, $\\mathbf r_v$, $\\mathbf r_u\\times\\mathbf r_v$ and its length, and put $dS=|\\mathbf r_u\\times\\mathbf r_v|\\,du\\,dv$. If $S$ is a graph $z=f(x,y)$, use its floor $D$ and $dS=\\sqrt{1+z_x^2+z_y^2}\\,dA$.",
+              "work": "Use spherical coordinates with $\\rho=2$: $\\mathbf r(\\varphi,\\theta)=\\langle2\\sin\\varphi\\cos\\theta,\\,2\\sin\\varphi\\sin\\theta,\\,2\\cos\\varphi\\rangle$, $0\\le\\varphi\\le\\tfrac\\pi2$, $0\\le\\theta\\le2\\pi$. Then $\\mathbf r_\\varphi\\times\\mathbf r_\\theta=\\langle4\\sin^2\\varphi\\cos\\theta,\\,4\\sin^2\\varphi\\sin\\theta,\\,4\\sin\\varphi\\cos\\varphi\\rangle$ with length $4\\sin\\varphi$, so $dS=4\\sin\\varphi\\,d\\varphi\\,d\\theta$."
+            },
+            {
+              "do": "Set up $\\iint_SF\\,dS$ with $x,y,z$ and $dS$ replaced by their expressions in the parameters, and convert to an iterated integral.",
+              "work": "$$\\iint_Sz\\,dS=\\int_0^{2\\pi}\\!\\!\\int_0^{\\pi/2}(2\\cos\\varphi)(4\\sin\\varphi)\\,d\\varphi\\,d\\theta=8\\int_0^{2\\pi}\\!\\!\\int_0^{\\pi/2}\\sin\\varphi\\cos\\varphi\\,d\\varphi\\,d\\theta.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "$$8\\cdot\\Big[\\tfrac{\\sin^2\\varphi}{2}\\Big]_0^{\\pi/2}\\cdot2\\pi=8\\cdot\\tfrac12\\cdot2\\pi=8\\pi.$$"
+            }
+          ],
+          "answer": "$8\\pi$",
+          "check": {
+            "kind": "number",
+            "value": "8*pi"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-16.5b",
+      "course": "calc3",
+      "section": "16.5",
+      "topic": "Surface Integrals of Functions and Surface Integrals of Vector Fields",
+      "title": "Flux through a graph surface",
+      "type": "Evaluate the surface integral $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$ for $\\mathbf F=P\\,\\mathbf i+Q\\,\\mathbf j+R\\,\\mathbf k$, where $S$ is the part of the surface $z=g(x,y)$ that lies above a region $D$ in the $xy$-plane, with upward orientation.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$ for $\\mathbf F=xy\\,\\mathbf i+yz\\,\\mathbf j+zx\\,\\mathbf k$, where $S$ is the part of the paraboloid $z=4-x^2-y^2$ that lies above the square $0\\le x\\le1,\\ 0\\le y\\le1$, with upward orientation.",
+        "steps": [
+          {
+            "do": "Set up $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S=\\iint_D\\Bigl(-P\\frac{\\partial g}{\\partial x}-Q\\frac{\\partial g}{\\partial y}+R\\Bigr)dA$, and replace $z$ by $g(x,y)$.",
+            "work": "$g=4-x^2-y^2$, $P=xy$, $Q=yz$, $R=zx$, so $$\\iint_D\\bigl(-xy(-2x)-yz(-2y)+xz\\bigr)dA=\\iint_D\\bigl(2x^2y+(2y^2+x)z\\bigr)dA.$$ With $z=4-x^2-y^2$ this is $$\\iint_D\\bigl(2x^2y+8y^2-2x^2y^2-2y^4+4x-x^3-xy^2\\bigr)dA.$$"
+          },
+          {
+            "do": "Looking at $D$, convert the area integral into an iterated integral.",
+            "work": "$D$ is the unit square, so $$\\int_0^1\\!\\!\\int_0^1\\bigl(-x^3+x^2(2y-2y^2)+x(4-y^2)+8y^2-2y^4\\bigr)\\,dx\\,dy.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral.",
+            "work": "Inner: $\\displaystyle-\\tfrac14+\\tfrac{2y-2y^2}{3}+\\tfrac{4-y^2}{2}+8y^2-2y^4=\\tfrac74+\\tfrac23y+\\tfrac{41}{6}y^2-2y^4$. Outer: $$\\tfrac74+\\tfrac13+\\tfrac{41}{18}-\\tfrac25=\\tfrac{713}{180}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{713}{180}$",
+        "check": {
+          "kind": "number",
+          "value": "713/180"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$ for $\\mathbf F=y\\,\\mathbf i+x\\,\\mathbf j+z\\,\\mathbf k$, where $S$ is the part of the paraboloid $z=4-x^2-y^2$ that lies above the square $0\\le x\\le1,\\ 0\\le y\\le1$, with upward orientation.",
+          "steps": [
+            {
+              "do": "Set up $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S=\\iint_D\\Bigl(-P\\frac{\\partial g}{\\partial x}-Q\\frac{\\partial g}{\\partial y}+R\\Bigr)dA$, and replace $z$ by $g(x,y)$.",
+              "work": "$g=4-x^2-y^2$, $P=y$, $Q=x$, $R=z$, so $$\\iint_D\\bigl(-y(-2x)-x(-2y)+z\\bigr)dA=\\iint_D\\bigl(4xy+z\\bigr)dA=\\iint_D\\bigl(4xy+4-x^2-y^2\\bigr)dA.$$"
+            },
+            {
+              "do": "Looking at $D$, convert the area integral into an iterated integral.",
+              "work": "$$\\int_0^1\\!\\!\\int_0^1\\bigl(4xy+4-x^2-y^2\\bigr)\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "Inner: $\\displaystyle2y+4-\\tfrac13-y^2=\\tfrac{11}{3}+2y-y^2$. Outer: $$\\tfrac{11}{3}+1-\\tfrac13=\\tfrac{13}{3}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{13}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "13/3"
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$ for $\\mathbf F=x\\,\\mathbf i+y\\,\\mathbf j+z\\,\\mathbf k$, where $S$ is the part of the paraboloid $z=6-x^2-y^2$ that lies above the rectangle $0\\le x\\le1,\\ 0\\le y\\le2$, with upward orientation.",
+          "steps": [
+            {
+              "do": "Set up $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S=\\iint_D\\Bigl(-P\\frac{\\partial g}{\\partial x}-Q\\frac{\\partial g}{\\partial y}+R\\Bigr)dA$, and replace $z$ by $g(x,y)$.",
+              "work": "$g=6-x^2-y^2$, $P=x$, $Q=y$, $R=z$, so $$\\iint_D\\bigl(-x(-2x)-y(-2y)+z\\bigr)dA=\\iint_D\\bigl(2x^2+2y^2+z\\bigr)dA=\\iint_D\\bigl(x^2+y^2+6\\bigr)dA.$$"
+            },
+            {
+              "do": "Looking at $D$, convert the area integral into an iterated integral.",
+              "work": "$$\\int_0^2\\!\\!\\int_0^1\\bigl(x^2+y^2+6\\bigr)\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "Inner: $\\displaystyle\\tfrac13+y^2+6$. Outer: $$\\tfrac23+\\tfrac83+12=\\tfrac{46}{3}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{46}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "46/3"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.1aa",
+      "course": "calc3",
+      "section": "17.1a",
+      "topic": "Green’s Theorem",
+      "title": "Green's theorem for a line integral",
+      "type": "Use Green's Theorem to evaluate the line integral $\\displaystyle\\int_CP(x,y)\\,dx+Q(x,y)\\,dy$ along the given positively oriented closed curve $C$.",
+      "example": {
+        "problem": "Use Green's Theorem to evaluate $\\displaystyle\\int_C\\frac{2x^2y^3}{3}\\,dx+4xy^3\\,dy$, where $C$ is the triangle with vertices $(0,0)$, $(1,3)$ and $(0,3)$ (positively oriented).",
+        "steps": [
+          {
+            "do": "Set up Green's Theorem for the positively oriented (counterclockwise) closed curve $C$ bounding $D$: $\\displaystyle\\oint_CP\\,dx+Q\\,dy=\\iint_D\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)dA$. Compute $Q_x-P_y$.",
+            "work": "$P=\\tfrac{2x^2y^3}{3}$, $Q=4xy^3$, so $Q_x-P_y=4y^3-2x^2y^2$, and we need $\\displaystyle\\iint_D(4y^3-2x^2y^2)\\,dA$."
+          },
+          {
+            "do": "Draw $D$ and write it as a type I or type II region. Set up the area integral as an iterated integral.",
+            "work": "One side of the triangle lies on the $y$-axis, so use a type II region. The hypotenuse $y=3x$ is $x=y/3$: $$D=\\{0\\le y\\le3,\\ 0\\le x\\le y/3\\},\\qquad \\int_0^3\\!\\!\\int_0^{y/3}(4y^3-2x^2y^2)\\,dx\\,dy.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral.",
+            "work": "Inner: $\\displaystyle\\Big[4y^3x-\\tfrac23x^3y^2\\Big]_0^{y/3}=\\tfrac43y^4-\\tfrac2{81}y^5$. Outer: $$\\int_0^3\\left(\\tfrac43y^4-\\tfrac{2}{81}y^5\\right)dy=\\tfrac43\\cdot\\tfrac{3^5}{5}-\\tfrac2{81}\\cdot\\tfrac{3^6}{6}=\\tfrac{324}{5}-3=\\tfrac{309}{5}.$$"
+          }
+        ],
+        "answer": "$\\dfrac{309}{5}$",
+        "check": {
+          "kind": "number",
+          "value": "309/5"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Green's Theorem to evaluate $\\displaystyle\\int_Cxy^2\\,dx+3x^2y\\,dy$, where $C$ is the triangle with vertices $(0,0)$, $(2,0)$ and $(2,4)$ (positively oriented).",
+          "steps": [
+            {
+              "do": "Set up Green's Theorem for the positively oriented (counterclockwise) closed curve $C$ bounding $D$: $\\displaystyle\\oint_CP\\,dx+Q\\,dy=\\iint_D\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)dA$. Compute $Q_x-P_y$.",
+              "work": "$P=xy^2$, $Q=3x^2y$, so $Q_x-P_y=6xy-2xy=4xy$, and we need $\\displaystyle\\iint_D4xy\\,dA$."
+            },
+            {
+              "do": "Draw $D$ and write it as a type I or type II region. Set up the area integral as an iterated integral.",
+              "work": "The hypotenuse is $y=2x$, with the bottom side on the $x$-axis and the right side on $x=2$. Use a type I region: $$D=\\{0\\le x\\le2,\\ 0\\le y\\le2x\\},\\qquad\\int_0^2\\!\\!\\int_0^{2x}4xy\\,dy\\,dx.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "Inner: $\\displaystyle\\Big[2xy^2\\Big]_0^{2x}=8x^3$. Outer: $$\\int_0^28x^3\\,dx=2x^4\\Big|_0^2=32.$$"
+            }
+          ],
+          "answer": "$32$",
+          "check": {
+            "kind": "number",
+            "value": "32"
+          }
+        },
+        {
+          "problem": "Use Green's Theorem to evaluate $\\displaystyle\\int_Cy^3\\,dx+(x^3+3xy^2)\\,dy$, where $C$ is the triangle with vertices $(0,0)$, $(1,2)$ and $(0,2)$ (positively oriented).",
+          "steps": [
+            {
+              "do": "Set up Green's Theorem for the positively oriented (counterclockwise) closed curve $C$ bounding $D$: $\\displaystyle\\oint_CP\\,dx+Q\\,dy=\\iint_D\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)dA$. Compute $Q_x-P_y$.",
+              "work": "$P=y^3$, $Q=x^3+3xy^2$, so $Q_x-P_y=(3x^2+3y^2)-3y^2=3x^2$, and we need $\\displaystyle\\iint_D3x^2\\,dA$."
+            },
+            {
+              "do": "Draw $D$ and write it as a type I or type II region. Set up the area integral as an iterated integral.",
+              "work": "One side lies on the $y$-axis, so use a type II region. The hypotenuse $y=2x$ is $x=y/2$: $$D=\\{0\\le y\\le2,\\ 0\\le x\\le y/2\\},\\qquad\\int_0^2\\!\\!\\int_0^{y/2}3x^2\\,dx\\,dy.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "Inner: $\\displaystyle\\Big[x^3\\Big]_0^{y/2}=\\tfrac{y^3}{8}$. Outer: $$\\int_0^2\\tfrac{y^3}{8}\\,dy=\\tfrac{1}{8}\\cdot4=\\tfrac12.$$"
+            }
+          ],
+          "answer": "$\\dfrac{1}{2}$",
+          "check": {
+            "kind": "number",
+            "value": "1/2"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.1ab",
+      "course": "calc3",
+      "section": "17.1a",
+      "topic": "Green’s Theorem",
+      "title": "Green's theorem with orientation",
+      "type": "Use Green's Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$ for $\\mathbf F=\\langle P(x,y),Q(x,y)\\rangle$, where $C$ is a given closed curve. (Check the orientation of the curve before applying the theorem.)",
+      "example": {
+        "problem": "Use Green's Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=\\langle\\sin x+y^2,\\ x+\\cos^3y\\rangle$ and $C$ consists of the arc of $y=\\sin x$ from $(0,0)$ to $(\\pi,0)$ and the line segment from $(\\pi,0)$ to $(0,0)$.",
+        "steps": [
+          {
+            "do": "Set up Green's Theorem, $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r=\\pm\\iint_D\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)dA$, where $D$ is the region enclosed by $C$. Decide whether the curve is traversed counterclockwise (positive: use $+$) or clockwise (negative: use $-$).",
+            "work": "$P=\\sin x+y^2$, $Q=x+\\cos^3y$, so $Q_x-P_y=1-2y$. The arc goes left to right along the top and the segment returns along the bottom, which is clockwise (negative). So $$\\int_C\\mathbf F\\cdot d\\mathbf r=-\\iint_D(1-2y)\\,dA=\\iint_D(2y-1)\\,dA.$$"
+          },
+          {
+            "do": "Draw $D$ and write it as a type I or type II region. Set up the area integral as an iterated integral.",
+            "work": "One side lies along the $x$-axis and the other along $y=\\sin x$: use a type I region $D=\\{0\\le x\\le\\pi,\\ 0\\le y\\le\\sin x\\}$, $$\\int_0^\\pi\\!\\!\\int_0^{\\sin x}(2y-1)\\,dy\\,dx.$$"
+          },
+          {
+            "do": "Evaluate the iterated integral.",
+            "work": "Inner: $\\displaystyle\\big[y^2-y\\big]_0^{\\sin x}=\\sin^2x-\\sin x$. Outer: $$\\int_0^\\pi\\left(\\tfrac{1-\\cos2x}{2}-\\sin x\\right)dx=\\Big[\\tfrac x2-\\tfrac{\\sin2x}{4}+\\cos x\\Big]_0^\\pi=\\left(\\tfrac\\pi2-1\\right)-1=\\tfrac\\pi2-2.$$"
+          }
+        ],
+        "answer": "$\\dfrac{\\pi}{2}-2$",
+        "check": {
+          "kind": "number",
+          "value": "pi/2-2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Green's Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=\\langle\\cos x+y^2,\\ 2x+e^y\\rangle$ and $C$ consists of the arc of $y=x^2$ from $(0,0)$ to $(2,4)$ and the line segment from $(2,4)$ back to $(0,0)$.",
+          "steps": [
+            {
+              "do": "Set up Green's Theorem, $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r=\\pm\\iint_D\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)dA$, where $D$ is the region enclosed by $C$. Decide whether the curve is traversed counterclockwise (positive: use $+$) or clockwise (negative: use $-$).",
+              "work": "$P=\\cos x+y^2$, $Q=2x+e^y$, so $Q_x-P_y=2-2y$. The arc $y=x^2$ lies below the chord $y=2x$; going left to right along the bottom and returning along the top is counterclockwise (positive). So $$\\int_C\\mathbf F\\cdot d\\mathbf r=+\\iint_D(2-2y)\\,dA.$$"
+            },
+            {
+              "do": "Draw $D$ and write it as a type I or type II region. Set up the area integral as an iterated integral.",
+              "work": "Type I region (the curves meet where $x^2=2x$, i.e. $x=0,2$): $D=\\{0\\le x\\le2,\\ x^2\\le y\\le2x\\}$, $$\\int_0^2\\!\\!\\int_{x^2}^{2x}(2-2y)\\,dy\\,dx.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "Inner: $\\displaystyle\\big[2y-y^2\\big]_{x^2}^{2x}=(4x-4x^2)-(2x^2-x^4)=4x-6x^2+x^4$. Outer: $$\\int_0^2(4x-6x^2+x^4)\\,dx=\\Big[2x^2-2x^3+\\tfrac{x^5}{5}\\Big]_0^2=8-16+\\tfrac{32}{5}=-\\tfrac85.$$"
+            }
+          ],
+          "answer": "$-\\dfrac{8}{5}$",
+          "check": {
+            "kind": "number",
+            "value": "-8/5"
+          }
+        },
+        {
+          "problem": "Use Green's Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=\\langle x^2+2y,\\ xy+\\cos y\\rangle$ and $C$ goes along the triangle from $(0,0)$ to $(0,2)$, then to $(3,0)$, then back to $(0,0)$.",
+          "steps": [
+            {
+              "do": "Set up Green's Theorem, $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r=\\pm\\iint_D\\Bigl(\\frac{\\partial Q}{\\partial x}-\\frac{\\partial P}{\\partial y}\\Bigr)dA$, where $D$ is the region enclosed by $C$. Decide whether the curve is traversed counterclockwise (positive: use $+$) or clockwise (negative: use $-$).",
+              "work": "$P=x^2+2y$, $Q=xy+\\cos y$, so $Q_x-P_y=y-2$. Going up the $y$-axis, then down to the right, then back along the $x$-axis is clockwise (negative). So $$\\int_C\\mathbf F\\cdot d\\mathbf r=-\\iint_D(y-2)\\,dA=\\iint_D(2-y)\\,dA.$$"
+            },
+            {
+              "do": "Draw $D$ and write it as a type I or type II region. Set up the area integral as an iterated integral.",
+              "work": "The hypotenuse from $(0,2)$ to $(3,0)$ is $y=2-\\tfrac23x$. Type I region: $D=\\{0\\le x\\le3,\\ 0\\le y\\le2-\\tfrac23x\\}$, $$\\int_0^3\\!\\!\\int_0^{2-2x/3}(2-y)\\,dy\\,dx.$$"
+            },
+            {
+              "do": "Evaluate the iterated integral.",
+              "work": "Inner (with $h=2-\\tfrac23x$): $\\displaystyle\\Big[2y-\\tfrac{y^2}{2}\\Big]_0^h=2h-\\tfrac{h^2}{2}=2-\\tfrac29x^2$. Outer: $$\\int_0^3\\left(2-\\tfrac29x^2\\right)dx=\\Big[2x-\\tfrac{2x^3}{27}\\Big]_0^3=6-2=4.$$"
+            }
+          ],
+          "answer": "$4$",
+          "check": {
+            "kind": "number",
+            "value": "4"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.1ba",
+      "course": "calc3",
+      "section": "17.1b",
+      "topic": "Curl and Divergence",
+      "title": "Curl and divergence",
+      "type": "Find (a) the curl and (b) the divergence of the vector field $\\mathbf F=P(x,y,z)\\,\\mathbf i+Q(x,y,z)\\,\\mathbf j+R(x,y,z)\\,\\mathbf k$.",
+      "example": {
+        "problem": "Find (a) the curl and (b) the divergence of $\\mathbf F=2e^x\\sin y\\,\\mathbf i+3e^x\\cos y\\,\\mathbf j+(4z^2+x+y)\\,\\mathbf k$. (Enter $\\operatorname{div}\\mathbf F$.)",
+        "steps": [
+          {
+            "do": "Set up the curl, $\\nabla\\times\\mathbf F=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\P&Q&R\\end{vmatrix}$, for the specific $P,Q,R$.",
+            "work": "$$\\nabla\\times\\mathbf F=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\2e^x\\sin y&3e^x\\cos y&4z^2+x+y\\end{vmatrix}.$$"
+          },
+          {
+            "do": "Evaluate the 'determinant': $\\operatorname{curl}\\mathbf F=(R_y-Q_z)\\,\\mathbf i-(R_x-P_z)\\,\\mathbf j+(Q_x-P_y)\\,\\mathbf k$.",
+            "work": "$$\\begin{aligned}\\nabla\\times\\mathbf F&=(1-0)\\,\\mathbf i-(1-0)\\,\\mathbf j+(3e^x\\cos y-2e^x\\cos y)\\,\\mathbf k\\\\&=\\mathbf i-\\mathbf j+e^x\\cos y\\,\\mathbf k.\\end{aligned}$$"
+          },
+          {
+            "do": "Set up the divergence $\\operatorname{div}\\mathbf F=P_x+Q_y+R_z$ and compute it.",
+            "work": "$$\\operatorname{div}\\mathbf F=\\tfrac{\\partial}{\\partial x}(2e^x\\sin y)+\\tfrac{\\partial}{\\partial y}(3e^x\\cos y)+\\tfrac{\\partial}{\\partial z}(4z^2+x+y)=2e^x\\sin y-3e^x\\sin y+8z=-e^x\\sin y+8z.$$"
+          }
+        ],
+        "answer": "(a) $\\operatorname{curl}\\mathbf F=\\mathbf i-\\mathbf j+e^x\\cos y\\,\\mathbf k$. (b) $\\operatorname{div}\\mathbf F=-e^x\\sin y+8z$.",
+        "check": {
+          "kind": "expr",
+          "value": "-exp(x)*sin(y)+8*z",
+          "vars": [
+            "x",
+            "y",
+            "z"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find (a) the curl and (b) the divergence of $\\mathbf F=x^2y\\,\\mathbf i+ye^z\\,\\mathbf j+(xz+\\sin y)\\,\\mathbf k$. (Enter $\\operatorname{div}\\mathbf F$.)",
+          "steps": [
+            {
+              "do": "Set up the curl, $\\nabla\\times\\mathbf F=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\P&Q&R\\end{vmatrix}$, for the specific $P,Q,R$.",
+              "work": "$$\\nabla\\times\\mathbf F=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\x^2y&ye^z&xz+\\sin y\\end{vmatrix}.$$"
+            },
+            {
+              "do": "Evaluate the 'determinant': $\\operatorname{curl}\\mathbf F=(R_y-Q_z)\\,\\mathbf i-(R_x-P_z)\\,\\mathbf j+(Q_x-P_y)\\,\\mathbf k$.",
+              "work": "$$\\begin{aligned}\\nabla\\times\\mathbf F&=(\\cos y-ye^z)\\,\\mathbf i-(z-0)\\,\\mathbf j+(0-x^2)\\,\\mathbf k\\\\&=(\\cos y-ye^z)\\,\\mathbf i-z\\,\\mathbf j-x^2\\,\\mathbf k.\\end{aligned}$$"
+            },
+            {
+              "do": "Set up the divergence $\\operatorname{div}\\mathbf F=P_x+Q_y+R_z$ and compute it.",
+              "work": "$$\\operatorname{div}\\mathbf F=\\tfrac{\\partial}{\\partial x}(x^2y)+\\tfrac{\\partial}{\\partial y}(ye^z)+\\tfrac{\\partial}{\\partial z}(xz+\\sin y)=2xy+e^z+x.$$"
+            }
+          ],
+          "answer": "(a) $\\operatorname{curl}\\mathbf F=(\\cos y-ye^z)\\,\\mathbf i-z\\,\\mathbf j-x^2\\,\\mathbf k$. (b) $\\operatorname{div}\\mathbf F=2xy+e^z+x$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*x*y+exp(z)+x",
+            "vars": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        },
+        {
+          "problem": "Find (a) the curl and (b) the divergence of $\\mathbf F=z^2\\,\\mathbf i+2xy\\,\\mathbf j+(x^2+e^y)\\,\\mathbf k$. (Enter $\\operatorname{curl}\\mathbf F$ evaluated at the point $(1,0,3)$, as $\\langle a,b,c\\rangle$.)",
+          "steps": [
+            {
+              "do": "Set up the curl, $\\nabla\\times\\mathbf F=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\P&Q&R\\end{vmatrix}$, for the specific $P,Q,R$.",
+              "work": "$$\\nabla\\times\\mathbf F=\\begin{vmatrix}\\mathbf i&\\mathbf j&\\mathbf k\\\\ \\partial_x&\\partial_y&\\partial_z\\\\z^2&2xy&x^2+e^y\\end{vmatrix}.$$"
+            },
+            {
+              "do": "Evaluate the 'determinant': $\\operatorname{curl}\\mathbf F=(R_y-Q_z)\\,\\mathbf i-(R_x-P_z)\\,\\mathbf j+(Q_x-P_y)\\,\\mathbf k$.",
+              "work": "$$\\begin{aligned}\\nabla\\times\\mathbf F&=(e^y-0)\\,\\mathbf i-(2x-2z)\\,\\mathbf j+(2y-0)\\,\\mathbf k\\\\&=e^y\\,\\mathbf i+(2z-2x)\\,\\mathbf j+2y\\,\\mathbf k.\\end{aligned}$$ At $(1,0,3)$: $\\langle1,\\ 6-2,\\ 0\\rangle=\\langle1,4,0\\rangle$."
+            },
+            {
+              "do": "Set up the divergence $\\operatorname{div}\\mathbf F=P_x+Q_y+R_z$ and compute it.",
+              "work": "$$\\operatorname{div}\\mathbf F=\\tfrac{\\partial}{\\partial x}(z^2)+\\tfrac{\\partial}{\\partial y}(2xy)+\\tfrac{\\partial}{\\partial z}(x^2+e^y)=0+2x+0=2x.$$"
+            }
+          ],
+          "answer": "(a) $\\operatorname{curl}\\mathbf F=e^y\\,\\mathbf i+(2z-2x)\\,\\mathbf j+2y\\,\\mathbf k$, which is $\\langle1,4,0\\rangle$ at $(1,0,3)$. (b) $\\operatorname{div}\\mathbf F=2x$.",
+          "check": {
+            "kind": "tuple",
+            "values": [
+              "1",
+              "4",
+              "0"
+            ]
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.1bb",
+      "course": "calc3",
+      "section": "17.1b",
+      "topic": "Curl and Divergence",
+      "title": "Conservative test with curl",
+      "type": "Determine whether the vector field $\\mathbf F=P(x,y,z)\\,\\mathbf i+Q(x,y,z)\\,\\mathbf j+R(x,y,z)\\,\\mathbf k$ is conservative. If it is, find a function $f$ such that $\\mathbf F=\\nabla f$.",
+      "example": {
+        "problem": "Determine whether $\\mathbf F=(y^2z+2xyz)\\,\\mathbf i+(2xyz+x^2z)\\,\\mathbf j+(xy^2+x^2y+2z)\\,\\mathbf k$ is conservative. If it is, find $f$ with $\\mathbf F=\\nabla f$. (Enter $f$.)",
+        "steps": [
+          {
+            "do": "Compute $\\operatorname{curl}\\mathbf F=\\nabla\\times\\mathbf F$. If it is the zero vector, $\\mathbf F$ is conservative; otherwise it is not (end of story). If it is, go on.",
+            "work": "$$\\begin{aligned}\\nabla\\times\\mathbf F&=(2xy+x^2-2xy-x^2)\\,\\mathbf i-(y^2+2xy-y^2-2xy)\\,\\mathbf j+(2yz+2xz-2yz-2xz)\\,\\mathbf k\\\\&=\\mathbf 0.\\end{aligned}$$ So $\\mathbf F$ is conservative."
+          },
+          {
+            "do": "Find $f(x,y,z)$ with $f_x=P$, $f_y=Q$, $f_z=R$. Integrate $P$ with respect to $x$ to get $f=(\\dots)+g(y,z)$; use $f_y=Q$ to find $g=(\\dots)+h(z)$; then use $f_z=R$ to find $h$, and plug it all back into $f$.",
+            "work": "$f=\\int(y^2z+2xyz)\\,dx=xy^2z+x^2yz+g(y,z)$. Then $f_y=2xyz+x^2z+g_y=2xyz+x^2z$, so $g_y=0$ and $g=h(z)$. Then $f_z=xy^2+x^2y+h'(z)=xy^2+x^2y+2z$, so $h'=2z$, $h=z^2$: $$f=xy^2z+x^2yz+z^2.$$"
+          }
+        ],
+        "answer": "$\\mathbf F$ is conservative, with $f=xy^2z+x^2yz+z^2$.",
+        "check": {
+          "kind": "expr",
+          "value": "x*y^2*z+x^2*y*z+z^2",
+          "vars": [
+            "x",
+            "y",
+            "z"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\mathbf F=2xyz\\,\\mathbf i+x^2z\\,\\mathbf j+(x^2y+\\cos z)\\,\\mathbf k$ is conservative. If it is, find $f$ with $\\mathbf F=\\nabla f$. (Enter $f$.)",
+          "steps": [
+            {
+              "do": "Compute $\\operatorname{curl}\\mathbf F=\\nabla\\times\\mathbf F$. If it is the zero vector, $\\mathbf F$ is conservative; otherwise it is not (end of story). If it is, go on.",
+              "work": "$$\\begin{aligned}\\nabla\\times\\mathbf F&=(x^2-x^2)\\,\\mathbf i-(2xy-2xy)\\,\\mathbf j+(2xz-2xz)\\,\\mathbf k=\\mathbf 0.\\end{aligned}$$ So $\\mathbf F$ is conservative."
+            },
+            {
+              "do": "Find $f(x,y,z)$ with $f_x=P$, $f_y=Q$, $f_z=R$. Integrate $P$ with respect to $x$ to get $f=(\\dots)+g(y,z)$; use $f_y=Q$ to find $g=(\\dots)+h(z)$; then use $f_z=R$ to find $h$, and plug it all back into $f$.",
+              "work": "$f=\\int2xyz\\,dx=x^2yz+g(y,z)$. Then $f_y=x^2z+g_y=x^2z$, so $g_y=0$ and $g=h(z)$. Then $f_z=x^2y+h'(z)=x^2y+\\cos z$, so $h=\\sin z$: $$f=x^2yz+\\sin z.$$"
+            }
+          ],
+          "answer": "$\\mathbf F$ is conservative, with $f=x^2yz+\\sin z$.",
+          "check": {
+            "kind": "expr",
+            "value": "x^2*y*z+sin(z)",
+            "vars": [
+              "x",
+              "y",
+              "z"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Determine whether $\\mathbf F=yze^x\\,\\mathbf i+(ze^x+2y)\\,\\mathbf j+ye^x\\,\\mathbf k$ is conservative. If it is, find $f$ with $\\mathbf F=\\nabla f$. (Enter $f$.)",
+          "steps": [
+            {
+              "do": "Compute $\\operatorname{curl}\\mathbf F=\\nabla\\times\\mathbf F$. If it is the zero vector, $\\mathbf F$ is conservative; otherwise it is not (end of story). If it is, go on.",
+              "work": "$$\\begin{aligned}\\nabla\\times\\mathbf F&=(e^x-e^x)\\,\\mathbf i-(ye^x-ye^x)\\,\\mathbf j+(ze^x-ze^x)\\,\\mathbf k=\\mathbf 0.\\end{aligned}$$ So $\\mathbf F$ is conservative."
+            },
+            {
+              "do": "Find $f(x,y,z)$ with $f_x=P$, $f_y=Q$, $f_z=R$. Integrate $P$ with respect to $x$ to get $f=(\\dots)+g(y,z)$; use $f_y=Q$ to find $g=(\\dots)+h(z)$; then use $f_z=R$ to find $h$, and plug it all back into $f$.",
+              "work": "$f=\\int yze^x\\,dx=yze^x+g(y,z)$. Then $f_y=ze^x+g_y=ze^x+2y$, so $g_y=2y$ and $g=y^2+h(z)$. Then $f_z=ye^x+h'(z)=ye^x$, so $h'=0$: $$f=yze^x+y^2.$$"
+            }
+          ],
+          "answer": "$\\mathbf F$ is conservative, with $f=yze^x+y^2$.",
+          "check": {
+            "kind": "expr",
+            "value": "y*z*exp(x)+y^2",
+            "vars": [
+              "x",
+              "y",
+              "z"
+            ],
+            "upToConstant": true
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.2a",
+      "course": "calc3",
+      "section": "17.2",
+      "topic": "Stokes’ Theorem",
+      "title": "Stokes over a hemisphere",
+      "type": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=P\\,\\mathbf i+Q\\,\\mathbf j+R\\,\\mathbf k$ and $S$ is a surface (here a hemisphere) with a given orientation (outwards or inwards).",
+      "example": {
+        "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=x^2e^{2yz}\\,\\mathbf i+y^2e^{3xz}\\,\\mathbf j+z^2e^{4xy}\\,\\mathbf k$ and $S$ is the hemisphere $x^2+y^2+z^2=9$, $z\\ge0$, oriented upwards.",
+        "steps": [
+          {
+            "do": "Use Stokes' Theorem, $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S=\\oint_C\\mathbf F\\cdot d\\mathbf r$. The challenge is finding the bounding curve $C$ and its orientation (right-hand rule). For a hemisphere $x^2+y^2+z^2=R^2$, $z\\ge0$, oriented upward, $C$ is the circle $x^2+y^2=R^2$ in the plane $z=0$, counterclockwise; for $z\\le0$ (oriented downward) it is the same circle traversed in the negative direction. Parametrize: $\\mathbf r(t)=\\langle x(t),y(t),z(t)\\rangle$, $a\\le t\\le b$.",
+            "work": "$C$ is the circle $x^2+y^2=3^2$ in the $xy$-plane: $\\mathbf r(t)=3\\cos t\\,\\mathbf i+3\\sin t\\,\\mathbf j+0\\,\\mathbf k$, $0\\le t\\le2\\pi$."
+          },
+          {
+            "do": "Plug $x(t),y(t),z(t)$ into $\\mathbf F$ and compute $d\\mathbf r=\\mathbf r'(t)\\,dt$.",
+            "work": "With $z=0$: $\\mathbf F=9\\cos^2t\\,\\mathbf i+9\\sin^2t\\,\\mathbf j+0\\,\\mathbf k$ and $d\\mathbf r=(-3\\sin t\\,\\mathbf i+3\\cos t\\,\\mathbf j)\\,dt$."
+          },
+          {
+            "do": "Compute the dot product $\\mathbf F\\cdot d\\mathbf r$ and integrate from $t=a$ to $t=b$.",
+            "work": "$\\mathbf F\\cdot d\\mathbf r=(-27\\cos^2t\\sin t+27\\sin^2t\\cos t)\\,dt$, so $$\\int_0^{2\\pi}(-27\\cos^2t\\sin t+27\\sin^2t\\cos t)\\,dt=\\Big[9\\cos^3t+9\\sin^3t\\Big]_0^{2\\pi}=9-9=0.$$"
+          }
+        ],
+        "answer": "$0$",
+        "check": {
+          "kind": "number",
+          "value": "0"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=ye^z\\,\\mathbf i+2xe^{z^2}\\,\\mathbf j+z^2e^{xy}\\,\\mathbf k$ and $S$ is the hemisphere $x^2+y^2+z^2=4$, $z\\ge0$, oriented upwards.",
+          "steps": [
+            {
+              "do": "Use Stokes' Theorem, $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S=\\oint_C\\mathbf F\\cdot d\\mathbf r$. The challenge is finding the bounding curve $C$ and its orientation (right-hand rule). For a hemisphere $x^2+y^2+z^2=R^2$, $z\\ge0$, oriented upward, $C$ is the circle $x^2+y^2=R^2$ in the plane $z=0$, counterclockwise; for $z\\le0$ (oriented downward) it is the same circle traversed in the negative direction. Parametrize: $\\mathbf r(t)=\\langle x(t),y(t),z(t)\\rangle$, $a\\le t\\le b$.",
+              "work": "$C$ is the circle $x^2+y^2=2^2$ in the $xy$-plane: $\\mathbf r(t)=2\\cos t\\,\\mathbf i+2\\sin t\\,\\mathbf j+0\\,\\mathbf k$, $0\\le t\\le2\\pi$."
+            },
+            {
+              "do": "Plug $x(t),y(t),z(t)$ into $\\mathbf F$ and compute $d\\mathbf r=\\mathbf r'(t)\\,dt$.",
+              "work": "With $z=0$: $\\mathbf F=\\langle y,2x,0\\rangle=\\langle2\\sin t,4\\cos t,0\\rangle$ and $d\\mathbf r=\\langle-2\\sin t,2\\cos t,0\\rangle\\,dt$."
+            },
+            {
+              "do": "Compute the dot product $\\mathbf F\\cdot d\\mathbf r$ and integrate from $t=a$ to $t=b$.",
+              "work": "$\\mathbf F\\cdot d\\mathbf r=(-4\\sin^2t+8\\cos^2t)\\,dt$, so $$\\int_0^{2\\pi}(-4\\sin^2t+8\\cos^2t)\\,dt=-4\\pi+8\\pi=4\\pi.$$"
+            }
+          ],
+          "answer": "$4\\pi$",
+          "check": {
+            "kind": "number",
+            "value": "4*pi"
+          }
+        },
+        {
+          "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=-ye^z\\,\\mathbf i+xe^z\\,\\mathbf j+ze^{xy}\\,\\mathbf k$ and $S$ is the hemisphere $x^2+y^2+z^2=9$, $z\\le0$, oriented downwards.",
+          "steps": [
+            {
+              "do": "Use Stokes' Theorem, $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S=\\oint_C\\mathbf F\\cdot d\\mathbf r$. The challenge is finding the bounding curve $C$ and its orientation (right-hand rule). For a hemisphere $x^2+y^2+z^2=R^2$, $z\\ge0$, oriented upward, $C$ is the circle $x^2+y^2=R^2$ in the plane $z=0$, counterclockwise; for $z\\le0$ (oriented downward) it is the same circle traversed in the negative direction. Parametrize: $\\mathbf r(t)=\\langle x(t),y(t),z(t)\\rangle$, $a\\le t\\le b$.",
+              "work": "With the normal pointing down, the right-hand rule makes $C$ the circle $x^2+y^2=3^2$ in the $xy$-plane traversed clockwise (seen from above): $\\mathbf r(t)=3\\cos t\\,\\mathbf i-3\\sin t\\,\\mathbf j+0\\,\\mathbf k$, $0\\le t\\le2\\pi$."
+            },
+            {
+              "do": "Plug $x(t),y(t),z(t)$ into $\\mathbf F$ and compute $d\\mathbf r=\\mathbf r'(t)\\,dt$.",
+              "work": "With $z=0$: $\\mathbf F=\\langle-y,x,0\\rangle=\\langle3\\sin t,3\\cos t,0\\rangle$ and $d\\mathbf r=\\langle-3\\sin t,-3\\cos t,0\\rangle\\,dt$."
+            },
+            {
+              "do": "Compute the dot product $\\mathbf F\\cdot d\\mathbf r$ and integrate from $t=a$ to $t=b$.",
+              "work": "$\\mathbf F\\cdot d\\mathbf r=(-9\\sin^2t-9\\cos^2t)\\,dt=-9\\,dt$, so $$\\int_0^{2\\pi}(-9)\\,dt=-18\\pi.$$"
+            }
+          ],
+          "answer": "$-18\\pi$",
+          "check": {
+            "kind": "number",
+            "value": "-18*pi"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.2b",
+      "course": "calc3",
+      "section": "17.2",
+      "topic": "Stokes’ Theorem",
+      "title": "Stokes over an open box",
+      "type": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=P\\,\\mathbf i+Q\\,\\mathbf j+R\\,\\mathbf k$ and $S$ consists of the top and four sides (but not the bottom) of the cube with vertices $(\\pm A,\\pm A,\\pm A)$.",
+      "example": {
+        "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$ if $\\mathbf F=x^2y^2\\,\\mathbf i+y^2z\\,\\mathbf j+yz^2\\,\\mathbf k$ and $S$ consists of the top and four sides (but not the bottom) of the cube with vertices $(\\pm2,\\pm2,\\pm2)$.",
+        "steps": [
+          {
+            "do": "Finding the boundary $C$ (a square with four sides) would mean four line integrals. Instead use Stokes' Theorem indirectly: another surface with the same boundary curve, here the bottom face $z=-A$, $-A\\le x,y\\le A$, with upward normal $\\mathbf k$, gives the same value.",
+            "work": "The bottom face is $-2\\le x,y\\le2$, $z=-2$."
+          },
+          {
+            "do": "Find $\\operatorname{curl}\\mathbf F$.",
+            "work": "$$\\operatorname{curl}\\mathbf F=(z^2-y^2)\\,\\mathbf i+0\\,\\mathbf j-2x^2y\\,\\mathbf k.$$"
+          },
+          {
+            "do": "Put $z=-A$ in $\\operatorname{curl}\\mathbf F$; on the bottom face $d\\mathbf S=\\mathbf k\\,dx\\,dy$, so $\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$ is the $\\mathbf k$-component. Integrate over $\\{-A\\le x\\le A,\\ -A\\le y\\le A\\}$.",
+            "work": "At $z=-2$, $\\operatorname{curl}\\mathbf F\\cdot\\mathbf k=-2x^2y$, so $$\\int_{-2}^{2}\\!\\!\\int_{-2}^{2}-2x^2y\\,dx\\,dy=\\int_{-2}^2(-2y)\\Big[\\tfrac{x^3}{3}\\Big]_{-2}^{2}dy=-\\tfrac{32}{3}\\int_{-2}^2y\\,dy=0.$$"
+          }
+        ],
+        "answer": "$0$",
+        "check": {
+          "kind": "number",
+          "value": "0"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$ if $\\mathbf F=y^2\\,\\mathbf i+xz\\,\\mathbf j+yz^2\\,\\mathbf k$ and $S$ consists of the top and four sides (but not the bottom) of the cube with vertices $(\\pm1,\\pm1,\\pm1)$.",
+          "steps": [
+            {
+              "do": "Finding the boundary $C$ (a square with four sides) would mean four line integrals. Instead use Stokes' Theorem indirectly: another surface with the same boundary curve, here the bottom face $z=-A$, $-A\\le x,y\\le A$, with upward normal $\\mathbf k$, gives the same value.",
+              "work": "The bottom face is $-1\\le x,y\\le1$, $z=-1$."
+            },
+            {
+              "do": "Find $\\operatorname{curl}\\mathbf F$.",
+              "work": "$$\\operatorname{curl}\\mathbf F=(z^2-x)\\,\\mathbf i+0\\,\\mathbf j+(z-2y)\\,\\mathbf k.$$"
+            },
+            {
+              "do": "Put $z=-A$ in $\\operatorname{curl}\\mathbf F$; on the bottom face $d\\mathbf S=\\mathbf k\\,dx\\,dy$, so $\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$ is the $\\mathbf k$-component. Integrate over $\\{-A\\le x\\le A,\\ -A\\le y\\le A\\}$.",
+              "work": "At $z=-1$, $\\operatorname{curl}\\mathbf F\\cdot\\mathbf k=-1-2y$, so $$\\int_{-1}^{1}\\!\\!\\int_{-1}^{1}(-1-2y)\\,dx\\,dy=\\int_{-1}^{1}2(-1-2y)\\,dy=2\\bigl[-y-y^2\\bigr]_{-1}^{1}=2(-2)=-4.$$"
+            }
+          ],
+          "answer": "$-4$",
+          "check": {
+            "kind": "number",
+            "value": "-4"
+          }
+        },
+        {
+          "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$ if $\\mathbf F=yz\\,\\mathbf i+x^2\\,\\mathbf j+xy^2\\,\\mathbf k$ and $S$ consists of the top and four sides (but not the bottom) of the cube with vertices $(\\pm3,\\pm3,\\pm3)$.",
+          "steps": [
+            {
+              "do": "Finding the boundary $C$ (a square with four sides) would mean four line integrals. Instead use Stokes' Theorem indirectly: another surface with the same boundary curve, here the bottom face $z=-A$, $-A\\le x,y\\le A$, with upward normal $\\mathbf k$, gives the same value.",
+              "work": "The bottom face is $-3\\le x,y\\le3$, $z=-3$."
+            },
+            {
+              "do": "Find $\\operatorname{curl}\\mathbf F$.",
+              "work": "$$\\operatorname{curl}\\mathbf F=2xy\\,\\mathbf i+(y-y^2)\\,\\mathbf j+(2x-z)\\,\\mathbf k.$$"
+            },
+            {
+              "do": "Put $z=-A$ in $\\operatorname{curl}\\mathbf F$; on the bottom face $d\\mathbf S=\\mathbf k\\,dx\\,dy$, so $\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$ is the $\\mathbf k$-component. Integrate over $\\{-A\\le x\\le A,\\ -A\\le y\\le A\\}$.",
+              "work": "At $z=-3$, $\\operatorname{curl}\\mathbf F\\cdot\\mathbf k=2x+3$, so $$\\int_{-3}^{3}\\!\\!\\int_{-3}^{3}(2x+3)\\,dx\\,dy=\\int_{-3}^{3}18\\,dy=108.$$"
+            }
+          ],
+          "answer": "$108$",
+          "check": {
+            "kind": "number",
+            "value": "108"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.2c",
+      "course": "calc3",
+      "section": "17.2",
+      "topic": "Stokes’ Theorem",
+      "title": "Stokes for a triangular loop",
+      "type": "Use Stokes' Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=P\\,\\mathbf i+Q\\,\\mathbf j+R\\,\\mathbf k$ and $C$ is a curve that bounds some surface $z=g(x,y)$ over a region $D$ (which you have to find), oriented counterclockwise as viewed from above.",
+      "example": {
+        "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=(2x+y^2)\\,\\mathbf i+(2y+z^2)\\,\\mathbf j+(3z+x^2)\\,\\mathbf k$ and $C$ is the triangle with vertices $(2,0,0)$, $(0,2,0)$, $(0,0,2)$, oriented counterclockwise as viewed from above.",
+        "steps": [
+          {
+            "do": "Find a convenient surface that $C$ bounds and write it as $z=g(x,y)$ over its projection $D$ on the $xy$-plane.",
+            "work": "The vertices lie on the plane $x+y+z=2$, so $g(x,y)=2-x-y$. The projection is bounded by $x+y=2$ and the axes: $$D=\\{0\\le x\\le2,\\ 0\\le y\\le2-x\\}.$$"
+          },
+          {
+            "do": "Find $\\operatorname{curl}\\mathbf F$.",
+            "work": "$$\\operatorname{curl}\\mathbf F=-2z\\,\\mathbf i-2x\\,\\mathbf j-2y\\,\\mathbf k.$$"
+          },
+          {
+            "do": "Use Stokes' Theorem, $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, with the formula $\\iint_S\\mathbf G\\cdot d\\mathbf S=\\iint_D\\bigl(-P\\,g_x-Q\\,g_y+R\\bigr)dA$ applied to $\\mathbf G=\\operatorname{curl}\\mathbf F=\\langle P,Q,R\\rangle$ (this $\\mathbf G$ is not our $\\mathbf F$). Replace $z$ by $g(x,y)$.",
+            "work": "Here $P=-2z$, $Q=-2x$, $R=-2y$, $g_x=g_y=-1$: $$\\iint_D\\bigl(-(-2z)(-1)-(-2x)(-1)-2y\\bigr)dA=\\iint_D(-2z-2x-2y)\\,dA=\\iint_D(-4)\\,dA,$$ using $z=2-x-y$. That is $-4$ times the area of the triangle, $-4\\cdot2=-8$."
+          }
+        ],
+        "answer": "$-8$",
+        "check": {
+          "kind": "number",
+          "value": "-8"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=y^2\\,\\mathbf i+z^2\\,\\mathbf j+x^2\\,\\mathbf k$ and $C$ is the triangle with vertices $(1,0,0)$, $(0,1,0)$, $(0,0,2)$, oriented counterclockwise as viewed from above.",
+          "steps": [
+            {
+              "do": "Find a convenient surface that $C$ bounds and write it as $z=g(x,y)$ over its projection $D$ on the $xy$-plane.",
+              "work": "The vertices lie on the plane $2x+2y+z=2$, so $g(x,y)=2-2x-2y$, with $g_x=g_y=-2$. The projection is $$D=\\{0\\le x\\le1,\\ 0\\le y\\le1-x\\}.$$"
+            },
+            {
+              "do": "Find $\\operatorname{curl}\\mathbf F$.",
+              "work": "$$\\operatorname{curl}\\mathbf F=-2z\\,\\mathbf i-2x\\,\\mathbf j-2y\\,\\mathbf k.$$"
+            },
+            {
+              "do": "Use Stokes' Theorem, $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, with the formula $\\iint_S\\mathbf G\\cdot d\\mathbf S=\\iint_D\\bigl(-P\\,g_x-Q\\,g_y+R\\bigr)dA$ applied to $\\mathbf G=\\operatorname{curl}\\mathbf F=\\langle P,Q,R\\rangle$ (this $\\mathbf G$ is not our $\\mathbf F$). Replace $z$ by $g(x,y)$.",
+              "work": "$$\\iint_D\\bigl(-(-2z)(-2)-(-2x)(-2)-2y\\bigr)dA=\\iint_D(-4z-4x-2y)\\,dA=\\iint_D(-8+4x+6y)\\,dA,$$ using $z=2-2x-2y$. Then $$\\int_0^1\\!\\!\\int_0^{1-x}(-8+4x+6y)\\,dy\\,dx=\\int_0^1(1-x)(x-5)\\,dx=\\int_0^1(-5+6x-x^2)\\,dx=-5+3-\\tfrac13=-\\tfrac73.$$"
+            }
+          ],
+          "answer": "$-\\dfrac{7}{3}$",
+          "check": {
+            "kind": "number",
+            "value": "-7/3"
+          }
+        },
+        {
+          "problem": "Use Stokes' Theorem to evaluate $\\displaystyle\\int_C\\mathbf F\\cdot d\\mathbf r$, where $\\mathbf F=(z+y^2)\\,\\mathbf i+(x+z^2)\\,\\mathbf j+(y+x^2)\\,\\mathbf k$ and $C$ is the triangle with vertices $(1,0,0)$, $(0,2,0)$, $(0,0,1)$, oriented counterclockwise as viewed from above.",
+          "steps": [
+            {
+              "do": "Find a convenient surface that $C$ bounds and write it as $z=g(x,y)$ over its projection $D$ on the $xy$-plane.",
+              "work": "The vertices lie on the plane $x+\\tfrac y2+z=1$, so $g(x,y)=1-x-\\tfrac y2$, with $g_x=-1$, $g_y=-\\tfrac12$. The projection is $$D=\\{0\\le x\\le1,\\ 0\\le y\\le2-2x\\}.$$"
+            },
+            {
+              "do": "Find $\\operatorname{curl}\\mathbf F$.",
+              "work": "$$\\operatorname{curl}\\mathbf F=(1-2z)\\,\\mathbf i+(1-2x)\\,\\mathbf j+(1-2y)\\,\\mathbf k.$$"
+            },
+            {
+              "do": "Use Stokes' Theorem, $\\oint_C\\mathbf F\\cdot d\\mathbf r=\\iint_S\\operatorname{curl}\\mathbf F\\cdot d\\mathbf S$, with the formula $\\iint_S\\mathbf G\\cdot d\\mathbf S=\\iint_D\\bigl(-P\\,g_x-Q\\,g_y+R\\bigr)dA$ applied to $\\mathbf G=\\operatorname{curl}\\mathbf F=\\langle P,Q,R\\rangle$ (this $\\mathbf G$ is not our $\\mathbf F$). Replace $z$ by $g(x,y)$.",
+              "work": "$$\\iint_D\\Bigl((1-2z)(1)+(1-2x)\\tfrac12+(1-2y)\\Bigr)dA=\\iint_D\\Bigl(\\tfrac52-2z-x-2y\\Bigr)dA=\\iint_D\\Bigl(\\tfrac12+x-y\\Bigr)dA,$$ using $z=1-x-\\tfrac y2$. Then $$\\int_0^1\\!\\!\\int_0^{2-2x}\\Bigl(\\tfrac12+x-y\\Bigr)dy\\,dx=\\int_0^1(1-x)(4x-1)\\,dx=\\int_0^1(-1+5x-4x^2)\\,dx=-1+\\tfrac52-\\tfrac43=\\tfrac16.$$"
+            }
+          ],
+          "answer": "$\\dfrac{1}{6}$",
+          "check": {
+            "kind": "number",
+            "value": "1/6"
+          }
+        }
+      ],
+      "scene": "fields"
+    },
+    {
+      "id": "c3-17.3a",
+      "course": "calc3",
+      "section": "17.3",
+      "topic": "The Divergence Theorem",
+      "title": "Divergence theorem flux",
+      "type": "Use the Divergence Theorem to calculate the surface integral $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=P\\,\\mathbf i+Q\\,\\mathbf j+R\\,\\mathbf k$ and $S$ is a surface bounding a solid region that can be described in Cartesian, cylindrical or spherical coordinates.",
+      "example": {
+        "problem": "Use the Divergence Theorem to calculate $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=e^{2x}\\sin2y\\,\\mathbf i+e^{2x}\\cos2y\\,\\mathbf j+y^2z^2\\,\\mathbf k$ and $S$ is the surface of the box bounded by the planes $x=0$, $x=2$, $y=0$, $y=1$, $z=0$, $z=3$.",
+        "steps": [
+          {
+            "do": "Compute the divergence $\\operatorname{div}\\mathbf F=\\dfrac{\\partial P}{\\partial x}+\\dfrac{\\partial Q}{\\partial y}+\\dfrac{\\partial R}{\\partial z}$.",
+            "work": "$$\\operatorname{div}\\mathbf F=2e^{2x}\\sin2y-2e^{2x}\\sin2y+2y^2z=2y^2z.$$"
+          },
+          {
+            "do": "Write the solid region $E$ bounded by $S$ in iterated form, in Cartesian, cylindrical or spherical coordinates.",
+            "work": "$E=\\{0\\le x\\le2,\\ 0\\le y\\le1,\\ 0\\le z\\le3\\}$."
+          },
+          {
+            "do": "Set up the Divergence Theorem, $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S=\\iiint_E\\operatorname{div}\\mathbf F\\,dV$, and evaluate the triple integral.",
+            "work": "$$\\iint_S\\mathbf F\\cdot d\\mathbf S=\\int_0^2\\!\\!\\int_0^1\\!\\!\\int_0^32y^2z\\,dz\\,dy\\,dx=2\\Bigl(\\int_0^2dx\\Bigr)\\Bigl(\\int_0^1y^2\\,dy\\Bigr)\\Bigl(\\int_0^3z\\,dz\\Bigr)=2\\cdot2\\cdot\\tfrac13\\cdot\\tfrac92=6.$$"
+          }
+        ],
+        "answer": "$6$",
+        "check": {
+          "kind": "number",
+          "value": "6"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the Divergence Theorem to calculate $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=e^x\\cos y\\,\\mathbf i-e^x\\sin y\\,\\mathbf j+xz^2\\,\\mathbf k$ and $S$ is the surface of the box bounded by the planes $x=0$, $x=3$, $y=0$, $y=2$, $z=0$, $z=1$.",
+          "steps": [
+            {
+              "do": "Compute the divergence $\\operatorname{div}\\mathbf F=\\dfrac{\\partial P}{\\partial x}+\\dfrac{\\partial Q}{\\partial y}+\\dfrac{\\partial R}{\\partial z}$.",
+              "work": "$$\\operatorname{div}\\mathbf F=e^x\\cos y-e^x\\cos y+2xz=2xz.$$"
+            },
+            {
+              "do": "Write the solid region $E$ bounded by $S$ in iterated form, in Cartesian, cylindrical or spherical coordinates.",
+              "work": "$E=\\{0\\le x\\le3,\\ 0\\le y\\le2,\\ 0\\le z\\le1\\}$."
+            },
+            {
+              "do": "Set up the Divergence Theorem, $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S=\\iiint_E\\operatorname{div}\\mathbf F\\,dV$, and evaluate the triple integral.",
+              "work": "$$\\iint_S\\mathbf F\\cdot d\\mathbf S=\\int_0^3\\!\\!\\int_0^2\\!\\!\\int_0^12xz\\,dz\\,dy\\,dx=2\\Bigl(\\int_0^3x\\,dx\\Bigr)\\Bigl(\\int_0^2dy\\Bigr)\\Bigl(\\int_0^1z\\,dz\\Bigr)=2\\cdot\\tfrac92\\cdot2\\cdot\\tfrac12=9.$$"
+            }
+          ],
+          "answer": "$9$",
+          "check": {
+            "kind": "number",
+            "value": "9"
+          }
+        },
+        {
+          "problem": "Use the Divergence Theorem to calculate $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S$, where $\\mathbf F=x^3\\,\\mathbf i+y^3\\,\\mathbf j+z^3\\,\\mathbf k$ and $S$ is the sphere $x^2+y^2+z^2=4$.",
+          "steps": [
+            {
+              "do": "Compute the divergence $\\operatorname{div}\\mathbf F=\\dfrac{\\partial P}{\\partial x}+\\dfrac{\\partial Q}{\\partial y}+\\dfrac{\\partial R}{\\partial z}$.",
+              "work": "$$\\operatorname{div}\\mathbf F=3x^2+3y^2+3z^2=3\\rho^2.$$"
+            },
+            {
+              "do": "Write the solid region $E$ bounded by $S$ in iterated form, in Cartesian, cylindrical or spherical coordinates.",
+              "work": "$E$ is the ball: $\\{0\\le\\rho\\le2,\\ 0\\le\\varphi\\le\\pi,\\ 0\\le\\theta\\le2\\pi\\}$."
+            },
+            {
+              "do": "Set up the Divergence Theorem, $\\displaystyle\\iint_S\\mathbf F\\cdot d\\mathbf S=\\iiint_E\\operatorname{div}\\mathbf F\\,dV$, and evaluate the triple integral.",
+              "work": "$$\\iint_S\\mathbf F\\cdot d\\mathbf S=\\int_0^{2\\pi}\\!\\!\\int_0^\\pi\\!\\!\\int_0^2 3\\rho^2\\cdot\\rho^2\\sin\\varphi\\,d\\rho\\,d\\varphi\\,d\\theta=3\\cdot\\tfrac{2^5}{5}\\cdot2\\cdot2\\pi=\\tfrac{384\\pi}{5}.$$"
+            }
+          ],
+          "answer": "$\\dfrac{384\\pi}{5}$",
+          "check": {
+            "kind": "number",
+            "value": "384*pi/5"
+          }
+        }
+      ],
+      "scene": "fields"
+    }
+  ]
+}

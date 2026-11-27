@@ -1,0 +1,39 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="meaning" figure="wide" label="A shape that changes from an interval to a curve, a flat region, a curved surface and a solid ball. Each time, its boundary is highlighted: two endpoints, a closed loop, or a closed surface.">
+  <div class="beat" data-beat="One question">
+    <p>Here is the idea that ties the whole course together. Every integral in this guide answers the same question: <strong>add up a quantity over a shape</strong>. Change the shape and you get a new kind of integral.</p>
+    <Tex display t="\int_{\cC{a}}^{\cC{b}} \cA{f(x)}\,dx"/>
+    <p class="aside">Input: a function and an interval. Output: a number. If <Tex t="f \ge 0"/> it is an area, and if <Tex t="f"/> is the density of a wire it is the wire’s mass. With <Tex t="f = 1"/> you get the length <Tex t="b - a"/>.</p>
+  </div>
+  <div class="beat" data-beat="A curve">
+    <p>Bend the interval into a <span class="k-c3">curve</span> <Tex t="C"/>. Adding up a function along it gives the line integral <Tex t="\int_C f\,ds"/>, the mass of a curved wire. Adding up a force along it gives the work:</p>
+    <Tex display t="\int_C \cA{\mathbf F}\cdot d\mathbf r = \int_a^b \cA{\mathbf F(\mathbf r(t))}\cdot \mathbf r'(t)\,dt"/>
+  </div>
+  <div class="beat" data-beat="A region">
+    <p>Fill in a flat <span class="k-c3">region</span> <Tex t="D"/>. A double integral <Tex t="\iint_D f\,dA"/> builds a “building” with floor <Tex t="D"/> and ceiling height <Tex t="f"/>, and gives its volume. With <Tex t="f = 1"/> it gives the area of <Tex t="D"/>.</p>
+  </div>
+  <div class="beat" data-beat="A surface">
+    <p>Lift the region into a curved <span class="k-c3">surface</span> <Tex t="S"/>. A scalar surface integral <Tex t="\iint_S f\,dS"/> gives the mass of a curved sheet. The vector-field kind, <Tex t="\iint_S \mathbf F\cdot d\mathbf S"/>, measures <strong>flux</strong>: how much of a flow passes through the surface.</p>
+  </div>
+  <div class="beat" data-beat="A solid">
+    <p>Fill the surface in and you have a <span class="k-c3">solid</span> <Tex t="E"/>. A triple integral <Tex t="\iiint_E f\,dV"/> adds up density to give mass, and with <Tex t="f = 1"/> it gives volume.</p>
+  </div>
+  <div class="beat" data-beat="The boundary">
+    <p>Now the part that ties it together. Every shape has a <span class="k-c2">boundary</span>: an interval has two endpoints, a region has a closed loop around it, and a solid has a closed surface around it. Each big theorem of the course says the same thing. If you add up a derivative of something <em>inside</em> the shape, the result depends only on the <em>boundary</em>.</p>
+    <Tex display t={String.raw`\begin{aligned} \int_a^b F'(x)\,dx &= \cB{F(b) - F(a)} \\ \int_C \nabla f\cdot d\mathbf r &= \cB{f(B) - f(A)} \\ \iint_D \Big(\tfrac{\partial Q}{\partial x} - \tfrac{\partial P}{\partial y}\Big)dA &= \cB{\oint_{\partial D} P\,dx + Q\,dy} \\ \iint_S (\nabla\times\mathbf F)\cdot d\mathbf S &= \cB{\oint_{\partial S} \mathbf F\cdot d\mathbf r} \\ \iiint_E \nabla\cdot\mathbf F\,dV &= \cB{\oiint_{\partial E} \mathbf F\cdot d\mathbf S} \end{aligned}`}/>
+    <p class="aside">These are the fundamental theorem, the fundamental theorem for line integrals, Green, Stokes and the divergence theorem. They are one idea, in five dimensions of shape.</p>
+  </div>
+  <Tex slot="takeaway" display t="\int_{\Omega} d\omega = \int_{\cB{\partial\Omega}} \omega"/>
+  <p slot="takeaway">The generalized Stokes theorem: what happens inside a shape is recorded on its boundary.</p>
+  <Fragment slot="controls">
+    <Segmented name="shape" label="Shape" options={[['0', 'Interval'], ['1', 'Curve'], ['2', 'Region'], ['3', 'Surface'], ['4', 'Solid']]}/>
+    <Action name="play" label="Play all" icon="play"/>
+    <Readout name="boundary" label="Boundary" color="c2"/>
+  </Fragment>
+</Scene>

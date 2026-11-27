@@ -1,0 +1,37 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+---
+<Scene id="improper" label="Top panel: the curves y equals 1 over x and y equals 1 over x squared from x equals 1 to a cutoff b, with the areas under them shaded. Bottom panel: the area so far plotted against b on a logarithmic scale up to one million. The area under 1 over x, ln b, climbs forever; the area under 1 over x squared, 1 minus 1 over b, levels off at 1. A second mode does the same for 1 over x and 1 over root x near zero.">
+  <div class="beat" data-beat="Two curves">
+    <p>Here are <span class="k-c2"><Tex t="y = 1/x"/></span> and <span class="k-c3"><Tex t="y = 1/x^2"/></span>, starting at <Tex t="x = 1"/>. Both sink toward zero and never touch it.</p>
+    <p>Does the region under each one, stretching to the right forever, have a finite area?</p>
+  </div>
+  <div class="beat" data-beat="Push b out">
+    <p>Infinity is not a number you can plug in, so stop at a finite <Tex t="b"/> and see what happens as <Tex t="b"/> grows. The bottom panel tracks the area so far, with <Tex t="b"/> on a scale where each step is ten times the last.</p>
+    <Tex display t="\int_1^\infty f(x)\,dx = \lim_{b\to\infty}\int_1^b f(x)\,dx"/>
+    <p class="aside">The recipe: replace the <Tex t="\infty"/> by a letter, integrate as usual, then take the limit.</p>
+  </div>
+  <div class="beat" data-beat="One converges">
+    <p>For <span class="k-c3"><Tex t="1/x^2"/></span> the area so far is <Tex t="\cC{1 - 1/b}"/>. Push <Tex t="b"/> to a million and it is <Tex t="0.999999"/>. It can never pass <Tex t="1"/>, and it gets as close as you like. The integral <strong>converges</strong>, to exactly <Tex t="1"/>.</p>
+    <p>An infinitely long region with area one: the tail gets thin fast enough.</p>
+  </div>
+  <div class="beat" data-beat="One does not">
+    <p>For <span class="k-c2"><Tex t="1/x"/></span> the area so far is <Tex t="\cB{\ln b}"/>. It grows slowly, only about <Tex t="13.8"/> at a million, but every factor of ten adds the same <Tex t="\ln 10 \approx 2.303"/>. There is no ceiling, so the integral <strong>diverges</strong>.</p>
+    <p class="aside">The general fact: <Tex t="\int_1^\infty dx/x^p"/> converges exactly when <Tex t="p > 1"/>. The curve <Tex t="1/x"/> sits right on the edge, on the wrong side.</p>
+  </div>
+  <div class="beat" data-beat="Blow-ups">
+    <p>The other kind of improper integral has a finite interval but a function that blows up. On <Tex t="(0, 1]"/>, replace the bad end by <Tex t="t"/> and let <Tex t="t \to 0^+"/>.</p>
+    <Tex display t="\int_t^1 \frac{dx}{\sqrt x} = \cC{2(1-\sqrt t)} \to 2, \qquad \int_t^1 \frac{dx}{x} = \cB{-\ln t} \to \infty"/>
+    <p class="aside">Near zero the rule flips: <Tex t="\int_0^1 dx/x^p"/> converges exactly when <Tex t="p < 1"/>, so <Tex t="1/x"/> diverges at both ends.</p>
+  </div>
+  <Tex slot="takeaway" display t="\int_1^\infty \frac{dx}{x^p} \text{ converges} \iff p > 1"/>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Kind of improper integral" options={[['inf', 'Infinite interval'], ['zero', 'Blow-up at 0']]}/>
+    <Slider name="u" label="Upper limit b" min={0} max={6} step={0.01} value={0} color="ink"/>
+    <div class="ctl ctl-readout" style="--ctl:var(--calc-c2)"><span class="ctl-label" data-label-a>∫ 1/x dx</span><output data-readout="a">—</output></div>
+    <div class="ctl ctl-readout" style="--ctl:var(--calc-c3)"><span class="ctl-label" data-label-b>∫ 1/x² dx</span><output data-readout="b">—</output></div>
+  </Fragment>
+</Scene>

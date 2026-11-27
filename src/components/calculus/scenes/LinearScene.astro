@@ -1,0 +1,52 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="linear" label="Two modes. Zoom: the curve y = square root of (1 − x) and its amber tangent line at (−3, 2). A rose segment shows the gap between curve and line at a draggable point; as the view zooms in the curve becomes indistinguishable from the line, and a table shows the error divided by h squared settling near 1/64. Newton: the curve y = x³ − x² − 1, with tangent lines sliding down to the x-axis to produce better and better guesses for the root, listed in a table.">
+  <div class="beat" data-beat="A curve and its tangent">
+    <p>A classic exam problem: estimate <Tex t="f(-4)"/> for <Tex t="\cA{f(x) = \sqrt{1-x}}"/>. The nearby point <Tex t="a=-3"/> is easy: <Tex t="f(-3) = \sqrt4 = 2"/>, and <Tex t="f'(-3) = -\tfrac14"/>.</p>
+    <p>The tangent line there is the <strong>linearization</strong>:</p>
+    <Tex display t="\cB{L(x)} = f(a) + f'(a)(x-a) = 2 - \tfrac14(x+3)"/>
+  </div>
+  <div class="beat" data-beat="Use the line instead">
+    <p>The line is easy to evaluate: <Tex t="\cB{L(-4)} = 2 + \tfrac14 = \tfrac94 = 2.25"/>. The truth is <Tex t="\cA{\sqrt5} = 2.23607\ldots"/></p>
+    <p>The <span class="k-c4">gap</span> is about <Tex t="0.014"/>. The curve bends down (<Tex t="f''<0"/>), so the tangent line sits above it and the estimate is a little too big.</p>
+    <p class="aside">Drag the point on the curve to try other values of <Tex t="h"/>.</p>
+  </div>
+  <div class="beat" data-beat="Zoom in">
+    <p>Now zoom in on <Tex t="(-3, 2)"/>. The curve straightens out. A few zooms in, you cannot tell the <span class="k-c1">curve</span> from the <span class="k-c2">line</span>.</p>
+    <p>That is what “differentiable” means in pictures: up close, the function <em>is</em> a line, and its slope is <Tex t="f'(a)"/>.</p>
+  </div>
+  <div class="beat" data-beat="The error is quadratic">
+    <p>How fast does the gap close? Watch the last row of the table. Halve <Tex t="h"/> and the <span class="k-c4">error</span> drops to a quarter. The ratio settles down:</p>
+    <Tex display t="\frac{\cD{\text{error}}}{h^2} \;\to\; \frac{|f''(a)|}{2} = \frac{1}{64}"/>
+    <p>So <Tex t="f(a+h) \approx f(a) + f'(a)\,h"/> with an error of order <Tex t="h^2"/>. When <Tex t="h"/> is small, <Tex t="h^2"/> is much smaller.</p>
+  </div>
+  <div class="beat" data-beat="Newton's method">
+    <p>Turn it around and use the tangent line to <em>solve</em> an equation. Guess <Tex t="x_1"/>, follow the tangent down to where it hits zero, and call that <Tex t="x_2"/>. Repeat.</p>
+    <Tex display t="x_{n+1} = x_n - \frac{f(x_n)}{\cB{f'(x_n)}}"/>
+    <p>For example, <Tex t="x^3-x^2-1 = 0"/> from <Tex t="x_1 = 1"/> gives <Tex t="x_2 = 2"/>, then <Tex t="x_3 = 13/8 = 1.625"/>. Press <em>Step</em> or <em>Play</em>; the number of correct digits roughly doubles each step. Drag <Tex t="x_1"/> to start somewhere else.</p>
+    <p class="aside">Starting near <Tex t="x = 2/3"/>, where <Tex t="f' = 0"/>, sends the tangent far away. Newton’s method is fast, but it needs a decent first guess.</p>
+  </div>
+  <Tex slot="takeaway" display t="f(a+h) \approx f(a) + \cB{f'(a)}\,h \quad\text{with error} \sim \cD{h^2}"/>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Mode" options={[['zoom', 'Zoom'], ['newton', 'Newton']]}/>
+    <div data-mode="zoom" style="display:contents">
+      <Slider name="zoom" label="Zoom" min={0} max={3} step={0.01} value={0} color="c2"/>
+      <Readout name="win" label="Window" color="muted"/>
+      <Readout name="err" label="Error" color="c4"/>
+      <Readout name="ratio" label="Error / h²" color="c4"/>
+    </div>
+    <div data-mode="newton" style="display:none">
+      <Action name="step" label="Step" icon="step"/>
+      <Action name="play" label="Play" icon="play"/>
+      <Action name="reset" label="Reset" icon="reset"/>
+      <Readout name="xn" label="Latest" color="c3"/>
+      <Readout name="fxn" label="f(xₙ)" color="c2"/>
+    </div>
+  </Fragment>
+</Scene>

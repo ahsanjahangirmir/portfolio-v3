@@ -1,0 +1,53 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+---
+<Scene id="taylor" label="A function and its Taylor polynomial of degree n about a draggable center c. The gap between them is shaded as the error, and a probe point shows the error at one x. For ln of 1 plus x and 1 over 1 minus x, the interval of convergence is marked on the x-axis: inside it the polynomials hug the curve as n grows, outside it they swing away.">
+  <div class="beat" data-beat="Match the height">
+    <p>Can a polynomial pretend to be <Tex t="\cA{\sin x}"/>? Start at the <span class="k-c2">center</span> <Tex t="c = 0"/>. The best constant is the height there, <Tex t="T_0 = \sin 0 = 0"/>. That matches one number and nothing else.</p>
+    <p>Add a degree-one term to also match the slope, and you get the tangent line, <Tex t="T_1(x) = x"/>.</p>
+  </div>
+  <div class="beat" data-beat="Match more derivatives">
+    <p>Keep going: choose each new coefficient so that one more derivative agrees at <Tex t="c"/>. The <Tex t="k"/>-th coefficient has to be <Tex t="f^{(k)}(c)/k!"/>, because differentiating <Tex t="(x-c)^k"/> <Tex t="k"/> times leaves <Tex t="k!"/>.</p>
+    <Tex display t="\cB{T_n(x)} = \sum_{k=0}^{n} \frac{f^{(k)}(c)}{k!}(x-c)^k, \qquad \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots"/>
+    <p class="aside">The derivatives of <Tex t="\sin"/> at 0 cycle through <Tex t="0, 1, 0, -1"/>, so only odd powers appear.</p>
+  </div>
+  <div class="beat" data-beat="The error">
+    <p>The <span class="k-c4">shaded gap</span> is the remainder <Tex t="R_n(x) = f(x) - T_n(x)"/>. It is tiny near <Tex t="c"/> and grows as you move away. Taylor’s inequality puts a ceiling on it:</p>
+    <Tex display t="|\cD{R_n(x)}| \le \frac{M}{(n+1)!}\,|x-c|^{n+1}"/>
+    <p class="aside">Here <Tex t="M"/> bounds <Tex t="|f^{(n+1)}|"/> on the interval. For example, it shows that <Tex t="T_3"/> for <Tex t="x^{2/3}"/> about 1 is off by less than <Tex t="0.000097"/> on <Tex t="[0.8, 1.2]"/>. Drag the rose marker to read the error at any <Tex t="x"/>.</p>
+  </div>
+  <div class="beat" data-beat="A wall">
+    <p>Now try <Tex t="\cA{\ln(1+x)}"/>. Raise the degree and the polynomials hug the curve better on <Tex t="(-1, 1]"/>, but past <Tex t="x = 1"/> they swing wildly, worse with every term.</p>
+    <p>That boundary is the <span class="k-c3">interval of convergence</span>. Its half-width, the radius <Tex t="R"/>, is the distance from <Tex t="c"/> to the nearest point where the function breaks, here <Tex t="x = -1"/>.</p>
+    <p class="aside">The ratio test finds it. At <Tex t="x = 1"/> the series is the alternating harmonic series, so that end is included; at <Tex t="x = -1"/> it is minus the harmonic series, so that end is not.</p>
+  </div>
+  <div class="beat" data-beat="Move the center">
+    <p>Slide the center to <Tex t="c = 1.5"/>. The trouble spot at <Tex t="-1"/> is now <Tex t="2.5"/> away, so the radius grows to <Tex t="2.5"/> and the interval becomes <Tex t="(-1, 4]"/>. The same function gets a different series, and a different reach, from each center.</p>
+  </div>
+  <div class="beat" data-beat="Everywhere">
+    <p>Some functions have no trouble spot at all. For <Tex t="\cA{e^x}"/> (and <Tex t="\sin x"/>) the radius is infinite: with enough terms the polynomial matches the curve across any window you choose.</p>
+    <Tex display t="e^x = \sum_{k=0}^\infty \frac{x^k}{k!} \quad \text{for every } x"/>
+    <p class="aside">Try <Tex t="1/(1-x)"/> too: its series is the geometric series, with radius equal to the distance from <Tex t="c"/> to 1.</p>
+  </div>
+  <Tex slot="takeaway" display t="f(x) = \sum_{k=0}^\infty \frac{f^{(k)}(c)}{k!}(x-c)^k \quad \text{for } |x - c| < \cC{R}"/>
+  <div slot="overlay" class="scene-overlay taylor-terms"><output data-readout="poly">T₀(x) = 0</output></div>
+  <Fragment slot="controls">
+    <Segmented name="fn" label="Function" options={[['sin', 'sin x'], ['exp', 'eˣ'], ['ln', 'ln(1 + x)'], ['geom', '1/(1 − x)']]}/>
+    <Slider name="n" label="Degree n" min={0} max={20} step={1} value={0} color="c2" digits={0}/>
+    <Slider name="c" label="Center c" min={-6} max={6} step={0.01} value={0} color="c2"/>
+    <Slider name="x" label="Probe x" min={-7.6} max={7.6} step={0.01} value={3.6} color="c4"/>
+    <Readout name="f" label="f(x)" color="c1"/>
+    <Readout name="t" label="Tₙ(x)" color="c2"/>
+    <Readout name="err" label="|Rₙ(x)|" color="c4"/>
+    <Readout name="radius" label="Radius R" color="c3"/>
+  </Fragment>
+</Scene>
+<style is:global>
+  #taylor .taylor-terms{right:170px;max-width:520px;align-items:flex-start}
+  #taylor .taylor-terms output{font-family:'Courier New',ui-monospace,monospace;font-size:13px;line-height:1.45;color:var(--calc-c2);background:color-mix(in srgb,var(--calc-figure) 86%,transparent);padding:3px 7px;margin-left:-7px}
+  @media (max-width:860px){#taylor .taylor-terms{right:16px;top:auto;bottom:10px;font-size:12px}}
+</style>

@@ -1,0 +1,48 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="rules" label="Two pictures. Product rule: a rectangle with width x to the fourth (mint) and height e to the x (blue). Nudging x adds a mint strip on the right, a blue strip on top and a small rose corner square that shrinks much faster than the strips. Chain rule: three horizontal number lines for x, u = tan x and y = sin u, with threads showing where each x lands; a short amber interval on the x line is stretched on the u line and then squeezed on the y line.">
+  <div class="beat" data-beat="A rectangle">
+    <p>Take the product <Tex t="x^4 e^x"/>. Picture it as the area of a rectangle with width <Tex t="\cA{f(x) = x^4}"/> and height <Tex t="\cC{g(x) = e^x}"/>.</p>
+    <p>To differentiate the product, ask: when <Tex t="x"/> grows a little, how much area appears?</p>
+  </div>
+  <div class="beat" data-beat="Nudge x">
+    <p>Nudge <Tex t="x"/> by <Tex t="dx"/>. The width grows by <Tex t="\cA{df}"/> and the height by <Tex t="\cC{dg}"/>. The new area comes in three pieces:</p>
+    <Tex display t="d(fg) = \cA{g\,df} + \cC{f\,dg} + \cD{df\,dg}"/>
+    <p>Two strips, and a little <span class="k-c4">corner</span>. Drag either corner of the rectangle.</p>
+  </div>
+  <div class="beat" data-beat="The corner vanishes">
+    <p>Now shrink <Tex t="dx"/>. The strips shrink in proportion to <Tex t="dx"/>, but the corner is a product of two small things, so it shrinks like <Tex t="dx^2"/>. Its share of the new area goes to zero.</p>
+    <p>Divide by <Tex t="dx"/> and let it go to zero:</p>
+    <Tex display t="(fg)' = \cA{f'}\,\cC{g} + \cA{f}\,\cC{g'}"/>
+    <p class="aside">Here <Tex t="(x^4e^x)' = 4x^3e^x + x^4e^x = (4x^3+x^4)e^x"/>. At <Tex t="x=1"/> that is <Tex t="5e \approx 13.59"/>, the number the panel’s difference quotient closes in on.</p>
+  </div>
+  <div class="beat" data-beat="Functions as maps">
+    <p>For a composition, think of each function as a map that moves points. The function <Tex t="\sin(\tan x)"/> is two maps in a row: first <Tex t="u = \tan x"/>, then <Tex t="y = \sin u"/>.</p>
+    <p>The faint threads show where each <Tex t="x"/> lands. Near this <Tex t="x"/>, <Tex t="\tan"/> spreads points apart and <Tex t="\sin"/> pulls them back together.</p>
+  </div>
+  <div class="beat" data-beat="Stretch, then stretch">
+    <p>Follow a tiny <span class="k-c2">interval</span> <Tex t="dx"/>. The first map stretches it by <Tex t="g'(x) = \sec^2 x"/>. The second stretches the result by <Tex t="f'(u) = \cos u"/>, evaluated where it landed, <Tex t="u = g(x)"/>. Stretches multiply:</p>
+    <Tex display t="\frac{dy}{dx} = f'(\cC{g(x)})\cdot g'(x) = \cos(\tan x)\,\sec^2 x"/>
+    <p class="aside">Implicit differentiation and related rates are this rule again: in <Tex t="x^3+y^3=9"/>, differentiating in <Tex t="t"/> gives <Tex t="3x^2\tfrac{dx}{dt} + 3y^2\tfrac{dy}{dt} = 0"/>, so with <Tex t="dy/dt = 6"/> at <Tex t="(1,2)"/>, <Tex t="dx/dt = -24"/>.</p>
+  </div>
+  <Tex slot="takeaway" display t="(fg)' = \cA{f'}\cC{g} + \cA{f}\cC{g'} \qquad (f\circ g)' = f'(g(x))\,g'(x)"/>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Rule" options={[['product', 'Product'], ['chain', 'Chain']]}/>
+    <Slider name="dx" label="Nudge dx" min={0} max={0.25} step={0.0025} value={0} color="c2" digits={3}/>
+    <div data-mode="product" style="display:contents">
+      <Readout name="strips" label="Strips" color="c1"/>
+      <Readout name="corner" label="Corner" color="c4"/>
+      <Readout name="share" label="Corner share" color="c4"/>
+    </div>
+    <div data-mode="chain" style="display:none">
+      <Readout name="gp" label="g′(x)" color="c3"/>
+      <Readout name="fp" label="f′(g(x))" color="c5"/>
+      <Readout name="dydx" label="dy/dx" color="c2"/>
+    </div>
+  </Fragment>
+</Scene>

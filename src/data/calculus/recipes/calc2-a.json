@@ -1,0 +1,2451 @@
+{
+  "recipes": [
+    {
+      "id": "c2-6.1.1",
+      "course": "calc2",
+      "section": "6.1",
+      "topic": "Areas Between Curves",
+      "title": "Area between two curves (two crossings)",
+      "type": "Find the area of the region enclosed between $y=\\text{Expr}_1(x)$ and $y=\\text{Expr}_2(x)$, where they meet at two points.",
+      "scene": "riemann",
+      "example": {
+        "problem": "Find the area of the region enclosed between $y=12-x^2$ and $y=x^2-6$.",
+        "steps": [
+          {
+            "do": "Find the points of intersection by solving $\\text{Expr}_1(x)=\\text{Expr}_2(x)$ for $x$. One root means the region is infinite (no finite answer). Two roots $x_1<x_2$ are your limits of integration. With three intersection points, split the interval at the middle one and add the two areas.",
+            "work": "$12-x^2=x^2-6$ means $2x^2=18$, so $x^2-9=0$, i.e. $(x-3)(x+3)=0$. Two roots: $x=-3$ and $x=3$."
+          },
+          {
+            "do": "On each interval of integration (here just one), decide which curve is on top by plugging in a test value (or sketching).",
+            "work": "At $x=0$ the first curve gives $12$ and the second gives $-6$. Since $12>-6$: $\\text{TOP}=12-x^2$, $\\text{BOT}=x^2-6$."
+          },
+          {
+            "do": "The area is $\\displaystyle\\int_{x_1}^{x_2}\\big[\\text{TOP}(x)-\\text{BOT}(x)\\big]\\,dx$.",
+            "work": "$$\\int_{-3}^{3}\\big[(12-x^2)-(x^2-6)\\big]dx=\\int_{-3}^{3}(18-2x^2)\\,dx=\\Big[18x-\\tfrac{2x^3}{3}\\Big]_{-3}^{3}=108-36=72$$"
+          }
+        ],
+        "answer": "The area is $72$.",
+        "check": {
+          "kind": "number",
+          "value": "72"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the area of the region enclosed between $y=8-x^2$ and $y=x^2$. Enter the area.",
+          "steps": [
+            {
+              "do": "Find the points of intersection by solving $\\text{Expr}_1(x)=\\text{Expr}_2(x)$ for $x$. One root means the region is infinite (no finite answer). Two roots $x_1<x_2$ are your limits of integration. With three intersection points, split the interval at the middle one and add the two areas.",
+              "work": "$8-x^2=x^2$ means $2x^2=8$, so $x^2=4$. Two roots: $x=-2$ and $x=2$."
+            },
+            {
+              "do": "On each interval of integration (here just one), decide which curve is on top by plugging in a test value (or sketching).",
+              "work": "At $x=0$ the first curve gives $8$ and the second gives $0$. So $\\text{TOP}=8-x^2$, $\\text{BOT}=x^2$."
+            },
+            {
+              "do": "The area is $\\displaystyle\\int_{x_1}^{x_2}\\big[\\text{TOP}(x)-\\text{BOT}(x)\\big]\\,dx$.",
+              "work": "$$\\int_{-2}^{2}(8-2x^2)\\,dx=\\Big[8x-\\tfrac{2x^3}{3}\\Big]_{-2}^{2}=\\tfrac{32}{3}-\\big(-\\tfrac{32}{3}\\big)=\\tfrac{64}{3}$$"
+            }
+          ],
+          "answer": "The area is $\\dfrac{64}{3}$.",
+          "check": {
+            "kind": "number",
+            "value": "64/3"
+          }
+        },
+        {
+          "problem": "Find the area of the region enclosed between $y=x$ and $y=x^2-2$. Enter the area.",
+          "steps": [
+            {
+              "do": "Find the points of intersection by solving $\\text{Expr}_1(x)=\\text{Expr}_2(x)$ for $x$. One root means the region is infinite (no finite answer). Two roots $x_1<x_2$ are your limits of integration. With three intersection points, split the interval at the middle one and add the two areas.",
+              "work": "$x=x^2-2$ means $x^2-x-2=0$, i.e. $(x-2)(x+1)=0$. Two roots: $x=-1$ and $x=2$."
+            },
+            {
+              "do": "On each interval of integration (here just one), decide which curve is on top by plugging in a test value (or sketching).",
+              "work": "At $x=0$ the first curve gives $0$ and the second gives $-2$. So $\\text{TOP}=x$, $\\text{BOT}=x^2-2$."
+            },
+            {
+              "do": "The area is $\\displaystyle\\int_{x_1}^{x_2}\\big[\\text{TOP}(x)-\\text{BOT}(x)\\big]\\,dx$.",
+              "work": "$$\\int_{-1}^{2}\\big[x-(x^2-2)\\big]dx=\\int_{-1}^{2}(-x^2+x+2)\\,dx=\\Big[-\\tfrac{x^3}{3}+\\tfrac{x^2}{2}+2x\\Big]_{-1}^{2}=\\tfrac{10}{3}-\\big(-\\tfrac{7}{6}\\big)=\\tfrac{9}{2}$$"
+            }
+          ],
+          "answer": "The area is $\\dfrac{9}{2}$.",
+          "check": {
+            "kind": "number",
+            "value": "9/2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.1.2",
+      "course": "calc2",
+      "section": "6.1",
+      "topic": "Areas Between Curves",
+      "title": "Area between two curves (three crossings)",
+      "type": "Find the area of the region enclosed between $y=\\text{Expr}_1(x)$ and $y=\\text{Expr}_2(x)$, where they meet at three points.",
+      "scene": "riemann",
+      "example": {
+        "problem": "Find the area of the region enclosed between $y=x^3-x$ and $y=3x$.",
+        "steps": [
+          {
+            "do": "Find the points of intersection by solving $\\text{Expr}_1(x)=\\text{Expr}_2(x)$ for $x$. Three roots $x_1<x_2<x_3$ mean you need TWO integrals, one over $[x_1,x_2]$ and one over $[x_2,x_3]$.",
+            "work": "$x^3-x=3x$ means $x^3-4x=0$, i.e. $x(x-2)(x+2)=0$. Three roots: $x=-2$, $x=0$, $x=2$."
+          },
+          {
+            "do": "On each interval of integration, decide which curve is on top by plugging in a test value (or sketching).",
+            "work": "On $(-2,0)$ test $x=-1$: $x^3-x$ gives $0$, $3x$ gives $-3$, so $\\text{TOP}=x^3-x$, $\\text{BOT}=3x$. On $(0,2)$ test $x=1$: $x^3-x$ gives $0$, $3x$ gives $3$, so $\\text{TOP}=3x$, $\\text{BOT}=x^3-x$."
+          },
+          {
+            "do": "The area is the sum $\\displaystyle\\int_{x_1}^{x_2}\\big[\\text{TOP}-\\text{BOT}\\big]dx+\\int_{x_2}^{x_3}\\big[\\text{TOP}-\\text{BOT}\\big]dx$. Usually who is TOP and who is BOT switches between the intervals.",
+            "work": "$$\\begin{aligned}\\text{Area}&=\\int_{-2}^{0}\\big[(x^3-x)-3x\\big]dx+\\int_{0}^{2}\\big[3x-(x^3-x)\\big]dx\\\\&=\\int_{-2}^{0}(x^3-4x)\\,dx+\\int_{0}^{2}-(x^3-4x)\\,dx\\\\&=\\Big[\\tfrac{x^4}{4}-2x^2\\Big]_{-2}^{0}-\\Big[\\tfrac{x^4}{4}-2x^2\\Big]_{0}^{2}=4+4=8\\end{aligned}$$"
+          }
+        ],
+        "answer": "The area is $8$.",
+        "check": {
+          "kind": "number",
+          "value": "8"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the area of the region enclosed between $y=x^3$ and $y=9x$. Enter the area.",
+          "steps": [
+            {
+              "do": "Find the points of intersection by solving $\\text{Expr}_1(x)=\\text{Expr}_2(x)$ for $x$. Three roots $x_1<x_2<x_3$ mean you need TWO integrals, one over $[x_1,x_2]$ and one over $[x_2,x_3]$.",
+              "work": "$x^3=9x$ means $x^3-9x=0$, i.e. $x(x-3)(x+3)=0$. Three roots: $x=-3$, $x=0$, $x=3$."
+            },
+            {
+              "do": "On each interval of integration, decide which curve is on top by plugging in a test value (or sketching).",
+              "work": "On $(-3,0)$ test $x=-1$: $x^3$ gives $-1$, $9x$ gives $-9$, so $\\text{TOP}=x^3$, $\\text{BOT}=9x$. On $(0,3)$ test $x=1$: $x^3$ gives $1$, $9x$ gives $9$, so $\\text{TOP}=9x$, $\\text{BOT}=x^3$."
+            },
+            {
+              "do": "The area is the sum $\\displaystyle\\int_{x_1}^{x_2}\\big[\\text{TOP}-\\text{BOT}\\big]dx+\\int_{x_2}^{x_3}\\big[\\text{TOP}-\\text{BOT}\\big]dx$. Usually who is TOP and who is BOT switches between the intervals.",
+              "work": "$$\\begin{aligned}\\text{Area}&=\\int_{-3}^{0}(x^3-9x)\\,dx+\\int_{0}^{3}(9x-x^3)\\,dx\\\\&=\\Big[\\tfrac{x^4}{4}-\\tfrac{9x^2}{2}\\Big]_{-3}^{0}+\\Big[\\tfrac{9x^2}{2}-\\tfrac{x^4}{4}\\Big]_{0}^{3}=\\tfrac{81}{4}+\\tfrac{81}{4}=\\tfrac{81}{2}\\end{aligned}$$"
+            }
+          ],
+          "answer": "The area is $\\dfrac{81}{2}$.",
+          "check": {
+            "kind": "number",
+            "value": "81/2"
+          }
+        },
+        {
+          "problem": "Find the area of the region enclosed between $y=x^3-2x^2$ and $y=3x$. Enter the area.",
+          "steps": [
+            {
+              "do": "Find the points of intersection by solving $\\text{Expr}_1(x)=\\text{Expr}_2(x)$ for $x$. Three roots $x_1<x_2<x_3$ mean you need TWO integrals, one over $[x_1,x_2]$ and one over $[x_2,x_3]$.",
+              "work": "$x^3-2x^2=3x$ means $x^3-2x^2-3x=0$, i.e. $x(x-3)(x+1)=0$. Three roots: $x=-1$, $x=0$, $x=3$."
+            },
+            {
+              "do": "On each interval of integration, decide which curve is on top by plugging in a test value (or sketching).",
+              "work": "On $(-1,0)$ test $x=-\\tfrac12$: $x^3-2x^2$ gives $-\\tfrac58$, $3x$ gives $-\\tfrac32$, so $\\text{TOP}=x^3-2x^2$, $\\text{BOT}=3x$. On $(0,3)$ test $x=1$: $x^3-2x^2$ gives $-1$, $3x$ gives $3$, so $\\text{TOP}=3x$, $\\text{BOT}=x^3-2x^2$."
+            },
+            {
+              "do": "The area is the sum $\\displaystyle\\int_{x_1}^{x_2}\\big[\\text{TOP}-\\text{BOT}\\big]dx+\\int_{x_2}^{x_3}\\big[\\text{TOP}-\\text{BOT}\\big]dx$. Usually who is TOP and who is BOT switches between the intervals.",
+              "work": "$$\\begin{aligned}\\text{Area}&=\\int_{-1}^{0}(x^3-2x^2-3x)\\,dx+\\int_{0}^{3}(3x-x^3+2x^2)\\,dx\\\\&=\\Big[\\tfrac{x^4}{4}-\\tfrac{2x^3}{3}-\\tfrac{3x^2}{2}\\Big]_{-1}^{0}+\\Big[\\tfrac{3x^2}{2}-\\tfrac{x^4}{4}+\\tfrac{2x^3}{3}\\Big]_{0}^{3}\\\\&=\\tfrac{7}{12}+\\tfrac{45}{4}=\\tfrac{71}{6}\\end{aligned}$$"
+            }
+          ],
+          "answer": "The area is $\\dfrac{71}{6}$.",
+          "check": {
+            "kind": "number",
+            "value": "71/6"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.2.1",
+      "course": "calc2",
+      "section": "6.2",
+      "topic": "Volumes",
+      "title": "Volume by disks about the x-axis",
+      "type": "Find the volume of the solid obtained by rotating the region bounded by $y=f(x)$, $x=a$, $x=b$, $y=0$ about the $x$-axis.",
+      "scene": "solids",
+      "example": {
+        "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=1/x^2$, $x=1$, $x=2$, $y=0$ about the $x$-axis.",
+        "steps": [
+          {
+            "do": "Sketch the region and check that the bottom boundary is the $x$-axis ($y=0$). Then the volume is $\\displaystyle V=\\pi\\int_a^b f(x)^2\\,dx$.",
+            "work": "Since $y=0$ (the $x$-axis) is one of the boundaries, the volume is simply $$V=\\pi\\int_1^2\\Big(\\frac1{x^2}\\Big)^2dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$V=\\pi\\int_1^2x^{-4}dx=\\pi\\Big[\\frac{x^{-3}}{-3}\\Big]_1^2=-\\frac{\\pi}{3}\\Big(\\frac1{2^3}-\\frac1{1^3}\\Big)=\\frac{7\\pi}{24}$$"
+          }
+        ],
+        "answer": "$V=\\dfrac{7\\pi}{24}$.",
+        "check": {
+          "kind": "number",
+          "value": "7*pi/24"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=1/x$, $x=1$, $x=3$, $y=0$ about the $x$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the region and check that the bottom boundary is the $x$-axis ($y=0$). Then the volume is $\\displaystyle V=\\pi\\int_a^b f(x)^2\\,dx$.",
+              "work": "The $x$-axis is a boundary, so $$V=\\pi\\int_1^3\\Big(\\frac1x\\Big)^2dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=\\pi\\int_1^3x^{-2}dx=\\pi\\Big[-\\frac1x\\Big]_1^3=\\pi\\Big(-\\frac13+1\\Big)=\\frac{2\\pi}{3}$$"
+            }
+          ],
+          "answer": "$V=\\dfrac{2\\pi}{3}$.",
+          "check": {
+            "kind": "number",
+            "value": "2*pi/3"
+          }
+        },
+        {
+          "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=\\sin x$, $x=0$, $x=\\pi$, $y=0$ about the $x$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the region and check that the bottom boundary is the $x$-axis ($y=0$). Then the volume is $\\displaystyle V=\\pi\\int_a^b f(x)^2\\,dx$.",
+              "work": "The $x$-axis is a boundary, so $$V=\\pi\\int_0^\\pi\\sin^2x\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=\\pi\\int_0^\\pi\\frac{1-\\cos 2x}{2}\\,dx=\\pi\\Big[\\frac x2-\\frac{\\sin 2x}{4}\\Big]_0^\\pi=\\frac{\\pi^2}{2}$$"
+            }
+          ],
+          "answer": "$V=\\dfrac{\\pi^2}{2}$.",
+          "check": {
+            "kind": "number",
+            "value": "pi^2/2"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.2.2",
+      "course": "calc2",
+      "section": "6.2",
+      "topic": "Volumes",
+      "title": "Volume by washers about the x-axis",
+      "type": "Find the volume of the solid obtained by rotating the region bounded by $y=f(x)$ and $x=g(y)$ about the $x$-axis.",
+      "scene": "solids",
+      "example": {
+        "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=x^2$ and $y^2=x$ about the $x$-axis.",
+        "steps": [
+          {
+            "do": "Sketch the two curves and find where they intersect. Decide who is TOP and who is BOTTOM, writing both as $y=\\text{Expression}(x)$. The intersection $x$-values are your limits $a$ and $b$ (with more than two intersections, split the interval at each intersection).",
+            "work": "Solving $\\{y^2=x,\\ y=x^2\\}$ gives $(0,0)$ and $(1,1)$, so the limits are $x=0$ and $x=1$. TOP is the curve $x=y^2$, i.e. $y=\\sqrt x$; BOTTOM is $y=x^2$."
+          },
+          {
+            "do": "With limits $x=a$ and $x=b$, the volume is $\\displaystyle V=\\pi\\int_a^b\\big(\\text{TOP}^2-\\text{BOTTOM}^2\\big)dx$.",
+            "work": "$$V=\\pi\\int_0^1\\big((\\sqrt x)^2-(x^2)^2\\big)dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$V=\\pi\\int_0^1(x-x^4)\\,dx=\\pi\\Big[\\frac{x^2}{2}-\\frac{x^5}{5}\\Big]_0^1=\\pi\\Big(\\frac12-\\frac15\\Big)=\\frac{3\\pi}{10}$$"
+          }
+        ],
+        "answer": "$V=\\dfrac{3\\pi}{10}$.",
+        "check": {
+          "kind": "number",
+          "value": "3*pi/10"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=x^2$ and $y=x$ about the $x$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the two curves and find where they intersect. Decide who is TOP and who is BOTTOM, writing both as $y=\\text{Expression}(x)$. The intersection $x$-values are your limits $a$ and $b$ (with more than two intersections, split the interval at each intersection).",
+              "work": "Setting $x^2=x$ gives $x(x-1)=0$, so the limits are $x=0$ and $x=1$. At $x=\\tfrac12$: $y=x$ gives $\\tfrac12$, $y=x^2$ gives $\\tfrac14$, so TOP $=x$ and BOTTOM $=x^2$."
+            },
+            {
+              "do": "With limits $x=a$ and $x=b$, the volume is $\\displaystyle V=\\pi\\int_a^b\\big(\\text{TOP}^2-\\text{BOTTOM}^2\\big)dx$.",
+              "work": "$$V=\\pi\\int_0^1\\big(x^2-(x^2)^2\\big)dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=\\pi\\int_0^1(x^2-x^4)\\,dx=\\pi\\Big[\\frac{x^3}{3}-\\frac{x^5}{5}\\Big]_0^1=\\pi\\Big(\\frac13-\\frac15\\Big)=\\frac{2\\pi}{15}$$"
+            }
+          ],
+          "answer": "$V=\\dfrac{2\\pi}{15}$.",
+          "check": {
+            "kind": "number",
+            "value": "2*pi/15"
+          }
+        },
+        {
+          "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=x^2$ and $y^2=8x$ about the $x$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the two curves and find where they intersect. Decide who is TOP and who is BOTTOM, writing both as $y=\\text{Expression}(x)$. The intersection $x$-values are your limits $a$ and $b$ (with more than two intersections, split the interval at each intersection).",
+              "work": "Solving $\\{y^2=8x,\\ y=x^2\\}$: $x^4=8x$, so $x(x^3-8)=0$ and $x=0$ or $x=2$. The limits are $x=0$ and $x=2$. TOP is $y=\\sqrt{8x}$ and BOTTOM is $y=x^2$ (at $x=1$: $\\sqrt8\\approx2.83>1$)."
+            },
+            {
+              "do": "With limits $x=a$ and $x=b$, the volume is $\\displaystyle V=\\pi\\int_a^b\\big(\\text{TOP}^2-\\text{BOTTOM}^2\\big)dx$.",
+              "work": "$$V=\\pi\\int_0^2\\big((\\sqrt{8x})^2-(x^2)^2\\big)dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=\\pi\\int_0^2(8x-x^4)\\,dx=\\pi\\Big[4x^2-\\frac{x^5}{5}\\Big]_0^2=\\pi\\Big(16-\\frac{32}{5}\\Big)=\\frac{48\\pi}{5}$$"
+            }
+          ],
+          "answer": "$V=\\dfrac{48\\pi}{5}$.",
+          "check": {
+            "kind": "number",
+            "value": "48*pi/5"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.2.3",
+      "course": "calc2",
+      "section": "6.2",
+      "topic": "Volumes",
+      "title": "Volume about a horizontal line y = A",
+      "type": "Find the volume of the solid obtained by rotating the region bounded by $y=f(x)$ and $y=g(x)$ about the line $y=A$.",
+      "scene": "solids",
+      "example": {
+        "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=x^4$ and $y=1$ about $y=2$.",
+        "steps": [
+          {
+            "do": "Convert everything to the $x$-language (if necessary), getting two functions of $x$. Set them equal to find the limits of integration. Sketch the region and decide which curve is FARTHER from the axis $y=A$ and which is CLOSER.",
+            "work": "Setting $x^4=1$: $x^4-1=(x^2-1)(x^2+1)=(x-1)(x+1)(x^2+1)=0$, so $x=-1$ and $x=1$ are the limits. From the sketch, $y=x^4$ is FARTHER from the axis $y=2$ and $y=1$ is CLOSER."
+          },
+          {
+            "do": "With limits $x=a$ and $x=b$, the volume is $\\displaystyle V=\\pi\\int_a^b\\big((\\text{FAR}-A)^2-(\\text{CLOSER}-A)^2\\big)dx$.",
+            "work": "$$V=\\pi\\int_{-1}^{1}\\big((x^4-2)^2-(1-2)^2\\big)dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$V=\\pi\\int_{-1}^{1}(x^8-4x^4+3)\\,dx=\\pi\\Big[\\frac{x^9}{9}-\\frac{4x^5}{5}+3x\\Big]_{-1}^{1}=\\frac{208\\pi}{45}$$"
+          }
+        ],
+        "answer": "$V=\\dfrac{208\\pi}{45}$.",
+        "check": {
+          "kind": "number",
+          "value": "208*pi/45"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=x^2$ and $y=4$ about $y=5$. Enter the volume.",
+          "steps": [
+            {
+              "do": "Convert everything to the $x$-language (if necessary), getting two functions of $x$. Set them equal to find the limits of integration. Sketch the region and decide which curve is FARTHER from the axis $y=A$ and which is CLOSER.",
+              "work": "Setting $x^2=4$ gives $x=-2$ and $x=2$. The axis $y=5$ is above the region, so $y=x^2$ (lower) is FARTHER from it and $y=4$ is CLOSER."
+            },
+            {
+              "do": "With limits $x=a$ and $x=b$, the volume is $\\displaystyle V=\\pi\\int_a^b\\big((\\text{FAR}-A)^2-(\\text{CLOSER}-A)^2\\big)dx$.",
+              "work": "$$V=\\pi\\int_{-2}^{2}\\big((x^2-5)^2-(4-5)^2\\big)dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=\\pi\\int_{-2}^{2}(x^4-10x^2+24)\\,dx=\\pi\\Big[\\frac{x^5}{5}-\\frac{10x^3}{3}+24x\\Big]_{-2}^{2}=\\frac{832\\pi}{15}$$"
+            }
+          ],
+          "answer": "$V=\\dfrac{832\\pi}{15}$.",
+          "check": {
+            "kind": "number",
+            "value": "832*pi/15"
+          }
+        },
+        {
+          "problem": "Find the volume of the solid obtained by rotating the region bounded by $y=x$ and $y=x^2$ about $y=-1$. Enter the volume.",
+          "steps": [
+            {
+              "do": "Convert everything to the $x$-language (if necessary), getting two functions of $x$. Set them equal to find the limits of integration. Sketch the region and decide which curve is FARTHER from the axis $y=A$ and which is CLOSER.",
+              "work": "Setting $x=x^2$ gives $x=0$ and $x=1$. The axis $y=-1$ is below the region; on $(0,1)$ the line $y=x$ is on top, so $y=x$ is FARTHER from the axis and $y=x^2$ is CLOSER."
+            },
+            {
+              "do": "With limits $x=a$ and $x=b$, the volume is $\\displaystyle V=\\pi\\int_a^b\\big((\\text{FAR}-A)^2-(\\text{CLOSER}-A)^2\\big)dx$.",
+              "work": "$$V=\\pi\\int_{0}^{1}\\big((x+1)^2-(x^2+1)^2\\big)dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=\\pi\\int_{0}^{1}(2x-x^2-x^4)\\,dx=\\pi\\Big[x^2-\\frac{x^3}{3}-\\frac{x^5}{5}\\Big]_{0}^{1}=\\frac{7\\pi}{15}$$"
+            }
+          ],
+          "answer": "$V=\\dfrac{7\\pi}{15}$.",
+          "check": {
+            "kind": "number",
+            "value": "7*pi/15"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.3.1",
+      "course": "calc2",
+      "section": "6.3",
+      "topic": "Volumes by Cylindrical Shells",
+      "title": "Shells above the x-axis",
+      "type": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=f(x)$, $y=0$, $x=a$, $x=b$ about the $y$-axis.",
+      "scene": "solids",
+      "example": {
+        "problem": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=1/x^2$, $y=0$, $x=1$, $x=2$ about the $y$-axis.",
+        "steps": [
+          {
+            "do": "Sketch the region. Check that $x=a$ and $x=b$ bound it and that the $x$-axis ($y=0$) lies below the curve $y=f(x)$. Then $a$ and $b$ are your limits of integration.",
+            "work": "Sketching the region shows that $x=1$ and $x=2$ are indeed the limits of integration."
+          },
+          {
+            "do": "Set up the integral: $\\displaystyle V=2\\pi\\int_a^b x\\,f(x)\\,dx$.",
+            "work": "$$V=2\\pi\\int_1^2x\\cdot\\frac1{x^2}\\,dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$V=2\\pi\\int_1^2\\frac1x\\,dx=2\\pi\\big[\\ln x\\big]_1^2=2\\pi(\\ln2-\\ln1)=2\\pi\\ln 2$$"
+          }
+        ],
+        "answer": "$V=2\\pi\\ln 2$.",
+        "check": {
+          "kind": "number",
+          "value": "2*pi*ln(2)"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=1/x$, $y=0$, $x=1$, $x=4$ about the $y$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the region. Check that $x=a$ and $x=b$ bound it and that the $x$-axis ($y=0$) lies below the curve $y=f(x)$. Then $a$ and $b$ are your limits of integration.",
+              "work": "The limits are $x=1$ and $x=4$, and the $x$-axis lies below the curve."
+            },
+            {
+              "do": "Set up the integral: $\\displaystyle V=2\\pi\\int_a^b x\\,f(x)\\,dx$.",
+              "work": "$$V=2\\pi\\int_1^4x\\cdot\\frac1x\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=2\\pi\\int_1^4 1\\,dx=2\\pi\\big[x\\big]_1^4=6\\pi$$"
+            }
+          ],
+          "answer": "$V=6\\pi$.",
+          "check": {
+            "kind": "number",
+            "value": "6*pi"
+          }
+        },
+        {
+          "problem": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=e^{x^2}$, $y=0$, $x=0$, $x=1$ about the $y$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the region. Check that $x=a$ and $x=b$ bound it and that the $x$-axis ($y=0$) lies below the curve $y=f(x)$. Then $a$ and $b$ are your limits of integration.",
+              "work": "The limits are $x=0$ and $x=1$, and the $x$-axis lies below the curve."
+            },
+            {
+              "do": "Set up the integral: $\\displaystyle V=2\\pi\\int_a^b x\\,f(x)\\,dx$.",
+              "work": "$$V=2\\pi\\int_0^1x\\,e^{x^2}\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "With $u=x^2$, $du=2x\\,dx$: $$V=\\pi\\int_0^1e^{u}\\,du=\\pi\\big[e^u\\big]_0^1=\\pi(e-1)$$"
+            }
+          ],
+          "answer": "$V=\\pi(e-1)$.",
+          "check": {
+            "kind": "number",
+            "value": "pi*(e-1)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.3.2",
+      "course": "calc2",
+      "section": "6.3",
+      "topic": "Volumes by Cylindrical Shells",
+      "title": "Shells between two curves",
+      "type": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=f(x)$ and $y=g(x)$ about the $y$-axis.",
+      "scene": "solids",
+      "example": {
+        "problem": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=3+2x-x^2$ and $x+y=3$ about the $y$-axis.",
+        "steps": [
+          {
+            "do": "Sketch the two curves and find the region they bound. This time you must find the limits yourself by solving $f(x)=g(x)$ (expect two roots $a<b$). Convert implicit curves to $y=\\text{Expression}(x)$. Decide who is TOP and who is BOTTOM.",
+            "work": "First convert the line to explicit form: $x+y=3$ becomes $y=3-x$. Solving $3+2x-x^2=3-x$ gives $x^2-3x=0$, i.e. $x(x-3)=0$, so $x=0$ and $x=3$. From the sketch, $\\text{TOP}=3+2x-x^2$ and $\\text{BOTTOM}=3-x$."
+          },
+          {
+            "do": "Set up the integral: $\\displaystyle V=2\\pi\\int_a^b x\\,(\\text{TOP}-\\text{BOTTOM})\\,dx$.",
+            "work": "$$V=2\\pi\\int_0^3x\\big((3+2x-x^2)-(3-x)\\big)dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$V=2\\pi\\int_0^3x(3x-x^2)\\,dx=2\\pi\\int_0^3(3x^2-x^3)\\,dx=2\\pi\\Big[x^3-\\frac{x^4}{4}\\Big]_0^3=2\\pi\\cdot\\frac{27}{4}=\\frac{27\\pi}{2}$$"
+          }
+        ],
+        "answer": "$V=\\dfrac{27\\pi}{2}$.",
+        "check": {
+          "kind": "number",
+          "value": "27*pi/2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=2x$ and $y=x^2$ about the $y$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the two curves and find the region they bound. This time you must find the limits yourself by solving $f(x)=g(x)$ (expect two roots $a<b$). Convert implicit curves to $y=\\text{Expression}(x)$. Decide who is TOP and who is BOTTOM.",
+              "work": "Both curves are already explicit. Solving $2x=x^2$ gives $x(x-2)=0$, so $x=0$ and $x=2$. At $x=1$: $2x=2>1=x^2$, so $\\text{TOP}=2x$ and $\\text{BOTTOM}=x^2$."
+            },
+            {
+              "do": "Set up the integral: $\\displaystyle V=2\\pi\\int_a^b x\\,(\\text{TOP}-\\text{BOTTOM})\\,dx$.",
+              "work": "$$V=2\\pi\\int_0^2x\\,(2x-x^2)\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=2\\pi\\int_0^2(2x^2-x^3)\\,dx=2\\pi\\Big[\\frac{2x^3}{3}-\\frac{x^4}{4}\\Big]_0^2=2\\pi\\cdot\\frac43=\\frac{8\\pi}{3}$$"
+            }
+          ],
+          "answer": "$V=\\dfrac{8\\pi}{3}$.",
+          "check": {
+            "kind": "number",
+            "value": "8*pi/3"
+          }
+        },
+        {
+          "problem": "Use cylindrical shells to find the volume generated by rotating the region bounded by $y=3x-x^2$ and $y=x^2-3x$ about the $y$-axis. Enter the volume.",
+          "steps": [
+            {
+              "do": "Sketch the two curves and find the region they bound. This time you must find the limits yourself by solving $f(x)=g(x)$ (expect two roots $a<b$). Convert implicit curves to $y=\\text{Expression}(x)$. Decide who is TOP and who is BOTTOM.",
+              "work": "Solving $3x-x^2=x^2-3x$ gives $2x^2-6x=0$, i.e. $2x(x-3)=0$, so $x=0$ and $x=3$. At $x=1$: $3x-x^2=2$ and $x^2-3x=-2$, so $\\text{TOP}=3x-x^2$ and $\\text{BOTTOM}=x^2-3x$."
+            },
+            {
+              "do": "Set up the integral: $\\displaystyle V=2\\pi\\int_a^b x\\,(\\text{TOP}-\\text{BOTTOM})\\,dx$.",
+              "work": "$$V=2\\pi\\int_0^3x\\big((3x-x^2)-(x^2-3x)\\big)dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$V=2\\pi\\int_0^3(6x^2-2x^3)\\,dx=2\\pi\\Big[2x^3-\\frac{x^4}{2}\\Big]_0^3=2\\pi\\cdot\\frac{27}{2}=27\\pi$$"
+            }
+          ],
+          "answer": "$V=27\\pi$.",
+          "check": {
+            "kind": "number",
+            "value": "27*pi"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.4.1",
+      "course": "calc2",
+      "section": "6.4",
+      "topic": "Work",
+      "title": "Work to stretch a spring",
+      "type": "A spring has natural length $a$ meters. If an $F_0$-Newton force is required to keep it stretched to $b$ meters, how much work is needed to stretch it from $c$ meters to $d$ meters?",
+      "example": {
+        "problem": "A spring has natural length 20 cm. If a 25-Newton force is required to keep it stretched to 30 cm, how much work is needed to stretch it from 25 cm to 30 cm?",
+        "steps": [
+          {
+            "do": "Find Hooke's constant $k=\\dfrac{F_0}{b-a}$ (force divided by the stretched length beyond the natural length). Convert everything to standard units (meters)! The force is $F=kx$, where $x$ is the length beyond natural length.",
+            "work": "The stretched length is $30-20=10$ cm $=0.1$ m, and the force is $25$ N, so $k=25/0.1=250$ and $F=250x$."
+          },
+          {
+            "do": "Set up the integral for the work: $\\displaystyle W=\\int_{c-a}^{d-a}kx\\,dx$.",
+            "work": "Converting $20$, $25$, $30$ cm to meters: $$W=\\int_{0.05}^{0.1}250x\\,dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$W=\\Big[125x^2\\Big]_{0.05}^{0.1}=125\\big((0.1)^2-(0.05)^2\\big)=\\frac{15}{16}\\ \\text{J}$$"
+          }
+        ],
+        "answer": "The work is $\\dfrac{15}{16}$ J.",
+        "check": {
+          "kind": "number",
+          "value": "15/16"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A spring has natural length 10 cm. If a 40-Newton force is required to keep it stretched to 15 cm, how much work (in joules) is needed to stretch it from 12 cm to 16 cm? Enter the work.",
+          "steps": [
+            {
+              "do": "Find Hooke's constant $k=\\dfrac{F_0}{b-a}$ (force divided by the stretched length beyond the natural length). Convert everything to standard units (meters)! The force is $F=kx$, where $x$ is the length beyond natural length.",
+              "work": "The stretched length is $15-10=5$ cm $=0.05$ m, and the force is $40$ N, so $k=40/0.05=800$ and $F=800x$."
+            },
+            {
+              "do": "Set up the integral for the work: $\\displaystyle W=\\int_{c-a}^{d-a}kx\\,dx$.",
+              "work": "Beyond natural length the limits are $12-10=2$ cm $=0.02$ m and $16-10=6$ cm $=0.06$ m: $$W=\\int_{0.02}^{0.06}800x\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$W=\\Big[400x^2\\Big]_{0.02}^{0.06}=400\\big((0.06)^2-(0.02)^2\\big)=400(0.0032)=1.28\\ \\text{J}$$"
+            }
+          ],
+          "answer": "The work is $1.28$ J.",
+          "check": {
+            "kind": "number",
+            "value": "1.28"
+          }
+        },
+        {
+          "problem": "A spring has natural length 2 m. If a 30-Newton force is required to keep it stretched to 2.5 m, how much work (in joules) is needed to stretch it from 2.2 m to 3 m? Enter the work.",
+          "steps": [
+            {
+              "do": "Find Hooke's constant $k=\\dfrac{F_0}{b-a}$ (force divided by the stretched length beyond the natural length). Convert everything to standard units (meters)! The force is $F=kx$, where $x$ is the length beyond natural length.",
+              "work": "The stretched length is $2.5-2=0.5$ m and the force is $30$ N, so $k=30/0.5=60$ and $F=60x$."
+            },
+            {
+              "do": "Set up the integral for the work: $\\displaystyle W=\\int_{c-a}^{d-a}kx\\,dx$.",
+              "work": "Beyond natural length the limits are $2.2-2=0.2$ m and $3-2=1$ m: $$W=\\int_{0.2}^{1}60x\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$W=\\Big[30x^2\\Big]_{0.2}^{1}=30\\big(1^2-(0.2)^2\\big)=30(0.96)=28.8\\ \\text{J}$$"
+            }
+          ],
+          "answer": "The work is $28.8$ J.",
+          "check": {
+            "kind": "number",
+            "value": "28.8"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.4.2",
+      "course": "calc2",
+      "section": "6.4",
+      "topic": "Work",
+      "title": "Work to lift coal with a cable",
+      "type": "A cable that weighs $a$ lb/ft is used to lift $B$ lb of coal up a mineshaft $C$ ft deep. Find the work done.",
+      "example": {
+        "problem": "A cable that weighs 2 lb/ft is used to lift 800 lb of coal up a mineshaft 500 ft deep. Find the work done.",
+        "steps": [
+          {
+            "do": "Find the force (the weight to be lifted) at depth $x$. The coal gives a constant weight $B$ and the cable a changing weight $ax$, so $F(x)=B+ax$.",
+            "work": "$F(x)=800+2x$."
+          },
+          {
+            "do": "Set up the integral for the work: $\\displaystyle W=\\int_0^{C}F(x)\\,dx$.",
+            "work": "$$W=\\int_0^{500}(800+2x)\\,dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$W=\\big[800x+x^2\\big]_0^{500}=800\\cdot500+500^2=650{,}000\\ \\text{ft-lb}$$"
+          }
+        ],
+        "answer": "The work is $650{,}000$ ft-lb.",
+        "check": {
+          "kind": "number",
+          "value": "650000"
+        }
+      },
+      "practice": [
+        {
+          "problem": "A cable that weighs 3 lb/ft is used to lift 500 lb of coal up a mineshaft 200 ft deep. Find the work done (in ft-lb).",
+          "steps": [
+            {
+              "do": "Find the force (the weight to be lifted) at depth $x$. The coal gives a constant weight $B$ and the cable a changing weight $ax$, so $F(x)=B+ax$.",
+              "work": "$F(x)=500+3x$."
+            },
+            {
+              "do": "Set up the integral for the work: $\\displaystyle W=\\int_0^{C}F(x)\\,dx$.",
+              "work": "$$W=\\int_0^{200}(500+3x)\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$W=\\Big[500x+\\tfrac32x^2\\Big]_0^{200}=100{,}000+60{,}000=160{,}000\\ \\text{ft-lb}$$"
+            }
+          ],
+          "answer": "The work is $160{,}000$ ft-lb.",
+          "check": {
+            "kind": "number",
+            "value": "160000"
+          }
+        },
+        {
+          "problem": "A cable that weighs 1.5 lb/ft is used to lift 1200 lb of coal up a mineshaft 400 ft deep. Find the work done (in ft-lb).",
+          "steps": [
+            {
+              "do": "Find the force (the weight to be lifted) at depth $x$. The coal gives a constant weight $B$ and the cable a changing weight $ax$, so $F(x)=B+ax$.",
+              "work": "$F(x)=1200+1.5x$."
+            },
+            {
+              "do": "Set up the integral for the work: $\\displaystyle W=\\int_0^{C}F(x)\\,dx$.",
+              "work": "$$W=\\int_0^{400}(1200+1.5x)\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$W=\\Big[1200x+0.75x^2\\Big]_0^{400}=480{,}000+120{,}000=600{,}000\\ \\text{ft-lb}$$"
+            }
+          ],
+          "answer": "The work is $600{,}000$ ft-lb.",
+          "check": {
+            "kind": "number",
+            "value": "600000"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-6.5.1",
+      "course": "calc2",
+      "section": "6.5",
+      "topic": "Average Value of a Function",
+      "title": "Average value and the point c",
+      "type": "Find the average value of a function $f(x)$ on the interval $[a,b]$, and find $c$ such that $f(c)=f_{\\text{ave}}$.",
+      "scene": "ftc",
+      "example": {
+        "problem": "Find the average value of $f(x)=(x-2)^2$ on the interval $[1,4]$ and find $c$ such that $f(c)=f_{\\text{ave}}$.",
+        "steps": [
+          {
+            "do": "Use the formula $\\displaystyle f_{\\text{ave}}=\\frac{1}{b-a}\\int_a^b f(x)\\,dx$ and set up the integral.",
+            "work": "$$f_{\\text{ave}}=\\frac{1}{4-1}\\int_1^4(x-2)^2\\,dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$f_{\\text{ave}}=\\frac13\\Big[\\frac{(x-2)^3}{3}\\Big]_1^4=\\frac13\\Big(\\frac{2^3}{3}-\\frac{(-1)^3}{3}\\Big)=1$$"
+          },
+          {
+            "do": "Solve $f(c)=f_{\\text{ave}}$ for $c$. Keep only solutions in $[a,b]$.",
+            "work": "Solve $(c-2)^2=1$: $c-2=\\pm1$, so $c=3$ or $c=1$. Both lie in $[1,4]$."
+          }
+        ],
+        "answer": "$f_{\\text{ave}}=1$; $c=1$ and $c=3$."
+      },
+      "practice": [
+        {
+          "problem": "Find the average value of $f(x)=(x+1)^2$ on the interval $[0,3]$ and find $c$ in $[0,3]$ such that $f(c)=f_{\\text{ave}}$. Enter $c$.",
+          "steps": [
+            {
+              "do": "Use the formula $\\displaystyle f_{\\text{ave}}=\\frac{1}{b-a}\\int_a^b f(x)\\,dx$ and set up the integral.",
+              "work": "$$f_{\\text{ave}}=\\frac{1}{3-0}\\int_0^3(x+1)^2\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$f_{\\text{ave}}=\\frac13\\Big[\\frac{(x+1)^3}{3}\\Big]_0^3=\\frac13\\Big(\\frac{64}{3}-\\frac13\\Big)=7$$"
+            },
+            {
+              "do": "Solve $f(c)=f_{\\text{ave}}$ for $c$. Keep only solutions in $[a,b]$.",
+              "work": "Solve $(c+1)^2=7$: $c+1=\\pm\\sqrt7$, so $c=-1+\\sqrt7\\approx1.65$ or $c=-1-\\sqrt7\\approx-3.65$. Only $c=\\sqrt7-1$ lies in $[0,3]$."
+            }
+          ],
+          "answer": "$f_{\\text{ave}}=7$; $c=\\sqrt7-1$.",
+          "check": {
+            "kind": "number",
+            "value": "sqrt(7)-1"
+          }
+        },
+        {
+          "problem": "Find the average value of $f(x)=x^3$ on the interval $[0,2]$ and find $c$ in $[0,2]$ such that $f(c)=f_{\\text{ave}}$. Enter $c$.",
+          "steps": [
+            {
+              "do": "Use the formula $\\displaystyle f_{\\text{ave}}=\\frac{1}{b-a}\\int_a^b f(x)\\,dx$ and set up the integral.",
+              "work": "$$f_{\\text{ave}}=\\frac{1}{2-0}\\int_0^2x^3\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$f_{\\text{ave}}=\\frac12\\Big[\\frac{x^4}{4}\\Big]_0^2=\\frac12\\cdot4=2$$"
+            },
+            {
+              "do": "Solve $f(c)=f_{\\text{ave}}$ for $c$. Keep only solutions in $[a,b]$.",
+              "work": "Solve $c^3=2$: $c=\\sqrt[3]{2}\\approx1.26$, which lies in $[0,2]$."
+            }
+          ],
+          "answer": "$f_{\\text{ave}}=2$; $c=\\sqrt[3]{2}$.",
+          "check": {
+            "kind": "number",
+            "value": "2^(1/3)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.1.1",
+      "course": "calc2",
+      "section": "7.1",
+      "topic": "Integration by Parts",
+      "title": "Parts: x times a trig function",
+      "type": "Evaluate $\\displaystyle\\int\\text{Something}(x)\\cdot\\text{SomethingElse}(x)\\,dx$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int x\\cos x\\,dx$.",
+        "steps": [
+          {
+            "do": "Start with a blank table ($u=\\ ,\\ u'=\\ ,\\ v=\\ ,\\ v'=\\ $). Decide which factor is $u$; the other is $v'$. Pick $v'$ so that $v$ is easy to find; a rule of thumb is that $x$ or a power of $x$ is usually (not always!) $u$.",
+            "work": "Take $u=x$ and $v'=\\cos x$."
+          },
+          {
+            "do": "Complete the table: differentiate $u$ to get $u'$, and integrate $v'$ to get $v$ (ignore the constant of integration).",
+            "work": "$$\\begin{array}{ll}u=x & u'=1\\\\ v=\\sin x & v'=\\cos x\\end{array}$$"
+          },
+          {
+            "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+            "work": "$$\\int x\\cos x\\,dx=x\\sin x-\\int1\\cdot\\sin x\\,dx=x\\sin x+\\cos x+C$$"
+          }
+        ],
+        "answer": "$x\\sin x+\\cos x+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "x*sin(x)+cos(x)",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int x\\sin x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table ($u=\\ ,\\ u'=\\ ,\\ v=\\ ,\\ v'=\\ $). Decide which factor is $u$; the other is $v'$. Pick $v'$ so that $v$ is easy to find; a rule of thumb is that $x$ or a power of $x$ is usually (not always!) $u$.",
+              "work": "Take $u=x$ and $v'=\\sin x$."
+            },
+            {
+              "do": "Complete the table: differentiate $u$ to get $u'$, and integrate $v'$ to get $v$ (ignore the constant of integration).",
+              "work": "$$\\begin{array}{ll}u=x & u'=1\\\\ v=-\\cos x & v'=\\sin x\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int x\\sin x\\,dx=-x\\cos x-\\int1\\cdot(-\\cos x)\\,dx=-x\\cos x+\\sin x+C$$"
+            }
+          ],
+          "answer": "$-x\\cos x+\\sin x+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "-x*cos(x)+sin(x)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int x\\cos 2x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table ($u=\\ ,\\ u'=\\ ,\\ v=\\ ,\\ v'=\\ $). Decide which factor is $u$; the other is $v'$. Pick $v'$ so that $v$ is easy to find; a rule of thumb is that $x$ or a power of $x$ is usually (not always!) $u$.",
+              "work": "Take $u=x$ and $v'=\\cos 2x$."
+            },
+            {
+              "do": "Complete the table: differentiate $u$ to get $u'$, and integrate $v'$ to get $v$ (ignore the constant of integration).",
+              "work": "$$\\begin{array}{ll}u=x & u'=1\\\\ v=\\tfrac12\\sin 2x & v'=\\cos 2x\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int x\\cos 2x\\,dx=\\frac{x\\sin 2x}{2}-\\int\\frac{\\sin 2x}{2}\\,dx=\\frac{x\\sin 2x}{2}+\\frac{\\cos 2x}{4}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{x\\sin 2x}{2}+\\dfrac{\\cos 2x}{4}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "x*sin(2*x)/2+cos(2*x)/4",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.1.2",
+      "course": "calc2",
+      "section": "7.1",
+      "topic": "Integration by Parts",
+      "title": "Parts: x times an exponential",
+      "type": "Evaluate $\\displaystyle\\int\\text{Something}(x)\\cdot\\text{SomethingElse}(x)\\,dx$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int xe^x\\,dx$.",
+        "steps": [
+          {
+            "do": "Start with a blank table ($u=\\ ,\\ u'=\\ ,\\ v=\\ ,\\ v'=\\ $). Decide which factor is $u$; the other is $v'$. Pick $v'$ so that $v$ is easy to find; a rule of thumb is that $x$ or a power of $x$ is usually (not always!) $u$.",
+            "work": "Take $u=x$ and $v'=e^x$."
+          },
+          {
+            "do": "Complete the table: differentiate $u$ to get $u'$, and integrate $v'$ to get $v$ (ignore the constant of integration).",
+            "work": "$$\\begin{array}{ll}u=x & u'=1\\\\ v=e^x & v'=e^x\\end{array}$$"
+          },
+          {
+            "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+            "work": "$$\\int xe^x\\,dx=xe^x-\\int1\\cdot e^x\\,dx=xe^x-e^x+C$$"
+          }
+        ],
+        "answer": "$(x-1)e^x+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "(x-1)*exp(x)",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int xe^{3x}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table ($u=\\ ,\\ u'=\\ ,\\ v=\\ ,\\ v'=\\ $). Decide which factor is $u$; the other is $v'$. Pick $v'$ so that $v$ is easy to find; a rule of thumb is that $x$ or a power of $x$ is usually (not always!) $u$.",
+              "work": "Take $u=x$ and $v'=e^{3x}$."
+            },
+            {
+              "do": "Complete the table: differentiate $u$ to get $u'$, and integrate $v'$ to get $v$ (ignore the constant of integration).",
+              "work": "$$\\begin{array}{ll}u=x & u'=1\\\\ v=\\tfrac13e^{3x} & v'=e^{3x}\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int xe^{3x}\\,dx=\\frac{xe^{3x}}{3}-\\int\\frac{e^{3x}}{3}\\,dx=\\frac{xe^{3x}}{3}-\\frac{e^{3x}}{9}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{xe^{3x}}{3}-\\dfrac{e^{3x}}{9}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "x*exp(3*x)/3-exp(3*x)/9",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int xe^{x/2}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table ($u=\\ ,\\ u'=\\ ,\\ v=\\ ,\\ v'=\\ $). Decide which factor is $u$; the other is $v'$. Pick $v'$ so that $v$ is easy to find; a rule of thumb is that $x$ or a power of $x$ is usually (not always!) $u$.",
+              "work": "Take $u=x$ and $v'=e^{x/2}$."
+            },
+            {
+              "do": "Complete the table: differentiate $u$ to get $u'$, and integrate $v'$ to get $v$ (ignore the constant of integration).",
+              "work": "$$\\begin{array}{ll}u=x & u'=1\\\\ v=2e^{x/2} & v'=e^{x/2}\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int xe^{x/2}\\,dx=2xe^{x/2}-\\int2e^{x/2}\\,dx=2xe^{x/2}-4e^{x/2}+C$$"
+            }
+          ],
+          "answer": "$2xe^{x/2}-4e^{x/2}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*x*exp(x/2)-4*exp(x/2)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.1.3",
+      "course": "calc2",
+      "section": "7.1",
+      "topic": "Integration by Parts",
+      "title": "Parts repeated (higher powers of x)",
+      "type": "Evaluate $\\displaystyle\\int\\text{Something}(x)\\cdot\\text{SomethingElse}(x)\\,dx$, where a higher power of $x$ requires integrating by parts more than once.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int x^3e^x\\,dx$.",
+        "steps": [
+          {
+            "do": "Start with a blank table. Decide which factor is $u$ and which is $v'$ (pick $v'$ so $v$ is easy to find). A power of $x$ is often, but not always, $u$.",
+            "work": "Take $u=x^3$ and $v'=e^x$."
+          },
+          {
+            "do": "Complete the table: $u'$ by differentiating $u$, $v$ by integrating $v'$ (no constant).",
+            "work": "$$\\begin{array}{ll}u=x^3 & u'=3x^2\\\\ v=e^x & v'=e^x\\end{array}$$"
+          },
+          {
+            "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$.",
+            "work": "$$\\int x^3e^x\\,dx=x^3e^x-3\\int x^2e^x\\,dx$$"
+          },
+          {
+            "do": "The new integral is a little easier but often not immediate. Do it by parts again (and again, if needed), then retrace your steps. Add $+C$ at the very end.",
+            "work": "By parts on $\\int x^2e^x\\,dx$ ($u=x^2$, $v'=e^x$): $\\int x^2e^x\\,dx=x^2e^x-2\\int xe^x\\,dx$. One last time: $\\int xe^x\\,dx=(x-1)e^x$. Retracing, $$\\int x^2e^x\\,dx=(x^2-2x+2)e^x,\\qquad\\int x^3e^x\\,dx=x^3e^x-3(x^2-2x+2)e^x=(x^3-3x^2+6x-6)e^x+C$$"
+          }
+        ],
+        "answer": "$(x^3-3x^2+6x-6)e^x+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "(x^3-3*x^2+6*x-6)*exp(x)",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int x^2e^{-x}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table. Decide which factor is $u$ and which is $v'$ (pick $v'$ so $v$ is easy to find). A power of $x$ is often, but not always, $u$.",
+              "work": "Take $u=x^2$ and $v'=e^{-x}$."
+            },
+            {
+              "do": "Complete the table: $u'$ by differentiating $u$, $v$ by integrating $v'$ (no constant).",
+              "work": "$$\\begin{array}{ll}u=x^2 & u'=2x\\\\ v=-e^{-x} & v'=e^{-x}\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$.",
+              "work": "$$\\int x^2e^{-x}\\,dx=-x^2e^{-x}+2\\int xe^{-x}\\,dx$$"
+            },
+            {
+              "do": "The new integral is a little easier but often not immediate. Do it by parts again (and again, if needed), then retrace your steps. Add $+C$ at the very end.",
+              "work": "By parts on $\\int xe^{-x}\\,dx$ ($u=x$, $v'=e^{-x}$, $v=-e^{-x}$): $\\int xe^{-x}\\,dx=-xe^{-x}+\\int e^{-x}\\,dx=-xe^{-x}-e^{-x}$. Retracing, $$\\int x^2e^{-x}\\,dx=-x^2e^{-x}+2(-xe^{-x}-e^{-x})=-(x^2+2x+2)e^{-x}+C$$"
+            }
+          ],
+          "answer": "$-(x^2+2x+2)e^{-x}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "-(x^2+2*x+2)*exp(-x)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int x^2\\sin x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table. Decide which factor is $u$ and which is $v'$ (pick $v'$ so $v$ is easy to find). A power of $x$ is often, but not always, $u$.",
+              "work": "Take $u=x^2$ and $v'=\\sin x$."
+            },
+            {
+              "do": "Complete the table: $u'$ by differentiating $u$, $v$ by integrating $v'$ (no constant).",
+              "work": "$$\\begin{array}{ll}u=x^2 & u'=2x\\\\ v=-\\cos x & v'=\\sin x\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$.",
+              "work": "$$\\int x^2\\sin x\\,dx=-x^2\\cos x+2\\int x\\cos x\\,dx$$"
+            },
+            {
+              "do": "The new integral is a little easier but often not immediate. Do it by parts again (and again, if needed), then retrace your steps. Add $+C$ at the very end.",
+              "work": "By parts on $\\int x\\cos x\\,dx$: $\\int x\\cos x\\,dx=x\\sin x+\\cos x$. Retracing, $$\\int x^2\\sin x\\,dx=-x^2\\cos x+2(x\\sin x+\\cos x)=-x^2\\cos x+2x\\sin x+2\\cos x+C$$"
+            }
+          ],
+          "answer": "$-x^2\\cos x+2x\\sin x+2\\cos x+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "-x^2*cos(x)+2*x*sin(x)+2*cos(x)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.1.4",
+      "course": "calc2",
+      "section": "7.1",
+      "topic": "Integration by Parts",
+      "title": "Parts with a logarithm",
+      "type": "Evaluate $\\displaystyle\\int\\text{Something}(x)\\cdot\\ln x\\,dx$, where the logarithm must be $u$.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int x^4\\ln x\\,dx$.",
+        "steps": [
+          {
+            "do": "Start with a blank table. Pick $v'$ so that $v$ is easy to find. Here the power of $x$ is NOT $u$: $\\ln x$ has the prior claim to be $u$, because it is much easier to differentiate $\\ln x$ than to integrate it.",
+            "work": "Take $u=\\ln x$ and $v'=x^4$."
+          },
+          {
+            "do": "Complete the table: $u'$ by differentiating $u$, $v$ by integrating $v'$ (no constant).",
+            "work": "$$\\begin{array}{ll}u=\\ln x & u'=1/x\\\\ v=x^5/5 & v'=x^4\\end{array}$$"
+          },
+          {
+            "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+            "work": "$$\\int x^4\\ln x\\,dx=\\frac{x^5\\ln x}{5}-\\int\\frac1x\\cdot\\frac{x^5}{5}\\,dx=\\frac{x^5\\ln x}{5}-\\int\\frac{x^4}{5}\\,dx=\\frac{x^5\\ln x}{5}-\\frac{x^5}{25}+C$$"
+          }
+        ],
+        "answer": "$\\dfrac{x^5\\ln x}{5}-\\dfrac{x^5}{25}+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "x^5*ln(x)/5-x^5/25",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int x^2\\ln x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table. Pick $v'$ so that $v$ is easy to find. Here the power of $x$ is NOT $u$: $\\ln x$ has the prior claim to be $u$, because it is much easier to differentiate $\\ln x$ than to integrate it.",
+              "work": "Take $u=\\ln x$ and $v'=x^2$."
+            },
+            {
+              "do": "Complete the table: $u'$ by differentiating $u$, $v$ by integrating $v'$ (no constant).",
+              "work": "$$\\begin{array}{ll}u=\\ln x & u'=1/x\\\\ v=x^3/3 & v'=x^2\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int x^2\\ln x\\,dx=\\frac{x^3\\ln x}{3}-\\int\\frac1x\\cdot\\frac{x^3}{3}\\,dx=\\frac{x^3\\ln x}{3}-\\frac{x^3}{9}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{x^3\\ln x}{3}-\\dfrac{x^3}{9}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "x^3*ln(x)/3-x^3/9",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\sqrt x\\,\\ln x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Start with a blank table. Pick $v'$ so that $v$ is easy to find. Here the power of $x$ is NOT $u$: $\\ln x$ has the prior claim to be $u$, because it is much easier to differentiate $\\ln x$ than to integrate it.",
+              "work": "Take $u=\\ln x$ and $v'=x^{1/2}$."
+            },
+            {
+              "do": "Complete the table: $u'$ by differentiating $u$, $v$ by integrating $v'$ (no constant).",
+              "work": "$$\\begin{array}{ll}u=\\ln x & u'=1/x\\\\ v=\\tfrac23x^{3/2} & v'=x^{1/2}\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int\\sqrt x\\ln x\\,dx=\\tfrac23x^{3/2}\\ln x-\\int\\frac1x\\cdot\\tfrac23x^{3/2}\\,dx=\\tfrac23x^{3/2}\\ln x-\\tfrac23\\int x^{1/2}\\,dx=\\tfrac23x^{3/2}\\ln x-\\tfrac49x^{3/2}+C$$"
+            }
+          ],
+          "answer": "$\\tfrac23x^{3/2}\\ln x-\\tfrac49x^{3/2}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*x^(3/2)*ln(x)/3-4*x^(3/2)/9",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.1.5",
+      "course": "calc2",
+      "section": "7.1",
+      "topic": "Integration by Parts",
+      "title": "Parts with a single function",
+      "type": "Evaluate $\\displaystyle\\int\\text{Something}(x)\\,dx$, where there is no product (for example $\\ln x$).",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\ln x\\,dx$.",
+        "steps": [
+          {
+            "do": "There is no product, only $\\text{Something}(x)$. Still use parts by taking $\\text{SomethingElse}(x)=1$. Since $1$ can never be $u$ ($u'=0$ is useless), it is $v'$, so $v=x$.",
+            "work": "Take $u=\\ln x$ and $v'=1$."
+          },
+          {
+            "do": "Complete the table: $u'$ by differentiating $u$.",
+            "work": "$$\\begin{array}{ll}u=\\ln x & u'=1/x\\\\ v=x & v'=1\\end{array}$$"
+          },
+          {
+            "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+            "work": "$$\\int\\ln x\\,dx=(\\ln x)\\,x-\\int\\frac1x\\cdot x\\,dx=x\\ln x-\\int1\\,dx=x\\ln x-x+C$$"
+          }
+        ],
+        "answer": "$x\\ln x-x+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "x*ln(x)-x",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\tan^{-1}x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "There is no product, only $\\text{Something}(x)$. Still use parts by taking $\\text{SomethingElse}(x)=1$. Since $1$ can never be $u$ ($u'=0$ is useless), it is $v'$, so $v=x$.",
+              "work": "Take $u=\\tan^{-1}x$ and $v'=1$."
+            },
+            {
+              "do": "Complete the table: $u'$ by differentiating $u$.",
+              "work": "$$\\begin{array}{ll}u=\\tan^{-1}x & u'=\\dfrac{1}{1+x^2}\\\\ v=x & v'=1\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int\\tan^{-1}x\\,dx=x\\tan^{-1}x-\\int\\frac{x}{1+x^2}\\,dx=x\\tan^{-1}x-\\tfrac12\\ln(1+x^2)+C$$"
+            }
+          ],
+          "answer": "$x\\tan^{-1}x-\\tfrac12\\ln(1+x^2)+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "x*atan(x)-ln(1+x^2)/2",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\ln(2x)\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "There is no product, only $\\text{Something}(x)$. Still use parts by taking $\\text{SomethingElse}(x)=1$. Since $1$ can never be $u$ ($u'=0$ is useless), it is $v'$, so $v=x$.",
+              "work": "Take $u=\\ln(2x)$ and $v'=1$."
+            },
+            {
+              "do": "Complete the table: $u'$ by differentiating $u$.",
+              "work": "$$\\begin{array}{ll}u=\\ln(2x) & u'=1/x\\\\ v=x & v'=1\\end{array}$$"
+            },
+            {
+              "do": "Plug into $\\int u\\,v'\\,dx=uv-\\int u'v\\,dx$ and evaluate the integral on the right. Add $+C$ at the very end.",
+              "work": "$$\\int\\ln(2x)\\,dx=x\\ln(2x)-\\int\\frac1x\\cdot x\\,dx=x\\ln(2x)-x+C$$"
+            }
+          ],
+          "answer": "$x\\ln(2x)-x+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "x*ln(2*x)-x",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.2.1",
+      "course": "calc2",
+      "section": "7.2",
+      "topic": "Trigonometric Integrals",
+      "title": "Odd power of sine or cosine",
+      "type": "Integrate an odd power of a sine or cosine: $\\displaystyle\\int\\sin^{2n+1}x\\,dx$ or $\\displaystyle\\int\\cos^{2n+1}x\\,dx$ ($n=1,2,\\dots$).",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\sin^3x\\,dx$.",
+        "steps": [
+          {
+            "do": "Split off one factor: write $\\sin^{2n+1}x\\,dx$ as $(\\sin^2x)^n(\\sin x\\,dx)$, or $\\cos^{2n+1}x\\,dx$ as $(\\cos^2x)^n(\\cos x\\,dx)$. Get ready to substitute $u=$ the OTHER function ($u=\\cos x$ for sine, $u=\\sin x$ for cosine).",
+            "work": "$$\\int\\sin^3x\\,dx=\\int(\\sin^2x)(\\sin x\\,dx)$$ Get ready for $u=\\cos x$, so $du=-\\sin x\\,dx$."
+          },
+          {
+            "do": "Use $\\sin^2x+\\cos^2x=1$ to put everything in terms of $u$, replacing $\\sin x\\,dx$ by $-d(\\cos x)$ or $\\cos x\\,dx$ by $d(\\sin x)$.",
+            "work": "$$\\int\\sin^3x\\,dx=\\int-(1-\\cos^2x)\\,d(\\cos x)=\\int-(1-u^2)\\,du$$"
+          },
+          {
+            "do": "Evaluate the $u$-integral (simplify by algebra first), then replace $u$ by $\\cos x$ or $\\sin x$. Add $+C$.",
+            "work": "$$\\int-(1-u^2)\\,du=-u+\\frac{u^3}{3}=-\\cos x+\\frac{\\cos^3x}{3}+C$$"
+          }
+        ],
+        "answer": "$-\\cos x+\\dfrac{\\cos^3x}{3}+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "-cos(x)+cos(x)^3/3",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\cos^3x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Split off one factor: write $\\sin^{2n+1}x\\,dx$ as $(\\sin^2x)^n(\\sin x\\,dx)$, or $\\cos^{2n+1}x\\,dx$ as $(\\cos^2x)^n(\\cos x\\,dx)$. Get ready to substitute $u=$ the OTHER function ($u=\\cos x$ for sine, $u=\\sin x$ for cosine).",
+              "work": "$$\\int\\cos^3x\\,dx=\\int(\\cos^2x)(\\cos x\\,dx)$$ Get ready for $u=\\sin x$, so $du=\\cos x\\,dx$."
+            },
+            {
+              "do": "Use $\\sin^2x+\\cos^2x=1$ to put everything in terms of $u$, replacing $\\sin x\\,dx$ by $-d(\\cos x)$ or $\\cos x\\,dx$ by $d(\\sin x)$.",
+              "work": "$$\\int\\cos^3x\\,dx=\\int(1-\\sin^2x)\\,d(\\sin x)=\\int(1-u^2)\\,du$$"
+            },
+            {
+              "do": "Evaluate the $u$-integral (simplify by algebra first), then replace $u$ by $\\cos x$ or $\\sin x$. Add $+C$.",
+              "work": "$$\\int(1-u^2)\\,du=u-\\frac{u^3}{3}=\\sin x-\\frac{\\sin^3x}{3}+C$$"
+            }
+          ],
+          "answer": "$\\sin x-\\dfrac{\\sin^3x}{3}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "sin(x)-sin(x)^3/3",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\sin^5x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Split off one factor: write $\\sin^{2n+1}x\\,dx$ as $(\\sin^2x)^n(\\sin x\\,dx)$, or $\\cos^{2n+1}x\\,dx$ as $(\\cos^2x)^n(\\cos x\\,dx)$. Get ready to substitute $u=$ the OTHER function ($u=\\cos x$ for sine, $u=\\sin x$ for cosine).",
+              "work": "$$\\int\\sin^5x\\,dx=\\int(\\sin^2x)^2(\\sin x\\,dx)$$ Get ready for $u=\\cos x$, so $du=-\\sin x\\,dx$."
+            },
+            {
+              "do": "Use $\\sin^2x+\\cos^2x=1$ to put everything in terms of $u$, replacing $\\sin x\\,dx$ by $-d(\\cos x)$ or $\\cos x\\,dx$ by $d(\\sin x)$.",
+              "work": "$$\\int\\sin^5x\\,dx=\\int-(1-\\cos^2x)^2\\,d(\\cos x)=\\int-(1-u^2)^2\\,du$$"
+            },
+            {
+              "do": "Evaluate the $u$-integral (simplify by algebra first), then replace $u$ by $\\cos x$ or $\\sin x$. Add $+C$.",
+              "work": "$$\\int-(1-2u^2+u^4)\\,du=-u+\\frac{2u^3}{3}-\\frac{u^5}{5}=-\\cos x+\\frac{2\\cos^3x}{3}-\\frac{\\cos^5x}{5}+C$$"
+            }
+          ],
+          "answer": "$-\\cos x+\\dfrac{2\\cos^3x}{3}-\\dfrac{\\cos^5x}{5}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "-cos(x)+2*cos(x)^3/3-cos(x)^5/5",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.2.2",
+      "course": "calc2",
+      "section": "7.2",
+      "topic": "Trigonometric Integrals",
+      "title": "Sine and cosine powers, one odd",
+      "type": "Integrate a product of sine and cosine powers where at least one power is odd: $\\displaystyle\\int\\cos^{m}x\\,\\sin^{2n+1}x\\,dx$ or $\\displaystyle\\int\\sin^{m}x\\,\\cos^{2n+1}x\\,dx$ ($n=1,2,\\dots$).",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\cos^2x\\sin^5x\\,dx$.",
+        "steps": [
+          {
+            "do": "Locate the trig function with the odd power and substitute $u=$ the OTHER function. If both powers are odd, go by the lower one. Split off one factor of the odd-power function so that you can form $du$.",
+            "work": "$$\\int\\cos^2x\\sin^5x\\,dx=\\int-(\\cos^2x)(\\sin^2x)^2(-\\sin x\\,dx)$$ Get ready for $u=\\cos x$, so $du=-\\sin x\\,dx$."
+          },
+          {
+            "do": "Use $\\sin^2x+\\cos^2x=1$ so that everything is in terms of $u$.",
+            "work": "$$=\\int-(\\cos^2x)(1-\\cos^2x)^2\\,d(\\cos x)=\\int-u^2(1-u^2)^2\\,du$$"
+          },
+          {
+            "do": "Evaluate the $u$-integral (simplify by algebra first), then replace $u$ by $\\cos x$ or $\\sin x$. Add $+C$.",
+            "work": "$$\\int-u^2(1-2u^2+u^4)\\,du=\\int(-u^2+2u^4-u^6)\\,du=-\\frac{u^3}{3}+\\frac{2u^5}{5}-\\frac{u^7}{7}$$ $$=-\\frac{\\cos^3x}{3}+\\frac{2\\cos^5x}{5}-\\frac{\\cos^7x}{7}+C$$"
+          }
+        ],
+        "answer": "$-\\dfrac{\\cos^3x}{3}+\\dfrac{2\\cos^5x}{5}-\\dfrac{\\cos^7x}{7}+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "-cos(x)^3/3+2*cos(x)^5/5-cos(x)^7/7",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\sin^2x\\cos^3x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Locate the trig function with the odd power and substitute $u=$ the OTHER function. If both powers are odd, go by the lower one. Split off one factor of the odd-power function so that you can form $du$.",
+              "work": "The cosine has the odd power, so $$\\int\\sin^2x\\cos^3x\\,dx=\\int(\\sin^2x)(\\cos^2x)(\\cos x\\,dx)$$ Get ready for $u=\\sin x$, so $du=\\cos x\\,dx$."
+            },
+            {
+              "do": "Use $\\sin^2x+\\cos^2x=1$ so that everything is in terms of $u$.",
+              "work": "$$=\\int(\\sin^2x)(1-\\sin^2x)\\,d(\\sin x)=\\int u^2(1-u^2)\\,du$$"
+            },
+            {
+              "do": "Evaluate the $u$-integral (simplify by algebra first), then replace $u$ by $\\cos x$ or $\\sin x$. Add $+C$.",
+              "work": "$$\\int(u^2-u^4)\\,du=\\frac{u^3}{3}-\\frac{u^5}{5}=\\frac{\\sin^3x}{3}-\\frac{\\sin^5x}{5}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{\\sin^3x}{3}-\\dfrac{\\sin^5x}{5}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "sin(x)^3/3-sin(x)^5/5",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\sin^3x\\cos^4x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Locate the trig function with the odd power and substitute $u=$ the OTHER function. If both powers are odd, go by the lower one. Split off one factor of the odd-power function so that you can form $du$.",
+              "work": "The sine has the odd power, so $$\\int\\sin^3x\\cos^4x\\,dx=\\int-(\\cos^4x)(\\sin^2x)(-\\sin x\\,dx)$$ Get ready for $u=\\cos x$, so $du=-\\sin x\\,dx$."
+            },
+            {
+              "do": "Use $\\sin^2x+\\cos^2x=1$ so that everything is in terms of $u$.",
+              "work": "$$=\\int-(\\cos^4x)(1-\\cos^2x)\\,d(\\cos x)=\\int-u^4(1-u^2)\\,du$$"
+            },
+            {
+              "do": "Evaluate the $u$-integral (simplify by algebra first), then replace $u$ by $\\cos x$ or $\\sin x$. Add $+C$.",
+              "work": "$$\\int(-u^4+u^6)\\,du=-\\frac{u^5}{5}+\\frac{u^7}{7}=-\\frac{\\cos^5x}{5}+\\frac{\\cos^7x}{7}+C$$"
+            }
+          ],
+          "answer": "$-\\dfrac{\\cos^5x}{5}+\\dfrac{\\cos^7x}{7}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "-cos(x)^5/5+cos(x)^7/7",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.2.3",
+      "course": "calc2",
+      "section": "7.2",
+      "topic": "Trigonometric Integrals",
+      "title": "Even power of sine or cosine",
+      "type": "Integrate an even power of sine or cosine: $\\displaystyle\\int\\sin^{2n}x\\,dx$ or $\\displaystyle\\int\\cos^{2n}x\\,dx$ ($n=1,2,\\dots$).",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\cos^4x\\,dx$.",
+        "steps": [
+          {
+            "do": "Use $\\sin^2\\theta=\\dfrac{1-\\cos2\\theta}{2}$ and $\\cos^2\\theta=\\dfrac{1+\\cos2\\theta}{2}$, possibly more than once, with $\\theta=x$, $2x$, or whatever shows up. This step is pure trig and algebra; there is no calculus yet.",
+            "work": "$$\\cos^4x=\\Big(\\frac{1+\\cos2x}{2}\\Big)^2=\\frac{1+2\\cos2x+\\cos^22x}{4}=\\frac14+\\frac{\\cos2x}{2}+\\frac{1+\\cos4x}{8}=\\frac38+\\frac{\\cos2x}{2}+\\frac{\\cos4x}{8}$$"
+          },
+          {
+            "do": "Integrate the simplified expression using $\\int\\sin Ax\\,dx=-\\dfrac{\\cos Ax}{A}$ and $\\int\\cos Ax\\,dx=\\dfrac{\\sin Ax}{A}$. Add $+C$.",
+            "work": "$$\\int\\cos^4x\\,dx=\\int\\Big(\\frac38+\\frac{\\cos2x}{2}+\\frac{\\cos4x}{8}\\Big)dx=\\frac{3x}{8}+\\frac{\\sin2x}{4}+\\frac{\\sin4x}{32}+C$$"
+          }
+        ],
+        "answer": "$\\dfrac{3x}{8}+\\dfrac{\\sin2x}{4}+\\dfrac{\\sin4x}{32}+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "3*x/8+sin(2*x)/4+sin(4*x)/32",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\sin^4x\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Use $\\sin^2\\theta=\\dfrac{1-\\cos2\\theta}{2}$ and $\\cos^2\\theta=\\dfrac{1+\\cos2\\theta}{2}$, possibly more than once, with $\\theta=x$, $2x$, or whatever shows up. This step is pure trig and algebra; there is no calculus yet.",
+              "work": "$$\\sin^4x=\\Big(\\frac{1-\\cos2x}{2}\\Big)^2=\\frac{1-2\\cos2x+\\cos^22x}{4}=\\frac14-\\frac{\\cos2x}{2}+\\frac{1+\\cos4x}{8}=\\frac38-\\frac{\\cos2x}{2}+\\frac{\\cos4x}{8}$$"
+            },
+            {
+              "do": "Integrate the simplified expression using $\\int\\sin Ax\\,dx=-\\dfrac{\\cos Ax}{A}$ and $\\int\\cos Ax\\,dx=\\dfrac{\\sin Ax}{A}$. Add $+C$.",
+              "work": "$$\\int\\sin^4x\\,dx=\\frac{3x}{8}-\\frac{\\sin2x}{4}+\\frac{\\sin4x}{32}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{3x}{8}-\\dfrac{\\sin2x}{4}+\\dfrac{\\sin4x}{32}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "3*x/8-sin(2*x)/4+sin(4*x)/32",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\cos^4(2x)\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Use $\\sin^2\\theta=\\dfrac{1-\\cos2\\theta}{2}$ and $\\cos^2\\theta=\\dfrac{1+\\cos2\\theta}{2}$, possibly more than once, with $\\theta=x$, $2x$, or whatever shows up. This step is pure trig and algebra; there is no calculus yet.",
+              "work": "$$\\cos^4 2x=\\Big(\\frac{1+\\cos4x}{2}\\Big)^2=\\frac{1+2\\cos4x+\\cos^24x}{4}=\\frac14+\\frac{\\cos4x}{2}+\\frac{1+\\cos8x}{8}=\\frac38+\\frac{\\cos4x}{2}+\\frac{\\cos8x}{8}$$"
+            },
+            {
+              "do": "Integrate the simplified expression using $\\int\\sin Ax\\,dx=-\\dfrac{\\cos Ax}{A}$ and $\\int\\cos Ax\\,dx=\\dfrac{\\sin Ax}{A}$. Add $+C$.",
+              "work": "$$\\int\\cos^42x\\,dx=\\frac{3x}{8}+\\frac{\\sin4x}{8}+\\frac{\\sin8x}{64}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{3x}{8}+\\dfrac{\\sin4x}{8}+\\dfrac{\\sin8x}{64}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "3*x/8+sin(4*x)/8+sin(8*x)/64",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.3.1",
+      "course": "calc2",
+      "section": "7.3",
+      "topic": "Trigonometric Substitution",
+      "title": "Trig substitution for square roots",
+      "type": "Integrate an expression involving $\\sqrt{a^2-x^2}$, $\\sqrt{a^2+x^2}$, or $\\sqrt{x^2-a^2}$, where $a$ is some number.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\sqrt{1-x^2}\\,dx$.",
+        "steps": [
+          {
+            "do": "If $\\sqrt{a^2-x^2}$ shows up, substitute $x=a\\sin\\theta$ and use $1-\\sin^2\\theta=\\cos^2\\theta$. If $\\sqrt{a^2+x^2}$ shows up, use $x=a\\tan\\theta$ and $1+\\tan^2\\theta=\\sec^2\\theta$. If $\\sqrt{x^2-a^2}$ shows up, use $x=a\\sec\\theta$ and $\\sec^2\\theta-1=\\tan^2\\theta$. You get a trig integral of the kind covered under Trigonometric Integrals.",
+            "work": "Substitute $x=\\sin\\theta$, $dx=\\cos\\theta\\,d\\theta$: $$\\int\\sqrt{1-x^2}\\,dx=\\int\\sqrt{1-\\sin^2\\theta}\\,\\cos\\theta\\,d\\theta=\\int\\sqrt{\\cos^2\\theta}\\,\\cos\\theta\\,d\\theta=\\int\\cos^2\\theta\\,d\\theta$$"
+          },
+          {
+            "do": "Use the trigonometric-integral techniques to evaluate this trig integral.",
+            "work": "$$\\int\\cos^2\\theta\\,d\\theta=\\int\\frac{1+\\cos2\\theta}{2}\\,d\\theta=\\frac\\theta2+\\frac{\\sin2\\theta}{4}$$"
+          },
+          {
+            "do": "Convert the answer back to the $x$-language (draw a right triangle, or use $\\sin2\\theta=2\\sin\\theta\\cos\\theta$).",
+            "work": "Since $x=\\sin\\theta$, $\\theta=\\sin^{-1}x$. Better still, $\\sin2\\theta=2\\sin\\theta\\cos\\theta$, so $\\frac{\\sin2\\theta}{4}=\\frac12\\sin\\theta\\cos\\theta=\\frac12x\\sqrt{1-x^2}$. Hence $$\\int\\sqrt{1-x^2}\\,dx=\\frac12\\sin^{-1}x+\\frac12x\\sqrt{1-x^2}+C$$"
+          }
+        ],
+        "answer": "$\\dfrac12\\sin^{-1}x+\\dfrac12x\\sqrt{1-x^2}+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "asin(x)/2+x*sqrt(1-x^2)/2",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\sqrt{4-x^2}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "If $\\sqrt{a^2-x^2}$ shows up, substitute $x=a\\sin\\theta$ and use $1-\\sin^2\\theta=\\cos^2\\theta$. If $\\sqrt{a^2+x^2}$ shows up, use $x=a\\tan\\theta$ and $1+\\tan^2\\theta=\\sec^2\\theta$. If $\\sqrt{x^2-a^2}$ shows up, use $x=a\\sec\\theta$ and $\\sec^2\\theta-1=\\tan^2\\theta$. You get a trig integral of the kind covered under Trigonometric Integrals.",
+              "work": "Substitute $x=2\\sin\\theta$, $dx=2\\cos\\theta\\,d\\theta$: $$\\int\\sqrt{4-x^2}\\,dx=\\int\\sqrt{4-4\\sin^2\\theta}\\;2\\cos\\theta\\,d\\theta=\\int2\\cos\\theta\\cdot2\\cos\\theta\\,d\\theta=\\int4\\cos^2\\theta\\,d\\theta$$"
+            },
+            {
+              "do": "Use the trigonometric-integral techniques to evaluate this trig integral.",
+              "work": "$$\\int4\\cos^2\\theta\\,d\\theta=\\int2(1+\\cos2\\theta)\\,d\\theta=2\\theta+\\sin2\\theta$$"
+            },
+            {
+              "do": "Convert the answer back to the $x$-language (draw a right triangle, or use $\\sin2\\theta=2\\sin\\theta\\cos\\theta$).",
+              "work": "Since $\\sin\\theta=\\frac x2$: $\\theta=\\sin^{-1}\\frac x2$ and $\\sin2\\theta=2\\sin\\theta\\cos\\theta=2\\cdot\\frac x2\\cdot\\frac{\\sqrt{4-x^2}}{2}=\\frac{x\\sqrt{4-x^2}}{2}$. Hence $$\\int\\sqrt{4-x^2}\\,dx=2\\sin^{-1}\\frac x2+\\frac{x\\sqrt{4-x^2}}{2}+C$$"
+            }
+          ],
+          "answer": "$2\\sin^{-1}\\dfrac x2+\\dfrac{x\\sqrt{4-x^2}}{2}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*asin(x/2)+x*sqrt(4-x^2)/2",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{dx}{(1+x^2)^{3/2}}$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "If $\\sqrt{a^2-x^2}$ shows up, substitute $x=a\\sin\\theta$ and use $1-\\sin^2\\theta=\\cos^2\\theta$. If $\\sqrt{a^2+x^2}$ shows up, use $x=a\\tan\\theta$ and $1+\\tan^2\\theta=\\sec^2\\theta$. If $\\sqrt{x^2-a^2}$ shows up, use $x=a\\sec\\theta$ and $\\sec^2\\theta-1=\\tan^2\\theta$. You get a trig integral of the kind covered under Trigonometric Integrals.",
+              "work": "Substitute $x=\\tan\\theta$, $dx=\\sec^2\\theta\\,d\\theta$, and $1+\\tan^2\\theta=\\sec^2\\theta$: $$\\int\\frac{dx}{(1+x^2)^{3/2}}=\\int\\frac{\\sec^2\\theta\\,d\\theta}{(\\sec^2\\theta)^{3/2}}=\\int\\frac{\\sec^2\\theta}{\\sec^3\\theta}\\,d\\theta=\\int\\cos\\theta\\,d\\theta$$"
+            },
+            {
+              "do": "Use the trigonometric-integral techniques to evaluate this trig integral.",
+              "work": "$$\\int\\cos\\theta\\,d\\theta=\\sin\\theta$$"
+            },
+            {
+              "do": "Convert the answer back to the $x$-language (draw a right triangle, or use $\\sin2\\theta=2\\sin\\theta\\cos\\theta$).",
+              "work": "Since $\\tan\\theta=x$, the right triangle has opposite side $x$, adjacent side $1$ and hypotenuse $\\sqrt{1+x^2}$, so $\\sin\\theta=\\dfrac{x}{\\sqrt{1+x^2}}$. Hence $$\\int\\frac{dx}{(1+x^2)^{3/2}}=\\frac{x}{\\sqrt{1+x^2}}+C$$"
+            }
+          ],
+          "answer": "$\\dfrac{x}{\\sqrt{1+x^2}}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "x/sqrt(1+x^2)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.4.1",
+      "course": "calc2",
+      "section": "7.4",
+      "topic": "Integration of Rational Functions by Partial Fractions",
+      "title": "Partial fractions: two distinct factors",
+      "type": "Evaluate $\\displaystyle\\int\\frac{C_1x+C_2}{(x-a)(x-b)}\\,dx$, where $a,b,C_1,C_2$ are numbers.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\frac{x-1}{(x-2)(x-3)}\\,dx$.",
+        "steps": [
+          {
+            "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{B}{x-b}$, with $A$ and $B$ numbers to be determined.",
+            "work": "$$\\frac{x-1}{(x-2)(x-3)}=\\frac{A}{x-2}+\\frac{B}{x-3}$$"
+          },
+          {
+            "do": "Multiply both sides by the denominator, then plug in convenient values of $x$ (namely $x=a$ and $x=b$) to find $A$ and $B$. Put them back into the expression for the integrand.",
+            "work": "$x-1=A(x-3)+B(x-2)$. Plugging in $x=3$: $2=B\\cdot1$, so $B=2$. Plugging in $x=2$: $1=A\\cdot(-1)$, so $A=-1$. Hence $$\\frac{x-1}{(x-2)(x-3)}=\\frac{-1}{x-2}+\\frac{2}{x-3}$$"
+          },
+          {
+            "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$. Add $+C$ at the very end.",
+            "work": "$$\\int\\frac{x-1}{(x-2)(x-3)}\\,dx=-\\int\\frac{dx}{x-2}+2\\int\\frac{dx}{x-3}=-\\ln|x-2|+2\\ln|x-3|+C$$"
+          }
+        ],
+        "answer": "$-\\ln|x-2|+2\\ln|x-3|+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "-ln(abs(x-2))+2*ln(abs(x-3))",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{5x-1}{(x-1)(x+1)}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{B}{x-b}$, with $A$ and $B$ numbers to be determined.",
+              "work": "$$\\frac{5x-1}{(x-1)(x+1)}=\\frac{A}{x-1}+\\frac{B}{x+1}$$"
+            },
+            {
+              "do": "Multiply both sides by the denominator, then plug in convenient values of $x$ (namely $x=a$ and $x=b$) to find $A$ and $B$. Put them back into the expression for the integrand.",
+              "work": "$5x-1=A(x+1)+B(x-1)$. Plugging in $x=1$: $4=2A$, so $A=2$. Plugging in $x=-1$: $-6=-2B$, so $B=3$. Hence $$\\frac{5x-1}{(x-1)(x+1)}=\\frac{2}{x-1}+\\frac{3}{x+1}$$"
+            },
+            {
+              "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$. Add $+C$ at the very end.",
+              "work": "$$\\int\\frac{5x-1}{(x-1)(x+1)}\\,dx=2\\int\\frac{dx}{x-1}+3\\int\\frac{dx}{x+1}=2\\ln|x-1|+3\\ln|x+1|+C$$"
+            }
+          ],
+          "answer": "$2\\ln|x-1|+3\\ln|x+1|+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*ln(abs(x-1))+3*ln(abs(x+1))",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{x+8}{(x-1)(x+2)}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{B}{x-b}$, with $A$ and $B$ numbers to be determined.",
+              "work": "$$\\frac{x+8}{(x-1)(x+2)}=\\frac{A}{x-1}+\\frac{B}{x+2}$$"
+            },
+            {
+              "do": "Multiply both sides by the denominator, then plug in convenient values of $x$ (namely $x=a$ and $x=b$) to find $A$ and $B$. Put them back into the expression for the integrand.",
+              "work": "$x+8=A(x+2)+B(x-1)$. Plugging in $x=1$: $9=3A$, so $A=3$. Plugging in $x=-2$: $6=-3B$, so $B=-2$. Hence $$\\frac{x+8}{(x-1)(x+2)}=\\frac{3}{x-1}+\\frac{-2}{x+2}$$"
+            },
+            {
+              "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$. Add $+C$ at the very end.",
+              "work": "$$\\int\\frac{x+8}{(x-1)(x+2)}\\,dx=3\\int\\frac{dx}{x-1}-2\\int\\frac{dx}{x+2}=3\\ln|x-1|-2\\ln|x+2|+C$$"
+            }
+          ],
+          "answer": "$3\\ln|x-1|-2\\ln|x+2|+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "3*ln(abs(x-1))-2*ln(abs(x+2))",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.4.2",
+      "course": "calc2",
+      "section": "7.4",
+      "topic": "Integration of Rational Functions by Partial Fractions",
+      "title": "Partial fractions: a repeated factor",
+      "type": "Evaluate $\\displaystyle\\int\\frac{C_1x^2+C_2x+C_3}{(x-a)(x-b)^2}\\,dx$, where $a,b,C_1,C_2,C_3$ are numbers.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\frac{x^2}{(x-3)(x+2)^2}\\,dx$.",
+        "steps": [
+          {
+            "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{B}{x-b}+\\dfrac{C}{(x-b)^2}$, with $A,B,C$ numbers to be determined.",
+            "work": "$$\\frac{x^2}{(x-3)(x+2)^2}=\\frac{A}{x-3}+\\frac{B}{x+2}+\\frac{C}{(x+2)^2}$$"
+          },
+          {
+            "do": "Multiply both sides by the denominator and plug in convenient values of $x$ to get $A$ and $C$. To get $B$, equate the $x^2$ coefficients on both sides. Put the values back into the integrand.",
+            "work": "$x^2=A(x+2)^2+B(x-3)(x+2)+C(x-3)$. Plugging in $x=3$: $9=25A$, so $A=\\frac{9}{25}$. Plugging in $x=-2$: $4=-5C$, so $C=-\\frac45$. The $x^2$ coefficient is $1$ on the left and $A+B$ on the right, so $B=1-\\frac{9}{25}=\\frac{16}{25}$. Hence $$\\frac{x^2}{(x-3)(x+2)^2}=\\frac{9/25}{x-3}+\\frac{16/25}{x+2}+\\frac{-4/5}{(x+2)^2}$$"
+          },
+          {
+            "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$ and $\\int\\frac{dx}{(x-c)^2}=-\\frac{1}{x-c}$. Add $+C$ at the very end.",
+            "work": "$$\\int\\frac{x^2}{(x-3)(x+2)^2}\\,dx=\\frac{9}{25}\\ln|x-3|+\\frac{16}{25}\\ln|x+2|+\\frac{4}{5(x+2)}+C$$"
+          }
+        ],
+        "answer": "$\\dfrac{9}{25}\\ln|x-3|+\\dfrac{16}{25}\\ln|x+2|+\\dfrac{4}{5(x+2)}+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "9/25*ln(abs(x-3))+16/25*ln(abs(x+2))+4/(5*(x+2))",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{3x^2+5x-4}{(x-1)(x+1)^2}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{B}{x-b}+\\dfrac{C}{(x-b)^2}$, with $A,B,C$ numbers to be determined.",
+              "work": "$$\\frac{3x^2+5x-4}{(x-1)(x+1)^2}=\\frac{A}{x-1}+\\frac{B}{x+1}+\\frac{C}{(x+1)^2}$$"
+            },
+            {
+              "do": "Multiply both sides by the denominator and plug in convenient values of $x$ to get $A$ and $C$. To get $B$, equate the $x^2$ coefficients on both sides. Put the values back into the integrand.",
+              "work": "$3x^2+5x-4=A(x+1)^2+B(x-1)(x+1)+C(x-1)$. Plugging in $x=1$: $4=4A$, so $A=1$. Plugging in $x=-1$: $-6=-2C$, so $C=3$. The $x^2$ coefficient is $3=A+B$, so $B=2$. Hence $$\\frac{3x^2+5x-4}{(x-1)(x+1)^2}=\\frac{1}{x-1}+\\frac{2}{x+1}+\\frac{3}{(x+1)^2}$$"
+            },
+            {
+              "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$ and $\\int\\frac{dx}{(x-c)^2}=-\\frac{1}{x-c}$. Add $+C$ at the very end.",
+              "work": "$$\\int\\frac{3x^2+5x-4}{(x-1)(x+1)^2}\\,dx=\\ln|x-1|+2\\ln|x+1|-\\frac{3}{x+1}+C$$"
+            }
+          ],
+          "answer": "$\\ln|x-1|+2\\ln|x+1|-\\dfrac{3}{x+1}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "ln(abs(x-1))+2*ln(abs(x+1))-3/(x+1)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{3x^2-14x+8}{x(x-2)^2}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{B}{x-b}+\\dfrac{C}{(x-b)^2}$, with $A,B,C$ numbers to be determined.",
+              "work": "$$\\frac{3x^2-14x+8}{x(x-2)^2}=\\frac{A}{x}+\\frac{B}{x-2}+\\frac{C}{(x-2)^2}$$"
+            },
+            {
+              "do": "Multiply both sides by the denominator and plug in convenient values of $x$ to get $A$ and $C$. To get $B$, equate the $x^2$ coefficients on both sides. Put the values back into the integrand.",
+              "work": "$3x^2-14x+8=A(x-2)^2+Bx(x-2)+Cx$. Plugging in $x=0$: $8=4A$, so $A=2$. Plugging in $x=2$: $12-28+8=-8=2C$, so $C=-4$. The $x^2$ coefficient is $3=A+B$, so $B=1$. Hence $$\\frac{3x^2-14x+8}{x(x-2)^2}=\\frac{2}{x}+\\frac{1}{x-2}+\\frac{-4}{(x-2)^2}$$"
+            },
+            {
+              "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$ and $\\int\\frac{dx}{(x-c)^2}=-\\frac{1}{x-c}$. Add $+C$ at the very end.",
+              "work": "$$\\int\\frac{3x^2-14x+8}{x(x-2)^2}\\,dx=2\\ln|x|+\\ln|x-2|+\\frac{4}{x-2}+C$$"
+            }
+          ],
+          "answer": "$2\\ln|x|+\\ln|x-2|+\\dfrac{4}{x-2}+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*ln(abs(x))+ln(abs(x-2))+4/(x-2)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.4.3",
+      "course": "calc2",
+      "section": "7.4",
+      "topic": "Integration of Rational Functions by Partial Fractions",
+      "title": "Partial fractions: an irreducible quadratic",
+      "type": "Evaluate $\\displaystyle\\int\\frac{C_1x^2+C_2x+C_3}{(x-a)(x^2+b^2)}\\,dx$, where $a,b,C_1,C_2,C_3$ are numbers.",
+      "example": {
+        "problem": "Evaluate $\\displaystyle\\int\\frac{10}{(x-1)(x^2+9)}\\,dx$.",
+        "steps": [
+          {
+            "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{Bx+C}{x^2+b^2}$, with $A,B,C$ numbers to be determined.",
+            "work": "$$\\frac{10}{(x-1)(x^2+9)}=\\frac{A}{x-1}+\\frac{Bx+C}{x^2+9}$$"
+          },
+          {
+            "do": "Multiply both sides by the denominator and plug in the convenient value $x=a$ to get $A$ (the only real convenient value). Then equate coefficients to get two equations for $B$ and $C$. Put the values back into the integrand.",
+            "work": "$10=A(x^2+9)+(Bx+C)(x-1)=(A+B)x^2+(C-B)x+(9A-C)$. Plugging in $x=1$: $10=10A$, so $A=1$. Comparing the coefficients of $x^2$ and $x$: $0=A+B$ and $0=C-B$, so $B=-1$ and $C=-1$. Hence $$\\frac{10}{(x-1)(x^2+9)}=\\frac{1}{x-1}+\\frac{-x-1}{x^2+9}$$"
+          },
+          {
+            "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$, $\\int\\frac{2x\\,dx}{x^2+b^2}=\\ln(x^2+b^2)$ and $\\int\\frac{dx}{x^2+b^2}=\\frac1b\\tan^{-1}\\frac xb$. Add $+C$ at the end.",
+            "work": "$$\\int\\frac{dx}{x-1}-\\frac12\\int\\frac{2x\\,dx}{x^2+9}-\\int\\frac{dx}{x^2+9}=\\ln|x-1|-\\frac12\\ln(x^2+9)-\\frac13\\tan^{-1}\\frac x3+C$$"
+          }
+        ],
+        "answer": "$\\ln|x-1|-\\dfrac12\\ln(x^2+9)-\\dfrac13\\tan^{-1}\\dfrac x3+C$.",
+        "check": {
+          "kind": "expr",
+          "value": "ln(abs(x-1))-ln(x^2+9)/2-atan(x/3)/3",
+          "vars": [
+            "x"
+          ],
+          "upToConstant": true
+        }
+      },
+      "practice": [
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{3x^2+2x+5}{(x-1)(x^2+4)}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{Bx+C}{x^2+b^2}$, with $A,B,C$ numbers to be determined.",
+              "work": "$$\\frac{3x^2+2x+5}{(x-1)(x^2+4)}=\\frac{A}{x-1}+\\frac{Bx+C}{x^2+4}$$"
+            },
+            {
+              "do": "Multiply both sides by the denominator and plug in the convenient value $x=a$ to get $A$ (the only real convenient value). Then equate coefficients to get two equations for $B$ and $C$. Put the values back into the integrand.",
+              "work": "$3x^2+2x+5=A(x^2+4)+(Bx+C)(x-1)=(A+B)x^2+(C-B)x+(4A-C)$. Plugging in $x=1$: $10=5A$, so $A=2$. Comparing coefficients of $x^2$ and $x$: $3=A+B$ and $2=C-B$, so $B=1$ and $C=3$. Hence $$\\frac{3x^2+2x+5}{(x-1)(x^2+4)}=\\frac{2}{x-1}+\\frac{x+3}{x^2+4}$$"
+            },
+            {
+              "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$, $\\int\\frac{2x\\,dx}{x^2+b^2}=\\ln(x^2+b^2)$ and $\\int\\frac{dx}{x^2+b^2}=\\frac1b\\tan^{-1}\\frac xb$. Add $+C$ at the end.",
+              "work": "$$2\\int\\frac{dx}{x-1}+\\frac12\\int\\frac{2x\\,dx}{x^2+4}+3\\int\\frac{dx}{x^2+4}=2\\ln|x-1|+\\frac12\\ln(x^2+4)+\\frac32\\tan^{-1}\\frac x2+C$$"
+            }
+          ],
+          "answer": "$2\\ln|x-1|+\\dfrac12\\ln(x^2+4)+\\dfrac32\\tan^{-1}\\dfrac x2+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*ln(abs(x-1))+ln(x^2+4)/2+3*atan(x/2)/2",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        },
+        {
+          "problem": "Evaluate $\\displaystyle\\int\\frac{3x^2+x}{(x+1)(x^2+1)}\\,dx$. Enter an antiderivative.",
+          "steps": [
+            {
+              "do": "Express the integrand using partial fractions: $\\text{Integrand}=\\dfrac{A}{x-a}+\\dfrac{Bx+C}{x^2+b^2}$, with $A,B,C$ numbers to be determined.",
+              "work": "$$\\frac{3x^2+x}{(x+1)(x^2+1)}=\\frac{A}{x+1}+\\frac{Bx+C}{x^2+1}$$"
+            },
+            {
+              "do": "Multiply both sides by the denominator and plug in the convenient value $x=a$ to get $A$ (the only real convenient value). Then equate coefficients to get two equations for $B$ and $C$. Put the values back into the integrand.",
+              "work": "$3x^2+x=A(x^2+1)+(Bx+C)(x+1)=(A+B)x^2+(B+C)x+(A+C)$. Plugging in $x=-1$: $2=2A$, so $A=1$. Comparing the coefficients of $x^2$ and the constant term: $3=A+B$ and $0=A+C$, so $B=2$ and $C=-1$ (check: $B+C=1$ ✓). Hence $$\\frac{3x^2+x}{(x+1)(x^2+1)}=\\frac{1}{x+1}+\\frac{2x-1}{x^2+1}$$"
+            },
+            {
+              "do": "Integrate each piece separately using $\\int\\frac{dx}{x-c}=\\ln|x-c|$, $\\int\\frac{2x\\,dx}{x^2+b^2}=\\ln(x^2+b^2)$ and $\\int\\frac{dx}{x^2+b^2}=\\frac1b\\tan^{-1}\\frac xb$. Add $+C$ at the end.",
+              "work": "$$\\int\\frac{dx}{x+1}+\\int\\frac{2x\\,dx}{x^2+1}-\\int\\frac{dx}{x^2+1}=\\ln|x+1|+\\ln(x^2+1)-\\tan^{-1}x+C$$"
+            }
+          ],
+          "answer": "$\\ln|x+1|+\\ln(x^2+1)-\\tan^{-1}x+C$.",
+          "check": {
+            "kind": "expr",
+            "value": "ln(abs(x+1))+ln(x^2+1)-atan(x)",
+            "vars": [
+              "x"
+            ],
+            "upToConstant": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.7.1",
+      "course": "calc2",
+      "section": "7.7",
+      "topic": "Approximate Integration",
+      "title": "Trapezoid, Midpoint and Simpson's Rules",
+      "type": "Use (a) the Trapezoid Rule, (b) the Midpoint Rule and (c) Simpson's Rule to approximate $\\displaystyle\\int_a^b f(x)\\,dx$ with the specified even integer $n$.",
+      "scene": "riemann",
+      "example": {
+        "problem": "Use (a) the Trapezoid Rule, (b) the Midpoint Rule and (c) Simpson's Rule to approximate $\\displaystyle\\int_2^6\\frac1x\\,dx$ with $n=8$.",
+        "steps": [
+          {
+            "do": "Find $\\Delta x=\\dfrac{b-a}{n}$ and list $x_0=a,\\ x_1=a+\\Delta x,\\ \\dots,\\ x_n=b$. For the Midpoint Rule you also need the midpoints $\\bar x_i$ of $[x_{i-1},x_i]$.",
+            "work": "$\\Delta x=\\dfrac{6-2}{8}=0.5$. Points: $x_0=2,\\ x_1=2.5,\\ x_2=3,\\ x_3=3.5,\\ x_4=4,\\ x_5=4.5,\\ x_6=5,\\ x_7=5.5,\\ x_8=6$. Midpoints: $\\bar x_1=2.25,\\ \\bar x_2=2.75,\\ \\bar x_3=3.25,\\ \\bar x_4=3.75,\\ \\bar x_5=4.25,\\ \\bar x_6=4.75,\\ \\bar x_7=5.25,\\ \\bar x_8=5.75$."
+          },
+          {
+            "do": "Apply the rules: $M_n=\\Delta x\\,[f(\\bar x_1)+\\cdots+f(\\bar x_n)]$; $T_n=\\frac{\\Delta x}{2}[f(x_0)+2f(x_1)+\\cdots+2f(x_{n-1})+f(x_n)]$; $S_n=\\frac{\\Delta x}{3}[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+\\cdots+2f(x_{n-2})+4f(x_{n-1})+f(x_n)]$ ($n$ must be even for Simpson).",
+            "work": "$$\\begin{aligned}M_8&=0.5\\Big[\\tfrac1{2.25}+\\tfrac1{2.75}+\\tfrac1{3.25}+\\tfrac1{3.75}+\\tfrac1{4.25}+\\tfrac1{4.75}+\\tfrac1{5.25}+\\tfrac1{5.75}\\Big]=1.0963247\\ldots\\\\ T_8&=0.25\\Big[\\tfrac12+2\\big(\\tfrac1{2.5}+\\tfrac13+\\tfrac1{3.5}+\\tfrac14+\\tfrac1{4.5}+\\tfrac15+\\tfrac1{5.5}\\big)+\\tfrac16\\Big]=1.1032107\\ldots\\\\ S_8&=\\tfrac{1}{6}\\Big[\\tfrac12+\\tfrac4{2.5}+\\tfrac23+\\tfrac4{3.5}+\\tfrac24+\\tfrac4{4.5}+\\tfrac25+\\tfrac4{5.5}+\\tfrac16\\Big]=1.0987253\\ldots\\end{aligned}$$"
+          }
+        ],
+        "answer": "$M_8\\approx1.0963247$, $T_8\\approx1.1032107$, $S_8\\approx1.0987253$ (exact value $\\ln3\\approx1.0986123$)."
+      },
+      "practice": [
+        {
+          "problem": "Use the Trapezoid, Midpoint and Simpson's Rules with $n=4$ to approximate $\\displaystyle\\int_1^3\\frac1x\\,dx$. Enter the Simpson's Rule value $S_4$.",
+          "steps": [
+            {
+              "do": "Find $\\Delta x=\\dfrac{b-a}{n}$ and list $x_0=a,\\ x_1=a+\\Delta x,\\ \\dots,\\ x_n=b$. For the Midpoint Rule you also need the midpoints $\\bar x_i$ of $[x_{i-1},x_i]$.",
+              "work": "$\\Delta x=\\dfrac{3-1}{4}=0.5$. Points: $x_{0}=1,\\ x_{1}=1.5,\\ x_{2}=2,\\ x_{3}=2.5,\\ x_{4}=3$. Midpoints: $\\bar x_{1}=1.25,\\ \\bar x_{2}=1.75,\\ \\bar x_{3}=2.25,\\ \\bar x_{4}=2.75$."
+            },
+            {
+              "do": "Apply the rules: $M_n=\\Delta x\\,[f(\\bar x_1)+\\cdots+f(\\bar x_n)]$; $T_n=\\frac{\\Delta x}{2}[f(x_0)+2f(x_1)+\\cdots+2f(x_{n-1})+f(x_n)]$; $S_n=\\frac{\\Delta x}{3}[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+\\cdots+2f(x_{n-2})+4f(x_{n-1})+f(x_n)]$ ($n$ must be even for Simpson).",
+              "work": "$$\\begin{aligned}M_{4}&=\\Delta x\\,[f(\\bar x_1)+\\cdots+f(\\bar x_{4})]=0.5\\,[0.800000 + 0.571429 + 0.444444 + 0.363636]=1.089755\\\\ T_{4}&=\\tfrac{\\Delta x}{2}\\,[f(x_0)+2f(x_1)+\\cdots+2f(x_{3})+f(x_{4})]=0.25\\,[1.000000+2(0.666667 + 0.500000 + 0.400000)+0.333333]=1.116667\\\\ S_{4}&=\\tfrac{\\Delta x}{3}\\,[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)]=0.166667\\,[1.000000 + 4(0.666667) + 2(0.500000) + 4(0.400000) + 0.333333]=1.100000\\end{aligned}$$"
+            }
+          ],
+          "answer": "$M_4\\approx1.089755$, $T_4\\approx1.116667$, $S_4=1.1$ (exact value $\\ln3\\approx1.098612$).",
+          "check": {
+            "kind": "number",
+            "value": "1.1",
+            "tol": 0.0005
+          }
+        },
+        {
+          "problem": "Use the Trapezoid, Midpoint and Simpson's Rules with $n=4$ to approximate $\\displaystyle\\int_0^1\\frac{4}{1+x^2}\\,dx$. Enter the Simpson's Rule value $S_4$ (to 4 decimal places).",
+          "steps": [
+            {
+              "do": "Find $\\Delta x=\\dfrac{b-a}{n}$ and list $x_0=a,\\ x_1=a+\\Delta x,\\ \\dots,\\ x_n=b$. For the Midpoint Rule you also need the midpoints $\\bar x_i$ of $[x_{i-1},x_i]$.",
+              "work": "$\\Delta x=\\dfrac{1-0}{4}=0.25$. Points: $x_{0}=0,\\ x_{1}=0.25,\\ x_{2}=0.5,\\ x_{3}=0.75,\\ x_{4}=1$. Midpoints: $\\bar x_{1}=0.125,\\ \\bar x_{2}=0.375,\\ \\bar x_{3}=0.625,\\ \\bar x_{4}=0.875$."
+            },
+            {
+              "do": "Apply the rules: $M_n=\\Delta x\\,[f(\\bar x_1)+\\cdots+f(\\bar x_n)]$; $T_n=\\frac{\\Delta x}{2}[f(x_0)+2f(x_1)+\\cdots+2f(x_{n-1})+f(x_n)]$; $S_n=\\frac{\\Delta x}{3}[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+\\cdots+2f(x_{n-2})+4f(x_{n-1})+f(x_n)]$ ($n$ must be even for Simpson).",
+              "work": "$$\\begin{aligned}M_{4}&=\\Delta x\\,[f(\\bar x_1)+\\cdots+f(\\bar x_{4})]=0.25\\,[3.938462 + 3.506849 + 2.876404 + 2.265487]=3.146801\\\\ T_{4}&=\\tfrac{\\Delta x}{2}\\,[f(x_0)+2f(x_1)+\\cdots+2f(x_{3})+f(x_{4})]=0.125\\,[4.000000+2(3.764706 + 3.200000 + 2.560000)+2.000000]=3.131176\\\\ S_{4}&=\\tfrac{\\Delta x}{3}\\,[f(x_0)+4f(x_1)+2f(x_2)+4f(x_3)+f(x_4)]=0.083333\\,[4.000000 + 4(3.764706) + 2(3.200000) + 4(2.560000) + 2.000000]=3.141569\\end{aligned}$$"
+            }
+          ],
+          "answer": "$M_4\\approx3.146801$, $T_4\\approx3.131176$, $S_4\\approx3.141569$ (exact value $\\pi\\approx3.141593$).",
+          "check": {
+            "kind": "number",
+            "value": "3.1415686",
+            "tol": 0.0005
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.8.1",
+      "course": "calc2",
+      "section": "7.8",
+      "topic": "Improper Integrals",
+      "title": "Infinite limit of integration",
+      "type": "Determine whether $\\displaystyle\\int_a^\\infty f(x)\\,dx$ is convergent or divergent, and evaluate it if it is convergent, where $f(x)$ is 'easy' to integrate.",
+      "scene": "improper",
+      "example": {
+        "problem": "Determine whether $\\displaystyle\\int_1^\\infty\\frac{1}{(4x+1)^2}\\,dx$ is convergent or divergent. Evaluate it if it is convergent.",
+        "steps": [
+          {
+            "do": "Replace the $\\infty$ by $R$ and evaluate $\\displaystyle\\int_a^R f(x)\\,dx$, pretending $R$ is a number.",
+            "work": "Substitute $u=4x+1$, $dx=\\frac{du}{4}$; the limits become $u=5$ and $u=4R+1$: $$\\int_1^R\\frac{dx}{(4x+1)^2}=\\frac14\\int_5^{4R+1}\\frac{du}{u^2}=\\Big[-\\frac1{4u}\\Big]_5^{4R+1}=\\frac14\\Big(\\frac15-\\frac1{4R+1}\\Big)$$"
+          },
+          {
+            "do": "You get an expression in $R$. Take the limit as $R\\to\\infty$ (L'Hôpital if you like). If the limit exists, the integral converges to that value; otherwise (infinity or oscillation) it diverges.",
+            "work": "$$\\lim_{R\\to\\infty}\\frac14\\Big(\\frac15-\\frac1{4R+1}\\Big)=\\frac1{20}-0=\\frac1{20}$$"
+          }
+        ],
+        "answer": "The improper integral converges and equals $\\dfrac1{20}$.",
+        "check": {
+          "kind": "number",
+          "value": "1/20"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\displaystyle\\int_1^\\infty\\frac{1}{(2x+1)^3}\\,dx$ is convergent or divergent. If it converges, enter its value.",
+          "steps": [
+            {
+              "do": "Replace the $\\infty$ by $R$ and evaluate $\\displaystyle\\int_a^R f(x)\\,dx$, pretending $R$ is a number.",
+              "work": "Substitute $u=2x+1$, $dx=\\frac{du}{2}$; the limits become $u=3$ and $u=2R+1$: $$\\int_1^R\\frac{dx}{(2x+1)^3}=\\frac12\\int_3^{2R+1}\\frac{du}{u^3}=\\Big[-\\frac1{4u^2}\\Big]_3^{2R+1}=\\frac14\\Big(\\frac19-\\frac1{(2R+1)^2}\\Big)$$"
+            },
+            {
+              "do": "You get an expression in $R$. Take the limit as $R\\to\\infty$ (L'Hôpital if you like). If the limit exists, the integral converges to that value; otherwise (infinity or oscillation) it diverges.",
+              "work": "$$\\lim_{R\\to\\infty}\\frac14\\Big(\\frac19-\\frac1{(2R+1)^2}\\Big)=\\frac1{36}$$"
+            }
+          ],
+          "answer": "The improper integral converges and equals $\\dfrac1{36}$.",
+          "check": {
+            "kind": "number",
+            "value": "1/36"
+          }
+        },
+        {
+          "problem": "Determine whether $\\displaystyle\\int_1^\\infty\\frac{1}{\\sqrt{3x+1}}\\,dx$ is convergent or divergent. Enter \\\"converges\\\" or \\\"diverges\\\".",
+          "steps": [
+            {
+              "do": "Replace the $\\infty$ by $R$ and evaluate $\\displaystyle\\int_a^R f(x)\\,dx$, pretending $R$ is a number.",
+              "work": "Substitute $u=3x+1$, $dx=\\frac{du}{3}$; the limits become $u=4$ and $u=3R+1$: $$\\int_1^R\\frac{dx}{\\sqrt{3x+1}}=\\frac13\\int_4^{3R+1}u^{-1/2}\\,du=\\frac23\\Big[\\sqrt u\\Big]_4^{3R+1}=\\frac23\\big(\\sqrt{3R+1}-2\\big)$$"
+            },
+            {
+              "do": "You get an expression in $R$. Take the limit as $R\\to\\infty$ (L'Hôpital if you like). If the limit exists, the integral converges to that value; otherwise (infinity or oscillation) it diverges.",
+              "work": "$$\\lim_{R\\to\\infty}\\frac23\\big(\\sqrt{3R+1}-2\\big)=\\infty$$"
+            }
+          ],
+          "answer": "The improper integral diverges.",
+          "check": {
+            "kind": "choice",
+            "value": "diverges",
+            "options": [
+              "converges",
+              "diverges"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.8.2",
+      "course": "calc2",
+      "section": "7.8",
+      "topic": "Improper Integrals",
+      "title": "Integrand blows up: convergent",
+      "type": "Determine whether $\\displaystyle\\int_a^b f(x)\\,dx$ is convergent or divergent, and evaluate it if it is convergent, where $f(x)$ 'blows up' at $x=a$, at $x=b$, or at both.",
+      "scene": "improper",
+      "example": {
+        "problem": "Determine whether $\\displaystyle\\int_0^1\\frac{1}{\\sqrt x}\\,dx$ is convergent or divergent. Evaluate it if it is convergent.",
+        "steps": [
+          {
+            "do": "Decide which end the integrand blows up at (if both, split into two integrals). Replace the bad endpoint by $t$ and evaluate the integral, pretending $t$ is a number: e.g. $\\displaystyle\\int_t^b f(x)\\,dx$ if it blows up at $x=a$.",
+            "work": "The integrand blows up at $x=0$. $$\\int_t^1x^{-1/2}\\,dx=\\Big[\\frac{x^{1/2}}{1/2}\\Big]_t^1=\\Big[2\\sqrt x\\Big]_t^1=2(1-\\sqrt t)$$"
+          },
+          {
+            "do": "You get an expression in $t$. Take the limit (from the right if the bad point is $a$, from the left if it is $b$). If the limit exists, the integral converges to that value; otherwise it diverges.",
+            "work": "$$\\lim_{t\\to0^+}2(1-\\sqrt t)=2$$"
+          }
+        ],
+        "answer": "The improper integral converges and equals $2$.",
+        "check": {
+          "kind": "number",
+          "value": "2"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\displaystyle\\int_0^8x^{-1/3}\\,dx$ is convergent or divergent. If it converges, enter its value.",
+          "steps": [
+            {
+              "do": "Decide which end the integrand blows up at (if both, split into two integrals). Replace the bad endpoint by $t$ and evaluate the integral, pretending $t$ is a number: e.g. $\\displaystyle\\int_t^b f(x)\\,dx$ if it blows up at $x=a$.",
+              "work": "The integrand blows up at $x=0$. $$\\int_t^8x^{-1/3}\\,dx=\\Big[\\frac{x^{2/3}}{2/3}\\Big]_t^8=\\frac32\\Big[x^{2/3}\\Big]_t^8=\\frac32\\big(4-t^{2/3}\\big)$$"
+            },
+            {
+              "do": "You get an expression in $t$. Take the limit (from the right if the bad point is $a$, from the left if it is $b$). If the limit exists, the integral converges to that value; otherwise it diverges.",
+              "work": "$$\\lim_{t\\to0^+}\\frac32\\big(4-t^{2/3}\\big)=6$$"
+            }
+          ],
+          "answer": "The improper integral converges and equals $6$.",
+          "check": {
+            "kind": "number",
+            "value": "6"
+          }
+        },
+        {
+          "problem": "Determine whether $\\displaystyle\\int_1^3\\frac{1}{\\sqrt{3-x}}\\,dx$ is convergent or divergent. If it converges, enter its value.",
+          "steps": [
+            {
+              "do": "Decide which end the integrand blows up at (if both, split into two integrals). Replace the bad endpoint by $t$ and evaluate the integral, pretending $t$ is a number: e.g. $\\displaystyle\\int_t^b f(x)\\,dx$ if it blows up at $x=a$.",
+              "work": "The integrand blows up at $x=3$ (the upper end), so replace $3$ by $t$: $$\\int_1^t(3-x)^{-1/2}\\,dx=\\Big[-2\\sqrt{3-x}\\Big]_1^t=-2\\sqrt{3-t}+2\\sqrt2$$"
+            },
+            {
+              "do": "You get an expression in $t$. Take the limit (from the right if the bad point is $a$, from the left if it is $b$). If the limit exists, the integral converges to that value; otherwise it diverges.",
+              "work": "$$\\lim_{t\\to3^-}\\big(2\\sqrt2-2\\sqrt{3-t}\\big)=2\\sqrt2$$"
+            }
+          ],
+          "answer": "The improper integral converges and equals $2\\sqrt2$.",
+          "check": {
+            "kind": "number",
+            "value": "2*sqrt(2)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.8.3",
+      "course": "calc2",
+      "section": "7.8",
+      "topic": "Improper Integrals",
+      "title": "Integrand blows up: divergent",
+      "type": "Determine whether $\\displaystyle\\int_a^b f(x)\\,dx$ is convergent or divergent, and evaluate it if it is convergent, where $f(x)$ 'blows up' at $x=a$, at $x=b$, or at both.",
+      "scene": "improper",
+      "example": {
+        "problem": "Determine whether $\\displaystyle\\int_0^1\\frac1x\\,dx$ is convergent or divergent. Evaluate it if it is convergent.",
+        "steps": [
+          {
+            "do": "Decide which end the integrand blows up at (if both, split into two integrals). Replace the bad endpoint by $t$ and evaluate the integral, pretending $t$ is a number: e.g. $\\displaystyle\\int_t^b f(x)\\,dx$ if it blows up at $x=a$.",
+            "work": "The integrand blows up at $x=0$. $$\\int_t^1\\frac1x\\,dx=\\Big[\\ln x\\Big]_t^1=\\ln1-\\ln t=-\\ln t$$"
+          },
+          {
+            "do": "You get an expression in $t$. Take the limit (from the right if the bad point is $a$, from the left if it is $b$). If the limit exists, the integral converges to that value; otherwise it diverges.",
+            "work": "$$\\lim_{t\\to0^+}(-\\ln t)=\\infty$$"
+          }
+        ],
+        "answer": "The improper integral diverges.",
+        "check": {
+          "kind": "choice",
+          "value": "diverges",
+          "options": [
+            "converges",
+            "diverges"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Determine whether $\\displaystyle\\int_0^1\\frac1{x^2}\\,dx$ is convergent or divergent. Enter \\\"converges\\\" or \\\"diverges\\\".",
+          "steps": [
+            {
+              "do": "Decide which end the integrand blows up at (if both, split into two integrals). Replace the bad endpoint by $t$ and evaluate the integral, pretending $t$ is a number: e.g. $\\displaystyle\\int_t^b f(x)\\,dx$ if it blows up at $x=a$.",
+              "work": "The integrand blows up at $x=0$. $$\\int_t^1x^{-2}\\,dx=\\Big[-\\frac1x\\Big]_t^1=-1+\\frac1t$$"
+            },
+            {
+              "do": "You get an expression in $t$. Take the limit (from the right if the bad point is $a$, from the left if it is $b$). If the limit exists, the integral converges to that value; otherwise it diverges.",
+              "work": "$$\\lim_{t\\to0^+}\\Big(\\frac1t-1\\Big)=\\infty$$"
+            }
+          ],
+          "answer": "The improper integral diverges.",
+          "check": {
+            "kind": "choice",
+            "value": "diverges",
+            "options": [
+              "converges",
+              "diverges"
+            ]
+          }
+        },
+        {
+          "problem": "Determine whether $\\displaystyle\\int_1^3\\frac1{x-1}\\,dx$ is convergent or divergent. Enter \\\"converges\\\" or \\\"diverges\\\".",
+          "steps": [
+            {
+              "do": "Decide which end the integrand blows up at (if both, split into two integrals). Replace the bad endpoint by $t$ and evaluate the integral, pretending $t$ is a number: e.g. $\\displaystyle\\int_t^b f(x)\\,dx$ if it blows up at $x=a$.",
+              "work": "The integrand blows up at $x=1$. $$\\int_t^3\\frac1{x-1}\\,dx=\\Big[\\ln|x-1|\\Big]_t^3=\\ln2-\\ln(t-1)$$"
+            },
+            {
+              "do": "You get an expression in $t$. Take the limit (from the right if the bad point is $a$, from the left if it is $b$). If the limit exists, the integral converges to that value; otherwise it diverges.",
+              "work": "$$\\lim_{t\\to1^+}\\big(\\ln2-\\ln(t-1)\\big)=\\infty$$"
+            }
+          ],
+          "answer": "The improper integral diverges.",
+          "check": {
+            "kind": "choice",
+            "value": "diverges",
+            "options": [
+              "converges",
+              "diverges"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-7.8.4",
+      "course": "calc2",
+      "section": "7.8",
+      "topic": "Improper Integrals",
+      "title": "Comparison theorem",
+      "type": "Use the comparison theorem to determine whether $\\displaystyle\\int_a^\\infty f(x)\\,dx$ is convergent or divergent.",
+      "scene": "improper",
+      "example": {
+        "problem": "Determine whether $\\displaystyle\\int_1^\\infty\\frac{\\cos^2x}{1+x^2}\\,dx$ is convergent or divergent. Do not evaluate!",
+        "steps": [
+          {
+            "do": "Decide on an 'easy' integrand to compare with, hoping the rest is bounded by a number. Check whether the easy integral converges (or diverges).",
+            "work": "$\\frac{\\cos^2x}{1+x^2}$ is 'similar' to $\\frac1{1+x^2}$, which we know (or can find out) is convergent: $$\\int_1^\\infty\\frac{dx}{1+x^2}=\\Big[\\tan^{-1}x\\Big]_1^\\infty=\\frac\\pi2-\\frac\\pi4=\\frac\\pi4$$"
+          },
+          {
+            "do": "Look at the leftover factor and bound it. If $0\\le f\\le$ (a convergent integrand), the integral converges. If $f\\ge$ (a divergent integrand)$\\ge0$, it diverges.",
+            "work": "Since $\\cos x$ is always between $-1$ and $1$, $\\cos^2x\\le1$, so $\\dfrac{\\cos^2x}{1+x^2}\\le\\dfrac1{1+x^2}$ and $$\\int_1^\\infty\\frac{\\cos^2x}{1+x^2}\\,dx\\le\\int_1^\\infty\\frac{dx}{1+x^2}<\\infty$$ so the integral converges."
+          }
+        ],
+        "answer": "The improper integral converges.",
+        "check": {
+          "kind": "choice",
+          "value": "converges",
+          "options": [
+            "converges",
+            "diverges"
+          ]
+        }
+      },
+      "practice": [
+        {
+          "problem": "Use the comparison theorem to determine whether $\\displaystyle\\int_1^\\infty\\frac{\\sin^2x}{x^2}\\,dx$ is convergent or divergent. Enter \\\"converges\\\" or \\\"diverges\\\".",
+          "steps": [
+            {
+              "do": "Decide on an 'easy' integrand to compare with, hoping the rest is bounded by a number. Check whether the easy integral converges (or diverges).",
+              "work": "$\\frac{\\sin^2x}{x^2}$ is 'similar' to $\\frac1{x^2}$, which is convergent: $$\\int_1^\\infty\\frac{dx}{x^2}=\\Big[-\\frac1x\\Big]_1^\\infty=1$$"
+            },
+            {
+              "do": "Look at the leftover factor and bound it. If $0\\le f\\le$ (a convergent integrand), the integral converges. If $f\\ge$ (a divergent integrand)$\\ge0$, it diverges.",
+              "work": "Since $\\sin^2x\\le1$, $\\dfrac{\\sin^2x}{x^2}\\le\\dfrac1{x^2}$ and $$\\int_1^\\infty\\frac{\\sin^2x}{x^2}\\,dx\\le\\int_1^\\infty\\frac{dx}{x^2}=1<\\infty$$ so the integral converges."
+            }
+          ],
+          "answer": "The improper integral converges.",
+          "check": {
+            "kind": "choice",
+            "value": "converges",
+            "options": [
+              "converges",
+              "diverges"
+            ]
+          }
+        },
+        {
+          "problem": "Use the comparison theorem to determine whether $\\displaystyle\\int_1^\\infty\\frac{2+\\cos x}{x}\\,dx$ is convergent or divergent. Enter \\\"converges\\\" or \\\"diverges\\\".",
+          "steps": [
+            {
+              "do": "Decide on an 'easy' integrand to compare with, hoping the rest is bounded by a number. Check whether the easy integral converges (or diverges).",
+              "work": "$\\frac{2+\\cos x}{x}$ is 'similar' to $\\frac1x$, which is divergent: $$\\int_1^R\\frac{dx}{x}=\\ln R\\to\\infty\\quad(R\\to\\infty)$$"
+            },
+            {
+              "do": "Look at the leftover factor and bound it. If $0\\le f\\le$ (a convergent integrand), the integral converges. If $f\\ge$ (a divergent integrand)$\\ge0$, it diverges.",
+              "work": "Since $\\cos x\\ge-1$, $2+\\cos x\\ge1$, so $\\dfrac{2+\\cos x}{x}\\ge\\dfrac1x$ and $$\\int_1^\\infty\\frac{2+\\cos x}{x}\\,dx\\ge\\int_1^\\infty\\frac{dx}{x}=\\infty$$ so the integral diverges."
+            }
+          ],
+          "answer": "The improper integral diverges.",
+          "check": {
+            "kind": "choice",
+            "value": "diverges",
+            "options": [
+              "converges",
+              "diverges"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-8.1.1",
+      "course": "calc2",
+      "section": "8.1",
+      "topic": "Arc Length",
+      "title": "Length of a curve y = f(x)",
+      "type": "Find the length of the curve $y=f(x)$, $a\\le x\\le b$.",
+      "scene": "arclength",
+      "example": {
+        "problem": "Find the length of the curve $y=\\ln(\\cos x)$, $0\\le x\\le\\pi/3$.",
+        "steps": [
+          {
+            "do": "Find the derivative $f'(x)$.",
+            "work": "$f'(x)=\\dfrac{(\\cos x)'}{\\cos x}=-\\dfrac{\\sin x}{\\cos x}=-\\tan x$."
+          },
+          {
+            "do": "Set up the definite integral $\\displaystyle L=\\int_a^b\\sqrt{1+f'(x)^2}\\,dx$.",
+            "work": "Using $1+\\tan^2x=\\sec^2x$: $$L=\\int_0^{\\pi/3}\\sqrt{1+(-\\tan x)^2}\\,dx=\\int_0^{\\pi/3}\\sqrt{\\sec^2x}\\,dx=\\int_0^{\\pi/3}\\sec x\\,dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "From the table of integrals, $\\int\\sec x\\,dx=\\ln|\\sec x+\\tan x|+C$, so $$L=\\Big[\\ln|\\sec x+\\tan x|\\Big]_0^{\\pi/3}=\\ln(2+\\sqrt3)-\\ln(1+0)=\\ln(2+\\sqrt3)$$"
+          }
+        ],
+        "answer": "$L=\\ln(2+\\sqrt3)$.",
+        "check": {
+          "kind": "number",
+          "value": "ln(2+sqrt(3))"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the length of the curve $y=\\dfrac{x^2}{2}-\\dfrac{\\ln x}{4}$, $1\\le x\\le2$. Enter the length.",
+          "steps": [
+            {
+              "do": "Find the derivative $f'(x)$.",
+              "work": "$f'(x)=x-\\dfrac{1}{4x}$."
+            },
+            {
+              "do": "Set up the definite integral $\\displaystyle L=\\int_a^b\\sqrt{1+f'(x)^2}\\,dx$.",
+              "work": "$1+f'(x)^2=1+x^2-\\frac12+\\frac1{16x^2}=x^2+\\frac12+\\frac1{16x^2}=\\Big(x+\\frac1{4x}\\Big)^2$, so $$L=\\int_1^2\\sqrt{\\Big(x+\\frac1{4x}\\Big)^2}\\,dx=\\int_1^2\\Big(x+\\frac1{4x}\\Big)dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$L=\\Big[\\frac{x^2}{2}+\\frac{\\ln x}{4}\\Big]_1^2=\\Big(2+\\frac{\\ln2}{4}\\Big)-\\frac12=\\frac32+\\frac{\\ln2}{4}$$"
+            }
+          ],
+          "answer": "$L=\\dfrac32+\\dfrac{\\ln2}{4}$.",
+          "check": {
+            "kind": "number",
+            "value": "3/2+ln(2)/4"
+          }
+        },
+        {
+          "problem": "Find the length of the curve $y=\\tfrac23x^{3/2}$, $0\\le x\\le3$. Enter the length.",
+          "steps": [
+            {
+              "do": "Find the derivative $f'(x)$.",
+              "work": "$f'(x)=x^{1/2}$."
+            },
+            {
+              "do": "Set up the definite integral $\\displaystyle L=\\int_a^b\\sqrt{1+f'(x)^2}\\,dx$.",
+              "work": "$$L=\\int_0^3\\sqrt{1+(x^{1/2})^2}\\,dx=\\int_0^3\\sqrt{1+x}\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$L=\\Big[\\frac23(1+x)^{3/2}\\Big]_0^3=\\frac23(8-1)=\\frac{14}{3}$$"
+            }
+          ],
+          "answer": "$L=\\dfrac{14}{3}$.",
+          "check": {
+            "kind": "number",
+            "value": "14/3"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-8.2.1",
+      "course": "calc2",
+      "section": "8.2",
+      "topic": "Area of a Surface of Revolution",
+      "title": "Set up surface area about the x-axis",
+      "type": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=f(x)$, $a\\le x\\le b$, about the $x$-axis.",
+      "scene": "solids",
+      "example": {
+        "problem": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=e^{3x}$, $1\\le x\\le2$, about the $x$-axis.",
+        "steps": [
+          {
+            "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+            "work": "$\\dfrac{dy}{dx}=(e^{3x})'=3e^{3x}$."
+          },
+          {
+            "do": "Set up the definite integral $\\displaystyle\\text{Area}=2\\pi\\int_a^b y\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$.",
+            "work": "$$\\text{Area}=2\\pi\\int_1^2e^{3x}\\sqrt{1+(3e^{3x})^2}\\,dx=2\\pi\\int_1^2e^{3x}\\sqrt{1+9e^{6x}}\\,dx$$"
+          }
+        ],
+        "answer": "$\\text{Area}=2\\pi\\displaystyle\\int_1^2e^{3x}\\sqrt{1+9e^{6x}}\\,dx$ (do not evaluate!)."
+      },
+      "practice": [
+        {
+          "problem": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=x^2$, $0\\le x\\le1$, about the $x$-axis. Enter the integrand (the expression before $dx$, including the factor $2\\pi$).",
+          "steps": [
+            {
+              "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+              "work": "$\\dfrac{dy}{dx}=(x^2)'=2x$."
+            },
+            {
+              "do": "Set up the definite integral $\\displaystyle\\text{Area}=2\\pi\\int_a^b y\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$.",
+              "work": "$$\\text{Area}=2\\pi\\int_0^1x^2\\sqrt{1+(2x)^2}\\,dx=2\\pi\\int_0^1x^2\\sqrt{1+4x^2}\\,dx$$"
+            }
+          ],
+          "answer": "$\\text{Area}=2\\pi\\displaystyle\\int_0^1x^2\\sqrt{1+4x^2}\\,dx$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*pi*x^2*sqrt(1+4*x^2)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=\\sin x$, $0\\le x\\le\\pi$, about the $x$-axis. Enter the integrand (the expression before $dx$, including the factor $2\\pi$).",
+          "steps": [
+            {
+              "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+              "work": "$\\dfrac{dy}{dx}=(\\sin x)'=\\cos x$."
+            },
+            {
+              "do": "Set up the definite integral $\\displaystyle\\text{Area}=2\\pi\\int_a^b y\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$.",
+              "work": "$$\\text{Area}=2\\pi\\int_0^\\pi\\sin x\\sqrt{1+\\cos^2x}\\,dx$$"
+            }
+          ],
+          "answer": "$\\text{Area}=2\\pi\\displaystyle\\int_0^\\pi\\sin x\\sqrt{1+\\cos^2x}\\,dx$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*pi*sin(x)*sqrt(1+cos(x)^2)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-8.2.2",
+      "course": "calc2",
+      "section": "8.2",
+      "topic": "Area of a Surface of Revolution",
+      "title": "Set up surface area about the y-axis",
+      "type": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=f(x)$, $a\\le x\\le b$, about the $y$-axis.",
+      "scene": "solids",
+      "example": {
+        "problem": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=e^{3x}$, $1\\le x\\le2$, about the $y$-axis.",
+        "steps": [
+          {
+            "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+            "work": "$\\dfrac{dy}{dx}=(e^{3x})'=3e^{3x}$."
+          },
+          {
+            "do": "Set up the definite integral. Since the axis of rotation is the $y$-axis, use $x$ in place of $y$ inside the integral: $\\displaystyle\\text{Area}=2\\pi\\int_a^b x\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$.",
+            "work": "$$\\text{Area}=2\\pi\\int_1^2x\\sqrt{1+(3e^{3x})^2}\\,dx=2\\pi\\int_1^2x\\sqrt{1+9e^{6x}}\\,dx$$"
+          }
+        ],
+        "answer": "$\\text{Area}=2\\pi\\displaystyle\\int_1^2x\\sqrt{1+9e^{6x}}\\,dx$ (do not evaluate!)."
+      },
+      "practice": [
+        {
+          "problem": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=x^3$, $0\\le x\\le2$, about the $y$-axis. Enter the integrand (the expression before $dx$, including the factor $2\\pi$).",
+          "steps": [
+            {
+              "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+              "work": "$\\dfrac{dy}{dx}=(x^3)'=3x^2$."
+            },
+            {
+              "do": "Set up the definite integral. Since the axis of rotation is the $y$-axis, use $x$ in place of $y$ inside the integral: $\\displaystyle\\text{Area}=2\\pi\\int_a^b x\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$.",
+              "work": "$$\\text{Area}=2\\pi\\int_0^2x\\sqrt{1+(3x^2)^2}\\,dx=2\\pi\\int_0^2x\\sqrt{1+9x^4}\\,dx$$"
+            }
+          ],
+          "answer": "$\\text{Area}=2\\pi\\displaystyle\\int_0^2x\\sqrt{1+9x^4}\\,dx$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*pi*x*sqrt(1+9*x^4)",
+            "vars": [
+              "x"
+            ]
+          }
+        },
+        {
+          "problem": "Set up, but do not evaluate, an integral for the area of the surface obtained by rotating the curve $y=\\cos x$, $0\\le x\\le\\pi/2$, about the $y$-axis. Enter the integrand (the expression before $dx$, including the factor $2\\pi$).",
+          "steps": [
+            {
+              "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+              "work": "$\\dfrac{dy}{dx}=(\\cos x)'=-\\sin x$."
+            },
+            {
+              "do": "Set up the definite integral. Since the axis of rotation is the $y$-axis, use $x$ in place of $y$ inside the integral: $\\displaystyle\\text{Area}=2\\pi\\int_a^b x\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$.",
+              "work": "$$\\text{Area}=2\\pi\\int_0^{\\pi/2}x\\sqrt{1+(-\\sin x)^2}\\,dx=2\\pi\\int_0^{\\pi/2}x\\sqrt{1+\\sin^2x}\\,dx$$"
+            }
+          ],
+          "answer": "$\\text{Area}=2\\pi\\displaystyle\\int_0^{\\pi/2}x\\sqrt{1+\\sin^2x}\\,dx$.",
+          "check": {
+            "kind": "expr",
+            "value": "2*pi*x*sqrt(1+sin(x)^2)",
+            "vars": [
+              "x"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2-8.2.3",
+      "course": "calc2",
+      "section": "8.2",
+      "topic": "Area of a Surface of Revolution",
+      "title": "Surface area about the x-axis",
+      "type": "Find the area of the surface obtained by rotating the curve $y=f(x)$, $a\\le x\\le b$, about the $x$-axis.",
+      "scene": "solids",
+      "example": {
+        "problem": "Find the area of the surface obtained by rotating the curve $y=\\sqrt x$, $4\\le x\\le9$, about the $x$-axis.",
+        "steps": [
+          {
+            "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+            "work": "$\\dfrac{dy}{dx}=(x^{1/2})'=\\tfrac12x^{-1/2}$."
+          },
+          {
+            "do": "Set up the definite integral $\\displaystyle\\text{Area}=2\\pi\\int_a^b y\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$ and simplify the integrand.",
+            "work": "$$\\text{Area}=2\\pi\\int_4^9x^{1/2}\\sqrt{1+\\big(\\tfrac12x^{-1/2}\\big)^2}\\,dx=2\\pi\\int_4^9\\sqrt x\\sqrt{1+\\tfrac14x^{-1}}\\,dx=2\\pi\\int_4^9\\sqrt{x\\big(1+\\tfrac1{4x}\\big)}\\,dx=2\\pi\\int_4^9\\sqrt{x+\\tfrac14}\\,dx$$"
+          },
+          {
+            "do": "Evaluate the integral.",
+            "work": "$$2\\pi\\int_4^9\\Big(x+\\frac14\\Big)^{1/2}dx=2\\pi\\cdot\\frac{(x+\\frac14)^{3/2}}{3/2}\\Big|_4^9=\\frac{4\\pi}{3}\\Big[\\Big(\\frac{37}4\\Big)^{3/2}-\\Big(\\frac{17}4\\Big)^{3/2}\\Big]=\\frac{4\\pi}{3}\\cdot\\frac18\\big(37^{3/2}-17^{3/2}\\big)=\\frac\\pi6\\big(37^{3/2}-17^{3/2}\\big)$$"
+          }
+        ],
+        "answer": "$\\text{Area}=\\dfrac\\pi6\\big(37\\sqrt{37}-17\\sqrt{17}\\big)$.",
+        "check": {
+          "kind": "number",
+          "value": "pi/6*(37*sqrt(37)-17*sqrt(17))"
+        }
+      },
+      "practice": [
+        {
+          "problem": "Find the area of the surface obtained by rotating the curve $y=x^3$, $0\\le x\\le1$, about the $x$-axis. Enter the area.",
+          "steps": [
+            {
+              "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+              "work": "$\\dfrac{dy}{dx}=3x^2$."
+            },
+            {
+              "do": "Set up the definite integral $\\displaystyle\\text{Area}=2\\pi\\int_a^b y\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$ and simplify the integrand.",
+              "work": "$$\\text{Area}=2\\pi\\int_0^1x^3\\sqrt{1+(3x^2)^2}\\,dx=2\\pi\\int_0^1x^3\\sqrt{1+9x^4}\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "Substitute $u=1+9x^4$, $du=36x^3\\,dx$; the limits become $u=1$ and $u=10$: $$\\text{Area}=\\frac{2\\pi}{36}\\int_1^{10}u^{1/2}\\,du=\\frac\\pi{18}\\cdot\\frac23\\Big[u^{3/2}\\Big]_1^{10}=\\frac{\\pi}{27}\\big(10\\sqrt{10}-1\\big)$$"
+            }
+          ],
+          "answer": "$\\text{Area}=\\dfrac{\\pi}{27}\\big(10\\sqrt{10}-1\\big)$.",
+          "check": {
+            "kind": "number",
+            "value": "pi/27*(10*sqrt(10)-1)"
+          }
+        },
+        {
+          "problem": "Find the area of the surface obtained by rotating the curve $y=\\sqrt{2x}$, $0\\le x\\le4$, about the $x$-axis. Enter the area.",
+          "steps": [
+            {
+              "do": "Find the derivative $\\dfrac{dy}{dx}$.",
+              "work": "$\\dfrac{dy}{dx}=\\dfrac{1}{\\sqrt{2x}}$."
+            },
+            {
+              "do": "Set up the definite integral $\\displaystyle\\text{Area}=2\\pi\\int_a^b y\\sqrt{1+\\Big(\\frac{dy}{dx}\\Big)^2}\\,dx$ and simplify the integrand.",
+              "work": "$$\\text{Area}=2\\pi\\int_0^4\\sqrt{2x}\\sqrt{1+\\frac1{2x}}\\,dx=2\\pi\\int_0^4\\sqrt{2x\\Big(1+\\frac1{2x}\\Big)}\\,dx=2\\pi\\int_0^4\\sqrt{2x+1}\\,dx$$"
+            },
+            {
+              "do": "Evaluate the integral.",
+              "work": "$$2\\pi\\int_0^4(2x+1)^{1/2}\\,dx=2\\pi\\Big[\\frac13(2x+1)^{3/2}\\Big]_0^4=\\frac{2\\pi}{3}(27-1)=\\frac{52\\pi}{3}$$"
+            }
+          ],
+          "answer": "$\\text{Area}=\\dfrac{52\\pi}{3}$.",
+          "check": {
+            "kind": "number",
+            "value": "52*pi/3"
+          }
+        }
+      ]
+    }
+  ]
+}

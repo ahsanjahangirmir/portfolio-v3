@@ -1,0 +1,14 @@
+---
+// A circular action button bound by scene.action(name).
+const { name, label, icon = 'play' } = Astro.props as { name: string; label: string; icon?: 'play' | 'reset' | 'step' | 'shuffle' };
+const paths: Record<string, string> = {
+  play: 'M8 5.5v13l11-6.5z',
+  reset: 'M5 12a7 7 0 1 0 2.1-5M5 4v4h4',
+  step: 'M6 5.5v13l9-6.5zM18 5v14',
+  shuffle: 'M4 7h3l10 10h3M4 17h3l10-10h3M17 4l3 3-3 3M17 14l3 3-3 3',
+};
+---
+<button type="button" class="ctl ctl-action" data-action={name}>
+  <span class="ctl-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d={paths[icon]}/></svg></span>
+  <span>{label}</span>
+</button>

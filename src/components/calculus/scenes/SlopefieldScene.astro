@@ -1,0 +1,55 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Readout from '../Readout.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+---
+<Scene id="slopefield" label="A slope field: a grid of short line segments whose slopes are given by a differential equation. A solution curve starts at a draggable initial point and follows the segments, and Euler's method approximates it with a polygon of straight steps. Tapping the field drops more initial conditions and traces their solution curves.">
+  <div class="beat" data-beat="A rule for slopes">
+    <p>A differential equation <Tex t="dy/dx = F(x, y)"/> does not tell you the function. It tells you the <em>slope</em> the function must have at every point.</p>
+    <p>So draw that: at each point, a short segment with slope <Tex t="F(x, y)"/>. This is a <strong>slope field</strong>. Here it is for bacteria that grow at a rate proportional to their number, <Tex t="P' = kP"/>. The more there are, the steeper the segments.</p>
+  </div>
+  <div class="beat" data-beat="Follow the segments">
+    <p>Pick a starting value and follow the segments, always moving in the direction they point. The path you trace is a <span class="k-c1">solution curve</span>.</p>
+    <p>A bacteria culture starts with <Tex t="P(0) = 50"/> and has <Tex t="800"/> bacteria after 3 hours, so <Tex t="e^{3k} = 16"/> and</p>
+    <Tex display t="\cA{P(t) = 50\cdot 16^{t/3}}, \qquad P(4) \approx 2016"/>
+    <p class="aside">Drag the starting point to start a different culture.</p>
+  </div>
+  <div class="beat" data-beat="Euler's method">
+    <p>A computer follows the segments the clumsy way: take a straight step of size <Tex t="h"/> along the current slope, then look again.</p>
+    <Tex display t="\cB{y_{n+1} = y_n + h\,F(x_n, y_n)}"/>
+    <p>With big steps the <span class="k-c2">Euler polygon</span> falls behind, because this curve keeps getting steeper. Shrink <Tex t="h"/> and it closes in. Halving the step roughly halves the error.</p>
+  </div>
+  <div class="beat" data-beat="Cooling">
+    <p>A different rule gives a different field. In Newton’s law of cooling, <Tex t="T' = k(T - 20)"/> for a drink in a 20° room, every segment points toward <Tex t="T = 20"/>. Hot drinks cool, cold ones warm, and all of them level off at room temperature.</p>
+    <p class="aside">Cooling: a 5° drink is 10° after 25 minutes, so <Tex t="T(t) = 20 - 15\,(2/3)^{t/25}"/> and <Tex t="T(50) = 13\tfrac13"/>. Tap the field to drop more starting points.</p>
+  </div>
+  <div class="beat" data-beat="Logistic growth">
+    <p>Real populations run out of room. The logistic equation <Tex t="P' = 0.9\,P\,(1 - P/10)"/> grows almost exponentially while <Tex t="P"/> is small, then flattens out at the <span class="k-c5">carrying capacity</span> <Tex t="P = 10"/>.</p>
+    <p>Where <Tex t="F = 0"/> the segments are flat and the solutions are constant. Curves near <Tex t="10"/> are pulled in; curves near <Tex t="0"/> are pushed away.</p>
+  </div>
+  <div class="beat" data-beat="Separable">
+    <p>Some equations can be solved by hand. The curve through <Tex t="(1, 1)"/> with slope <Tex t="y^2/x^3"/> separates:</p>
+    <Tex display t="\frac{dy}{y^2} = \frac{dx}{x^3} \;\Rightarrow\; -\frac1y = -\frac{1}{2x^2} - \frac12 \;\Rightarrow\; \cA{y = \frac{2x^2}{1+x^2}}"/>
+    <p class="aside">Try every equation: drag the starting point, change the step, tap to add curves.</p>
+  </div>
+  <Tex slot="takeaway" display t="\frac{dy}{dx} = F(x, y) \quad\leadsto\quad \cB{y_{n+1} = y_n + h\,F(x_n, y_n)}"/>
+  <div slot="overlay" class="scene-overlay">
+    <span data-eq="growth"><Tex t="P' = kP,\ k = \tfrac13\ln 16"/></span>
+    <span data-eq="cooling" hidden><Tex t="T' = k\,(T - 20)"/></span>
+    <span data-eq="logistic" hidden><Tex t="P' = 0.9\,P\,(1 - P/10)"/></span>
+    <span data-eq="separable" hidden><Tex t="y' = y^2/x^3"/></span>
+    <span data-eq="linear" hidden><Tex t="y' = x - y"/></span>
+  </div>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="Differential equation" options={[['growth', 'Growth'], ['cooling', 'Cooling'], ['logistic', 'Logistic'], ['separable', 'y′ = y²/x³'], ['linear', 'y′ = x − y']]}/>
+    <Action name="clear" label="Clear curves" icon="reset"/>
+    <Slider name="steps" label="Euler steps" min={1} max={80} step={1} value={4} color="c2" digits={0}/>
+    <Readout name="at" label="At"/>
+    <Readout name="euler" label="Euler" color="c2"/>
+    <Readout name="exact" label="True" color="c1"/>
+    <Readout name="err" label="Error" color="c4"/>
+  </Fragment>
+</Scene>

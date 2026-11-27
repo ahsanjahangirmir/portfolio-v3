@@ -1,0 +1,56 @@
+---
+import Scene from '../Scene.astro';
+import Tex from '../Tex.astro';
+import Slider from '../Slider.astro';
+import Segmented from '../Segmented.astro';
+import Action from '../Action.astro';
+import Readout from '../Readout.astro';
+---
+<Scene id="shape" label="Three modes. Shape: a cubic curve whose local maximum and minimum are draggable amber points, with sign charts along the bottom showing where f′ is positive (rising) or negative (falling) and where f″ is positive (concave up) or negative (concave down), and a lilac inflection point. Mean value theorem: the curve y = x³ + x − 1 with a blue secant between two draggable points and an amber tangent parallel to it at c. Optimization: a fenced rectangle of area 5000 square feet split into three pens, above the graph of fence length 4x + 10000/x, whose lowest point is at x = 50.">
+  <div class="beat" data-beat="Rising and falling">
+    <p>The cubic <Tex t="\cA{f(x) = x^3-3x^2+5}"/> has <Tex t="\cB{f'(x) = 3x(x-2)}"/>. The sign of <Tex t="\cB{f'}"/> is the whole story of where <Tex t="\cA{f}"/> goes up and down.</p>
+    <p>The strip along the bottom is the sign chart: <span class="k-c1">positive</span> on <Tex t="(-\infty,0)"/> and <Tex t="(2,\infty)"/>, where the curve rises; <span class="k-c4">negative</span> on <Tex t="(0,2)"/>, where it falls.</p>
+  </div>
+  <div class="beat" data-beat="Peaks and valleys">
+    <p>The sign can only switch where <Tex t="\cB{f'=0}"/> (or where <Tex t="f'"/> is undefined). These are the <strong>critical numbers</strong>, <Tex t="x=0"/> and <Tex t="x=2"/>.</p>
+    <p>Rising then falling makes a <span class="k-c2">local max</span>, <Tex t="f(0)=5"/>. Falling then rising makes a <span class="k-c2">local min</span>, <Tex t="f(2)=1"/>.</p>
+    <p class="aside">On a closed interval, the endpoints are candidates too: compare the values at the critical numbers and at both ends.</p>
+  </div>
+  <div class="beat" data-beat="Bending">
+    <p>The second derivative tracks how the slope itself changes. <Tex t="\cC{f''(x) = 6x-6}"/>: where it is positive the slope is increasing and the curve bends up like a cup; where it is negative it bends down like a cap.</p>
+    <p>The bend flips at the <span class="k-c5">inflection point</span> <Tex t="(1, 3)"/>, where the tangent line crosses the curve.</p>
+  </div>
+  <div class="beat" data-beat="Reshape it">
+    <p>Drag the two <span class="k-c2">amber points</span>. They are the critical points, and the cubic rebuilds itself around them. The sign charts and the inflection point follow.</p>
+    <p>For every cubic like this, the inflection point lands exactly halfway between the two critical points. Check it as you drag.</p>
+  </div>
+  <div class="beat" data-beat="Mean value theorem">
+    <p>A smooth curve from <Tex t="a"/> to <Tex t="b"/> has an average slope, the slope of the <span class="k-c3">secant</span>. The mean value theorem says that somewhere in between, the <span class="k-c2">tangent</span> has exactly that slope:</p>
+    <Tex display t="\cB{f'(c)} = \cC{\frac{f(b)-f(a)}{b-a}}"/>
+    <p>The example: <Tex t="x^3+x-1"/> on <Tex t="[0,2]"/> has secant slope <Tex t="5"/>, and <Tex t="3c^2+1 = 5"/> gives <Tex t="c = 2/\sqrt3 \approx 1.155"/>. Drag <Tex t="a"/> and <Tex t="b"/>.</p>
+    <p class="aside">If you averaged 60 mph on a trip, at some instant the speedometer read exactly 60.</p>
+  </div>
+  <div class="beat" data-beat="Optimization">
+    <p>A classic problem: a farmer fences <Tex t="5000"/> square feet and splits it into three pens with two inner fences. With sides <Tex t="x"/> and <Tex t="y = 5000/x"/>, the fence needed is</p>
+    <Tex display t="\cA{f(x)} = 4x + 2y = 4x + \frac{10000}{x}"/>
+    <p>Drag the corner of the pen or the point on the graph. Long thin pens waste fence, and so do short wide ones. The best shape is where the curve bottoms out and the <span class="k-c2">tangent is flat</span>: <Tex t="\cB{f'(x) = 4 - 10000/x^2 = 0}"/>, so <Tex t="x=50"/>, <Tex t="y=100"/>, and <Tex t="400"/> feet of fence.</p>
+  </div>
+  <Tex slot="takeaway" display t="\cB{f'}>0 \Rightarrow \text{rising}, \quad \cC{f''}>0 \Rightarrow \text{concave up}, \quad \cB{f'(c)}=0 \text{ at peaks and valleys}"/>
+  <Fragment slot="controls">
+    <Segmented name="mode" label="View" options={[['shape', 'Shape'], ['mvt', 'Mean value'], ['opt', 'Optimize']]}/>
+    <div data-mode="shape" style="display:contents">
+      <Action name="shapeReset" label="Original cubic" icon="reset"/>
+      <Readout name="crit" label="Critical points" color="c2"/>
+      <Readout name="infl" label="Inflection" color="c5"/>
+    </div>
+    <div data-mode="mvt" style="display:none">
+      <Readout name="slope" label="Secant slope" color="c3"/>
+      <Readout name="c" label="c" color="c2"/>
+    </div>
+    <div data-mode="opt" style="display:none">
+      <Slider name="side" label="Side x (ft)" min={20} max={125} step={1} value={50} color="c1" digits={0}/>
+      <Readout name="total" label="Fence" color="c1"/>
+      <Readout name="dtotal" label="f′(x)" color="c2"/>
+    </div>
+  </Fragment>
+</Scene>
